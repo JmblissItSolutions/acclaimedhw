@@ -7,7 +7,7 @@ const Home = () =>{
             <div className="banner">
                <Slider/>
             </div>
-            <div className="container"><h1>hey</h1></div>
+            <div className="container"><h1>hey!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!</h1></div>
         </div>
         </>
     )
