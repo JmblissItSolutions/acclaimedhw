@@ -1,11 +1,13 @@
 
 import './App.css';
 import './assets/css/header.css';
+import './assets/css/footer.css';
 import { Route, Switch } from "react-router-dom";
 import  Home  from "./Home";
 import  Contact  from "./Contact";
 import  Error  from "./Error";
 import Menu from "./Menu";
+import { Footer, FooterBottom } from './Footer';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 
@@ -27,6 +29,12 @@ function App() {
             </Switch>
         </main>
       </div>
+      <footer className="footer">
+      <div className="container">
+      <Footer />
+      </div>
+      <FooterBottom/>
+      </footer>
       </div>
     </>
 
