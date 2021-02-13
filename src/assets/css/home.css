@@ -58,6 +58,11 @@
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
+    max-width: 1310px;
+    padding: 0 40px;
+    width: 100%;
+    margin: 0 auto;
+    position: relative;
 }
 .reason{
     text-align: center;
@@ -90,4 +95,56 @@
     line-height: 23px;
     color: #333;
     word-spacing: 2px;
+}
+/* .home-advantage */
+
+.home_advantage{
+    background: linear-gradient(180deg, #e8e8e8 0%, #fff 45%, #fff 100%);
+    width: 100%;
+    height: auto;
+    margin-top: auto;
+}
+.home_advantage h3{
+    font-size: 50px;
+    font-weight: normal;
+    text-align: center;
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 300;
+    margin: 0;
+    padding: 100px 0 20px 0;
+    color: #3A3A3A;
+}
+.home_advantage p{
+    font-size: 17px;
+    font-family: 'Lato', sans-serif;
+    font-weight: normal;
+    text-align: center;
+    margin-left: 70px;
+    margin-right: 70px;
+    color: #333;
+}
+.advantage_reason{
+    text-align: center;
+    padding: 0 5px;
+    margin-bottom: 15px;
+    flex: 1 1 20%;
+    padding: 25px 0 0px 0;
+}
+.advantage_reason h4{
+    font-size: 14px;
+    color: #2e4a58;
+    opacity: 1;
+    font-weight: 700;
+    margin: 16px 0;
+    font-family: 'Cormorant Garamond', serif;
+}
+.inner_reason{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+.advantage_reason .achis img{
+    margin: auto;
+    display: block;
+    width: 100px;
 }
