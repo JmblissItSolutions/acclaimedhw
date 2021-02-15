@@ -57,34 +57,38 @@ const Home = () =>{
                 <h3>Advantages of Choosing Our Warranty Plans</h3>
                 <p>At Acclaimed Home Warranty, we offer numerous home warranty options, including options forreal estateproperties about to hit the market, as well as for new homeowners. Our warranty plans provide many advantages, including:</p>
                 <div className="container">
-                <div className="inner_reason">
-                            <div class="advantage_reason">
-                                <i class="achis blue-phone">
-                                <img src={bluephone} alt="Blue phone" /></i>
-                                <h4>Faster Fixes</h4>
-                                <p>We have experienced contractors available to complete repairs 24 hours a day 365 days a year.</p>
+                        <div className="inner_reason">
+                                    <div className="advantage_reason">
+                                        <i className="achis blue-phone">
+                                        <img src={bluephone} alt="Blue phone" /></i>
+                                        <h4>Faster Fixes</h4>
+                                        <p>We have experienced contractors available to complete repairs 24 hours a day 365 days a year.</p>
+                                    </div>
+                                    <div className="advantage_reason">
+                                        <i className="achis blue-phone">
+                                        <img src={bluepiggy} alt="Blue phone" /></i>
+                                        <h4>Numerous Plan Options</h4>
+                                        <p>You’ll have the option to choose from numerous plans that will cater to your best interests and fit within your budget.</p>
+                                    </div>       
                             </div>
-                            <div class="advantage_reason">
-                                <i class="achis blue-phone">
-                                <img src={bluepiggy} alt="Blue phone" /></i>
-                                <h4>Numerous Plan Options</h4>
-                                <p>You’ll have the option to choose from numerous plans that will cater to your best interests and fit within your budget.</p>
-                            </div>       
-                    </div>
-                    <div className="inner_reason">
-                            <div class="advantage_reason">
-                                <i class="achis blue-phone">
-                                <img src={bluecall} alt="Blue phone" /></i>
-                                <h4>Responsive Customer Service</h4>
-                                <p>Our customer service team is always ready to take your call and connect you with a qualified contractor.</p>
+                            <div className="inner_reason">
+                                    <div className="advantage_reason">
+                                        <i className="achis blue-phone">
+                                        <img src={bluecall} alt="Blue phone" /></i>
+                                        <h4>Responsive Customer Service</h4>
+                                        <p>Our customer service team is always ready to take your call and connect you with a qualified contractor.</p>
+                                    </div>
+                                    <div className="advantage_reason">
+                                        <i className="achis blue-phone">
+                                        <img src={bluemarker} alt="Blue phone" /></i>
+                                        <h4>Locally Owned</h4>
+                                        <p>Our company is locally owned and managed, which means we know the area and the unique challenges homeowners face.</p>
+                                    </div>       
                             </div>
-                            <div class="advantage_reason">
-                                <i class="achis blue-phone">
-                                <img src={bluemarker} alt="Blue phone" /></i>
-                                <h4>Locally Owned</h4>
-                                <p>Our company is locally owned and managed, which means we know the area and the unique challenges homeowners face.</p>
-                            </div>       
-                    </div>
+                         <div className="contact_con">
+                             <h3>Contact Acclaimed Home Warranty</h3>
+                             <p>If you’re looking for the best home warranty company, you’ve come to the right place. Acclaimed Home Warranty can provide the coverage you need at an affordable price. Please contact us today to learn more about our plan options!</p>
+                        </div>    
                 </div>    
           </div>
         </div>

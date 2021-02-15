@@ -3,9 +3,12 @@ import './App.css';
 import './assets/css/header.css';
 import './assets/css/footer.css';
 import './assets/css/home.css';
+import "./assets/css/contact.css";
+import "./assets/css/makeclaim.css";
 import { Route, Switch } from "react-router-dom";
 import  Home  from "./Home";
 import  Contact  from "./Contact";
+import MakeClaim from "./MakeClaim";
 import  Error  from "./Error";
 import Menu from "./Menu";
 import { Footer, FooterBottom } from './Footer';
@@ -26,6 +29,7 @@ function App() {
             <Switch>
                 <Route path="/" component={Home} exact />
                 <Route path="/contact" component={Contact} />
+                <Route path="/" component={MakeClaim}/>
                 <Route component={Error} />
             </Switch>
         </main>
