@@ -3,6 +3,7 @@ import ContactForm from "./component/ContactForm";
 import contactbanner from"./assets/images/contact-us-banner.png";
 // import ReCAPTCHA from "react-google-recaptcha";
 const Contact = () =>{
+    return <h1>Hello , Contact page!!!!</h1>;
     // function onChange(value) {
     //     console.log("Captcha value:", value)
     //   }

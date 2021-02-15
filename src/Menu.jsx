@@ -1,10 +1,15 @@
-import React from "react";
+import React,{ useState } from "react";
 import {NavLink } from "react-router-dom";
 import logo from './logo.svg';
 import phone from './assets/images/green-phone.svg';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Button, Navbar, Nav, NavItem, NavDropdown, MenuItem } from 'react-bootstrap';
 function Menu() {
+  const [isActive, setActive] = useState(false);
+
+  const toggleClass = () => {
+    setActive(!isActive);
+  };
     return (
         <>
          <div className="top-menu">
@@ -20,7 +25,8 @@ function Menu() {
      </div>
        <Navbar collapseOnSelect expand="lg">
   <Navbar.Brand href="/"><img src={logo} alt="Acclaimed Logo"/></Navbar.Brand>
-  <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+  <Navbar.Toggle aria-controls="responsive-navbar-nav"  className={isActive ? 'close-menu': null} 
+      onClick={toggleClass} />
   <Navbar.Collapse id="responsive-navbar-nav">
     <Nav className="mr-auto">
     <NavLink exact className="nav-link" activeClassName="active" to="/">Home Warranty</NavLink>
