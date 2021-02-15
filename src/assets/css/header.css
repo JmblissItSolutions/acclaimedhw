@@ -1,3 +1,4 @@
+
 header{
     width: 100%;
     box-shadow: 0px 2px 2px rgb(0 0 0 / 20%);
@@ -91,6 +92,7 @@ a.nav-link {
     text-decoration: none;
     position: relative;
     display: block;
+    padding: 4px !important;
 }
 a.nav-link:after{
     content: '';

@@ -56,24 +56,34 @@ footer .right {
 }
 .left h3 {
     color: #00A1B8;
-    font-size: 23px;
+    font-size: 20px;
     font-weight: 300;
     text-transform: capitalize;
-    margin: 30px 0;
+    margin: 19px 0;
+}
+.business_hrs{
+    display: inline;
+    width: 53%;
 }
 .business_hrs li {
     list-style: circle;
     line-height: 23px;
     letter-spacing: 1px;
+    font-size: 14px;
 }
 .addr p {
     letter-spacing: 1px;
     line-height: 23px;
     color: #fff;
+    font-size: 15px;
 }
-p.emrg_hrs {
+p.emrg_hrs a{
     margin: 5px 0;
     font-weight: bold;
+    text-decoration: none;
+    color: white;
+    display: block;
+    font-size: 15px;
 }
 .addr {
     margin-left: 30px;
