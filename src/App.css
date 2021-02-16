@@ -1,6 +1,10 @@
 @font-face {
-  font-family: lato-regular;
-  src:local('Lato'), url(./assets/fonts/lato-regular.ttf) format('opentype');
+  font-family: 'lato', sans-serif;
+  src:local('Lato'), url(./assets/fonts/lato-regular.ttf) format('truetype');
+}
+@font-face {
+  font-family: CormorantGaramond-Regular;
+  src:local('CormorantGaramond-Regular'), url(./assets/fonts/cormorant-garamond-regular.ttf) format('truetype');
 }
 *, *:after, *:before {
   -moz-box-sizing: border-box;
@@ -9,9 +13,9 @@
   text-rendering: optimizeLegibility;
 }
 
-body{
-font: 300 14px 'Lato', sans-serif;
-  color: #3A3A3A;
+body , div#root{
+font: 300 14px 'lato-regular', sans-serif;
+color: #3A3A3A;
   background-color: white;
   line-height: 1.4;
 }
@@ -24,8 +28,12 @@ text-decoration: none;
 a:hover{
 text-decoration: none;
 }
-a:focus , button:focus , .slick-slide:focus{
+div#root a:focus , div#root button:focus , div#root .slick-slide:focus{
 outline: none;
+}
+div#root .btn.focus, div#root .btn:focus {
+  outline: 0;
+  box-shadow: none;
 }
 img{
 max-width: 100%;
@@ -35,7 +43,11 @@ list-style: none;
 padding: 0;
 margin: 0;
 }
-h1, h2, h3, h4, h5, h6 {
+h1, h2, h3, h4, h5, h6, .cormor {
+  font-family: CormorantGaramond-Regular;
+  font-weight: 300;
+}
+h1, h2, h3 {
   font-weight: 400;
   text-transform: uppercase;
 }
@@ -46,7 +58,43 @@ h4 {
 a:hover, body, h1 a:hover, h2 a:hover, h3 a:hover, h4 a:hover, h5 a:hover, h6 a:hover, p, p a:hover {
   color: #8b8b8b;
 }
+.blueText {
+  color: #00A1B8;
+}
 .container{
 max-width: 1230px !important;
 width: 100% !important;
+}
+
+div#root .btn{
+  background-color: #6FA553;
+  color: white;
+  text-transform: uppercase;
+  padding: 15px 20px;
+  text-decoration: none;
+  text-align: center;
+  font-weight: bold;
+  font-size: 14px;
+  letter-spacing: 1px;
+  display: inline-block;
+  white-space: nowrap;
+  border-radius: 4px;
+  border: none;
+  box-shadow: 0 4px 6px rgb(0 0 0 / 16%);
+  cursor: pointer;
+  transition: background-color 0.25s ease;
+  -webkit-transition: background-color 0.25s ease;
+  -ms-transition: background-color 0.25s ease;
+  -moz-transition: background-color 0.25s ease;
+  -o-transition: background-color 0.25s ease;
+}
+
+div#root .btn:hover, 
+div#root .btn:focus, 
+div#root .post-edit-link:hover, 
+div#root .post-edit-link:focus, 
+div#root .everest-forms .evf-submit:hover, 
+div#root .everest-forms .evf-submit:focus {
+  color: white;
+  background-color: #64944a;
 }
