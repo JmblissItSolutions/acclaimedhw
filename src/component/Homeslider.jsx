@@ -16,8 +16,10 @@ const Homeslider = () =>{
       alt="First slide"
     />
     <Carousel.Caption>
-      <h3>First slide label</h3>
-      <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+    <div className="container first-slid">
+      <h1>I CHOSE A HOME WARRANTY</h1>
+      <h3>to keep unexpected costs at bay</h3>
+      </div>
     </Carousel.Caption>
   </Carousel.Item>
   <Carousel.Item>
@@ -28,8 +30,10 @@ const Homeslider = () =>{
     />
 
     <Carousel.Caption>
-      <h3>Second slide label</h3>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+    <div className="container second-slid">
+      <h1>I CHOSE A HOME WARRANTY</h1>
+      <h3>to give perspective buyers piece of mind.</h3>
+      </div>
     </Carousel.Caption>
   </Carousel.Item>
   <Carousel.Item>
@@ -40,8 +44,10 @@ const Homeslider = () =>{
     />
 
     <Carousel.Caption>
-      <h3>Third slide label</h3>
-      <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+    <div className="container third-slid">
+    <h1>I CHOSE A HOME WARRANTY</h1>
+      <h3>to safeguard an older home</h3>
+      </div>
     </Carousel.Caption>
   </Carousel.Item>
   <Carousel.Item>
@@ -51,8 +57,10 @@ const Homeslider = () =>{
       alt="forth slide"
     />
     <Carousel.Caption>
-      <h3>First slide label</h3>
-      <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+    <div className="container four-slid">
+    <h1>I CHOSE A HOME WARRANTY</h1>
+      <h3>for reputable contractors</h3>
+      </div>
     </Carousel.Caption>
   </Carousel.Item>
 </Carousel>
