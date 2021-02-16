@@ -1,12 +1,7 @@
 import React from "react";
 import ContactForm from "./component/ContactForm";
 import contactbanner from"./assets/images/contact-us-banner.png";
-// import ReCAPTCHA from "react-google-recaptcha";
 const Contact = () =>{
-    return <h1>Hello , Contact page!!!!</h1>;
-    // function onChange(value) {
-    //     console.log("Captcha value:", value)
-    //   }
     return(
         <>
                 <div className="home_page">
@@ -24,7 +19,6 @@ const Contact = () =>{
                                     <label><input type="number" placeholder="Phone number" name="phonenumber" /></label>
                                         <label><input type="email" placeholder="Email" name="email" /></label>
                                         <label><textarea placeholder="Message" className="field-msg"></textarea></label>
-                                        {/* <label><ReCAPTCHA sitekey="YOUR_CLIENT_SITE_KEY" onChange={onChange} /></label> */}
                                         <input type="submit" value="Submit"/>
                                     </form>
                                  </div>        

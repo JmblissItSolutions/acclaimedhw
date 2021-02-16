@@ -31,12 +31,12 @@ function Menu() {
     <Nav className="mr-auto">
     <NavLink exact className="nav-link" activeClassName="active" to="/">Home Warranty</NavLink>
     <NavLink exact className="nav-link" activeClassName="active"  to="/ordernow">ORDER NOW</NavLink>
-    <NavLink exact className="nav-link" activeClassName="active"  to="/brochers">Brochures</NavLink>
+    <NavLink exact className="nav-link" activeClassName="active"  to="/brochers">Brochers</NavLink>
     <NavLink exact className="nav-link" activeClassName="active"  to="/memberadvantages">Member Advantages</NavLink>
     <NavLink exact className="nav-link" activeClassName="active"  to="/faq">FAQ</NavLink>
     <NavLink exact className="nav-link" activeClassName="active"  to="/contractors">Contractors</NavLink>
     <NavLink exact className="nav-link" activeClassName="active"  to="/aboutus">About Us</NavLink>
-    <NavLink exact className="nav-link" activeClassName="active"  to="/makeaclaim">Make A Claim</NavLink>
+    <NavLink exact className="nav-link" activeClassName="active"  to="/makeclaim">Make A Claim</NavLink>
     <NavLink exact className="nav-link" activeClassName="active"  to="/contact">Contact Us</NavLink>
     </Nav>
   </Navbar.Collapse>

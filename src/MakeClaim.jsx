@@ -47,10 +47,11 @@ const MakeClaim = () =>{
                                         <label><input type="text" placeholder="City*" name="City"/></label>
                                         <label><input type="number" placeholder="Zip-Code*" name="phonenumber"/></label>
                                         <label><textarea placeholder="please explain the detailes of your" className="field-msg"></textarea></label>
-                                        <span>Is this an emergency?*</span>
-                                        <label><input type="radio" id="emergency" value="No,this is not an emergency"/>No,this is not an emergency</label>
-                                        <label><input type="radio" id="emergency" value="Yes,this is an emergency"/>Yes,this is an emergency</label>
-                                        <span>Preferred Contact Method*</span>
+                                       
+                                        <input type="radio" value="Male" name="gender" /> Male
+                                        <input type="radio" value="Female" name="gender" /> Female
+                                        <input type="radio" value="Other" name="gender" /> Other
+                                        
                                         <label><input type="checkbox" id="Phone" name="Phone" value="Phone"/>Phone</label>
                                         <label><input type="checkbox" id="Email" name="Email" value="Email"/>Email</label>
                                         <label><input type="checkbox" id="Text" name="Text" value="Text"/>Text</label>
