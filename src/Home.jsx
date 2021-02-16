@@ -10,6 +10,15 @@ const Home = () =>{
         <div className="home_page">
             <div className="banner">
                <Slider/>
+               <div className="inner-bnr container">
+					<div className="info-box">
+						<p>We offer competitive prices for everyone who wants to make a home more secure.</p>
+						<div className="btn-cont">
+							<a href="/order-now/arizona" className="btn home">Current Homeowner<br/>See Options</a>
+							<a href="/real-estate-orders/" className="btn">Title Company &amp;<br/>Real Estate Transactions</a>
+						</div>
+					</div>
+				</div>
             </div>
             <div className="container">
                     <div className="home">

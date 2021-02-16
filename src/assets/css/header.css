@@ -68,10 +68,10 @@ header .row{
 /*navigation*/
 nav.navbar {
     width: 100%;
-    padding: 0px 15px;
+    padding: 10px 15px 0;
 }
 .mr-auto.navbar-nav {
-    margin-top: 30px;
+    margin-top: 40px;
 }
 .logo-box {
     padding: 10px 0;
@@ -83,18 +83,17 @@ a.navbar-brand img {
 div#navbarNav {
     flex-grow: unset;
 }
-a.nav-link {
+.navbar-light .navbar-nav a.nav-link {
     color: #6F6F6F;
     font-size: 13px;
-    font-family: 'Lato', sans-serif;
+    font-family: 'lato', sans-serif;
     text-transform: uppercase;
-    padding: 15px 6px;
     text-decoration: none;
     position: relative;
     display: block;
-    padding: 4px !important;
+    padding: 4px 4px 12px !important;
 }
-a.nav-link:after{
+.navbar-light .navbar-nav a.nav-link:after{
     content: '';
     display: block;
     background-color: #00A1B8;
@@ -109,12 +108,68 @@ a.nav-link:after{
     -moz-transition: height 0.5s ease;
     -o-transition: height 0.5s ease;
 }
-a.nav-link:hover:after{
-    height: 10px
+.navbar-light .navbar-nav a.nav-link:hover:after{
+    height: 8px
 }
 /*end of navigation*/
 /*mobile menu*/
-
+@media (max-width: 1199px){
+    nav.navbar {
+        width: 100%;
+        padding: 15px 0;
+            position: static;
+    }
+    .mr-auto.navbar-nav {
+        margin-top: 0;
+    }
+    .top-menu {
+        position: absolute;
+        right: 96px;
+        z-index: 55;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+    
+    .top-menu ul{
+        padding: 0;
+        margin: 0;
+    }
+    div#responsive-navbar-nav {
+        position: absolute;
+        width: 100%;
+        top: 100%;
+        padding: 20px 40px;
+        left: 0;
+        z-index: 55;
+        background: #00A1B8;
+        text-align: center;
+        max-height: 80vh;
+        overflow-y: auto;
+    }
+    div#responsive-navbar-nav ul li{
+        display: block;
+        text-align: center;
+        padding: 5px;
+    } 
+    
+    div#responsive-navbar-nav ul li a, 
+    .navbar-light .navbar-nav a.nav-link,
+    .navbar-light .navbar-nav a.nav-link.active{
+        display: inline-block;
+        font-size: 22px;
+        color: #fff;
+        padding: 10px 0;
+    }
+}
+@media (max-width: 767px){
+    a.navbar-brand img {
+        min-width: 200px;
+        max-height: 40px;
+    }
+    .topBar a.icon-link{
+        font-size: 0;
+    }
+}
 @media (max-width: 580px){
     a.navbar-brand img {
         min-width: 160px;
@@ -122,9 +177,8 @@ a.nav-link:hover:after{
     }
     .top-menu {
         position: absolute;
-        right: 97px;
-        z-index: 55;
-        top: 5px;
+    right: 78px;
+    z-index: 55;
     }
     .topBar a.icon-link {
         padding-left: 25px;
@@ -136,4 +190,5 @@ a.nav-link:hover:after{
     .pagecontent {
         padding-top: 44px;
     }
+   
 }

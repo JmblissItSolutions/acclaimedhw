@@ -1,6 +1,108 @@
+/* home slider */
+.banner {
+    position: relative;
+}
+.banner .carousel-item .w-100 {
+    height: 70vh;
+    min-height: 550px;
+    object-fit: cover;
+    width: 100%;
+}
+.banner .carousel-caption {
+    bottom: auto;
+    top: 5%;
+    left: 0;
+    right: 0;
+    text-align: right;
+    position: absolute;
+} 
+.banner .carousel-caption h1,
+.banner .carousel-caption h3 {
+    font-size: 54px;
+    transition-delay: .15s;
+    -webkit-transition-delay: .15s;
+    -ms-transition-delay: .15s;
+    -moz-transition-delay: .15s;
+    -o-transition-delay: .15s;
+    color: #3A3A3A;
+    line-height: 1;
+    margin: 0;
+    padding: 0;
+    padding-right: 30px;
+}
+.banner .carousel-caption h3 {
+    color: #00A1B8;
+    font-size: 49px;
+    text-transform: inherit;
+    font-style: italic;
+    line-height: 1;
+    padding-right: 0;
+}
+.banner .inner-bnr.container {
+    position: absolute;
+    bottom: 30px;
+    top: auto;
+    left: 0;
+    right: 0;
+    z-index: 55;
+}
+.info-box {
+    position: absolute;
+    top: auto;
+    right: 0;
+    background: rgba(255,255,255,0.8);
+    box-shadow: -4px 4px 6px rgb(0 0 0 / 16%);
+    padding: 25px 35px 20px 35px;
+    max-width: 410px;
+    text-align: center;
+    bottom: 0;
+}
+.info-box p {
+    font-size: 16px;
+    margin-top: 0;
+    color: #3A3A3A;
+}
+.info-box .btn-cont {
+    padding: 0 40px;
+} 
+div#root .btn, div#root .post-edit-link, div#root .everest-forms .evf-submit {
+    background-color: #6FA553;
+    color: white;
+    text-transform: uppercase;
+    padding: 15px 20px;
+    text-decoration: none;
+    text-align: center;
+    font-weight: bold;
+    font-size: 14px;
+    letter-spacing: 1px;
+    display: inline-block;
+    white-space: nowrap;
+    border-radius: 4px;
+    border: none;
+    box-shadow: 0 4px 6px rgb(0 0 0 / 16%);
+    cursor: pointer;
+    transition: background-color 0.25s ease;
+    -webkit-transition: background-color 0.25s ease;
+    -ms-transition: background-color 0.25s ease;
+    -moz-transition: background-color 0.25s ease;
+    -o-transition: background-color 0.25s ease;
+}
+.info-box .btn {
+    margin-bottom: 15px;
+    width: 100%;
+} 
+div#root .btn:hover, 
+div#root .btn:focus, 
+div#root .post-edit-link:hover, 
+div#root .post-edit-link:focus, 
+div#root .everest-forms .evf-submit:hover, 
+div#root .everest-forms .evf-submit:focus {
+    color: white;
+    background-color: #64944a;
+}
+/* end of home slider */
 .home h1{
     font-size: 43px;
-    font-family: 'Lato', sans-serif;
     text-transform: capitalize;
     font-weight: 700;
     margin-top: 60px;
@@ -14,12 +116,10 @@
     text-align: center;
     color: #3A3A3A;
     opacity: .8;
-    font-family: 'Lato', sans-serif;
 }
 .home p{
     font-size: 17px;
-    font-family: 'Lato', sans-serif;
-    font-weight: 300;
+        font-weight: 300;
     text-align: center;
     position: relative;
     top: 25px;
@@ -37,16 +137,14 @@
     font-size: 50px;
     font-weight: normal;
     text-align: center;
-    font-family: 'Lato', sans-serif;
-    font-weight: 300;
+        font-weight: 300;
     margin: 0;
     padding: 100px 0 20px 0;
     color: #3A3A3A;
 }
 .home_wrranty p{
     font-size: 17px;
-    font-family: 'Lato', sans-serif;
-    font-weight: normal;
+        font-weight: normal;
     text-align: center;
     color: #333;
 }
@@ -85,8 +183,7 @@
     font-weight: 700;
     margin: 16px 0;
     text-transform: capitalize;
-    font-family: 'Lato', sans-serif;
-}
+    }
 .reason p{
     margin: 0 auto;
     font-size: 15px;
@@ -106,15 +203,12 @@
     font-size: 47px;
     font-weight: normal;
     text-align: center;
-    font-family: 'Lato', sans-serif;
-    font-weight: 300;
+        font-weight: 300;
     margin: 0;
     padding: 100px 0 20px 0;
     color: #3A3A3A;
 }
 .home_advantage p{
-    font-size: 17px;
-    font-family: 'Lato', sans-serif;
     font-weight: normal;
     text-align: center;
     color: #333;
@@ -133,7 +227,6 @@
     opacity: 1;
     font-weight: 700;
     margin: 16px 0;
-    font-family: 'Lato', sans-serif;
 }
 .inner_reason{
     display: flex;
@@ -153,7 +246,6 @@
 }
 .contact_con h3{
     font-size: 23px;
-    font-family: 'Lato', sans-serif;
     font-weight: normal;
     text-align: center;
     margin: 10px 0;
@@ -162,4 +254,21 @@
     width: 79%;
     margin: 0 auto;
     font-size: 17px;
+}
+@media (max-width: 1199px){
+    .banner .inner-bnr.container{
+        display: none;
+    }
+}
+@media (max-width:580px){
+    .banner .carousel-caption h1, 
+    .banner .carousel-caption h3 {
+        font-size: 24px;
+    }
+    .banner .carousel-item .w-100 {
+        height: auto;
+        min-height: 250px;
+        object-fit: cover;
+        width: 100%;
+    }
 }
