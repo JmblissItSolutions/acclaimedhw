@@ -13,12 +13,12 @@ const Contact = () =>{
                         <p>Have a question about our products and services?&nbsp;Fill out this short form and an Acclaimed Home Warranty representative will follow up on your request.</p>
                         <p>&nbsp;</p>
                             <div className="container">
-                                 <div className="form">
+                                 <div className="contact_form">
                                     <form>
-                                    <label><input type="text" placeholder="Name" name="name" /></label>
-                                    <label><input type="number" placeholder="Phone number" name="phonenumber" /></label>
-                                        <label><input type="email" placeholder="Email" name="email" /></label>
-                                        <label><textarea placeholder="Message" className="field-msg"></textarea></label>
+                                        <input type="text" placeholder="Name" name="name" />
+                                        <input type="number" placeholder="Phone number" name="phonenumber" />
+                                        <input type="email" placeholder="Email" name="email" />
+                                        <textarea placeholder="Message" className="field-msg"></textarea>
                                         <input type="submit" value="Submit"/>
                                     </form>
                                  </div>        
