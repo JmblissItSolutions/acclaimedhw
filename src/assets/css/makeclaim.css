@@ -131,7 +131,7 @@
     color: #494d50;
     font-size: 14px;
 }
-.label,input[type=text],input[type=number],input[type=email] ,textarea{
+.label,input[type=text],input[type=number],input[type=email] ,textarea,select{
     width: 100%;
     height: auto;
     font-size: 14px;
