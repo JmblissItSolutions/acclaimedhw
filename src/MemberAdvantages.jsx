@@ -5,15 +5,15 @@ import  Memberadvantages from"./assets/images/MemberAdvantages.png";
 import  shutterstock from "./assets/images/shutterstock.jpg";
 import  mariam from "./assets/images/mariam.jpg";
 import  haydee from "./assets/images/haydee.jpg";
-import latticebackground from "./assets/images/lattice-background.png";
 import comparebox from "./assets/images/compare-box.jpg"
 import guyplaceholder from "./assets/images/guyplaceholder.png";
 import steve from "./assets/images/steve.jpg";
 import stephanie from "./assets/images/stephanie.png";
 import ReactStars from "react-rating-stars-component";
- 
+import Advantagesform from "./component/Advantagesform";
+
 const MemberAdvantages = () =>{
-  const firstExample = {
+  const ratingStart = {
     size: 30,
     value: 5,
     edit: false,
@@ -80,7 +80,7 @@ const MemberAdvantages = () =>{
                                                           </div>
                                                           <div className="rating-cont" data-rating="5">
                                                             <div className="white">
-                                                              <ReactStars {...firstExample} />
+                                                              <ReactStars {...ratingStart} />
                                                             </div>
                                                             <span>1 year ago</span> 
                                                           </div>
@@ -101,7 +101,7 @@ const MemberAdvantages = () =>{
                                                           </div>
                                                           <div className="rating-cont" data-rating="5">
                                                             <div className="white">
-                                                              <ReactStars {...firstExample} />
+                                                              <ReactStars {...ratingStart} />
                                                             </div>
                                                             <span>1 year ago</span> 
                                                           </div>
@@ -122,7 +122,7 @@ const MemberAdvantages = () =>{
                                                           </div>
                                                           <div className="rating-cont" data-rating="5">
                                                             <div className="white">
-                                                              <ReactStars {...firstExample} />
+                                                              <ReactStars {...ratingStart} />
                                                             </div>
                                                             <span>1 year ago</span> 
                                                           </div>
@@ -132,29 +132,12 @@ const MemberAdvantages = () =>{
                                                   </div>
                                                </div>
                                                <div className="sidebar">
-                                                   <div className="form-cont" style={{ backgroundImage: `url(${latticebackground})`}}>
-                                                     <div className="white-back">
-                                                        <h4 class="blueText">email us</h4>
-                                                        <p>Fill out this short form and an Acclaimed Home Warranty representative will follow up on your request.</p>
-                                                        <div className="everest-forms">
-                                                          <div className="form">
-                                                              <form>
-                                                                <label><input type="text" placeholder="FirstName*" name="FirstName"/></label>
-                                                                <label><input type="text" placeholder="LastName*" name="LastName"/></label>
-                                                                <label><input type="email" placeholder="Email*" name="email"/></label>
-                                                                <label><input type="number" placeholder="PhoneNumber*" name="phonenumber"/></label>
-                                                                <label><textarea placeholder="Information Requested" className="field-msg"></textarea></label>
-                                                                <input type="submit" value="Submit"/>
-                                                              </form>
-                                                          </div>        
-                                                        </div>   
-                                                     </div>
-                                                  </div>
+                                                 <Advantagesform/>
                                                   <div className="compare-box" style={{ backgroundImage: `url(${comparebox})`}}>
                                                     <div className="text">
-                                                    <p class="strong">Don't Have a<br></br>Home Warranty Plan?</p>
-                                                    <p>When purchasing a home warranty through Acclaimed, you have a partner in addressing unexpected appliance or major systems problems.</p>
-                                                    <a href="" class="btn">Compare Utah Plans</a>  
+                                                      <p class="strong">Don't Have a<br></br>Home Warranty Plan?</p>
+                                                      <p>When purchasing a home warranty through Acclaimed, you have a partner in addressing unexpected appliance or major systems problems.</p>
+                                                      <a href="" class="btn">Compare Utah Plans</a>  
                                                     </div>
                                                   </div>
                                                </div>
@@ -209,7 +192,7 @@ const MemberAdvantages = () =>{
                                                           </div>
                                                           <div className="rating-cont" data-rating="5">
                                                             <div className="white">
-                                                              <ReactStars {...firstExample} />
+                                                              <ReactStars {...ratingStart} />
                                                             </div>
                                                             <span>1 year ago</span> 
                                                           </div>
@@ -230,7 +213,7 @@ const MemberAdvantages = () =>{
                                                           </div>
                                                           <div className="rating-cont" data-rating="5">
                                                             <div className="white">
-                                                              <ReactStars {...firstExample} />
+                                                              <ReactStars {...ratingStart} />
                                                             </div>
                                                             <span>1 year ago</span> 
                                                           </div>
@@ -251,7 +234,7 @@ const MemberAdvantages = () =>{
                                                           </div>
                                                           <div className="rating-cont" data-rating="5">
                                                             <div className="white">
-                                                              <ReactStars {...firstExample} />
+                                                              <ReactStars {...ratingStart} />
                                                             </div>
                                                             <span>1 year ago</span> 
                                                           </div>
@@ -261,24 +244,7 @@ const MemberAdvantages = () =>{
                                                   </div>
                                                </div>
                                                <div className="sidebar">
-                                                   <div className="form-cont" style={{ backgroundImage: `url(${latticebackground})`}}>
-                                                     <div className="white-back">
-                                                        <h4 class="blueText">email us</h4>
-                                                        <p>Fill out this short form and an Acclaimed Home Warranty representative will follow up on your request.</p>
-                                                        <div className="everest-forms">
-                                                          <div className="form">
-                                                              <form>
-                                                                <label><input type="text" placeholder="FirstName*" name="FirstName"/></label>
-                                                                <label><input type="text" placeholder="LastName*" name="LastName"/></label>
-                                                                <label><input type="email" placeholder="Email*" name="email"/></label>
-                                                                <label><input type="number" placeholder="PhoneNumber*" name="phonenumber"/></label>
-                                                                <label><textarea placeholder="Information Requested" className="field-msg"></textarea></label>
-                                                                <input type="submit" value="Submit"/>
-                                                              </form>
-                                                          </div>        
-                                                        </div>   
-                                                     </div>
-                                                  </div>
+                                                 <Advantagesform/>
                                                   <div className="compare-box" style={{ backgroundImage: `url(${comparebox})`}}>
                                                     <div className="text">
                                                     <p class="strong">Don't Have a<br></br>Home Warranty Plan?</p>
@@ -332,7 +298,7 @@ const MemberAdvantages = () =>{
                                                           </div>
                                                           <div className="rating-cont" data-rating="5">
                                                             <div className="white">
-                                                              <ReactStars {...firstExample} />
+                                                              <ReactStars {...ratingStart} />
                                                             </div>
                                                             <span>1 year ago</span> 
                                                           </div>
@@ -353,7 +319,7 @@ const MemberAdvantages = () =>{
                                                           </div>
                                                           <div className="rating-cont" data-rating="5">
                                                             <div className="white">
-                                                              <ReactStars {...firstExample} />
+                                                              <ReactStars {...ratingStart} />
                                                             </div>
                                                             <span>1 year ago</span> 
                                                           </div>
@@ -363,24 +329,7 @@ const MemberAdvantages = () =>{
                                                   </div>
                                                </div>
                                                <div className="sidebar">
-                                                   <div className="form-cont" style={{ backgroundImage: `url(${latticebackground})`}}>
-                                                     <div className="white-back">
-                                                        <h4 class="blueText">email us</h4>
-                                                        <p>Fill out this short form and an Acclaimed Home Warranty representative will follow up on your request.</p>
-                                                        <div className="everest-forms">
-                                                          <div className="form">
-                                                              <form>
-                                                                <label><input type="text" placeholder="FirstName*" name="FirstName"/></label>
-                                                                <label><input type="text" placeholder="LastName*" name="LastName"/></label>
-                                                                <label><input type="email" placeholder="Email*" name="email"/></label>
-                                                                <label><input type="number" placeholder="PhoneNumber*" name="phonenumber"/></label>
-                                                                <label><textarea placeholder="Information Requested" className="field-msg"></textarea></label>
-                                                                <input type="submit" value="Submit"/>
-                                                              </form>
-                                                          </div>        
-                                                        </div>   
-                                                     </div>
-                                                  </div>
+                                                 <Advantagesform/>
                                                   <div className="compare-box" style={{ backgroundImage: `url(${comparebox})`}}>
                                                     <div className="text">
                                                     <p class="strong">Don't Have a<br></br>Home Warranty Plan?</p>
@@ -434,7 +383,7 @@ const MemberAdvantages = () =>{
                                                           </div>
                                                           <div className="rating-cont" data-rating="5">
                                                             <div className="white">
-                                                              <ReactStars {...firstExample} />
+                                                              <ReactStars {...ratingStart} />
                                                             </div>
                                                             <span>1 year ago</span> 
                                                           </div>
@@ -455,7 +404,7 @@ const MemberAdvantages = () =>{
                                                           </div>
                                                           <div className="rating-cont" data-rating="5">
                                                             <div className="white">
-                                                              <ReactStars {...firstExample} />
+                                                              <ReactStars {...ratingStart} />
                                                             </div>
                                                             <span>1 year ago</span> 
                                                           </div>
@@ -476,7 +425,7 @@ const MemberAdvantages = () =>{
                                                           </div>
                                                           <div className="rating-cont" data-rating="5">
                                                             <div className="white">
-                                                              <ReactStars {...firstExample} />
+                                                              <ReactStars {...ratingStart} />
                                                             </div>
                                                             <span>1 year ago</span> 
                                                           </div>
@@ -486,24 +435,7 @@ const MemberAdvantages = () =>{
                                                   </div>
                                                </div>
                                                <div className="sidebar">
-                                                   <div className="form-cont" style={{ backgroundImage: `url(${latticebackground})`}}>
-                                                     <div className="white-back">
-                                                        <h4 class="blueText">email us</h4>
-                                                        <p>Fill out this short form and an Acclaimed Home Warranty representative will follow up on your request.</p>
-                                                        <div className="everest-forms">
-                                                          <div className="form">
-                                                              <form>
-                                                                <label><input type="text" placeholder="FirstName*" name="FirstName"/></label>
-                                                                <label><input type="text" placeholder="LastName*" name="LastName"/></label>
-                                                                <label><input type="email" placeholder="Email*" name="email"/></label>
-                                                                <label><input type="number" placeholder="PhoneNumber*" name="phonenumber"/></label>
-                                                                <label><textarea placeholder="Information Requested" className="field-msg"></textarea></label>
-                                                                <input type="submit" value="Submit"/>
-                                                              </form>
-                                                          </div>        
-                                                        </div>   
-                                                     </div>
-                                                  </div>
+                                                 <Advantagesform/>
                                                   <div className="compare-box" style={{ backgroundImage: `url(${comparebox})`}}>
                                                     <div className="text">
                                                     <p class="strong">Don't Have a<br></br>Home Warranty Plan?</p>
@@ -557,7 +489,7 @@ const MemberAdvantages = () =>{
                                                           </div>
                                                           <div className="rating-cont" data-rating="5">
                                                             <div className="white">
-                                                              <ReactStars {...firstExample} />
+                                                              <ReactStars {...ratingStart} />
                                                             </div>
                                                             <span>1 year ago</span> 
                                                           </div>
@@ -578,7 +510,7 @@ const MemberAdvantages = () =>{
                                                           </div>
                                                           <div className="rating-cont" data-rating="5">
                                                             <div className="white">
-                                                              <ReactStars {...firstExample} />
+                                                              <ReactStars {...ratingStart} />
                                                             </div>
                                                             <span>1 year ago</span> 
                                                           </div>
@@ -599,7 +531,7 @@ const MemberAdvantages = () =>{
                                                           </div>
                                                           <div className="rating-cont" data-rating="5">
                                                             <div className="white">
-                                                              <ReactStars {...firstExample} />
+                                                              <ReactStars {...ratingStart} />
                                                             </div>
                                                             <span>1 year ago</span> 
                                                           </div>
@@ -609,24 +541,7 @@ const MemberAdvantages = () =>{
                                                   </div>
                                                </div>
                                                <div className="sidebar">
-                                                   <div className="form-cont" style={{ backgroundImage: `url(${latticebackground})`}}>
-                                                     <div className="white-back">
-                                                        <h4 class="blueText">email us</h4>
-                                                        <p>Fill out this short form and an Acclaimed Home Warranty representative will follow up on your request.</p>
-                                                        <div className="everest-forms">
-                                                          <div className="form">
-                                                              <form>
-                                                                <label><input type="text" placeholder="FirstName*" name="FirstName"/></label>
-                                                                <label><input type="text" placeholder="LastName*" name="LastName"/></label>
-                                                                <label><input type="email" placeholder="Email*" name="email"/></label>
-                                                                <label><input type="number" placeholder="PhoneNumber*" name="phonenumber"/></label>
-                                                                <label><textarea placeholder="Information Requested" className="field-msg"></textarea></label>
-                                                                <input type="submit" value="Submit"/>
-                                                              </form>
-                                                          </div>        
-                                                        </div>   
-                                                     </div>
-                                                  </div>
+                                                  <Advantagesform/>
                                                   <div className="compare-box" style={{ backgroundImage: `url(${comparebox})`}}>
                                                     <div className="text">
                                                     <p class="strong">Don't Have a<br></br>Home Warranty Plan?</p>
@@ -640,7 +555,7 @@ const MemberAdvantages = () =>{
                               </AccordionItemPanel>
                               </AccordionItem>
                            </Accordion>
-                     </div>  
+                  </div>  
          </div>
        </>
     )

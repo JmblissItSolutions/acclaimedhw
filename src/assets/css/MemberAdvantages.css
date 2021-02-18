@@ -38,6 +38,18 @@
     padding-bottom: 40px;
     border: none !important;
 }
+.accordion__button::before{
+    display: block !important;
+    content: '+' !important;
+    height: auto !important;
+    width: 10px !important;
+    margin-right: 12px !important;
+    border: 0px !important;
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translate(0,-50%) !important;
+}
 .accordion__button{
     background-color: #f4f4f4;
     color: white !important;
