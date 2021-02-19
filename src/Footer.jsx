@@ -16,10 +16,12 @@ const Footer = () =>{
        </div>
        <div className="addr">
         <h3>Our Address</h3>
-        <p>Acclaimed Home Warranty P.O. Box 9720
-        Salt Lake City, UT 84109</p>
-        <p className="emrg_hrs"><a href="/make-a-claim">Emergency Hours: make a claim 24/7</a></p>
-        <p className="emrg_hrs"><a href="tel:8884949460">Toll-Free: 888-494-9460</a></p>
+        <div>
+        <div>Acclaimed Home Warranty P.O. Box 9720
+        Salt Lake City, UT 84109</div>
+        <div className="emrg_hrs"><a href="/make-a-claim">Emergency Hours: make a claim 24/7</a></div>
+        <div className="emrg_hrs"><a href="tel:8884949460">Toll-Free: 888-494-9460</a></div>
+        </div>
       </div>
     </div>
     <div className="right">

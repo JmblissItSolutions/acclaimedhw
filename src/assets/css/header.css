@@ -15,8 +15,8 @@ header .row{
     align-items: center;
     justify-content: space-between;
 }
-.pagecontent {
-    padding-top: 84px;
+a.navbar-brand img {
+    max-height: 50px;
 }
 /*top menu*/
 
@@ -68,10 +68,12 @@ header .row{
 /*navigation*/
 nav.navbar {
     width: 100%;
-    padding: 10px 15px 0;
+    padding: 10px 0 0;
 }
 .mr-auto.navbar-nav {
     margin-top: 40px;
+    margin-left: auto;
+    margin-right: 0 !important;
 }
 .logo-box {
     padding: 10px 0;
@@ -79,6 +81,16 @@ nav.navbar {
 a.navbar-brand img {
     min-width: 280px;
     max-height: 50px;
+}
+header.staticHeader {
+    position: relative;
+}
+header.fixedHeader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 999;
 }
 div#navbarNav {
     flex-grow: unset;
@@ -172,8 +184,8 @@ div#navbarNav {
 }
 @media (max-width: 580px){
     a.navbar-brand img {
-        min-width: 160px;
-        max-height: 40px;
+        min-width: 100px;
+        max-height: 30px;
     }
     .top-menu {
         position: absolute;
@@ -181,14 +193,14 @@ div#navbarNav {
     z-index: 55;
     }
     .topBar a.icon-link {
-        padding-left: 25px;
-        font-size: 0;
+        padding-left: 19px;
+    font-size: 0;
+    display: block;
+    vertical-align: middle;
+    margin-top: 6px;
     }
     .topBar > li {
         margin-left: 5px;
-    }
-    .pagecontent {
-        padding-top: 44px;
     }
    
 }

@@ -12,6 +12,7 @@ import "./assets/css/Faq.css";
 import "./assets/css/Contractors.css";
 import "./assets/css/AboutUs.css";
 import { Route, Switch } from "react-router-dom";
+import { useState, useEffect } from "react"
 import  Home  from "./Home";
 import  Contact  from "./Contact";
 import MakeClaim from "./MakeClaim";
@@ -28,10 +29,17 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 function App() {
+  const [scroll, setScroll] = useState(false);
+
+  useEffect(() => {
+    window.addEventListener("scroll", () => {
+      setScroll(window.scrollY > 2);
+    });
+  }, []); 
   return (
     <>
     <div className="App">
-      <header>
+      <header className={scroll ? "fixedHeader" : "staticHeader"}>
       <div className="container">
       <Menu />
       </div>

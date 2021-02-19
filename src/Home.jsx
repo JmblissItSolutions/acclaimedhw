@@ -60,13 +60,17 @@ const Home = () =>{
                               <CompanyBack/>
                             </div>
                      </div>
+
+                     <div className="slidershow mobile-slide">
+                <Slideshow/>
+            </div>
                </div> 
             </div>
           <div className="home_advantage">
-                <h3>Advantages of Choosing Our Warranty Plans</h3>
+          <div className="container">
+                <h1>Advantages of Choosing Our Warranty Plans</h1>
                 <p>At Acclaimed Home Warranty, we offer numerous home warranty options, including options forreal estateproperties about to hit the market, as well as for new homeowners. Our warranty plans provide many advantages, including:</p>
-                <div className="container">
-                        <div className="inner_reason">
+                  <div className="inner_reason">
                             <div className="advantage_reason">
                               <Fasterfixes/>
                             </div>
@@ -80,10 +84,17 @@ const Home = () =>{
                             </div>
                             <div className="advantage_reason">
                               <LocallyOwned/>
-                            </div>       
+                            </div>  
+                            
+                                 
                         </div>
-                  </div>   
+                        <div className="advantageslidershow mobile-slide">
+                <AdvantageSlideshow/>
+            </div>
+                  </div> 
+                 
                   <section className="video-sec claimPage" style={{ backgroundImage: `url(${leackage})` }}>
+                      <div className="container">
                   <h1><small>Why Choose</small> Acclaimed Home Warranty?</h1>
                         <div className="img-pop">
                             <Popup trigger={<button className="play-btn"><img src={playicon } alt="playicon"/> </button>} modal nested>
@@ -98,6 +109,7 @@ const Home = () =>{
                                 </div>
                                 )}
                           </Popup>
+                        </div>
                         </div>
                  </section> 
                  <section id="home-perfect-plan"  style={{ backgroundImage: `url(${homeperfect})` }}>
@@ -161,12 +173,8 @@ const Home = () =>{
 					</div>
 			  </div>
 			</section> 
-            <div className="slidershow">
-                <Slideshow/>
-            </div>
-            <div className="advantageslidershow">
-                <AdvantageSlideshow/>
-            </div>
+            
+           
             <div className="container">
                 <div className="contact_con">
                     <h3>Contact Acclaimed Home Warranty</h3>
