@@ -373,12 +373,6 @@ div#root .everest-forms .evf-submit:focus {
     display: inline-block;
     width: calc( 100% / 4 - 20.01px);
 }
-
-
-
-
-
-
 @media (max-width: 1199px){
     .banner .inner-bnr.container{
         display: none;
@@ -394,5 +388,22 @@ div#root .everest-forms .evf-submit:focus {
         min-height: 250px;
         object-fit: cover;
         width: 100%;
+    }
+}
+/* Mobile slider */
+.slidershow{
+    display: none;
+}
+@media (max-width:580px){
+    .slidershow{
+      display: block;
+    }
+}
+.advantageslidershow{
+    display: none;
+}
+@media (max-width:580px){
+    .advantageslidershow{
+      display: block;
     }
 }

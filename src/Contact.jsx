@@ -8,8 +8,8 @@ const Contact = () =>{
                     <div className="top_img">
                       <img src={contactbanner} alt="contactbanner"/>
                     </div>
-                    <h1 class="inner upper">Contact Us</h1>
-                    <section class="inner">
+                    <h1 className="inner upper">Contact Us</h1>
+                    <section className="inner">
                         <p>Have a question about our products and services?&nbsp;Fill out this short form and an Acclaimed Home Warranty representative will follow up on your request.</p>
                         <p>&nbsp;</p>
                             <div className="container">

@@ -1,7 +1,7 @@
 import React,{ useState } from "react";
 import {NavLink } from "react-router-dom";
-import logo from './logo.svg';
-import phone from './assets/images/green-phone.svg';
+import logo from './logo.jpg';
+import phone from './assets/images/green-phone.jpg';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Button, Navbar, Nav, NavItem, NavDropdown, MenuItem } from 'react-bootstrap';
 function Menu() {

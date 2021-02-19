@@ -1,11 +1,13 @@
 import { React } from "react";
+// import Select from 'react-select';
 import latticebackground from "./../assets/images/lattice-background.png";
 const Advantagesform = () =>{
+    // this.state = {value: 'Alabama'};
 return(
     <>
        <div className="form-cont" style={{ backgroundImage: `url(${latticebackground})`}}>
             <div className="white-back">
-            <h4 class="blueText">email us</h4>
+            <h4 className="blueText">email us</h4>
             <p>Fill out this short form and an Acclaimed Home Warranty representative will follow up on your request.</p>
             <div className="everest-forms">
                 <div className="form">
@@ -15,7 +17,7 @@ return(
                     <label>
                     <select name="Alabama" id="Alabama">
                         <option value="saab">State</option>
-                        <option value="Alabama" selected="selected">Alabama</option>
+                        <option value="Alabama">Alabama</option>
                         <option value="Alaska">Alaska</option>
                         <option value="Arizona">Arizona</option>
                         <option value="Arkansas">Arkansas</option>

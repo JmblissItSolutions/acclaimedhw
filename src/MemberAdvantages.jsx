@@ -53,16 +53,16 @@ const MemberAdvantages = () =>{
                                                     <h3>OTHER GREAT ADVANTAGES</h3>
                                                     <p>We’ve negotiated some great pricing for services you’ll need while enjoying your home. If you’re interested in any of the services below, just email or call us and we’ll put you in touch with the companies to get you a free quote.**</p>
                                                      <div className="list">
-                                                        <div class="service">
+                                                        <div className="service">
                                                           Free Ring Doorbell or Next Thermostat with Home Security sign up. As low as $40 a month.
                                                         </div>
-                                                        <div class="service">
+                                                        <div className="service">
                                                           Window and Gutter Cleaning -Get $15 off your first service or $30 off two services. Available from Bountiful through Utah County.
                                                         </div>
-                                                        <div class="service">
+                                                        <div className="service">
                                                           Carpet, Rug, Tile and Upholstery Cleaning – Specials always offered, email for information. Available from Ogden to Utah County.
                                                         </div>
-                                                        <div class="disclaimer">
+                                                        <div className="disclaimer">
                                                           *Not offered in all areas. Fill out the form and we will let you know which services are available near you.
                                                         </div>
                                                     </div>
@@ -84,7 +84,7 @@ const MemberAdvantages = () =>{
                                                             </div>
                                                             <span>1 year ago</span> 
                                                           </div>
-                                                          <div class="message">We are so glad that our realtor goes through Acclaimed Home Warranty every time we purchase/sell a home with him. We have used them numerous times this last year and are highly considering renewing with them for the future. They were able t</div>
+                                                          <div className="message">We are so glad that our realtor goes through Acclaimed Home Warranty every time we purchase/sell a home with him. We have used them numerous times this last year and are highly considering renewing with them for the future. They were able t</div>
                                                        </div>
                                                     </div>
                                                   </div>
@@ -105,7 +105,7 @@ const MemberAdvantages = () =>{
                                                             </div>
                                                             <span>1 year ago</span> 
                                                           </div>
-                                                          <div class="message">Everything went fine. The provider arrived on time and reviewed his findings. I'm grateful to know the AC unit is working well and ready for the summer. Thank you!!!</div>
+                                                          <div className="message">Everything went fine. The provider arrived on time and reviewed his findings. I'm grateful to know the AC unit is working well and ready for the summer. Thank you!!!</div>
                                                        </div>
                                                     </div>
                                                   </div>
@@ -126,7 +126,7 @@ const MemberAdvantages = () =>{
                                                             </div>
                                                             <span>1 year ago</span> 
                                                           </div>
-                                                          <div class="message">I am a real estate agent and I refer all my buyers to Acclaimed home warranty. They do a great job and fast! Friendly and always there when I have needed them :)</div>
+                                                          <div className="message">I am a real estate agent and I refer all my buyers to Acclaimed home warranty. They do a great job and fast! Friendly and always there when I have needed them :)</div>
                                                        </div>
                                                     </div>
                                                   </div>
@@ -135,9 +135,9 @@ const MemberAdvantages = () =>{
                                                  <Advantagesform/>
                                                   <div className="compare-box" style={{ backgroundImage: `url(${comparebox})`}}>
                                                     <div className="text">
-                                                      <p class="strong">Don't Have a<br></br>Home Warranty Plan?</p>
+                                                      <p className="strong">Don't Have a<br></br>Home Warranty Plan?</p>
                                                       <p>When purchasing a home warranty through Acclaimed, you have a partner in addressing unexpected appliance or major systems problems.</p>
-                                                      <a href="" class="btn">Compare Utah Plans</a>  
+                                                      <a href="" className="btn">Compare Utah Plans</a>  
                                                     </div>
                                                   </div>
                                                </div>
@@ -165,16 +165,16 @@ const MemberAdvantages = () =>{
                                                     <h3>OTHER GREAT ADVANTAGES</h3>
                                                     <p>We’ve negotiated some great pricing for services you’ll need while enjoying your home. If you’re interested in any of the services below, just email or call us and we’ll put you in touch with the companies to get you a free quote.**</p>
                                                      <div className="list">
-                                                        <div class="service">
+                                                        <div className="service">
                                                           Free Ring Doorbell or Next Thermostat with Home Security sign up. As low as $40 a month.
                                                         </div>
-                                                        <div class="service">
+                                                        <div className="service">
                                                           Window and Gutter Cleaning -Get $15 off your first service or $30 off two services. Available from Bountiful through Utah County.
                                                         </div>
-                                                        <div class="service">
+                                                        <div className="service">
                                                           Carpet, Rug, Tile and Upholstery Cleaning – Specials always offered, email for information. Available from Ogden to Utah County.
                                                         </div>
-                                                        <div class="disclaimer">
+                                                        <div className="disclaimer">
                                                           *Not offered in all areas. Fill out the form and we will let you know which services are available near you.
                                                         </div>
                                                     </div>
@@ -196,7 +196,7 @@ const MemberAdvantages = () =>{
                                                             </div>
                                                             <span>1 year ago</span> 
                                                           </div>
-                                                          <div class="message">We are so glad that our realtor goes through Acclaimed Home Warranty every time we purchase/sell a home with him. We have used them numerous times this last year and are highly considering renewing with them for the future. They were able t</div>
+                                                          <div className="message">We are so glad that our realtor goes through Acclaimed Home Warranty every time we purchase/sell a home with him. We have used them numerous times this last year and are highly considering renewing with them for the future. They were able t</div>
                                                        </div>
                                                     </div>
                                                   </div>
@@ -217,7 +217,7 @@ const MemberAdvantages = () =>{
                                                             </div>
                                                             <span>1 year ago</span> 
                                                           </div>
-                                                          <div class="message">Everything went fine. The provider arrived on time and reviewed his findings. I'm grateful to know the AC unit is working well and ready for the summer. Thank you!!!</div>
+                                                          <div className="message">Everything went fine. The provider arrived on time and reviewed his findings. I'm grateful to know the AC unit is working well and ready for the summer. Thank you!!!</div>
                                                        </div>
                                                     </div>
                                                   </div>
@@ -238,7 +238,7 @@ const MemberAdvantages = () =>{
                                                             </div>
                                                             <span>1 year ago</span> 
                                                           </div>
-                                                          <div class="message">I am a real estate agent and I refer all my buyers to Acclaimed home warranty. They do a great job and fast! Friendly and always there when I have needed them :)</div>
+                                                          <div className="message">I am a real estate agent and I refer all my buyers to Acclaimed home warranty. They do a great job and fast! Friendly and always there when I have needed them :)</div>
                                                        </div>
                                                     </div>
                                                   </div>
@@ -247,9 +247,9 @@ const MemberAdvantages = () =>{
                                                  <Advantagesform/>
                                                   <div className="compare-box" style={{ backgroundImage: `url(${comparebox})`}}>
                                                     <div className="text">
-                                                    <p class="strong">Don't Have a<br></br>Home Warranty Plan?</p>
+                                                    <p className="strong">Don't Have a<br></br>Home Warranty Plan?</p>
                                                     <p>When purchasing a home warranty through Acclaimed, you have a partner in addressing unexpected appliance or major systems problems.</p>
-                                                    <a href="" class="btn">Compare Idaho Plans</a>  
+                                                    <a href="" className="btn">Compare Idaho Plans</a>  
                                                     </div>
                                                   </div>
                                                </div>
@@ -277,10 +277,10 @@ const MemberAdvantages = () =>{
                                                     <h3>OTHER GREAT ADVANTAGES</h3>
                                                     <p>We’ve negotiated some great pricing for services you’ll need while enjoying your home. If you’re interested in any of the services below, just email or call us and we’ll put you in touch with the companies to get you a free quote.**</p>
                                                      <div className="list">
-                                                        <div class="service">
+                                                        <div className="service">
                                                           Free Ring Doorbell or Next Thermostat with Home Security sign up. As low as $40 a month.
                                                         </div>
-                                                        <div class="disclaimer">
+                                                        <div className="disclaimer">
                                                           *Not offered in all areas. Fill out the form and we will let you know which services are available near you.
                                                         </div>
                                                     </div>
@@ -302,7 +302,7 @@ const MemberAdvantages = () =>{
                                                             </div>
                                                             <span>1 year ago</span> 
                                                           </div>
-                                                          <div class="message">I can’t say enough good things! The warranty was included with our home purchase and we most likely wouldn’t have chosen to buy it on our own- just because of all the costs associated with moving and buying a house, etc. 9 days before the o</div>
+                                                          <div className="message">I can’t say enough good things! The warranty was included with our home purchase and we most likely wouldn’t have chosen to buy it on our own- just because of all the costs associated with moving and buying a house, etc. 9 days before the o</div>
                                                        </div>
                                                     </div>
                                                   </div>
@@ -323,7 +323,7 @@ const MemberAdvantages = () =>{
                                                             </div>
                                                             <span>1 year ago</span> 
                                                           </div>
-                                                          <div class="message">As a real estate agent I highly recommend Acclaimed Home Warranty. I used to use another company but after repeated instances wherein my client's reasonable and covered needs were not taken care of I switched to Acclaimed and have never loo</div>
+                                                          <div className="message">As a real estate agent I highly recommend Acclaimed Home Warranty. I used to use another company but after repeated instances wherein my client's reasonable and covered needs were not taken care of I switched to Acclaimed and have never loo</div>
                                                        </div>
                                                     </div>
                                                   </div>
@@ -332,9 +332,9 @@ const MemberAdvantages = () =>{
                                                  <Advantagesform/>
                                                   <div className="compare-box" style={{ backgroundImage: `url(${comparebox})`}}>
                                                     <div className="text">
-                                                    <p class="strong">Don't Have a<br></br>Home Warranty Plan?</p>
+                                                    <p className="strong">Don't Have a<br></br>Home Warranty Plan?</p>
                                                     <p>When purchasing a home warranty through Acclaimed, you have a partner in addressing unexpected appliance or major systems problems.</p>
-                                                    <a href="" class="btn">Compare Nevada Plans</a>  
+                                                    <a href="" className="btn">Compare Nevada Plans</a>  
                                                     </div>
                                                   </div>
                                                </div>
@@ -362,10 +362,10 @@ const MemberAdvantages = () =>{
                                                     <h3>OTHER GREAT ADVANTAGES</h3>
                                                     <p>We’ve negotiated some great pricing for services you’ll need while enjoying your home. If you’re interested in any of the services below, just email or call us and we’ll put you in touch with the companies to get you a free quote.**</p>
                                                      <div className="list">
-                                                        <div class="service">
+                                                        <div className="service">
                                                           Free Ring Doorbell or Next Thermostat with Home Security sign up. As low as $40 a month.
                                                         </div>
-                                                        <div class="disclaimer">
+                                                        <div className="disclaimer">
                                                           *Not offered in all areas. Fill out the form and we will let you know which services are available near you.
                                                         </div>
                                                     </div>
@@ -387,7 +387,7 @@ const MemberAdvantages = () =>{
                                                             </div>
                                                             <span>1 year ago</span> 
                                                           </div>
-                                                          <div class="message">They have the best customer service and helped me when I set up a repair outside the service contract. Really stepped it up to help me when they did not have to. Great Job!!</div>
+                                                          <div className="message">They have the best customer service and helped me when I set up a repair outside the service contract. Really stepped it up to help me when they did not have to. Great Job!!</div>
                                                        </div>
                                                     </div>
                                                   </div>
@@ -408,7 +408,7 @@ const MemberAdvantages = () =>{
                                                             </div>
                                                             <span>1 year ago</span> 
                                                           </div>
-                                                          <div class="message">I bought my home and within days discovered a kitchen plumbing leak.    I filed a claim with Acclaimed Home Warranty.  After the initial repair, it was discovered that the entire faucet needed to be replaced. I was shocked at the cost to r</div>
+                                                          <div className="message">I bought my home and within days discovered a kitchen plumbing leak.    I filed a claim with Acclaimed Home Warranty.  After the initial repair, it was discovered that the entire faucet needed to be replaced. I was shocked at the cost to r</div>
                                                        </div>
                                                     </div>
                                                   </div>
@@ -429,7 +429,7 @@ const MemberAdvantages = () =>{
                                                             </div>
                                                             <span>1 year ago</span> 
                                                           </div>
-                                                          <div class="message">Scott and Kristin did a great job of handling our warranty claim on our air conditioning and heating systems.  Kristin scheduled our annual air conditioning review with Eco-Air.  Their service was timely and discovered issues with the evapo</div>
+                                                          <div className="message">Scott and Kristin did a great job of handling our warranty claim on our air conditioning and heating systems.  Kristin scheduled our annual air conditioning review with Eco-Air.  Their service was timely and discovered issues with the evapo</div>
                                                        </div>
                                                     </div>
                                                   </div>
@@ -438,9 +438,9 @@ const MemberAdvantages = () =>{
                                                  <Advantagesform/>
                                                   <div className="compare-box" style={{ backgroundImage: `url(${comparebox})`}}>
                                                     <div className="text">
-                                                    <p class="strong">Don't Have a<br></br>Home Warranty Plan?</p>
+                                                    <p className="strong">Don't Have a<br></br>Home Warranty Plan?</p>
                                                     <p>When purchasing a home warranty through Acclaimed, you have a partner in addressing unexpected appliance or major systems problems.</p>
-                                                    <a href="" class="btn">Compare Texas Plans</a>  
+                                                    <a href="" className="btn">Compare Texas Plans</a>  
                                                     </div>
                                                   </div>
                                                </div>
@@ -468,10 +468,10 @@ const MemberAdvantages = () =>{
                                                     <h3>OTHER GREAT ADVANTAGES</h3>
                                                     <p>We’ve negotiated some great pricing for services you’ll need while enjoying your home. If you’re interested in any of the services below, just email or call us and we’ll put you in touch with the companies to get you a free quote.**</p>
                                                      <div className="list">
-                                                        <div class="service">
+                                                        <div className="service">
                                                           Free Ring Doorbell or Next Thermostat with Home Security sign up. As low as $40 a month.
                                                         </div>
-                                                        <div class="disclaimer">
+                                                        <div className="disclaimer">
                                                           *Not offered in all areas. Fill out the form and we will let you know which services are available near you.
                                                         </div>
                                                     </div>
@@ -493,7 +493,7 @@ const MemberAdvantages = () =>{
                                                             </div>
                                                             <span>1 year ago</span> 
                                                           </div>
-                                                          <div class="message">They have the best customer service and helped me when I set up a repair outside the service contract. Really stepped it up to help me when they did not have to. Great Job!!</div>
+                                                          <div className="message">They have the best customer service and helped me when I set up a repair outside the service contract. Really stepped it up to help me when they did not have to. Great Job!!</div>
                                                        </div>
                                                     </div>
                                                   </div>
@@ -514,7 +514,7 @@ const MemberAdvantages = () =>{
                                                             </div>
                                                             <span>1 year ago</span> 
                                                           </div>
-                                                          <div class="message">I bought my home and within days discovered a kitchen plumbing leak.    I filed a claim with Acclaimed Home Warranty.  After the initial repair, it was discovered that the entire faucet needed to be replaced. I was shocked at the cost to r</div>
+                                                          <div className="message">I bought my home and within days discovered a kitchen plumbing leak.    I filed a claim with Acclaimed Home Warranty.  After the initial repair, it was discovered that the entire faucet needed to be replaced. I was shocked at the cost to r</div>
                                                        </div>
                                                     </div>
                                                   </div>
@@ -535,7 +535,7 @@ const MemberAdvantages = () =>{
                                                             </div>
                                                             <span>1 year ago</span> 
                                                           </div>
-                                                          <div class="message">Scott and Kristin did a great job of handling our warranty claim on our air conditioning and heating systems.  Kristin scheduled our annual air conditioning review with Eco-Air.  Their service was timely and discovered issues with the evapo</div>
+                                                          <div className="message">Scott and Kristin did a great job of handling our warranty claim on our air conditioning and heating systems.  Kristin scheduled our annual air conditioning review with Eco-Air.  Their service was timely and discovered issues with the evapo</div>
                                                        </div>
                                                     </div>
                                                   </div>
@@ -544,9 +544,9 @@ const MemberAdvantages = () =>{
                                                   <Advantagesform/>
                                                   <div className="compare-box" style={{ backgroundImage: `url(${comparebox})`}}>
                                                     <div className="text">
-                                                    <p class="strong">Don't Have a<br></br>Home Warranty Plan?</p>
+                                                    <p className="strong">Don't Have a<br></br>Home Warranty Plan?</p>
                                                     <p>When purchasing a home warranty through Acclaimed, you have a partner in addressing unexpected appliance or major systems problems.</p>
-                                                    <a href="" class="btn">Compare Texas Plans</a>  
+                                                    <a href="" className="btn">Compare Texas Plans</a>  
                                                     </div>
                                                   </div>
                                                </div>
