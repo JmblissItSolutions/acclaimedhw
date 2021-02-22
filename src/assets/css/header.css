@@ -80,7 +80,7 @@ nav.navbar {
 }
 a.navbar-brand img {
     min-width: 280px;
-    max-height: 50px;
+    max-height: 49px;
 }
 header.staticHeader {
     position: relative;

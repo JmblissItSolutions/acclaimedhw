@@ -1,5 +1,4 @@
 import { React } from "react";
-// import Select from 'react-select';
 import latticebackground from "./../assets/images/lattice-background.png";
 const Advantagesform = () =>{
     // this.state = {value: 'Alabama'};

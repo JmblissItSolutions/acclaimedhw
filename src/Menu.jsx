@@ -3,10 +3,9 @@ import {NavLink } from "react-router-dom";
 import logo from './logo.jpg';
 import phone from './assets/images/green-phone.jpg';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Button, Navbar, Nav, NavItem, NavDropdown, MenuItem } from 'react-bootstrap';
+import { Button,Navbar, Nav, NavItem, NavDropdown, MenuItem} from 'react-bootstrap';
 function Menu() {
   const [isActive, setActive] = useState(false);
-
   const toggleClass = () => {
     setActive(!isActive);
   };
@@ -29,7 +28,7 @@ function Menu() {
       onClick={toggleClass} />
   <Navbar.Collapse id="responsive-navbar-nav">
     <Nav className="mr-auto">
-    <NavLink exact className="nav-link" activeClassName="active" to="/">Home Warranty</NavLink>
+    <NavLink exact className="nav-link" activeClassName="active"  to="/">Home Warranty</NavLink>
     <NavLink exact className="nav-link" activeClassName="active"  to="/ordernow">ORDER NOW</NavLink>
     <NavLink exact className="nav-link" activeClassName="active"  to="/brochers">Brochers</NavLink>
     <NavLink exact className="nav-link" activeClassName="active"  to="/memberadvantages">Member Advantages</NavLink>

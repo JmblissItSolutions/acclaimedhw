@@ -11,7 +11,12 @@ import "./assets/css/MemberAdvantages.css";
 import "./assets/css/Faq.css";
 import "./assets/css/Contractors.css";
 import "./assets/css/AboutUs.css";
-import { Route, Switch } from "react-router-dom";
+import "./assets/css/Arizona.css";
+import "./assets/css/Idaho.css";
+import "./assets/css/Nevada.css";
+import "./assets/css/Texas.css";
+import "./assets/css/Utah.css";
+import { Route, Switch} from "react-router-dom";
 import { useState, useEffect } from "react"
 import  Home  from "./Home";
 import  Contact  from "./Contact";
@@ -21,16 +26,19 @@ import Brochers from "./Brochers";
 import MemberAdvantages from "./MemberAdvantages";
 import Faq from "./Faq";
 import Contractors from "./Contractors";
-import AboutUs from "./AboutUs";                
+import AboutUs from "./AboutUs";
+// import Arizona from "./homeowner-plans/Arizona";  
+// import Utah from "./homeowner-plans/Utah";
+// import Nevada from "./homeowner-plans/Nevada";
+// import Texas from "./homeowner-plans/Texas";
+// import Idaho from "./homeowner-plans/Idaho";    
 import  Error  from "./Error";
 import Menu from "./Menu";
 import { Footer, FooterBottom } from './Footer';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-
 function App() {
   const [scroll, setScroll] = useState(false);
-
   useEffect(() => {
     window.addEventListener("scroll", () => {
       setScroll(window.scrollY > 2);
@@ -41,7 +49,7 @@ function App() {
     <div className="App">
       <header className={scroll ? "fixedHeader" : "staticHeader"}>
       <div className="container">
-      <Menu />
+       <Menu/>
       </div>
       </header>
       <div className="pagecontent">
@@ -56,7 +64,12 @@ function App() {
                 <Route path="/faq" component={Faq} exact/>
                 <Route path="/contractors" component={Contractors} exact/>
                 <Route path="/aboutus" component={AboutUs} exact/>
-                <Route component={Error} />
+                {/* <Route component={Arizona}/>
+                <Route component={Utah}/>
+                <Route component={Nevada}/>
+                <Route component={Texas}/>
+                <Route component={Idaho}/> */}
+                <Route component={Error}/>
             </Switch>
         </main>
       </div>
@@ -68,7 +81,6 @@ function App() {
       </footer>
       </div>
     </>
-
   );
 }
 

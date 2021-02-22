@@ -381,7 +381,6 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#eeeeee', end
     width: 100%;
     padding: 0 15px;
 }
-
 #home-perfect-plan  .btn-cont .btn {
     width: 100%;
     margin: 0 auto;
@@ -603,12 +602,12 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#eeeeee', end
         max-width: 100%;
         height: 300px  !important;
     }
-    .contact_con {
+    /* .contact_con {
         padding: 20px 0;
     }
     .contact_con p {
         width: 100%;
-    }  
+    }   */
     .home_wrranty h1 ,
     .home_advantage h1{
         padding: 20px 0 20px 0;
