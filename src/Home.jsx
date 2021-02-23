@@ -84,9 +84,7 @@ const Home = () =>{
                             </div>
                             <div className="advantage_reason">
                               <LocallyOwned/>
-                            </div>  
-                            
-                                 
+                            </div>         
                         </div>
                         <div className="advantageslidershow mobile-slide">
                 <AdvantageSlideshow/>

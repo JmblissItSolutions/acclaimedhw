@@ -9,7 +9,7 @@ const Fasterfixes = () =>{
     return(
     <>
        <div className="Fasterfixes">
-       <i className="achis blue-phone">
+        <i className="achis blue-phone">
         <img src={bluephone} alt="Blue phone" /></i>
         <h4>Faster Fixes</h4>
         <p>We have experienced contractors available to complete repairs 24 hours a day 365 days a year.</p>
@@ -58,18 +58,18 @@ const Numerousplan = () =>{
             <>
         <Carousel fade={true}>
             <Carousel.Item>
-                <Fasterfixes/>
+            <Fasterfixes/>
             </Carousel.Item>
             <Carousel.Item>
             <Numerousplan/>
             </Carousel.Item>
             <Carousel.Item>
             <ResponsiveCustomer/>
-          </Carousel.Item>
-            <Carousel.Item>
-                <LocallyOwned/>
             </Carousel.Item>
-    </Carousel>
+            <Carousel.Item>
+            <LocallyOwned/>
+            </Carousel.Item>
+      </Carousel>
             </>
         );
     }
