@@ -1,10 +1,15 @@
 import React from "react";
+import {Helmet} from "react-helmet";
 import ContactForm from "./component/ContactForm";
 import contactbanner from"./assets/images/contact-us-banner.png";
 const Contact = () =>{
     return(
         <>
-                <div className="home_page">
+          <Helmet>         
+            <title>Contact Acclaimed Home Warranty Team in one of our offices: Utah, Arizona, Idaho, Texas, or Nevada</title>
+            <meta name="description" content="For all your home warranty needs, concerns and questions, reach out to the Acclaimed Home Warranty’s team."/>
+          </Helmet>
+          <div className="home_page">
                     <div className="top_img">
                       <img src={contactbanner} alt="contactbanner"/>
                     </div>

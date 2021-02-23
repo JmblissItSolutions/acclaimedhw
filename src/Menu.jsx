@@ -27,16 +27,16 @@ function Menu() {
   <Navbar.Toggle aria-controls="responsive-navbar-nav"  className={isActive ? 'close-menu': null} 
       onClick={toggleClass} />
   <Navbar.Collapse id="responsive-navbar-nav">
-    <Nav className="mr-auto">
-    <NavLink exact className="nav-link" activeClassName="active"  to="/">Home Warranty</NavLink>
-    <NavLink exact className="nav-link" activeClassName="active"  to="/ordernow">ORDER NOW</NavLink>
+  <Nav className="mr-auto">
+    <NavLink exact className="nav-link" activeClassName="active"  to="/home-warranty">Home Warranty</NavLink>
+    <NavLink exact className="nav-link" activeClassName="active"  to="/order-now">ORDER NOW</NavLink>
     <NavLink exact className="nav-link" activeClassName="active"  to="/brochers">Brochers</NavLink>
-    <NavLink exact className="nav-link" activeClassName="active"  to="/memberadvantages">Member Advantages</NavLink>
-    <NavLink exact className="nav-link" activeClassName="active"  to="/faq">FAQ</NavLink>
+    <NavLink exact className="nav-link" activeClassName="active"  to="/member-advantages">Member Advantages</NavLink>
+    <NavLink exact className="nav-link" activeClassName="active"  to="/home-warranty-faqs">FAQ</NavLink>
     <NavLink exact className="nav-link" activeClassName="active"  to="/contractors">Contractors</NavLink>
-    <NavLink exact className="nav-link" activeClassName="active"  to="/aboutus">About Us</NavLink>
-    <NavLink exact className="nav-link" activeClassName="active"  to="/makeclaim">Make A Claim</NavLink>
-    <NavLink exact className="nav-link" activeClassName="active"  to="/contact">Contact Us</NavLink>
+    <NavLink exact className="nav-link" activeClassName="active"  to="/about-us">About Us</NavLink>
+    <NavLink exact className="nav-link" activeClassName="active"  to="/make-a-claim">Make A Claim</NavLink>
+    <NavLink exact className="nav-link" activeClassName="active"  to="/contact-us">Contact Us</NavLink>
     </Nav>
   </Navbar.Collapse>
 </Navbar>

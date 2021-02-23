@@ -1,10 +1,14 @@
 import React from "react";
 import MakeAClaim from"./assets/images/MakeAClaim.png";
-
+import {Helmet} from "react-helmet";
 
 const Faq = () =>{
     return(
        <>
+          <Helmet>         
+            <title>What Is a Home Warranty? Pros, Cons, Costs, FAQ's to put your mind at ease</title>
+            <meta name="description" content="What's covered under a home warranty, and how can you, as a homeowner, get the maximum benefit when purchased your customized plan." />
+          </Helmet>
        <div className="home_page">
           <div className="top_img">
             <img src={MakeAClaim } alt="MakeClaim"/>

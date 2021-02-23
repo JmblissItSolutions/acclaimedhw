@@ -5,10 +5,14 @@ import playicon from "./assets/images/play-icon.png"
 import Iframe from 'react-iframe'
 import Popup from 'reactjs-popup';
 import 'reactjs-popup/dist/index.css';
-
+import {Helmet} from "react-helmet";
 const MakeClaim = () =>{
     return(
       <>
+        <Helmet>         
+            <title>File a Home Warranty Claim for Your Property</title>
+            <meta name="description" content="File a Claim for your home warranty with Acclaimed Home Warranty, service providers in Utah, Texas, Arizona, Idaho, and Nevada. "/>
+          </Helmet>
       <div className="home_page">
           <div className="top_img">
             <img src={MakeAClaim } alt="MakeClaim"/>

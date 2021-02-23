@@ -10,6 +10,7 @@ import leackage from "./assets/images/leackage.jpeg";
 import playicon from "./assets/images/play-icon.png";
 import Iframe from 'react-iframe';
 import Popup from 'reactjs-popup';
+import {Helmet} from "react-helmet";
 import 'reactjs-popup/dist/index.css';
 import homeperfect from "./assets/images/home-perfect-bg.png";
 import comparedoor from "./assets/images/compare-door-bg.png";
@@ -22,6 +23,10 @@ import Idaho from "./assets/images/compare_idaho.jpg";
 const Home = () =>{
     return (
         <>
+      <Helmet>         
+        <title>Acclaimed Home Warranty | Utah, Nevada, Texas, Arizona, and Idaho : Acclaimed Home Warranty</title>
+        <meta name="description" content="Acclaimed Home Warranty offers coverage plans in five states, with several coverage upgrades to meet homeowner needs. " />
+      </Helmet>
         <div className="home_page">
             <div className="banner">
                <Slider/>
@@ -62,8 +67,8 @@ const Home = () =>{
                      </div>
 
                      <div className="slidershow mobile-slide">
-                <Slideshow/>
-            </div>
+                      <Slideshow/>
+                     </div>
                </div> 
             </div>
           <div className="home_advantage">

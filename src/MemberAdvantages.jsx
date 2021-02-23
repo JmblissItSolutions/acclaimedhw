@@ -1,4 +1,5 @@
 import React from "react";
+import {Helmet} from "react-helmet";
 import { Accordion,AccordionItem,AccordionItemHeading,AccordionItemButton,AccordionItemPanel,} from 'react-accessible-accordion';
 import 'react-accessible-accordion/dist/fancy-example.css';
 import  Memberadvantages from"./assets/images/MemberAdvantages.png";
@@ -21,6 +22,10 @@ const MemberAdvantages = () =>{
   };
     return(
        <>
+           <Helmet>         
+            <title>Member Advantages for Home Warranty Coverages</title>
+            <meta name="description" content="Visit Acclaimed Home Warranty’s website for details about member advantages. For warranty coverages for your home in Arizona, get in touch with us today." />
+          </Helmet>
          <div className="home_page">
                   <div className="top_img">
                   <img src={Memberadvantages} alt="contactbanner"/>
