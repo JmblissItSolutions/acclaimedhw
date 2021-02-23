@@ -1,4 +1,5 @@
 import React from "react";
+import {Helmet} from "react-helmet";
 import homeperfect from "./assets/images/home-perfect-bg.png";
 import comparedoor from "./assets/images/compare-door-bg.png";
 import arizona from "./assets/images/compare-arizona.jpg";
@@ -7,14 +8,14 @@ import Nevada from "./assets/images/compare-nevada.jpg";
 import Texas from "./assets/images/compare-texas.jpg";
 import Idaho from "./assets/images/compare_idaho.jpg";
 import Arizona from "./homeowner-plans/Arizona";  
+import { Route, Link, BrowserRouter as Router } from "react-router-dom";
 const OrderNow = () =>{
-	
-function Arizona(e) {
-	e.preventDefault();
-	console.log("Arizona!");
-  }
     return(
        <>
+	     <Helmet>         
+			<title>ORDER NOW - Acclaimed Home Warranty : Acclaimed Home Warranty</title>
+			<meta name="description" content="ORDER NOW - Acclaimed Home Warranty" />
+        </Helmet>
         <div className="home-page">
           <section id="home-perfect-plan"  style={{ backgroundImage: `url(${homeperfect})` }}>
 				   <div className="plans"  style={{ backgroundImage: `url(${comparedoor})` }}> 
@@ -26,7 +27,7 @@ function Arizona(e) {
                                 <span className="perfect-cta__plans">Plans</span>
 							  </div>
 							  <div className="btn-cont">
-								<a href="/homeowner-plans/arizona" className="btn" onClick={Arizona}>compare homeowner&nbsp;plans</a>
+								<Link to="/homeowner-plans/arizona" className="btn">compare homeowner plans</Link>
 								<a href="/real-estate-orders/" className="btn">compare real estate&nbsp;plans&nbsp;</a>
 							  </div>
 						 </div>
@@ -37,7 +38,7 @@ function Arizona(e) {
                                 <span className="perfect-cta__plans">Plans</span>
 							</div>
 							<div className="btn-cont">
-							   <a href="/homeowner-plans/utah" className="btn">compare homeowner&nbsp;plans</a>
+							   <Link to="/homeowner-plans/utah" className="btn">compare homeowner plans</Link>
 							   <a href="/real-estate-orders/" className="btn">compare real&nbsp;estate&nbsp;plans</a>
 							</div>
 						</div>
@@ -48,7 +49,7 @@ function Arizona(e) {
 								<span className="perfect-cta__plans">Plans</span>
 							</div>
 							<div className="btn-cont">
-								<a href="/homeowner-plans/nevada" className="btn">compare homeowner&nbsp;plans</a>
+							   <Link to="/homeowner-plans/nevada" className="btn">compare homeowner plans</Link>
 								<a href="/real-estate-orders/" className="btn">compare real estate&nbsp;plans&nbsp;</a>
 							</div>
 						</div>
@@ -59,7 +60,7 @@ function Arizona(e) {
 								<span className="perfect-cta__plans">Plans</span>
 							</div>
 							<div className="btn-cont">
-								<a href="/homeowner-plans/texas" className="btn">compare homeowner&nbsp;plans</a>
+							   <Link to="/homeowner-plans/texas" className="btn">compare homeowner plans</Link>
 								<a href="/real-estate-orders/" className="btn">compare real&nbsp;estate&nbsp;plans</a>
 							</div>
 						</div>
@@ -70,7 +71,7 @@ function Arizona(e) {
 								<span className="perfect-cta__plans">Plans</span>
 							</div>
 							<div className="btn-cont">
-								<a href="/homeowner-plans/idaho" className="btn">compare homeowner&nbsp;plans</a>
+							   <Link to="/homeowner-plans/idaho" className="btn">compare homeowner plans</Link>
 								<a href="/real-estate-orders/" className="btn">compare real&nbsp;estate&nbsp;plans</a>
 							</div>
 						</div>
