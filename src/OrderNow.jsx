@@ -7,7 +7,6 @@ import Utah from "./assets/images/compare-utah.jpg";
 import Nevada from "./assets/images/compare-nevada.jpg";
 import Texas from "./assets/images/compare-texas.jpg";
 import Idaho from "./assets/images/compare_idaho.jpg";
-import Arizona from "./homeowner-plans/Arizona";  
 import { Route, Link, BrowserRouter as Router } from "react-router-dom";
 const OrderNow = () =>{
     return(
