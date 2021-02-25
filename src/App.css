@@ -147,3 +147,23 @@ body h1{
     height: 300px;
   }
 }
+/* socialicons */
+.contact-us-flag{
+  position: absolute;
+  background: #212121;
+  top: 100%;
+  left: 0;
+  padding: 15px 10px;
+}
+.contact-us-flag img{
+  padding: 0px 5px;
+  margin-bottom: 15px;
+}
+.antfb-icons .anticon svg,.antinsta-icons .anticon svg {
+  display: inline-block;
+  color: white;
+  width: 30px;
+  height: 30px;
+  border-radius: 15px;
+  margin: 3px;
+}

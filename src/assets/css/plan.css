@@ -324,3 +324,19 @@ h1.upper {
         text-align: center;
     }
 }
+
+/* staricons */
+.antstar.anticon svg {
+    display: inline-block;
+    color: white;
+    width: 22px;
+    height: 20px;
+}
+.antcheck.anticon svg {
+    color: white;
+    width: 30px;
+    height: 30px;
+} 
+.feature.included{
+    text-align: center;
+}

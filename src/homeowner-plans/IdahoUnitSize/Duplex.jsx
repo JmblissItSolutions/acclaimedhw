@@ -1,5 +1,6 @@
 import React from "react";
 import {Helmet} from "react-helmet";
+import {StarFilled } from '@ant-design/icons';
 const Duplex = () =>{
     return(
         <>
@@ -12,7 +13,7 @@ const Duplex = () =>{
           <span>Duplex</span></h2>
         <div className="option-cont table-right">
           <div className="option">
-            <div className="star-cont"><i className="achi white-star"></i></div>
+            <div className="star-cont"><StarFilled className="antstar"/></div>
             <div className="body">
               <h6 className="upper">Standard</h6>
               <h4 className="lato">$695.00<span style={{ fontSize: "0.4em" }}>/MO</span></h4>
