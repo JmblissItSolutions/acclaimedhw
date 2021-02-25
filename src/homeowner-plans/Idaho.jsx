@@ -5,9 +5,11 @@ import Triplex from "./IdahoUnitSize/Triplex";
 import Fourplex from "./IdahoUnitSize/Fourplex";
 import UtahHomeowner from  "./../assets/images/UtahHomeowner.png"
 import { Helmet } from "react-helmet"; 
-import { BrowserRouter as Router, useHistory} from "react-router-dom";
+import { BrowserRouter as Router, useHistory,useLocation} from "react-router-dom";
 const Idaho = () =>{
-  const [arizonaState, setArizonaState] = useState("");
+  const [idahoState, setIdahoState] = useState("");
+  const location = useLocation();
+  const sel = location.pathname;
   let history = useHistory();
   function handleChange(e){
    history.push(e.target.value)
@@ -37,7 +39,7 @@ const Idaho = () =>{
             <div>
               <div>
                 <span>Unit Size</span>
-                <select name="size" className="" onChange={(e) => { const selectedd = e.target.value; setArizonaState(selectedd); }}>
+                <select name="size" className="" onChange={(e) => { const selectedd = e.target.value; setIdahoState(selectedd); }}>
                   <option value="0">Single Family</option>
                   <option value="1">Duplex</option>
                   <option value="2">Triplex</option>
@@ -48,7 +50,7 @@ const Idaho = () =>{
                 <span style={{display: "block"}}>
                   Location
             </span>
-                <select name="size" className="" onChange={handleChange}>
+                <select name="size" className="" onChange={handleChange} defaultValue={sel}>
                   <option value="/homeowner-plans/utah">Utah</option>
                   <option value="/homeowner-plans/nevada">Nevada</option>
                   <option value="/homeowner-plans/texas">Texas</option>
@@ -61,8 +63,8 @@ const Idaho = () =>{
         </section>
         {/* fix on top header while scroll */}
         <section className="light-back plan-options">
-            {arizonaState === "0" ? <SingleFamily /> : arizonaState === "1" ? <Duplex />
-              : arizonaState === "2" ? <Triplex /> : arizonaState === "3" ? <Fourplex /> : <SingleFamily />}
+            {idahoState === "0" ? <SingleFamily /> : idahoState === "1" ? <Duplex />
+              : idahoState === "2" ? <Triplex /> : idahoState === "3" ? <Fourplex /> : <SingleFamily />}
           <hr className="textured" />
         </section>
       </div>

@@ -5,14 +5,14 @@ import Triplex from "./ArizonaUnitSize/Triplex";
 import Fourplex from "./ArizonaUnitSize/Fourplex";
 import UtahHomeowner from "./../assets/images/UtahHomeowner.png"
 import { Helmet } from "react-helmet";
-import { BrowserRouter as Router, useHistory } from "react-router-dom";
-
+import { BrowserRouter as Router, useHistory,useLocation } from "react-router-dom";
 const Arizona = () => {
   const [arizonaState, setArizonaState] = useState("");
-
+  const location = useLocation();
+  const sel = location.pathname;
   let history = useHistory();
   function handleChange(e) {
-    history.push(e.target.value)
+  history.push(e.target.value);
   }
   return (
     <>
@@ -51,7 +51,7 @@ const Arizona = () => {
                 <span style={{ display: "block" }}>
                   Location
                   </span>
-                <select name="size" className="" onChange={handleChange}>
+                <select name="size" className="" onChange={handleChange} defaultValue={sel}>
                   <option value="/homeowner-plans/utah">Utah</option>
                   <option value="/homeowner-plans/nevada">Nevada</option>
                   <option value="/homeowner-plans/texas">Texas</option>

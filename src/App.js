@@ -13,7 +13,6 @@ import "./assets/css/Faq.css";
 import "./assets/css/Contractors.css";
 import "./assets/css/AboutUs.css";
 import "./assets/css/plan.css";
-import "./assets/css/SocialFollow.css";
 import { Route, Switch} from "react-router-dom";
 import { useState, useEffect } from "react"
 import HomeWarranty from "./Home-Warranty"

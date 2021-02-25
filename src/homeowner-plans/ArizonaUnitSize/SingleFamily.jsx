@@ -1,6 +1,6 @@
 import React from "react";
 import {Helmet} from "react-helmet";
-import FontAwesome from 'react-fontawesome'
+import {StarFilled,CheckOutlined} from '@ant-design/icons';
 const SingleFamily = () =>{
  
     return(
@@ -19,7 +19,7 @@ const SingleFamily = () =>{
               <div className="option-cont table-right">
                 <div className="option">
                   <div className="star-cont">
-                    <i className="achi white-star"></i></div>
+                    <StarFilled className="antstar"/></div>
                   <div className="body">
                     <h6 className="upper">Standard</h6>
                     <h4 className="lato">$35.00<span style={{fontSize:"0.4em"}}>/MO</span></h4>
@@ -29,7 +29,9 @@ const SingleFamily = () =>{
                 </div>
                 {/* end of option  */}
                 <div className="option">
-                  <div className="star-cont"><i className="achi white-star"></i><i className="achi white-star"></i></div>
+                  <div className="star-cont">
+                  <StarFilled className="antstar"/><StarFilled className="antstar"/>
+                    </div>
                   <div className="body">
                     <h6 className="upper">Premium</h6>
                     <h4 className="lato">$40.00<span style={{fontSize:"0.4em"}}>/MO</span></h4>
@@ -39,7 +41,9 @@ const SingleFamily = () =>{
                 </div>
                 {/* end of option */}
                 <div className="option">
-                  <div className="star-cont"><i className="achi white-star"></i><i className="achi white-star"></i><i className="achi white-star"></i><i className="achi white-star"></i><i className="achi white-star"></i></div>
+                  <div className="star-cont">
+                   <StarFilled className="antstar"/><StarFilled className="antstar"/><StarFilled className="antstar"/>
+                  </div>
                   <div className="body">
                     <h6 className="upper">Ultimate</h6>
                     <h4 className="lato">$54.00<span style={{fontSize:"0.4em"}}>/MO</span></h4>
@@ -117,17 +121,13 @@ const SingleFamily = () =>{
               <div className="table-left">
                 <p><span>Central Vacuum</span></p>
                 <p><span>Registers</span></p>
-                <p><span>Free ReKey (travel fees may apply)</span></p>
                 <p><span>Grills</span></p>
                 <p><span>Heat Lamps</span></p>
-                <p><span>Exterior hose bibs</span></p>
-                <p><span>Pressure Regulator Valve</span></p>
                 <p><span>Angle Stops, and Gate Valves</span></p>
                 <p><span>Toilet Replacement</span></p>
                 <p><span>Interior Hose Bibs</span></p>
                 <p><span>Shower Heads</span></p>
                 <p><span>Shower Arms - Faucets</span></p>
-                <p><span>Toilet replacement</span></p>
                 <p>
                   <span>
                     <span>
@@ -135,17 +135,12 @@ const SingleFamily = () =>{
                     </span>
                   </span>
                 </p>
-                <p><span>Refrigerator</span></p>
-                <p><span>R-22 Conversion</span></p>
-                <p><span>No Fault (code upgrades &amp; mismatched systems)</span></p>
-                <p>
+                <p> 
                   <span>
-                    <span>
-                      <a data-toggle="modal" data-target="#no_fault_popup_utah">No Fault Coverage</a>
+                      <a data-toggle="modal" data-target="#forty_items_popup_utah">No Fault Coverage</a>
                     </span>
-                  </span>
                 </p>
-                <p><span>Radiant heating/broiler</span></p>
+                <p><span>Refrigerator</span></p>
                 <p><span>Washer and Dryer</span></p>
               </div>
               <div className="table-right desktop">
@@ -163,101 +158,36 @@ const SingleFamily = () =>{
                   <div className="feature"><i className="achi white-checkmark"></i></div>
                   <div className="feature"><i className="achi white-checkmark"></i></div>
                   <div className="feature"><i className="achi white-checkmark"></i></div>
-                  <div className="feature"><i className="achi white-checkmark"></i></div>
-                  <div className="feature"><i className="achi white-checkmark"></i></div>
-                  <div className="feature"><i className="achi white-checkmark"></i></div>
-                  <div className="feature"><i className="achi white-checkmark"></i></div>
-                  <div className="feature"><i className="achi white-checkmark"></i></div>
-                  <div className="feature"><i className="achi white-checkmark"></i></div>
-                  <div className="feature"><i className="achi white-checkmark"></i></div>
                 </div>
                 <div className="feature-col">
-                  <div className="feature included"><i className="achi white-checkmark"></i></div>
-                  <div className="feature included"><i className="achi white-checkmark"></i></div>
-                  <div className="feature"><i className="achi white-checkmark"></i></div>
-                  <div className="feature included"><i className="achi white-checkmark"></i></div>
-                  <div className="feature included"><i className="achi white-checkmark"></i></div>
-                  <div className="feature"><i className="achi white-checkmark"></i></div>
-                  <div className="feature"><i className="achi white-checkmark"></i></div>
-                  <div className="feature included"><i className="achi white-checkmark"></i></div>
-                  <div className="feature included"><i className="achi white-checkmark"></i></div>
-                  <div className="feature included"><i className="achi white-checkmark"></i></div>
-                  <div className="feature included"><i className="achi white-checkmark"></i></div>
-                  <div className="feature included"><i className="achi white-checkmark"></i></div>
-                  <div className="feature included"><i className="achi white-checkmark"></i></div>
-                  <div className="feature included"><i className="achi white-checkmark"></i></div>
+                  <div className="feature included"><CheckOutlined className="antcheck"/></div>
+                  <div className="feature included"><CheckOutlined className="antcheck"/></div>
+                  <div className="feature included"><CheckOutlined className="antcheck"/></div>
+                  <div className="feature included"><CheckOutlined className="antcheck"/></div>
+                  <div className="feature included"><CheckOutlined className="antcheck"/></div>
+                  <div className="feature included"><CheckOutlined className="antcheck"/></div>
+                  <div className="feature included"><CheckOutlined className="antcheck"/></div>
+                  <div className="feature included"><CheckOutlined className="antcheck"/></div>
+                  <div className="feature included"><CheckOutlined className="antcheck"/></div>
                   <div className="feature"><i className="achi white-checkmark"></i></div>
                   <div className="feature"><i className="achi white-checkmark"></i></div>
-                  <div className="feature"><i className="achi white-checkmark"></i></div>
-                  <div className="feature"><i className="achi white-checkmark"></i></div>
-                  <div className="feature"><i className="achi white-checkmark"></i></div>
-                  <div className="feature"><i className="achi white-checkmark"></i></div>
+                  <div className="feature included"><CheckOutlined className="antcheck"/></div>
+                  <div className="feature"></div>
                 </div>
                 <div className="feature-col">
-                  <div className="feature included"><i className="achi white-checkmark"></i></div>
-                  <div className="feature included"><i className="achi white-checkmark"></i></div>
-                  <div className="feature"><i className="achi white-checkmark"></i></div>
-                  <div className="feature included"><i className="achi white-checkmark"></i></div>
-                  <div className="feature included"><i className="achi white-checkmark"></i></div>
-                  <div className="feature"><i className="achi white-checkmark"></i></div>
-                  <div className="feature"><i className="achi white-checkmark"></i></div>
-                  <div className="feature included"><i className="achi white-checkmark"></i></div>
-                  <div className="feature included"><i className="achi white-checkmark"></i></div>
-                  <div className="feature included"><i className="achi white-checkmark"></i></div>
-                  <div className="feature included"><i className="achi white-checkmark"></i></div>
-                  <div className="feature included"><i className="achi white-checkmark"></i></div>
-                  <div className="feature included"><i className="achi white-checkmark"></i></div>
-                  <div className="feature included"><i className="achi white-checkmark"></i></div>
-                  <div className="feature included"><i className="achi white-checkmark"></i></div>
+                  <div className="feature included"><CheckOutlined className="antcheck"/></div>
+                  <div className="feature included"><CheckOutlined className="antcheck"/></div>
+                  <div className="feature included"><CheckOutlined className="antcheck"/></div>
+                  <div className="feature included"><CheckOutlined className="antcheck"/></div>
+                  <div className="feature included"><CheckOutlined className="antcheck"/></div>
+                  <div className="feature included"><CheckOutlined className="antcheck"/></div>
+                  <div className="feature included"><CheckOutlined className="antcheck"/></div>
+                  <div className="feature included"><CheckOutlined className="antcheck"/></div>
+                  <div className="feature included"><CheckOutlined className="antcheck"/></div>
                   <div className="feature"><i className="achi white-checkmark"></i></div>
                   <div className="feature"><i className="achi white-checkmark"></i></div>
-                  <div className="feature"><i className="achi white-checkmark"></i></div>
-                  <div className="feature"><i className="achi white-checkmark"></i></div>
-                  <div className="feature"><i className="achi white-checkmark"></i></div>
-                </div>
-                <div className="feature-col">
-                  <div className="feature included"><i className="achi white-checkmark"></i></div>
-                  <div className="feature included"><i className="achi white-checkmark"></i></div>
-                  <div className="feature"><i className="achi white-checkmark"></i></div>
-                  <div className="feature included"><i className="achi white-checkmark"></i></div>
-                  <div className="feature included"><i className="achi white-checkmark"></i></div>
-                  <div className="feature"><i className="achi white-checkmark"></i></div>
-                  <div className="feature"><i className="achi white-checkmark"></i></div>
-                  <div className="feature included"><i className="achi white-checkmark"></i></div>
-                  <div className="feature included"><i className="achi white-checkmark"></i></div>
-                  <div className="feature included"><i className="achi white-checkmark"></i></div>
-                  <div className="feature included"><i className="achi white-checkmark"></i></div>
-                  <div className="feature included"><i className="achi white-checkmark"></i></div>
-                  <div className="feature"><i className="achi white-checkmark"></i></div>
-                  <div className="feature included"><i className="achi white-checkmark"></i></div>
-                  <div className="feature included"><i className="achi white-checkmark"></i></div>
-                  <div className="feature"><i className="achi white-checkmark"></i></div>
-                  <div className="feature"><i className="achi white-checkmark"></i></div>
-                  <div className="feature included"><i className="achi white-checkmark"></i></div>
-                  <div className="feature"><i className="achi white-checkmark"></i></div>
-                  <div className="feature"><i className="achi white-checkmark"></i></div>
-                </div>
-                <div className="feature-col">
-                  <div className="feature included"><i className="achi white-checkmark"></i></div>
-                  <div className="feature included"><i className="achi white-checkmark"></i></div>
-                  <div className="feature included"><i className="achi white-checkmark"></i></div>
-                  <div className="feature included"><i className="achi white-checkmark"></i></div>
-                  <div className="feature included"><i className="achi white-checkmark"></i></div>
-                  <div className="feature included"><i className="achi white-checkmark"></i></div>
-                  <div className="feature included"><i className="achi white-checkmark"></i></div>
-                  <div className="feature included"><i className="achi white-checkmark"></i></div>
-                  <div className="feature included"><i className="achi white-checkmark"></i></div>
-                  <div className="feature included"><i className="achi white-checkmark"></i></div>
-                  <div className="feature included"><i className="achi white-checkmark"></i></div>
-                  <div className="feature included"><i className="achi white-checkmark"></i></div>
-                  <div className="feature included"><i className="achi white-checkmark"></i></div>
-                  <div className="feature included"><i className="achi white-checkmark"></i></div>
-                  <div className="feature included"><i className="achi white-checkmark"></i></div>
-                  <div className="feature included"><i className="achi white-checkmark"></i></div>
-                  <div className="feature"><i className="achi white-checkmark"></i></div>
-                  <div className="feature included"><i className="achi white-checkmark"></i></div>
-                  <div className="feature included"><i className="achi white-checkmark"></i></div>
-                  <div className="feature included"><i className="achi white-checkmark"></i></div>
+                  <div className="feature included"><CheckOutlined className="antcheck"/></div>
+                  <div className="feature included"><CheckOutlined className="antcheck"/></div>
                 </div>
               </div>
               <div data-num="5" className="table-right mobile">
@@ -343,6 +273,11 @@ const SingleFamily = () =>{
                   <span>
                     <span>
                       <a data-toggle="modal" data-target="#forty_items_popup_utah">Premium Coverage Upgrade</a>
+                    </span>
+                  </span>
+                  <span>
+                    <span>
+                      <a data-toggle="modal" data-target="#forty_items_popup_utah">No Fault Coverage</a>
                     </span>
                   </span>
                 </p>
