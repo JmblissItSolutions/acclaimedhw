@@ -13,6 +13,7 @@ import "./assets/css/Faq.css";
 import "./assets/css/Contractors.css";
 import "./assets/css/AboutUs.css";
 import "./assets/css/plan.css";
+import "./assets/css/BuyNow.css";
 import { Route, Switch} from "react-router-dom";
 import { useState, useEffect } from "react"
 import HomeWarranty from "./Home-Warranty"
@@ -30,7 +31,7 @@ import Utah from "./homeowner-plans/Utah";
 import Nevada from "./homeowner-plans/Nevada";
 import Texas from "./homeowner-plans/Texas"; 
 import Idaho from "./homeowner-plans/Idaho";
-import SocialFollow from "./component/social-media-bar/SocialFollow";    
+import SocialFollow from "./component/social-media-bar/SocialFollow";
 import  Error  from "./Error";
 import Menu from "./Menu";
 import { Footer, FooterBottom } from './Footer';

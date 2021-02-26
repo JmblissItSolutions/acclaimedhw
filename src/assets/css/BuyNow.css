@@ -1,0 +1,111 @@
+#upgrades_and_cart {
+    padding: 0 0 50px 0;
+}
+#upgrades_and_cart {
+    width: 100%;
+    color: #3A3A3A;
+}
+#upgrades_and_cart h2 {
+    padding-bottom: 0;
+    font-size: 36px;
+    text-align: center;
+}
+#upgrades_and_cart .textured-back {
+    margin-top: 30px;
+    padding: 20px 0;
+    background-color: #3A3A3A;
+    background-attachment: fixed;
+}
+#upgrades_and_cart .textured-back h3 {
+    font-weight: bold;
+    color: white;
+    margin: 0;
+    font-size: 20px;
+}
+#upgrades_and_cart .textured-back h4 {
+    color: white;
+    margin: 0;
+}
+#upgrades_and_cart .upgrade_cont {    
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    flex-wrap: wrap;
+    padding-top: 10px;
+}
+#upgrades_and_cart .upgrade_cont .upgrade {
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    align-items: center;
+    padding: 5px;
+    max-width: calc(100% / 3);
+    min-width: 200px;
+    width: 100%;
+    flex: 1 1 33.33333%;
+}
+#upgrades_and_cart .upgrade_cont .upgrade input {
+    width: 45px;
+    text-align: center;
+}
+#upgrades_and_cart .upgrade_cont .upgrade .price {
+    width: 40px;
+    flex-shrink: 0;
+    text-align: right;
+    padding-right: 2px;
+    padding-left: 2px;
+    border-right: 1px solid #00A1B8;
+    font-weight: bold;
+}
+#upgrades_and_cart .upgrade_cont .upgrade .name {
+    padding-left: 2px;
+}
+#upgrades_and_cart .bottom-cont {
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    align-items: center;
+}
+#upgrades_and_cart .bottom-cont .cart {
+    flex: 1;
+}
+#upgrades_and_cart .bottom-cont h4 {
+    font-size: 24px;
+    margin-bottom: 0;
+    margin-top: 10px;
+    text-transform: capitalize;
+}
+#upgrades_and_cart .bottom-cont ul {
+    padding: 0;
+    margin-top: 0;
+    list-style-type: none;
+}
+#upgrades_and_cart .bottom-cont ul li {
+    min-height: 17px;
+}
+#upgrades_and_cart .bottom-cont .total {
+    padding-right: 10px;
+    font-size: 22px;
+    text-align: right;
+}
+#upgrades_and_cart .footy {
+    text-align: right;
+}
+#upgrades_and_cart .footy .btn {
+    padding: 8px 12px;
+    margin-left: 10px;
+    font-size: 12px;
+}
+#upgrades_and_cart .footy .btn.cancel {
+    background: #00A1B8;
+}
+.plan_interval{
+text-align: center;
+margin-top:20px
+}
