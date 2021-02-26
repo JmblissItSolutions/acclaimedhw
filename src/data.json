@@ -1,0 +1,21 @@
+[
+    {
+        "id":1,
+        "name": "Standard",
+        "price": "$35.00",
+        "yearly": "$400/YR"
+    },
+
+    {
+        "id":2,
+        "name": "Premium",
+        "price": "$40.00",
+        "yearly": "$475/YR"
+    },
+    {
+        "id":3,
+        "name": "Ultimate",
+        "price": "$54.00",
+        "yearly": "$600/YR"
+    }
+  ]
