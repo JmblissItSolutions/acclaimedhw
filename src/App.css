@@ -21,7 +21,18 @@ font: 300 14px sans-serif;
 color: #3A3A3A;
   line-height: 1.4;
 }
-
+div#root strong {
+  font-weight: 600;
+  font-family: 'lato';
+}
+div#root h1 strong,
+div#root h2 strong,
+div#root h3 strong,
+div#root h4 strong,
+div#root h5 strong,
+div#root h6 strong{
+  font-family: inherit;
+}
 a{
 transition: all 500ms ease-in-out;
 -webkit-transition: all 500ms ease-in-out;
@@ -148,12 +159,14 @@ body h1{
   }
 }
 /* socialicons */
-.contact-us-flag{
-  position: absolute;
+.contact-us-flag {
+  position: fixed;
   background: #212121;
-  top: 100%;
+  top: 30%;
   left: 0;
   padding: 15px 10px;
+  z-index: 999999;
+  display: none;
 }
 .contact-us-flag img{
   padding: 0px 5px;

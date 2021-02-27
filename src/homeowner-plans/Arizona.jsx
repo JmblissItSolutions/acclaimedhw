@@ -1,10 +1,11 @@
-import React, { useState } from "react";
+import React, { useState,Fragment  } from "react";
 import SingleFamily from "./ArizonaUnitSize/SingleFamily";
 import Duplex from "./ArizonaUnitSize/Duplex";
 import Triplex from "./ArizonaUnitSize/Triplex";
 import Fourplex from "./ArizonaUnitSize/Fourplex";
 import UtahHomeowner from "./../assets/images/UtahHomeowner.png"
 import { Helmet } from "react-helmet";
+import unitsize from '../data.json';
 import { BrowserRouter as Router, useHistory,useLocation } from "react-router-dom";
 const Arizona = () => {
   const [arizonaState, setArizonaState] = useState("");
@@ -39,13 +40,15 @@ const Arizona = () => {
             <div>
               <div>
                 <span>Unit Size</span>
-                <select name="size" className=""
+                <Fragment>
+        <select name="size" className=""
                   onChange={(e) => { const selectedd = e.target.value; setArizonaState(selectedd); }}>
-                  <option value="0">Single Family</option>
-                  <option value="1">Duplex</option>
-                  <option value="2">Triplex</option>
-                  <option value="3">Fourplex</option>
-                </select>
+          {unitsize.productList.map(option => (
+            <option key={option.id} value={option.id}>{option.unitsize}</option>
+          ))}
+        </select>
+        
+      </Fragment>
               </div>
               <div>
                 <span style={{ display: "block" }}>
@@ -64,8 +67,8 @@ const Arizona = () => {
         </section>
         {/* fix on top header while scroll */}
         <section className="light-back plan-options">
-            {arizonaState === "0" ? <SingleFamily /> : arizonaState === "1" ? <Duplex />
-              : arizonaState === "2" ? <Triplex /> : arizonaState === "3" ? <Fourplex /> : <SingleFamily />}
+            {arizonaState === "1" ? <SingleFamily /> : arizonaState === "2" ? <Duplex />
+              : arizonaState === "3" ? <Triplex /> : arizonaState === "4" ? <Fourplex /> : <SingleFamily />}
           <hr className="textured" />
         </section>
       </div>

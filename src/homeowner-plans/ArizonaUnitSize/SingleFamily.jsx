@@ -1,11 +1,16 @@
 import React, { useState } from "react";
 import { Helmet } from "react-helmet";
 import { Container, Grid, Header, List } from "semantic-ui-react";
-import contacts from '../././../data.json';
+import data from '../././../data.json';
 import { StarFilled, CheckOutlined } from '@ant-design/icons';
 import lattice from "./../.././assets/images/lattice-background.png"
-const Plans = () => (
-
+import { Radio } from 'antd';
+const Plans = () => {
+  const [value, setValue] =useState(1);
+  const onChange = e => {
+    setValue(e.target.value);
+  };
+return(
   <div id="plans" className="search-results">
    <section id="upgrades_and_cart">
      	 <div className="container">
@@ -14,15 +19,9 @@ const Plans = () => (
           <p style={{margin: "0px",textalign:"center",fontsize:"18px"}}>
             <strong>Payment Options:</strong> 
             <span className="spacer"></span> 
-            <label>
-              <input type="radio" id="interval_annual" value="annual"/>
-              <span>$400/YR</span>
-              </label> 
-              <span className="spacer"></span> 
-              <label>
-              <input type="radio" id="interval_monthly" value="monthly"/>
-              <span>$35.00<span style={{fontsize:"0.4em"}}>/MO</span></span>
-            </label>
+            <label><Radio.Group onChange={onChange} value={value}>
+            <label><Radio value={1}>$400/YR</Radio></label>
+            <label><Radio value={2}>$35.00</Radio></label></Radio.Group></label>
           </p>
         </div>
 	  </div> 
@@ -137,16 +136,17 @@ const Plans = () => (
       <h4>Total</h4>
       $400/<span>YR</span>
     </div>
-  </div> 
     <div className="footy">
       <button className="btn">Check out</button> 
       <button className="btn cancel">Cancel</button>
     </div>
+  </div> 
+    
 </section>
   </div>
-)
+)};
 
- const SingleFamily = () => {
+  const SingleFamily = () => {
   const [showResults, setShowPlans] = React.useState(false)
   const onClick = () => setShowPlans(true)
   const Products = () => (
@@ -155,9 +155,10 @@ const Plans = () => (
         <div className="container">
           <div className="table-cont">
             <h2 className="upper table-left">plan options<br />
+            
               <span>Single Family</span></h2>
             <div className="option-cont table-right">
-            {contacts.map(el => {
+            {data.productList.map(el => {
                      return (
               <div className="option"  key={el.id}>
                  <div className="star-cont">
@@ -173,31 +174,7 @@ const Plans = () => (
                </div>
                );
               })}
-              {/* end of option  */}
-              {/* <div className="option">
-                <div className="star-cont">
-                  <StarFilled className="antstar" /><StarFilled className="antstar" />
-                </div>
-                <div className="body">
-                  <h6 className="upper">Premium</h6>
-                  <h4 className="lato">$40.00<span style={{ fontSize: "0.4em" }}>/MO</span></h4>
-                  <h5 className="lato">$475/YR</h5>
-                  <input className="btn" type="submit" value="Buy Now" onClick={onClick} />
-                </div>
-              </div> */}
-              {/* end of option */}
-              {/* <div className="option">
-                <div className="star-cont">
-                  <StarFilled className="antstar" /><StarFilled className="antstar"/><StarFilled className="antstar" />
-                </div>
-                <div className="body">
-                  <h6 className="upper">Ultimate</h6>
-                  <h4 className="lato">$54.00<span style={{ fontSize: "0.4em" }}>/MO</span></h4>
-                  <h5 className="lato">$650/YR</h5>
-                  <input className="btn" type="submit" value="Buy Now" onClick={onClick} />
-                </div>
-              </div> */}
-              {/* end of option */}
+             
             </div>
           </div>
         </div>
