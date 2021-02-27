@@ -6,6 +6,8 @@ section.top-image {
 section.top-image img{
     width: 100%;
     height: auto;
+    min-height: 200px;
+    object-fit: cover;
 }
 /*end of banner*/
 .change-location-header {
@@ -14,6 +16,9 @@ section.top-image img{
     box-shadow: 0 3px 6px rgb(0 0 0 / 20%);
     padding: 20px 0;
     background-color: #3A3A3A;
+}
+.home_page .upper {
+    padding-top: 0;
 }
 .just-space{
     display: flex;
@@ -39,14 +44,13 @@ section.top-image img{
     display: block;
 }
 
-
 /*stadard Features*/
 .standard-features {
     position: relative;
     z-index: 2;
     color: white;
     background-color: #00A1B8;
-    padding: 25px 0;
+    padding: 60px 0;
 }
 .standard-features h3 {
     font-size: 27px;
@@ -83,7 +87,7 @@ section.top-image img{
     color: #fff;
 }
 .unique-features {
-    padding-bottom: 80px;
+    padding: 60px 0;
 }
 .unique-features h3 {
     margin: 0;
@@ -92,7 +96,7 @@ section.top-image img{
 }
 .table-cont {
         display: flex;
-    max-width: 900px;
+    max-width: 1000px;
     margin: 0 auto;
 }
 .plan-options .table-cont {
@@ -185,12 +189,16 @@ section.top-image img{
     width: 100%;
     z-index: 99;
     background: #fff;
-     padding-top: 50px;
+     padding-top: 50px;     
+    background: rgb(237,237,237); 
+    background: -moz-linear-gradient(top,  rgba(237,237,237,1) 0%, rgba(255,255,255,1) 22%, rgba(255,255,255,1) 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(top,  rgba(237,237,237,1) 0%,rgba(255,255,255,1) 22%,rgba(255,255,255,1) 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom,  rgba(237,237,237,1) 0%,rgba(255,255,255,1) 22%,rgba(255,255,255,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ededed', endColorstr='#ffffff',GradientType=0 ); /* IE6-9 */
 }
 .plan-options h2 {
     font-size: 38px;
     line-height: 0.75em;
-    /* padding: 0.83em 0 0.3em; */
 }
 .plan-options h2 span {
     font-size: 60%;
@@ -203,7 +211,7 @@ section.top-image img{
     flex: 1 1 20%;
     border-radius: 6px;
     box-shadow: 0 3px 6px rgb(0 0 0 / 20%);
-    max-width: 140px;
+    max-width: 150px;
     background-color: white;
     margin: 0px auto;
     overflow: hidden;
@@ -289,6 +297,13 @@ h1.upper {
 .sub-txt {
     font-size: 17px;
 }
+div#root .plan-options .option .btn {
+    padding: 5px 10px;
+    margin-left: auto;
+    margin-right: auto;
+    display: inline-block;
+    max-width: max-content;
+}
 
 @media (min-width: 991px){
     .unique-features .table-right.mobile {
@@ -322,6 +337,100 @@ h1.upper {
         margin-left: 0px;
         width: 100%;
         text-align: center;
+    }
+    .plan-options .table-cont {
+        flex-direction: column;
+    }
+    .plan-options .table-cont .table-left {
+        width: 100%;
+        text-align: center;
+        margin-bottom: 30px;
+    }
+    .plan-options{
+        padding-top: 30px;
+      }
+      .plan-options .option h4 span {
+        display: block;
+        font-size: 0.6em !important;
+        line-height: 1em;
+    }
+    .plan-options h2 span {
+        font-size: 60%;
+        white-space: nowrap;
+        display: inline;
+        padding-left: 10px;;
+    }
+    .unique-features .feature{
+        border-radius: 0;
+    }
+    
+}
+
+@media (max-width: 767px){
+    section.plans-title {
+        padding: 30px 0;
+    }
+    .change-location-header span.big {
+        font-size: 20px;
+    }
+    .plan-options .table-cont .table-left {
+        padding: 0.3em 10px 0.3em;
+        margin: 0;
+    }  
+    .plan-options {
+        padding-top: 0;
+    } 
+    .plan-options .option h6 {
+        font-size: 2.125vw;
+        white-space: normal;
+    }
+    .plan-options .option h4 {
+        font-size: 3.75vw;
+    }
+    .plan-options .option h5 {
+        margin-bottom: 1.5vw;
+    }
+    .plan-options .option .btn {
+        white-space: normal;
+    }   
+    .plan-options {
+        top: -80px;
+    } 
+    .plan-options > .container {
+        padding: 0;
+    }
+    .standard-features .standard-flexy p.feature_header{
+        font-size: 18px;
+    }
+}
+
+@media (max-width: 580px){
+    .plan-options .option{
+        min-width: 140px;
+    }
+    .plan-options .table-right {
+        width: 100%;
+        justify-content: normal;
+        margin: 0 0;
+        overflow-x: auto;
+    }
+    .d-flex {
+        display: flex!important;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .change-location-header span.big {
+        margin-bottom: 15px;
+    }
+    .plan-options .option h4 {
+        font-size: 22px;
+        margin-bottom: 5px;
+    }
+    .plan-options .option h5{
+        font-size: 18px;
+    }
+    .plan-options .option h6 {
+        font-size: 13px;
     }
 }
 

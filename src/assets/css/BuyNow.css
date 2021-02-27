@@ -9,7 +9,17 @@
     padding-bottom: 0;
     font-size: 36px;
     text-align: center;
+    text-transform: inherit;
 }
+#upgrades_and_cart h2 strong {
+    color: #00A1B8;
+    line-height: 1.1;
+    font-size: 102%;
+}
+span.spacer {
+    margin: 0 5px;
+}
+
 #upgrades_and_cart .textured-back {
     margin-top: 30px;
     padding: 20px 0;
@@ -33,7 +43,7 @@
     display: -webkit-flex;
     display: flex;
     flex-wrap: wrap;
-    padding-top: 10px;
+    padding-top: 30px;
 }
 #upgrades_and_cart .upgrade_cont .upgrade {
     display: -webkit-box;
@@ -51,6 +61,8 @@
 #upgrades_and_cart .upgrade_cont .upgrade input {
     width: 45px;
     text-align: center;
+    padding: 0 0 0 2px;
+    margin: 0;
 }
 #upgrades_and_cart .upgrade_cont .upgrade .price {
     width: 40px;
@@ -108,4 +120,48 @@
 .plan_interval{
 text-align: center;
 margin-top:20px
+}
+.plan_interval label {
+    font-size: 18px;
+}
+.plan_interval label span{
+    padding-left: 5px;
+}
+section#upgrades_and_cart .textured-back h4 {
+    font-size: 14px;
+}
+.total {
+    text-align: right;
+    margin: 15px 0 30px;
+    font-size: 22px;
+    text-align: right;
+    line-height: 1.1;
+    padding-right: 10px;
+}
+.total h4{
+    margin: 0;
+}
+.cart {
+    margin-top: 30px;
+}
+
+@media (max-width:991px){
+    #upgrades_and_cart .upgrade_cont .upgrade {
+        max-width: calc(100% / 2);
+        flex: 1 1 50%;
+    }
+}
+@media (max-width:767px){
+    div#plans {
+        padding-top: 30px;
+    }
+}
+@media (max-width:580px){
+    #upgrades_and_cart .upgrade_cont .upgrade {
+        max-width: 100%;
+        flex: 1 1 100%;
+    }
+    #upgrades_and_cart h2 {
+        font-size: 26px;
+    }
 }

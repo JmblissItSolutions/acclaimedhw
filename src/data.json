@@ -1,21 +1,33 @@
-[
+{
+"productList" :[
     {
         "id":1,
         "name": "Standard",
         "price": "$35.00",
-        "yearly": "$400/YR"
+        "yearly": "$400/YR",
+        "unitsize":"Single Family"
     },
 
     {
         "id":2,
         "name": "Premium",
         "price": "$40.00",
-        "yearly": "$475/YR"
+        "yearly": "$475/YR",
+        "unitsize":"Duplex"
     },
     {
         "id":3,
         "name": "Ultimate",
         "price": "$54.00",
-        "yearly": "$600/YR"
+        "yearly": "$600/YR",
+        "unitsize":"Triplex"
+    },
+    {
+        "id":4,
+        "name": "Ultimate",
+        "price": "$54.00",
+        "yearly": "$600/YR",
+        "unitsize":"Fourplex"
     }
   ]
+}
