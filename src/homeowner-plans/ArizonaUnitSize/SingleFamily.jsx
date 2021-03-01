@@ -1,180 +1,187 @@
 import React, { useState } from "react";
+import { useHistory } from 'react-router-dom'
 import { Helmet } from "react-helmet";
 import { Container, Grid, Header, List } from "semantic-ui-react";
 import data from '../././../data.json';
 import { StarFilled, CheckOutlined } from '@ant-design/icons';
 import lattice from "./../.././assets/images/lattice-background.png"
 import { Radio } from 'antd';
-const Plans = () => {
+
+const SingleFamily = () => {
+
+  const [showResults, setShowPlans] = React.useState(false)
+  const onClick = () => setShowPlans(true)
+
+  const [showproduct, setShowProduct] = React.useState(false)
+  const oncancle = () => setShowProduct(true)
+
   const [value, setValue] =useState(1);
   const onChange = e => {
     setValue(e.target.value);
   };
-return(
-  <div id="plans" className="search-results">
-   <section id="upgrades_and_cart">
-     	 <div className="container">
-          <h2>You have selected the<strong> Single Family Standard </strong>plan</h2> 
-          <div className="plan_interval">
-          <p style={{margin: "0px",textalign:"center",fontsize:"18px"}}>
+  
+  const Plans = () => (
+    <>
+      <div id="plans" className="search-results">
+        <section id="upgrades_and_cart">
+          <div className="container">
+            <h2>You have selected the<strong> Single Family Standard </strong>plan</h2>
+            <div className="plan_interval">
+            <p style={{margin: "0px",textalign:"center",fontsize:"18px"}}>
             <strong>Payment Options:</strong> 
             <span className="spacer"></span> 
             <label><Radio.Group onChange={onChange} value={value}>
             <label><Radio value={1}>$400/YR</Radio></label>
             <label><Radio value={2}>$35.00</Radio></label></Radio.Group></label>
           </p>
-        </div>
-	  </div> 
-	<div className="textured-back"  style={{ backgroundImage: `url(${lattice})` }}>
-    <div className="container">
-      <h3>COVERAGE UPGRADES</h3> 
-      <h4>SELECT ADDITIONAL ITEMS TO CUSTOMIZE YOUR PLAN</h4>
-    </div>
-	</div>
-	<div className="container">
-	<div className="upgrade_cont">
-    <div className="upgrade">
-      <input type="number" min="0"/> 
-      <span data-num="3" className="price">$175</span>
-      <span className="name">Swimming Pool/Spa Equipment</span>
-    </div>
-	<div className="upgrade">
-    <input type="number" min="0"/> 
-    <span data-num="3" className="price">$100</span>
-    <span className="name">Septic System/Pumping</span>
-	</div>
-	<div className="upgrade">
-    <input type="number" min="0"/>
-    <span data-num="3" className="price">$350</span>
-    <span className="name">Salt Water Swimming Pool</span>
-	</div>
-	<div className="upgrade">
-    <input type="number" min="0"/> 
-    <span data-num="3" className="price">$100</span>
-    <span className="name">Roof Leak Repairs</span>
-	</div>
-	<div className="upgrade">
-    <input type="number" min="0"/> 
-    <span data-num="2" className="price">$60</span>
-    <span className="name"> 
-    <span><a data-toggle="modal" data-target="#no_fault_popup_utah">No Fault Coverage</a></span></span>
-  </div>
-	<div className="upgrade">
-    <input type="number" min="0"/> 
-    <span data-num="2" className="price">$50</span>
-    <span className="name">Kitchen Refrigerator (inc in Premium &amp; Ultimate plans)</span>
-  </div>
-	<div className="upgrade">
-    <input type="number" min="0"/> 
-    <span data-num="3" className="price">$155</span>
-    <span className="name">Grinder Pump</span>
-  </div>
-	<div className="upgrade">
-    <input type="number" min="0"/> 
-    <span data-num="2" className="price">$85</span>
-    <span className="name">Furnace (Additional Coverage)</span>
-  </div>
-	<div className="upgrade">
-    <input type="number" min="0"/>
-    <span data-num="3" className="price">$100</span>
-    <span className="name">Enhanced External Pipe Coverage</span>
-   </div>
-	<div className="upgrade">
-    <input type="number" min="0"/>
-    <span data-num="2" className="price">$50</span>
-    <span className="name">Discounted Pre-Paid Service Call Fee (ONE TIME FEE)</span>
-	</div>
-	<div className="upgrade">
-    <input type="number" min="0"/> 
-    <span data-num="3" className="price">$150</span>
-    <span className="name">Casita</span>
-	</div>
-	<div className="upgrade">
-    <input type="number" min="0"/> 
-    <span data-num="2" className="price">$85</span>
-    <span className="name">Air Conditioning (additional unit)</span>
-	</div>
-	<div className="upgrade">
-    <input type="number" min="0"/> 
-    <span data-num="2" className="price">$40</span>
-    <span className="name">Additional Refrigeration/Freezer</span>
-	</div>
-	<div className="upgrade">
-    <input type="number" min="0"/> 
-    <span data-num="2" className="price">$50</span>
-    <span className="name">Water Softener</span>
-	</div>
-	<div className="upgrade">
-    <input type="number" min="0"/> 
-    <span data-num="2" className="price">$85</span>
-    <span className="name">Additional Washer Dryer (1 set incl in Ultimate Plans)</span>
-	</div>
-    <div className="upgrade">
-      <input type="number" min="0"/> 
-      <span data-num="3" className="price">$400</span>
-      <span className="name">3rd Year Coverage</span>
-    </div>
-    <div className="upgrade">
-      <input type="number" min="0"/> 
-      <span data-num="3" className="price">$400</span>
-      <span className="name">2nd Year Coverage</span>
-    </div>
-    <div className="upgrade">
-      <input type="number" min="0"/> 
-      <span data-num="2" className="price">$75</span>
-      <span className="name"><span>
-      <a data-toggle="modal" data-target="#forty_items_popup_utah">Premium Coverage Upgrade</a>
-      </span></span>
-    </div>
-	</div> 
-	<div className="bottom-cont"/>
-    <div className="cart">
-      <h4>Cart</h4> 
-      <ul><li>1x Single Family-Standard</li><li></li><li></li><li></li><li></li><li></li></ul>
-    </div> 
-    <div className="total">
-      <h4>Total</h4>
-      $400/<span>YR</span>
-    </div>
-    <div className="footy">
-      <button className="btn">Check out</button> 
-      <button className="btn cancel">Cancel</button>
-    </div>
-  </div> 
-    
-</section>
-  </div>
-)};
-
-  const SingleFamily = () => {
-  const [showResults, setShowPlans] = React.useState(false)
-  const onClick = () => setShowPlans(true)
+            </div>
+          </div>
+          <div className="textured-back" style={{ backgroundImage: `url(${lattice})` }}>
+            <div className="container">
+              <h3>COVERAGE UPGRADES</h3>
+              <h4>SELECT ADDITIONAL ITEMS TO CUSTOMIZE YOUR PLAN</h4>
+            </div>
+          </div>
+          <div className="container">
+            <div className="upgrade_cont">
+              <div className="upgrade">
+                <input type="number" min="0" />
+                <span data-num="3" className="price">$175</span>
+                <span className="name">Swimming Pool/Spa Equipment</span>
+              </div>
+              <div className="upgrade">
+                <input type="number" min="0" />
+                <span data-num="3" className="price">$100</span>
+                <span className="name">Septic System/Pumping</span>
+              </div>
+              <div className="upgrade">
+                <input type="number" min="0" />
+                <span data-num="3" className="price">$350</span>
+                <span className="name">Salt Water Swimming Pool</span>
+              </div>
+              <div className="upgrade">
+                <input type="number" min="0" />
+                <span data-num="3" className="price">$100</span>
+                <span className="name">Roof Leak Repairs</span>
+              </div>
+              <div className="upgrade">
+                <input type="number" min="0" />
+                <span data-num="2" className="price">$60</span>
+                <span className="name">
+                  <span><a data-toggle="modal" data-target="#no_fault_popup_utah">No Fault Coverage</a></span></span>
+              </div>
+              <div className="upgrade">
+                <input type="number" min="0" />
+                <span data-num="2" className="price">$50</span>
+                <span className="name">Kitchen Refrigerator (inc in Premium &amp; Ultimate plans)</span>
+              </div>
+              <div className="upgrade">
+                <input type="number" min="0" />
+                <span data-num="3" className="price">$155</span>
+                <span className="name">Grinder Pump</span>
+              </div>
+              <div className="upgrade">
+                <input type="number" min="0" />
+                <span data-num="2" className="price">$85</span>
+                <span className="name">Furnace (Additional Coverage)</span>
+              </div>
+              <div className="upgrade">
+                <input type="number" min="0" />
+                <span data-num="3" className="price">$100</span>
+                <span className="name">Enhanced External Pipe Coverage</span>
+              </div>
+              <div className="upgrade">
+                <input type="number" min="0" />
+                <span data-num="2" className="price">$50</span>
+                <span className="name">Discounted Pre-Paid Service Call Fee (ONE TIME FEE)</span>
+              </div>
+              <div className="upgrade">
+                <input type="number" min="0" />
+                <span data-num="3" className="price">$150</span>
+                <span className="name">Casita</span>
+              </div>
+              <div className="upgrade">
+                <input type="number" min="0" />
+                <span data-num="2" className="price">$85</span>
+                <span className="name">Air Conditioning (additional unit)</span>
+              </div>
+              <div className="upgrade">
+                <input type="number" min="0" />
+                <span data-num="2" className="price">$40</span>
+                <span className="name">Additional Refrigeration/Freezer</span>
+              </div>
+              <div className="upgrade">
+                <input type="number" min="0" />
+                <span data-num="2" className="price">$50</span>
+                <span className="name">Water Softener</span>
+              </div>
+              <div className="upgrade">
+                <input type="number" min="0" />
+                <span data-num="2" className="price">$85</span>
+                <span className="name">Additional Washer Dryer (1 set incl in Ultimate Plans)</span>
+              </div>
+              <div className="upgrade">
+                <input type="number" min="0" />
+                <span data-num="3" className="price">$400</span>
+                <span className="name">3rd Year Coverage</span>
+              </div>
+              <div className="upgrade">
+                <input type="number" min="0" />
+                <span data-num="3" className="price">$400</span>
+                <span className="name">2nd Year Coverage</span>
+              </div>
+              <div className="upgrade">
+                <input type="number" min="0" />
+                <span data-num="2" className="price">$75</span>
+                <span className="name"><span>
+                  <a data-toggle="modal" data-target="#forty_items_popup_utah">Premium Coverage Upgrade</a>
+                </span></span>
+              </div>
+            </div>
+            <div className="bottom-cont" />
+            <div className="cart">
+              <h4>Cart</h4>
+              <ul><li>1x Single Family-Standard</li><li></li><li></li><li></li><li></li><li></li></ul>
+            </div>
+            <div className="total">
+              <h4>Total</h4>
+        $400/<span>YR</span>
+            </div>
+            <div className="footy">
+              <button className="btn">Check out</button>
+              <button className="btn cancel" onClick={oncancle}>Cancel</button>
+            </div>
+          </div>
+        </section>
+      </div>
+    </>
+  )
   const Products = () => (
     <>
       <section className="light-back plan-options">
         <div className="container">
           <div className="table-cont">
             <h2 className="upper table-left">plan options<br />
-            
+
               <span>Single Family</span></h2>
             <div className="option-cont table-right">
-            {data.productList.map(el => {
-                     return (
-              <div className="option"  key={el.id}>
-                 <div className="star-cont">
-                  <StarFilled className="antstar"/>
+              {data.productList.map(el => {
+                return (
+                  <div className="option" key={el.id}>
+                    <div className="star-cont">
+                      <StarFilled className="antstar" />
+                    </div>
+                    <div className="body">
+                      <h6 className="upper">{el.name}</h6>
+                      <h4 className="lato">{el.price}
+                        <span style={{ fontSize: "0.4em" }}>/MO</span></h4>
+                      <h5 className="lato">{el.yearly}</h5>
+                      <input className="btn" type="submit" value="Buy Now" onClick={onClick} />
+                    </div>
                   </div>
-                  <div className="body">
-                    <h6 className="upper">{el.name}</h6>
-                     <h4 className="lato">{el.price}
-                      <span style={{ fontSize: "0.4em"}}>/MO</span></h4>
-                     <h5 className="lato">{el.yearly}</h5>
-                      <input className="btn" type="submit" value="Buy Now" onClick={onClick}/>
-                 </div>
-               </div>
-               );
+                );
               })}
-             
+
             </div>
           </div>
         </div>
@@ -460,9 +467,17 @@ return(
         <meta name="description" content="Acclaimed Home Warranty has shared some of the useful resources for those looking out for home warranty plans in Arizona. Contact us today for more information." />
       </Helmet>
       <div className="wrapper">
-        {showResults ? <Plans /> : <Products/>}
+        {
+          showproduct == false
+            ? showResults ? <Plans /> : <Products />
+            : showproduct ? <Products /> : <Plans />
+         }       
+        
+         
       </div>
+
     </>
   )
+
 };
 export default SingleFamily;
