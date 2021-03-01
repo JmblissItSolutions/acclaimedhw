@@ -7,7 +7,7 @@ import './assets/css/home.css';
 import "./assets/css/contact.css";
 import "./assets/css/makeclaim.css";
 import "./assets/css/OrderNow.css";
-import "./assets/css/Brochers.css";
+import "./assets/css/Brochures.css";
 import "./assets/css/MemberAdvantages.css";
 import "./assets/css/Faq.css";
 import "./assets/css/Contractors.css";
@@ -31,6 +31,7 @@ import Utah from "./homeowner-plans/Utah";
 import Nevada from "./homeowner-plans/Nevada";
 import Texas from "./homeowner-plans/Texas"; 
 import Idaho from "./homeowner-plans/Idaho";
+import ArizonaResource from "./Brochures/ArizonaResource";
 import SocialFollow from "./component/social-media-bar/SocialFollow";
 import  Error  from "./Error";
 import Menu from "./Menu";
@@ -71,6 +72,7 @@ function App() {
                 <Route path="/homeowner-plans/nevada" component={Nevada} exact/>
                 <Route path="/homeowner-plans/texas" component={Texas} exact/>
                 <Route path="/homeowner-plans/idaho" component={Idaho} exact/>
+                <Route path="/Brochures/ArizonaResource" component={ArizonaResource} exact/>
                 <Route component={Error}/>
             </Switch>
         </main>
