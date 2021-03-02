@@ -95,9 +95,15 @@
     margin: 0;
     margin-top: 10px;
 }
-/* slidedown */
-.slidedown{
-    background-color: red;
-    width: 50px;
-    height: 40px;
-}
+/* modalbox */
+.modal > .header {
+    width: 100%;
+    border-bottom: 1px solid gray;
+    font-size: 18px;
+    text-align: center;
+    padding: 5px;
+  }
+.modal > .content {
+    width: 100%;
+    padding: 0px;
+  }

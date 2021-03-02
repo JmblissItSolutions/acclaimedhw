@@ -8,13 +8,27 @@ import video2 from "../assets/images/vid-2.jpg";
 import video3 from "../assets/images/vid-3.jpg";
 import video4 from "../assets/images/vid-4.jpg";
 import play from "../assets/images/play.png";
+import ChangeLocation from "../ChangeLocation/ChangeLocation";
+import { Modal} from 'antd';
 
+import 'antd/dist/antd.css';
 const ArizonaResource = () =>{
     const [isActive, setActive] = useState(false);
     const toggleClass = () => {
         setActive(!isActive);
       };
 
+      const [isModalVisible, setIsModalVisible] = useState(false);
+      const showModal = () => {
+        setIsModalVisible(true);
+      };
+      const handleOk = () => {
+        setIsModalVisible(false);
+      };
+      const handleCancel = () => {
+        setIsModalVisible(false);
+      };
+      const [visible, setVisible] = useState(false);
 return(
        <>
           <Helmet>         
@@ -22,6 +36,9 @@ return(
 			<meta name="description" content="Arizona Resources - Acclaimed Home Warranty" />
         </Helmet>
         <div className="home_page">
+           <div>
+            {isActive ? <ChangeLocation/>: null}
+           </div>
             <div className="top_img">
                 <img src={brochersbanner} alt=" brochers-banner"/>
             </div>
@@ -31,9 +48,8 @@ return(
             <section className="change-location-header">
             <div className="inner">
 					<span className="big-upper">Arizona Resources</span>
-					<span className="location"  onClick={toggleClass}>{isActive ? '.slidedown': null}Change Location 
-                 
-                    <img src={locationmarker} alt=" brochers-banner" className="locationmarker"/></span>
+					<span className="location"  onClick={toggleClass}>Change Location 
+               <img src={locationmarker} alt=" brochers-banner" className="locationmarker"/></span>
 				</div>   
             </section>
             <section className="documents-light-back">
@@ -41,10 +57,22 @@ return(
                  <h2>Documents</h2>   
                <div className="doc-cont">
                 <div className="doc">
-                  <a href="https://acclaimedhw.com/wp-content/uploads/2020/03/FullbrochureAZrealtor-AHW.pdf" className="venobox vbox-item" data-vbtype="iframe" data-gall="docs">
-                     <i className="achi-pdf"> <img src={pdf} alt="pdf"/></i>
+                <i className="achi-pdf"><img src={pdf} alt="pdf" onClick={() => setVisible(true)}/></i>
+                <Modal
+                  centered
+                  visible={visible}
+                  onOk={() => setVisible(false)}
+                  onCancel={() => setVisible(false)}
+                  width={1000}
+                  >
+                 <a href="https://acclaimedhw.com/wp-content/uploads/2020/10/FullbrochureIDrealtor-AHW.pdf" className="venobox vbox-item" data-vbtype="iframe" data-gall="docs">	
+					  </a>
+               </Modal>
+                <p className="name">Brochure (real estate transaction) w Example Contract</p>
+                  {/* <a href="https://acclaimedhw.com/wp-content/uploads/2020/03/FullbrochureAZrealtor-AHW.pdf" className="venobox vbox-item" data-vbtype="iframe" data-gall="docs">
+                     <i className="achi-pdf"><img src={pdf} alt="pdf"/></i>
                      <p className="name">Brochure (real estate transaction) w Example Contract</p>
-                  </a>
+                  </a> */}
                 </div>
                 <div className="doc">
                   <a href="https://acclaimedhw.com/wp-content/uploads/2020/03/Acclaimed-Home-Warranty-Price-Options-Realtors-AZ.pdf" className="venobox vbox-item" data-vbtype="iframe" data-gall="docs">
@@ -69,17 +97,20 @@ return(
             </section>
             <section className="videos-light-back">
                <div className="container">
-                  <h2>videos</h2> 
+                <h2>videos</h2> 
                   <div className="vid-cont">
                      <div className="video">
                         <div className="img-cont">
-                           {/* <a href="https://www.youtube.com/watch?v=1mzkbJSIMHc" data-vbtype="video" data-gall="resourceVideos" className="venobox vbox-item"> */}
-                              <img src={video1} alt="video1" className="video1"/>
-                              <img src={play} alt="play" className="play"/>
-                           {/* </a> */}
-                           <p className="name">Why Choose Acclaimed?</p>
-                        </div>
+                         <img src={video1} alt="video1" className="video1"/>
+                         <img src={play} alt="play" className="play"  onClick={showModal}/>
+                         <Modal visible={isModalVisible} onOk={handleOk} onCancel={handleCancel}>
+                         <div className="content">
+                              <iframe width="100%" height="400px" src="https://www.youtube.com/embed/1mzkbJSIMHc"></iframe>
+                            </div>
+                         </Modal>
+                      <p className="name">Why Choose Acclaimed?</p>
                      </div>
+                  </div>
                      <div className="video">
                         <div className="img-cont">
                         {/* <a href="https://youtu.be/QsmndywTysA" data-vbtype="video" data-gall="resourceVideos" className="venobox vbox-item"> */}
