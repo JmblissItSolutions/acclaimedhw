@@ -14,6 +14,7 @@ import "./assets/css/Contractors.css";
 import "./assets/css/AboutUs.css";
 import "./assets/css/plan.css";
 import "./assets/css/BuyNow.css";
+import "./assets/css/ChangeLocation.css";
 import { Route, Switch} from "react-router-dom";
 import { useState, useEffect } from "react"
 import HomeWarranty from "./Home-Warranty"
