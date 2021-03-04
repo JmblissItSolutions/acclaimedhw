@@ -9,8 +9,10 @@
 }
 #location-perfect-plan .location-plans h1{
     font-size: 30px;
-    font-weight: 300;
     text-decoration: none;
+    color: white;
+    text-align: center;
+    font-weight: 600;
 }
 #location-perfect-plan .location-plans {
     background-position: center center;
@@ -32,7 +34,7 @@
 }
 #location-perfect-plan .col-2, #location-perfect-plan .col-3, #location-perfect-plan .col-4 {
     background-color: #0F0707;
-    height: 122px;
+    height: 268px;
     position: relative;
     background-size: cover;
     background-position: center center;
@@ -55,11 +57,11 @@
 #location-perfect-plan .col-2 .perfect-cta, #location-perfect-plan .col-3 .perfect-cta, #location-perfect-plan .col-4 .perfect-cta {
     color: white;
     text-align: center;
-    font-size: 15px;
+    font-size: 25px;
     font-family: inherit;
     margin: 0;
     position: absolute;
-    top: 0%;
+    top: 48%;
     left: 50%;
     line-height: 1em;
     width: 100%;
