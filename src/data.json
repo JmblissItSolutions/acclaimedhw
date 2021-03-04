@@ -1,5 +1,5 @@
 {
-"productList" :[
+"ArizonaproList" :[
     {
         "id":1,
         "name": "Standard",
@@ -24,10 +24,196 @@
     },
     {
         "id":4,
+        "name": "Standard",
+        "price": "$54.00",
+        "yearly": "$600/YR",
+        "unitsize":"Fourplex"
+    },
+    {
+        "id":5,
         "name": "Ultimate",
         "price": "$54.00",
         "yearly": "$600/YR",
         "unitsize":"Fourplex"
+    }
+  ],
+  "IdahoproList" :[
+    {
+        "id":1,
+        "name": "Standard",
+        "price": "$35.00",
+        "yearly": "$400/YR",
+        "unitsize":"Single Family"
+    },
+
+    {
+        "id":2,
+        "name": "Premium",
+        "price": "$40.00",
+        "yearly": "$475/YR",
+        "unitsize":"Duplex"
+    },
+    {
+        "id":3,
+        "name": "Ultimate",
+        "price": "$74.00",
+        "yearly": "$400/YR",
+        "unitsize":"Triplex"
+    },
+    {
+        "id":4,
+        "name": "Standard",
+        "price": "$26.00",
+        "yearly": "$580/YR",
+        "unitsize":"Fourplex"
+    },
+    {
+        "id":5,
+        "name": "Ultimate",
+        "price": "$65.00",
+        "yearly": "$670/YR",
+        "unitsize":"Fourplex"
+    },
+    {
+        "id":6,
+        "name": "Standard",
+        "price": "$23.00",
+        "yearly": "$654/YR",
+        "unitsize":"Triplex"
+    }
+  ],
+  "NevadaproList" :[
+    {
+        "id":1,
+        "name": "Standard",
+        "price": "$35.00",
+        "yearly": "$400/YR",
+        "unitsize":"Single Family"
+    },
+
+    {
+        "id":2,
+        "name": "Premium",
+        "price": "$40.00",
+        "yearly": "$475/YR",
+        "unitsize":"Duplex"
+    },
+    {
+        "id":3,
+        "name": "Ultimate",
+        "price": "$74.00",
+        "yearly": "$400/YR",
+        "unitsize":"Triplex"
+    },
+    {
+        "id":4,
+        "name": "Standard",
+        "price": "$26.00",
+        "yearly": "$580/YR",
+        "unitsize":"Fourplex"
+    },
+    {
+        "id":5,
+        "name": "Ultimate",
+        "price": "$65.00",
+        "yearly": "$670/YR",
+        "unitsize":"Fourplex"
+    },
+    {
+        "id":6,
+        "name": "Standard",
+        "price": "$23.00",
+        "yearly": "$654/YR",
+        "unitsize":"Triplex"
+    }
+  ],
+  "TexasproList" :[
+    {
+        "id":1,
+        "name": "Standard",
+        "price": "$35.00",
+        "yearly": "$400/YR",
+        "unitsize":"Single Family"
+    },
+
+    {
+        "id":2,
+        "name": "Premium",
+        "price": "$40.00",
+        "yearly": "$475/YR",
+        "unitsize":"Duplex"
+    },
+    {
+        "id":3,
+        "name": "Ultimate",
+        "price": "$74.00",
+        "yearly": "$400/YR",
+        "unitsize":"Triplex"
+    },
+    {
+        "id":4,
+        "name": "Standard",
+        "price": "$26.00",
+        "yearly": "$580/YR",
+        "unitsize":"Fourplex"
+    },
+    {
+        "id":5,
+        "name": "Ultimate",
+        "price": "$65.00",
+        "yearly": "$670/YR",
+        "unitsize":"Fourplex"
+    },
+    {
+        "id":6,
+        "name": "Standard",
+        "price": "$23.00",
+        "yearly": "$654/YR",
+        "unitsize":"Triplex"
+    }
+  ],  "UtahproList" :[
+    {
+        "id":1,
+        "name": "Standard",
+        "price": "$35.00",
+        "yearly": "$400/YR",
+        "unitsize":"Single Family"
+    },
+
+    {
+        "id":2,
+        "name": "Premium",
+        "price": "$40.00",
+        "yearly": "$475/YR",
+        "unitsize":"Duplex"
+    },
+    {
+        "id":3,
+        "name": "Ultimate",
+        "price": "$74.00",
+        "yearly": "$400/YR",
+        "unitsize":"Triplex"
+    },
+    {
+        "id":4,
+        "name": "Standard",
+        "price": "$26.00",
+        "yearly": "$580/YR",
+        "unitsize":"Fourplex"
+    },
+    {
+        "id":5,
+        "name": "Ultimate",
+        "price": "$65.00",
+        "yearly": "$670/YR",
+        "unitsize":"Fourplex"
+    },
+    {
+        "id":6,
+        "name": "Standard",
+        "price": "$23.00",
+        "yearly": "$654/YR",
+        "unitsize":"Triplex"
     }
   ]
 }
