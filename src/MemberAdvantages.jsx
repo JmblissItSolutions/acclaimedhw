@@ -36,17 +36,17 @@ const MemberAdvantages = () =>{
                                 <p>Partnering with Acclaimed Home Warranty has many advantages. In addition to our extensive warranty coverage, our clients also benefit from the special prices we’ve negotiated for many common home services. Feel free to contact us for details about the discounted services available near you.</p>
                         </div>
                      </div>
-                       <div className="accordion">
+                       <div className="accordion member_advantage">
                               <Accordion>
                                   <AccordionItem>
                                     <AccordionItemHeading>
                                       <AccordionItemButton>
-                                        BENIFITS IN UTAH
+                                       <div className="container"> BENIFITS IN UTAH </div>
                                       </AccordionItemButton>
                                       </AccordionItemHeading>
                                       <AccordionItemPanel>
                                          <div className="body">
-                                           <div className="inner">
+                                           <div className="container">
                                                 <div className="main-stuff">
                                                    <div className="advantages">
                                                       <h2>ADVANTAGES AVAILABLE <br></br>FOR A $60 SERVICE FEE</h2>
@@ -54,7 +54,7 @@ const MemberAdvantages = () =>{
                                                       <p><strong>Pre-Season Tune-Ups for Heating and Air Conditioning Units –</strong>Twice a year you can get your systems cleaned and checked for the season.* Dates for A/C tune-ups are March 1–May 1. Dates for heating tune-up are September 1–December 1. $60 for the first system and $30 for additional systems.</p>
                                                       <p><strong>Garage Door Reprogramming –</strong>Have your keypad and remotes reprogrammed. We can also have someone check your garage door springs.</p>
                                                   </div>
-                                                  <div className="services">
+                                                  <div className="services mb-5">
                                                     <h3>OTHER GREAT ADVANTAGES</h3>
                                                     <p>We’ve negotiated some great pricing for services you’ll need while enjoying your home. If you’re interested in any of the services below, just email or call us and we’ll put you in touch with the companies to get you a free quote.**</p>
                                                      <div className="list">
@@ -153,12 +153,12 @@ const MemberAdvantages = () =>{
                                 <AccordionItem>
                                  <AccordionItemHeading>
                                     <AccordionItemButton>
-                                    BENIFITS IN IDAHO
+                                     <div className="container">BENIFITS IN IDAHO</div>
                                     </AccordionItemButton>
                                 </AccordionItemHeading>
                                 <AccordionItemPanel>
                                 <div className="body">
-                                           <div className="inner">
+                                    <div className="container">
                                                 <div className="main-stuff">
                                                    <div className="advantages">
                                                       <h2>ADVANTAGES AVAILABLE <br></br>FOR A $60 SERVICE FEE</h2>
@@ -265,12 +265,12 @@ const MemberAdvantages = () =>{
                               <AccordionItem>
                                  <AccordionItemHeading>
                                     <AccordionItemButton>
-                                    Benefits In Nevada
+                                    <div className="container">Benefits In Nevada</div>
                                     </AccordionItemButton>
                                 </AccordionItemHeading>
                                 <AccordionItemPanel>
                                 <div className="body">
-                                           <div className="inner">
+                                  <div className="container">
                                                 <div className="main-stuff">
                                                    <div className="advantages">
                                                       <h2>ADVANTAGES AVAILABLE <br></br>FOR A $60 SERVICE FEE</h2>
@@ -350,12 +350,12 @@ const MemberAdvantages = () =>{
                               <AccordionItem>
                                  <AccordionItemHeading>
                                     <AccordionItemButton>
-                                    Benefits In Texas
+                                    <div className="container">Benefits In Texas</div>
                                     </AccordionItemButton>
                                 </AccordionItemHeading>
                                 <AccordionItemPanel>
                                 <div className="body">
-                                           <div className="inner">
+                                  <div className="container">
                                                 <div className="main-stuff">
                                                    <div className="advantages">
                                                       <h2>ADVANTAGES AVAILABLE <br></br>FOR A $60 SERVICE FEE</h2>
@@ -456,12 +456,12 @@ const MemberAdvantages = () =>{
                               <AccordionItem>
                                  <AccordionItemHeading>
                                     <AccordionItemButton>
-                                    Benefits In Arizona
+                                    <div className="container">Benefits In Arizona</div>
                                     </AccordionItemButton>
                                 </AccordionItemHeading>
                                 <AccordionItemPanel>
                                 <div className="body">
-                                           <div className="inner">
+                                   <div className="container">
                                                 <div className="main-stuff">
                                                    <div className="advantages">
                                                       <h2>ADVANTAGES AVAILABLE <br></br>FOR A $60 SERVICE FEE</h2>
