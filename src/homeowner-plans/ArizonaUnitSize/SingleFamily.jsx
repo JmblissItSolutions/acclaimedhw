@@ -27,13 +27,12 @@ const SingleFamily = () => {
           <div className="container">
             <h2>You have selected the<strong> Single Family Standard </strong>plan</h2>
             <div className="plan_interval">
-            <p style={{margin: "0px",textalign:"center",fontsize:"18px"}}>
+            <p style={{margin: "0px",textalign:"center",fontsize:"18px"}}></p>
             <strong>Payment Options:</strong> 
             <span className="spacer"></span> 
             <label><Radio.Group onChange={onChange} value={value}>
             <label><Radio value={1}>$400/YR</Radio></label>
             <label><Radio value={2}>$35.00</Radio></label></Radio.Group></label>
-          </p>
             </div>
           </div>
           <div className="textured-back" style={{ backgroundImage: `url(${lattice})` }}>

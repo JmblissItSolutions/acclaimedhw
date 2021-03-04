@@ -41,7 +41,7 @@ const Arizona = () => {
               <div>
                 <span>Unit Size</span>
                 <Fragment>
-        <select name="size" className=""
+        <select name="size" className="" 
                   onChange={(e) => { const selectedd = e.target.value; setArizonaState(selectedd); }}>
           {unitsize.productList.map(option => (
             <option key={option.id} value={option.id}>{option.unitsize}</option>
