@@ -43,7 +43,9 @@ section.top-image img{
 .change-location-header .container>div>div span{
     display: block;
 }
-
+.product_page h1.upper {
+    padding-top: 0;
+}
 /*stadard Features*/
 .standard-features {
     position: relative;
@@ -55,36 +57,47 @@ section.top-image img{
 .standard-features h3 {
     font-size: 27px;
     margin: 0;
-    padding: 75px 0px 20px;
+    padding: 75px 0px 50px;
     letter-spacing: 2px;
+    font-family: CormorantGaramond-Regular;
+    font-size: 40px;
+    font-weight: 600;
+    color: #fff;
+    text-shadow: 0 2px 1px #034b55;
 }
 .standard-features .standard-flexy {
     display: flex;
-    flex-wrap: wrap;
+    flex-wrap: unset;
+    overflow-y: hidden;
+    overflow-x: auto;
 }
 .standard-features .standard-flexy .feature_group, 
 .standard-features .standard-flexy .plugin {
-    flex: 1 1 20%;
+    flex: 1 1 15.666%;
     max-width: 307px;
-    min-width: 175px;
+    min-width: 220px;
+    background: #fff;
+    border-radius: 5px;
+    margin: 4px;
+    padding: 15px;
+    box-shadow: 0 4px 12px #047889;    
 }
 
 .standard-features .standard-flexy p {
-    padding: 8px;
+    padding: 12px;
     word-break: break-word;
     margin: 0;
+    border-bottom: 1px solid rgb(209, 209, 209);
 }
 .standard-features .standard-flexy p.feature_header {
-    text-decoration: underline;
-    padding-bottom: 2px;
     font-weight: bold;
     letter-spacing: 1px;
-}
-.standard-features .standard-flexy p.feature_header+p {
-    padding-top: 0;
+    font-family: 'lato';
+    color: #3a3a3a;
 }
 .standard-features .standard-flexy , .standard-features .standard-flexy p{
-    color: #fff;
+    color: #4d4d4d;
+    text-align: center;
 }
 .unique-features {
     padding: 60px 0;
@@ -101,7 +114,7 @@ section.top-image img{
 }
 .plan-options .table-cont {
     align-items: center;
-    margin-bottom: -40px;
+    margin-bottom: 0;
 }
 .table-cont .table-left {
     width: 160px;
@@ -168,6 +181,7 @@ section.top-image img{
     flex: 1;
     width: 100%;
     justify-content: space-around;
+    margin-bottom: -30px;
 }
 
 .unique-features .feature.included {
@@ -185,7 +199,7 @@ section.top-image img{
 
 .plan-options {
     position: sticky;
-    top: 83px;
+    top: 50px;
     width: 100%;
     z-index: 99;
     background: #fff;
@@ -280,6 +294,9 @@ section.top-image img{
     margin-right: auto;
     display: inline-block;
     max-width: max-content;
+}
+.product_page .upper {
+    padding-top: 0;
 }
 /*end of scrolling */
 
@@ -413,6 +430,7 @@ div#root .plan-options .option .btn {
         justify-content: normal;
         margin: 0 0;
         overflow-x: auto;
+        margin-bottom: -50px;
     }
     .d-flex {
         display: flex!important;

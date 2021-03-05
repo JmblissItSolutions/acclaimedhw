@@ -25,12 +25,12 @@ const Arizona = () => {
     const products = productss.ArizonaproList;
     setproducts(products)
   }, []);
-
   const uniqueCouse = getUnique(products, "unitsize");
   const filterDropdown = products.filter(function (result) {
     return result.unitsize === product;
   });
 
+  
   // above all code for filter only dont touch above
   //  code you can add you code belove this line
 
@@ -42,6 +42,8 @@ const Arizona = () => {
     history.push(e.target.value);
   }
   const [showPlans, setShowPlans] = useState("ProductsInfo")
+  const changehandle = ()=>setShowPlans("Plans")
+ 
   
   const [value, setValue] =useState(1);
   const onChange = e => {
@@ -110,8 +112,9 @@ const Arizona = () => {
                     <span style={{ fontSize: "0.4em" }}>/MO</span></h4> :
                     <h4 className="lato">{product.yearly}
                     <span style={{ fontSize: "0.4em" }}>/YR</span></h4>}
-                   {product.price ? <h5 className="lato">{product.yearly}/YR</h5> : null }
-                    <input className="btn" type="submit" value="Buy Now" onClick={()=>setShowPlans("Plans")} />
+                    {product.price ? <h5 className="lato">{product.yearly}/YR</h5> : null }
+                    <input className="btn" type="submit" value="Buy Now" 
+                    onClick={changehandle}  />
                   </div>
                 </div>
               ))}
@@ -399,7 +402,7 @@ const Arizona = () => {
       <div id="plans" className="search-results">
         <section id="upgrades_and_cart">
           <div className="container">
-            <h2>You have selected the<strong> Single Family Standard </strong>plan</h2>
+            <h2>You have selected the<strong> {product} Standard </strong>plan</h2>
             <div className="plan_interval">
               <p style={{ margin: "0px", textalign: "center", fontsize: "18px" }}>
                 <strong>Payment Options:</strong>
