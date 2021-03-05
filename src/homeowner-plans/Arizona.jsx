@@ -110,7 +110,7 @@ const Arizona = () => {
                     <span style={{ fontSize: "0.4em" }}>/MO</span></h4> :
                     <h4 className="lato">{product.yearly}
                     <span style={{ fontSize: "0.4em" }}>/YR</span></h4>}
-                   {product.price ? <h5 className="lato">{product.yearly}/YR</h5> : null }
+                    {product.price ? <h5 className="lato">{product.yearly}/YR</h5> : null }
                     <input className="btn" type="submit" value="Buy Now" onClick={()=>setShowPlans("Plans")} />
                   </div>
                 </div>
