@@ -4,7 +4,7 @@
         "id":1,
         "name": "Standard",
         "price": "$35.00",
-        "yearly": "$400/YR",
+        "yearly": "$400",
         "unitsize":"Single Family"
     },
 
@@ -12,28 +12,32 @@
         "id":2,
         "name": "Premium",
         "price": "$40.00",
-        "yearly": "$475/YR",
-        "unitsize":"Duplex"
+        "yearly": "$400",
+        "unitsize":"Single Family"
     },
     {
         "id":3,
         "name": "Ultimate",
         "price": "$54.00",
-        "yearly": "$600/YR",
-        "unitsize":"Triplex"
+        "yearly": "$400",
+        "unitsize":"Single Family"
     },
     {
         "id":4,
         "name": "Standard",
-        "price": "$54.00",
-        "yearly": "$600/YR",
-        "unitsize":"Fourplex"
+        "yearly": "$795",
+        "unitsize":"Duplex"
     },
     {
         "id":5,
         "name": "Ultimate",
-        "price": "$54.00",
-        "yearly": "$600/YR",
+        "yearly": "$995",
+        "unitsize":"Triplex"
+    },
+    {
+        "id":6,
+        "name": "Ultimate",
+        "yearly": "$1195",
         "unitsize":"Fourplex"
     }
   ],
@@ -42,178 +46,194 @@
         "id":1,
         "name": "Standard",
         "price": "$35.00",
-        "yearly": "$400/YR",
+        "yearly": "$400",
         "unitsize":"Single Family"
     },
 
     {
         "id":2,
         "name": "Premium",
-        "price": "$40.00",
-        "yearly": "$475/YR",
-        "unitsize":"Duplex"
+        "price": "$45.00",
+        "yearly": "$475",
+        "unitsize":"Single Family"
     },
     {
         "id":3,
-        "name": "Ultimate",
-        "price": "$74.00",
-        "yearly": "$400/YR",
-        "unitsize":"Triplex"
+        "name": "Premium+",
+        "price": "$50.00",
+        "yearly": "$400",
+        "unitsize":"Single Family"
     },
     {
         "id":4,
-        "name": "Standard",
-        "price": "$26.00",
-        "yearly": "$580/YR",
-        "unitsize":"Fourplex"
+        "name": "Premium+one",
+        "price": "$53.00",
+        "yearly": "$580",
+        "unitsize":"Single Family"
     },
     {
         "id":5,
         "name": "Ultimate",
-        "price": "$65.00",
-        "yearly": "$670/YR",
-        "unitsize":"Fourplex"
+        "price": "$55.00",
+        "yearly": "$670",
+        "unitsize":"Single Family"
     },
     {
         "id":6,
         "name": "Standard",
-        "price": "$23.00",
-        "yearly": "$654/YR",
+        "yearly": "$695",
+        "unitsize":"Duplex"
+    },
+    {
+        "id":7,
+        "name": "Standard",
+        "yearly": "$895",
         "unitsize":"Triplex"
+    },
+    {
+        "id":8,
+        "name": "Standard",
+        "yearly": "$1095",
+        "unitsize":"Fourplex"
     }
   ],
   "NevadaproList" :[
     {
         "id":1,
         "name": "Standard",
-        "price": "$35.00",
-        "yearly": "$400/YR",
+        "price": "$45.00",
+        "yearly": "$400",
         "unitsize":"Single Family"
     },
 
     {
         "id":2,
         "name": "Premium",
-        "price": "$40.00",
-        "yearly": "$475/YR",
-        "unitsize":"Duplex"
+        "price": "$50.00",
+        "yearly": "$475",
+        "unitsize":"Single Family"
     },
     {
         "id":3,
         "name": "Ultimate",
-        "price": "$74.00",
-        "yearly": "$400/YR",
-        "unitsize":"Triplex"
+        "price": "$60.00",
+        "yearly": "$400",
+        "unitsize":"Single Family"
     },
     {
         "id":4,
         "name": "Standard",
-        "price": "$26.00",
-        "yearly": "$580/YR",
-        "unitsize":"Fourplex"
+        "yearly": "$795",
+        "unitsize":"Duplex"
     },
     {
         "id":5,
-        "name": "Ultimate",
-        "price": "$65.00",
-        "yearly": "$670/YR",
-        "unitsize":"Fourplex"
+        "name": "Standard",
+        "yearly": "$995",
+        "unitsize":"Triplex"
     },
     {
         "id":6,
         "name": "Standard",
-        "price": "$23.00",
-        "yearly": "$654/YR",
-        "unitsize":"Triplex"
+        "yearly": "$1195",
+        "unitsize":"Fourplex"
     }
   ],
   "TexasproList" :[
     {
         "id":1,
         "name": "Standard",
-        "price": "$35.00",
-        "yearly": "$400/YR",
+        "price": "$47.00",
+        "yearly": "$400",
         "unitsize":"Single Family"
     },
 
     {
         "id":2,
         "name": "Premium",
-        "price": "$40.00",
-        "yearly": "$475/YR",
-        "unitsize":"Duplex"
+        "price": "$55.00",
+        "yearly": "$475",
+        "unitsize":"Single Family"
     },
     {
         "id":3,
         "name": "Ultimate",
-        "price": "$74.00",
-        "yearly": "$400/YR",
-        "unitsize":"Triplex"
+        "price": "$60.00",
+        "yearly": "$400",
+        "unitsize":"Single Family"
     },
     {
         "id":4,
         "name": "Standard",
-        "price": "$26.00",
-        "yearly": "$580/YR",
-        "unitsize":"Fourplex"
+        "yearly": "$775",
+        "unitsize":"Duplex"
     },
     {
         "id":5,
-        "name": "Ultimate",
-        "price": "$65.00",
-        "yearly": "$670/YR",
-        "unitsize":"Fourplex"
+        "name": "Standard",
+        "yearly": "$1035",
+        "unitsize":"Triplex"
     },
     {
         "id":6,
         "name": "Standard",
-        "price": "$23.00",
-        "yearly": "$654/YR",
-        "unitsize":"Triplex"
+        "yearly": "$1295",
+        "unitsize":"Fourplex"
     }
   ],  "UtahproList" :[
     {
         "id":1,
         "name": "Standard",
         "price": "$35.00",
-        "yearly": "$400/YR",
+        "yearly": "$400",
         "unitsize":"Single Family"
     },
 
     {
         "id":2,
         "name": "Premium",
-        "price": "$40.00",
-        "yearly": "$475/YR",
-        "unitsize":"Duplex"
+        "price": "$45.00",
+        "yearly": "$475",
+        "unitsize":"Single Family"
     },
     {
         "id":3,
-        "name": "Ultimate",
-        "price": "$74.00",
-        "yearly": "$400/YR",
-        "unitsize":"Triplex"
+        "name": "Premium+",
+        "price": "$50.00",
+        "yearly": "$400",
+        "unitsize":"Single Family"
     },
     {
         "id":4,
-        "name": "Standard",
-        "price": "$26.00",
-        "yearly": "$580/YR",
-        "unitsize":"Fourplex"
+        "name": "Premium+one",
+        "price": "$53.00",
+        "yearly": "$580",
+        "unitsize":"Single Family"
     },
     {
         "id":5,
         "name": "Ultimate",
-        "price": "$65.00",
-        "yearly": "$670/YR",
-        "unitsize":"Fourplex"
+        "price": "$55.00",
+        "yearly": "$670",
+        "unitsize":"Single Family"
     },
     {
         "id":6,
         "name": "Standard",
-        "price": "$23.00",
-        "yearly": "$654/YR",
+        "yearly": "$695",
+        "unitsize":"Duplex"
+    },
+    {
+        "id":7,
+        "name": "Standard",
+        "yearly": "$895",
         "unitsize":"Triplex"
+    },
+    {
+        "id":8,
+        "name": "Standard",
+        "yearly": "$1095",
+        "unitsize":"FourPlex"
     }
   ]
 }

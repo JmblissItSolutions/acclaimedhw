@@ -41,12 +41,8 @@ const Arizona = () => {
   function handleChange(e) {
     history.push(e.target.value);
   }
-  const [showPlans, setShowPlans] = useState(false)
-  const onClick = () => setShowPlans(true)
-
-  const [showProduct, setShowProduct] = useState(false)
-  const onCancel = () => setShowProduct(true)
-
+  const [showPlans, setShowPlans] = useState("ProductsInfo")
+  
   const [value, setValue] =useState(1);
   const onChange = e => {
     setValue(e.target.value);
@@ -101,7 +97,7 @@ const Arizona = () => {
         <div className="container">
           <div className="table-cont">
             <h2 className="upper table-left">plan options<br />
-              <span>Single Family</span></h2>
+              <span>{product}</span></h2>
             <div className="option-cont table-right">
               {filterDropdown.map(product => (
                 <div className="option" key={product.id}>
@@ -110,10 +106,12 @@ const Arizona = () => {
                   </div>
                   <div className="body">
                     <h6 className="upper">{product.name}</h6>
-                    <h4 className="lato">{product.price}
-                      <span style={{ fontSize: "0.4em" }}>/MO</span></h4>
-                    <h5 className="lato">{product.yearly}</h5>
-                    <input className="btn" type="submit" value="Buy Now" onClick={onClick} />
+                    {product.price ? <h4 className="lato">{product.price}
+                    <span style={{ fontSize: "0.4em" }}>/MO</span></h4> :
+                    <h4 className="lato">{product.yearly}
+                    <span style={{ fontSize: "0.4em" }}>/YR</span></h4>}
+                   {product.price ? <h5 className="lato">{product.yearly}/YR</h5> : null }
+                    <input className="btn" type="submit" value="Buy Now" onClick={()=>setShowPlans("Plans")} />
                   </div>
                 </div>
               ))}
@@ -525,7 +523,7 @@ const Arizona = () => {
             </div>
             <div className="footy">
               <button className="btn">Check out</button>
-              <button className="btn cancel" onClick={onCancel}>Cancel</button>
+              <button className="btn cancel" onClick={()=>setShowPlans("ProductsInfo")}>Cancel</button>
             </div>
           </div>
         </section>
@@ -540,11 +538,8 @@ const Arizona = () => {
       </Helmet>
       <div className="product_page">
         <Produfilter />
-        {
-          showProduct === false
-            ? showPlans ? <Plans /> : <ProductsInfo />
-            : showProduct ? <ProductsInfo /> : <Plans /> 
-         }
+         {showPlans==="ProductsInfo"&&<ProductsInfo />}
+         {showPlans==="Plans"&&<Plans />}
          
       </div>
     </>
