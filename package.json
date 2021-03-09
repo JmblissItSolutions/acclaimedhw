@@ -25,6 +25,7 @@
     "react-fontawesome": "^1.7.1",
     "react-google-recaptcha": "^2.1.0",
     "react-helmet": "^6.1.0",
+    "react-hook-form": "^6.15.4",
     "react-iframe": "^1.8.0",
     "react-modal-video": "^1.2.6",
     "react-pdf": "^5.2.0",
