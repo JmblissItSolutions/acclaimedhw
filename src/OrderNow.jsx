@@ -27,7 +27,7 @@ const OrderNow = () =>{
 							  </div>
 							  <div className="btn-cont">
 								<Link to="/homeowner-plans/arizona" className="btn">compare homeowner plans</Link>
-								<a href="/real-estate-orders/" className="btn">compare real estate&nbsp;plans&nbsp;</a>
+								<Link to="/Realstate-plans/RealStateOrder" className="btn">compare real estate plans</Link>
 							  </div>
 						 </div>
 						<div className="col-2" style={{ backgroundImage: `url(${Utah})` }}>
@@ -38,7 +38,7 @@ const OrderNow = () =>{
 							</div>
 							<div className="btn-cont">
 							   <Link to="/homeowner-plans/utah" className="btn">compare homeowner plans</Link>
-							   <a href="/real-estate-orders/" className="btn">compare real&nbsp;estate&nbsp;plans</a>
+							   <Link to="/Realstate-plans/RealStateOrder" className="btn">compare real estate plans</Link>
 							</div>
 						</div>
 						<div className="col-3" style={{ backgroundImage: `url(${Nevada})` }}>
@@ -49,7 +49,7 @@ const OrderNow = () =>{
 							</div>
 							<div className="btn-cont">
 							   <Link to="/homeowner-plans/nevada" className="btn">compare homeowner plans</Link>
-								<a href="/real-estate-orders/" className="btn">compare real estate&nbsp;plans&nbsp;</a>
+							   <Link to="/Realstate-plans/RealStateOrder" className="btn">compare real estate plans</Link>
 							</div>
 						</div>
 						<div className="col-4" style={{ backgroundImage: `url(${Texas})` }}>
@@ -60,7 +60,7 @@ const OrderNow = () =>{
 							</div>
 							<div className="btn-cont">
 							   <Link to="/homeowner-plans/texas" className="btn">compare homeowner plans</Link>
-								<a href="/real-estate-orders/" className="btn">compare real&nbsp;estate&nbsp;plans</a>
+							   <Link to="/Realstate-plans/RealStateOrder" className="btn">compare real estate plans</Link>
 							</div>
 						</div>
 						<div className="col-2 idaho_img" style={{ backgroundImage: `url(${Idaho})` }}>
@@ -71,7 +71,7 @@ const OrderNow = () =>{
 							</div>
 							<div className="btn-cont">
 							   <Link to="/homeowner-plans/idaho" className="btn">compare homeowner plans</Link>
-								<a href="/real-estate-orders/" className="btn">compare real&nbsp;estate&nbsp;plans</a>
+							   <Link to="/Realstate-plans/RealStateOrder" className="btn">compare real estate plans</Link>
 							</div>
 						</div>
 					</div>

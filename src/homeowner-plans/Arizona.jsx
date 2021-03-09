@@ -5,6 +5,7 @@ import UtahHomeowner from "./../assets/images/UtahHomeowner.png"
 import { StarFilled, CheckOutlined } from '@ant-design/icons';
 import lattice from "../assets/images/lattice-background.png"
 import { Radio } from 'antd';
+
 const Arizona = () => {
   const [products, setproducts] = useState([]);
   const [product, setproduct] = useState("Single Family");
@@ -44,11 +45,10 @@ const Arizona = () => {
   const [showPlans, setShowPlans] = useState("ProductsInfo")
   const changehandle = ()=>setShowPlans("Plans")
  
-  
-  const [value, setValue] =useState(1);
-  const onChange = e => {
-    setValue(e.target.value);
-  };
+  const [radio,setRadio]=useState(""); 
+  const onChange=(e)=>{
+    setRadio(e.target.value)
+  }
 
   const Produfilter = () => (
     <>
@@ -404,13 +404,12 @@ const Arizona = () => {
           <div className="container">
             <h2>You have selected the<strong> {product} Standard </strong>plan</h2>
             <div className="plan_interval">
-              <p style={{ margin: "0px", textalign: "center", fontsize: "18px" }}>
+              <p style={{ margin: "0px", textalign: "center", fontsize: "18px" }}></p>
                 <strong>Payment Options:</strong>
                 <span className="spacer"></span>
-                <label><Radio.Group onChange={onChange} value={value}>
-            <label><Radio value={1}>$400/YR</Radio></label>
-            <label><Radio value={2}>$35.00</Radio></label></Radio.Group></label>
-              </p>
+                <label><Radio.Group>
+                <label><Radio  value="$400/YR" checked={radio === "$400/YR"}  onClick={onChange}>$400/YR</Radio></label>
+                <label><Radio  value="$35.00" checked={radio === "$35.00"}  onClick={onChange}>$35.00</Radio></label></Radio.Group></label>  
             </div>
           </div>
           <div className="textured-back" style={{ backgroundImage: `url(${lattice})` }}>
@@ -522,7 +521,7 @@ const Arizona = () => {
             </div>
             <div className="total">
               <h4>Total</h4>
-        $400/<span>YR</span>
+        <span>{radio}</span>
             </div>
             <div className="footy">
               <button className="btn">Check out</button>
@@ -543,7 +542,6 @@ const Arizona = () => {
         <Produfilter />
          {showPlans==="ProductsInfo"&&<ProductsInfo />}
          {showPlans==="Plans"&&<Plans />}
-         
       </div>
     </>
   )
