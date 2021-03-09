@@ -11,23 +11,67 @@ import play from "../assets/images/play.png";
 import ChangeLocation from "../ChangeLocation/ChangeLocation";
 import { Modal, Button } from 'antd';
 import 'antd/dist/antd.css';
-import Slider from "../component/Homeslider";
+
 const ArizonaResource = () => {
    const [isActive, setActive] = useState(false);
    const toggleClass = () => {
       setActive(!isActive);
    };
-   const [isModalVisible, setIsModalVisible] = useState(false);
-   const showModal = () => {
-      setIsModalVisible(true);
+   // const [isModalVisible, setIsModalVisible] = useState(false);
+   // const showModal = () => {
+   //    setIsModalVisible(true);
+   // };
+   // const handleOk = () => {
+   //    setIsModalVisible(false);
+   // };
+   // const handleCancel = () => {
+   //    setIsModalVisible(false);
+   // };
+   // Modal
+   const [isModalVisible1, setIsModalVisible1] = useState(false);
+   const showModal1 = () => {
+      setIsModalVisible1(true);
    };
-   const handleOk = () => {
-      setIsModalVisible(false);
+   const handleOk1 = () => {
+      setIsModalVisible1(false);
    };
-   const handleCancel = () => {
-      setIsModalVisible(false);
+   const handleCancel1 = () => {
+      setIsModalVisible1(false);
    };
- 
+   // Modal2
+   const [isModalVisible2, setIsModalVisible2] = useState(false);
+   const showModal2 = () => {
+      setIsModalVisible2(true);
+   };
+   const handleOk2 = () => {
+      setIsModalVisible2(false);
+   };
+   const handleCancel2 = () => {
+      setIsModalVisible2(false);
+   };
+   // Modal3
+   const [isModalVisible3, setIsModalVisible3] = useState(false);
+   const showModal3 = () => {
+      setIsModalVisible3(true);
+   };
+   const handleOk3 = () => {
+      setIsModalVisible3(false);
+   };
+   const handleCancel3 = () => {
+      setIsModalVisible3(false);
+   };
+
+   // Modal4
+   const [isModalVisible4, setIsModalVisible4] = useState(false);
+   const showModal4 = () => {
+      setIsModalVisible4(true);
+   };
+   const handleOk4 = () => {
+      setIsModalVisible4(false);
+   };
+   const handleCancel4 = () => {
+      setIsModalVisible4(false);
+   };
    return (
       <>
          <Helmet>
@@ -93,70 +137,69 @@ const ArizonaResource = () => {
                      <div className="video">
                         <div className="img-cont">
                            <img src={video1} alt="video1" className="video1" />
-                           <img src={play} alt="play" className="play" onClick={showModal}
+                           <img src={play} alt="play" className="play" onClick={showModal1}
                               data-toggle="modal"
                               data-target="#largeModal" />
-                           <Modal style={{ width: "680px", height: "400px" }} visible={isModalVisible} onOk={handleOk}
-                              onCancel={handleCancel}
+                           <Modal style={{ width: "680px", height: "400px" }} visible={isModalVisible1} onOk={handleOk1}
+                              onCancel={handleCancel1}
                               okButtonProps={{ disabled: true }}
                               cancelButtonProps={{ disabled: true }}>
-                                  {/* <Slider/> */}
-                               <div className="content">
-                               <iframe style={{width:"680px",height:"400px",border:"none",background:"black"}} src="https://www.youtube.com/embed/1mzkbJSIMHc"></iframe>
-                               </div>
-                              </Modal>
-                        <p className="name">Why Choose Acclaimed?</p>
+                              <div className="content">
+                                 <iframe style={{ width: "680px", height: "400px", border: "none", background: "black" }} src="https://www.youtube.com/embed/1mzkbJSIMHc"></iframe>
+                              </div>
+                           </Modal>
+                           <p className="name">Why Choose Acclaimed?</p>
+                        </div>
+                     </div>
+                     <div className="video">
+                        <div className="img-cont">
+                           <img src={video2} alt="video2" />
+                           <img src={play} alt="play" className="play" onClick={showModal2} />
+                           <Modal style={{ width: "680px", height: "400px" }} visible={isModalVisible2} onOk={handleOk2}
+                              onCancel={handleCancel2}
+                              okButtonProps={{ disabled: true }}
+                              cancelButtonProps={{ disabled: true }}>
+                              <div className="content">
+                                 <iframe style={{ width: "680px", height: "400px", border: "none", background: "black" }} src="https://www.youtube.com/embed/QsmndywTysA"></iframe>
+                              </div>
+                           </Modal>
+                           <p className="name">How To Use Our New Website</p>
+                        </div>
+                     </div>
+                     <div className="video">
+                        <div className="img-cont">
+                           <img src={video3} alt="video3" />
+                           <img src={play} alt="play" className="play" onClick={showModal3} />
+                           <Modal style={{ width: "680px", height: "400px" }} visible={isModalVisible3} onOk={handleOk3}
+                              onCancel={handleCancel3}
+                              okButtonProps={{ disabled: true }}
+                              cancelButtonProps={{ disabled: true }}>
+                              <div className="content">
+                                 <iframe style={{ width: "680px", height: "400px", border: "none", background: "black" }} src="https://youtube.com/embed/q7-GQn3-ZLs"></iframe>
+                              </div>
+                           </Modal>
+                           <p className="name">Donating to Family Promise</p>
+                        </div>
+                     </div>
+                     <div className="video">
+                        <div className="img-cont">
+                           <img src={video4} alt="video1" className="video4" />
+                           <img src={play} alt="play" className="play" onClick={showModal4} />
+                           <Modal style={{ width: "680px", height: "400px" }} visible={isModalVisible4} onOk={handleOk4}
+                              onCancel={handleCancel4}
+                              okButtonProps={{ disabled: true }}
+                              cancelButtonProps={{ disabled: true }}>
+                              <div className="content">
+                                 <iframe style={{ width: "680px", height: "400px", border: "none", background: "black" }} src="https://youtube.com/embed/iG5o3j7P7I4"></iframe>
+                              </div>
+                           </Modal>
+                           <p className="name">Live you Life ... Don't Fix It! </p>
+                        </div>
                      </div>
                   </div>
-                  <div className="video">
-                     <div className="img-cont">
-                        <img src={video2} alt="video2" />
-                        <img src={play} alt="play" className="play" onClick={showModal}/>
-                        <Modal style={{ width: "680px", height: "400px" }} visible={isModalVisible} onOk={handleOk}
-                           onCancel={handleCancel}
-                           okButtonProps={{ disabled: true }}
-                           cancelButtonProps={{ disabled: true }}>
-                           <div className="content">
-                              <iframe style={{ width: "680px", height: "400px", border: "none", background: "black" }} src="https://www.youtube.com/embed/QsmndywTysA"></iframe>
-                           </div>
-                        </Modal>
-                        <p className="name">How To Use Our New Website</p>
-                     </div>
-                  </div>
-                  <div className="video">
-                     <div className="img-cont">
-                        <img src={video3} alt="video3" />
-                        <img src={play} alt="play" className="play" onClick={showModal} />
-                        <Modal style={{ width: "680px", height: "400px" }} visible={isModalVisible} onOk={handleOk}
-                           onCancel={handleCancel}
-                           okButtonProps={{ disabled: true }}
-                           cancelButtonProps={{ disabled: true }}>
-                           <div className="content">
-                              <iframe style={{ width: "680px", height: "400px", border: "none", background: "black" }} src="https://youtube.com/embed/q7-GQn3-ZLs"></iframe>
-                           </div>
-                        </Modal>
-                        <p className="name">Donating to Family Promise</p>
-                     </div>
-                  </div>
-                  <div className="video">
-                     <div className="img-cont">
-                        <img src={video4} alt="video1" className="video4" />
-                        <img src={play} alt="play" className="play" onClick={showModal} />
-                        <Modal style={{ width: "680px", height: "400px" }} visible={isModalVisible} onOk={handleOk}
-                           onCancel={handleCancel}
-                           okButtonProps={{ disabled: true }}
-                           cancelButtonProps={{ disabled: true }}>
-                           <div className="content">
-                              <iframe style={{ width: "680px", height: "400px", border: "none", background: "black" }} src="https://youtube.com/embed/iG5o3j7P7I4"></iframe>
-                           </div>
-                        </Modal>
-                        <p className="name">Live you Life ... Don't Fix It! </p>
-                     </div>
-                  </div>
-               </div>
-                  </div>
-               </section>
-      </div>
+                </div>
+            </section>
+         </div>
        </>
     )
 };

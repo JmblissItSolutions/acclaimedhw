@@ -41,7 +41,16 @@ const Texas = () => {
   function handleChange(e) {
     history.push(e.target.value);
   }
+
   const [showPlans, setShowPlans] = useState("ProductsInfo")
+  const [showId, setId] = useState("0")
+  const changehandle= () => {
+     setShowPlans("Plans")   
+   };
+
+  const productId = e => {
+    setId(e.target.id)
+  };
   
   const [value, setValue] =useState(1);
   const onChange = e => {
@@ -111,7 +120,8 @@ const Texas = () => {
                     <h4 className="lato">{product.yearly}
                     <span style={{ fontSize: "0.4em" }}>/YR</span></h4>}
                    {product.price ? <h5 className="lato">{product.yearly}/YR</h5> : null }
-                    <input className="btn" type="submit" value="Buy Now" onClick={()=>setShowPlans("Plans")} />
+                    <input className="btn" type="submit" id={product.id} value="Buy Now" 
+                     onClick={changehandle} onMouseEnter={productId}/>
                   </div>
                 </div>
               ))}
@@ -401,13 +411,12 @@ const Texas = () => {
           <div className="container">
             <h2>You have selected the<strong> {product} Standard </strong>plan</h2>
             <div className="plan_interval">
-              <p style={{ margin: "0px", textalign: "center", fontsize: "18px" }}>
+              <p style={{ margin: "0px", textalign: "center", fontsize: "18px" }}></p>
                 <strong>Payment Options:</strong>
                 <span className="spacer"></span>
                 <label><Radio.Group onChange={onChange} value={value}>
-            <label><Radio value={1}>$400/YR</Radio></label>
-            <label><Radio value={2}>$35.00</Radio></label></Radio.Group></label>
-              </p>
+                {products[showId-1].yearly ? <label><Radio value={1}>{products[showId-1].yearly} /YR</Radio></label>: null}
+               {products[showId-1].price ?<label><Radio value={2}>{products[showId-1].price} /MO</Radio></label>: null}</Radio.Group></label>
             </div>
           </div>
           <div className="textured-back" style={{ backgroundImage: `url(${lattice})` }}>
@@ -519,7 +528,8 @@ const Texas = () => {
             </div>
             <div className="total">
               <h4>Total</h4>
-        $400/<span>YR</span>
+              {value==1 ? <span>{products[showId-1].yearly} /YR</span>: null}
+              {value==2 ?<span>{products[showId-1].price} /MO</span>: null}
             </div>
             <div className="footy">
               <button className="btn">Check out</button>

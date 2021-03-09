@@ -15,6 +15,7 @@ import "./assets/css/AboutUs.css";
 import "./assets/css/plan.css";
 import "./assets/css/BuyNow.css";
 import "./assets/css/ChangeLocation.css";
+import "./assets/css/Realstateplans.css";
 import { Route, Switch} from "react-router-dom";
 import { useState, useEffect } from "react"
 import HomeWarranty from "./Home-Warranty"
@@ -34,6 +35,7 @@ import Texas from "./homeowner-plans/Texas";
 import Idaho from "./homeowner-plans/Idaho";
 import ArizonaResource from "./Brochures/ArizonaResource";
 import SocialFollow from "./component/social-media-bar/SocialFollow";
+import RealStateOrder from "./Realstate-plans/RealStateOrder";
 import  Error  from "./Error";
 import Menu from "./Menu";
 import { Footer, FooterBottom } from './Footer';
@@ -73,6 +75,7 @@ function App() {
                 <Route path="/homeowner-plans/nevada" component={Nevada} exact/>
                 <Route path="/homeowner-plans/texas" component={Texas} exact/>
                 <Route path="/homeowner-plans/idaho" component={Idaho} exact/>
+                <Route path="/Realstate-plans/RealStateOrder" component={RealStateOrder} exact/>
                 <Route path="/Brochures/ArizonaResource" component={ArizonaResource} exact/>
                 <Route component={Error}/>
             </Switch>
