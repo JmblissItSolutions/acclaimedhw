@@ -75,7 +75,7 @@ function App() {
                 <Route path="/homeowner-plans/nevada" component={Nevada} exact/>
                 <Route path="/homeowner-plans/texas" component={Texas} exact/>
                 <Route path="/homeowner-plans/idaho" component={Idaho} exact/>
-                <Route path="/Realstate-plans/RealStateOrder" component={RealStateOrder} exact/>
+                <Route path="/real-estate-orders" component={RealStateOrder} exact/>
                 <Route path="/Brochures/ArizonaResource" component={ArizonaResource} exact/>
                 <Route component={Error}/>
             </Switch>
