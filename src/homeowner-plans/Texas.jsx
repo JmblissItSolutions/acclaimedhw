@@ -409,7 +409,7 @@ const Texas = () => {
       <div id="plans" className="search-results">
         <section id="upgrades_and_cart">
           <div className="container">
-            <h2>You have selected the<strong> {product} Standard </strong>plan</h2>
+            <h2>You have selected the<strong> {product} {products[showId-1].name} </strong>plan</h2>
             <div className="plan_interval">
               <p style={{ margin: "0px", textalign: "center", fontsize: "18px" }}></p>
                 <strong>Payment Options:</strong>
