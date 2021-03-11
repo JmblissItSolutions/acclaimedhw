@@ -27,7 +27,7 @@ const RealStateOrder = () => {
                 <h4>I want to get a home warranty for a property in:</h4>
                 {hompalan.map(palan => (
                     <div className="homeradiobtn">
-                        <input type="radio" value={palan} name="radio" onChange={e => setRadio(e.target.value)} />
+                        <input key={palan} type="radio" value={palan} name="radio" onChange={e => setRadio(e.target.value)} />
                         <label>{palan}</label>
                     </div>
                 ))}

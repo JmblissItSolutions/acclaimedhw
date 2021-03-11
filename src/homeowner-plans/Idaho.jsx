@@ -44,18 +44,18 @@ const Idaho = () => {
 
   const [showPlans, setShowPlans] = useState("ProductsInfo")
   const [showId, setId] = useState("0")
-  const changehandle= () => {
-     setShowPlans("Plans")   
-   };
+  const changehandle = () => {
+    setShowPlans("Plans")
+  };
   const productId = e => {
     setId(e.target.id)
   };
-  
-  const [value, setValue] =useState(1);
+
+  const [value, setValue] = useState(1);
   const onChange = e => {
     setValue(e.target.value);
   };
-  
+
   const Produfilter = () => (
     <>
       <section className="top-image">
@@ -115,12 +115,12 @@ const Idaho = () => {
                   <div className="body">
                     <h6 className="upper">{product.name}</h6>
                     {product.price ? <h4 className="lato">{product.price}
-                    <span style={{ fontSize: "0.4em" }}>/MO</span></h4> :
-                    <h4 className="lato">{product.yearly}
-                    <span style={{ fontSize: "0.4em" }}>/YR</span></h4>}
-                   {product.price ? <h5 className="lato">{product.yearly}/YR</h5> : null }
-                   <input className="btn" type="submit" id={product.id} value="Buy Now" 
-                     onClick={changehandle} onMouseEnter={productId}/>
+                      <span style={{ fontSize: "0.4em" }}>/MO</span></h4> :
+                      <h4 className="lato">{product.yearly}
+                        <span style={{ fontSize: "0.4em" }}>/YR</span></h4>}
+                    {product.price ? <h5 className="lato">{product.yearly}/YR</h5> : null}
+                    <input className="btn" type="submit" id={product.id} value="Buy Now"
+                      onClick={changehandle} onMouseEnter={productId} />
                   </div>
                 </div>
               ))}
@@ -402,20 +402,50 @@ const Idaho = () => {
         </div>
       </section>
     </>
-  );
+  )
+  const Idahodata = () => {
+    let productid = products.filter(function (ids) {
+      return ids.id == showId
+    });
+    return (
+      <>
+        {productid.map((dataIn) =>
+           <div className="upgrade_list">
+              {value == 1 ? dataIn.yearlyvariations.map((vari) =>
+              <div className="upgrade">
+                <input type="number" min="0" />
+                <span data-num={vari.id} className="price">{vari.price}</span>
+                <span className="name">{vari.title}</span>
+                </div>
+              ) : null}
+              {value == 2 ? dataIn.monthlyvariations.map((vari) =>
+               <div className="upgrade">
+               <input type="number" min="0" />
+               <span data-num={vari.id} className="price">{vari.price}</span>
+               <span className="name">{vari.title}</span>
+               </div>
+              ) : null}
+            </div>
+        )}
+        
+      </>
+    );
+  };
+
   const Plans = () => (
     <>
+
       <div id="plans" className="search-results">
         <section id="upgrades_and_cart">
           <div className="container">
-            <h2>You have selected the<strong> {product} {products[showId-1].name} </strong>plan</h2>
+            <h2>You have selected the<strong> {product} {products[showId - 1].name} </strong>plan</h2>
             <div className="plan_interval">
               <p style={{ margin: "0px", textalign: "center", fontsize: "18px" }}></p>
-                <strong>Payment Options:</strong>
-                <span className="spacer"></span>
-                <label><Radio.Group onChange={onChange} value={value}>
-                {products[showId-1].yearly ? <label><Radio value={1}>{products[showId-1].yearly} /YR</Radio></label>: null}
-               {products[showId-1].price ?<label><Radio value={2}>{products[showId-1].price} /MO</Radio></label>: null}</Radio.Group></label>
+              <strong>Payment Options:</strong>
+              <span className="spacer"></span>
+              <label><Radio.Group onChange={onChange} value={value}>
+                {products[showId - 1].yearly ? <label><Radio value={1}>{products[showId - 1].yearly} /YR</Radio></label> : null}
+                {products[showId - 1].price ? <label><Radio value={2}>{products[showId - 1].price} /MO</Radio></label> : null}</Radio.Group></label>
             </div>
           </div>
           <div className="textured-back" style={{ backgroundImage: `url(${lattice})` }}>
@@ -426,99 +456,7 @@ const Idaho = () => {
           </div>
           <div className="container">
             <div className="upgrade_cont">
-              <div className="upgrade">
-                <input type="number" min="0" />
-                <span data-num="3" className="price">$175</span>
-                <span className="name">Swimming Pool/Spa Equipment</span>
-              </div>
-              <div className="upgrade">
-                <input type="number" min="0" />
-                <span data-num="3" className="price">$100</span>
-                <span className="name">Septic System/Pumping</span>
-              </div>
-              <div className="upgrade">
-                <input type="number" min="0" />
-                <span data-num="3" className="price">$350</span>
-                <span className="name">Salt Water Swimming Pool</span>
-              </div>
-              <div className="upgrade">
-                <input type="number" min="0" />
-                <span data-num="3" className="price">$100</span>
-                <span className="name">Roof Leak Repairs</span>
-              </div>
-              <div className="upgrade">
-                <input type="number" min="0" />
-                <span data-num="2" className="price">$60</span>
-                <span className="name">
-                  <span><a data-toggle="modal" data-target="#no_fault_popup_utah">No Fault Coverage</a></span></span>
-              </div>
-              <div className="upgrade">
-                <input type="number" min="0" />
-                <span data-num="2" className="price">$50</span>
-                <span className="name">Kitchen Refrigerator (inc in Premium &amp; Ultimate plans)</span>
-              </div>
-              <div className="upgrade">
-                <input type="number" min="0" />
-                <span data-num="3" className="price">$155</span>
-                <span className="name">Grinder Pump</span>
-              </div>
-              <div className="upgrade">
-                <input type="number" min="0" />
-                <span data-num="2" className="price">$85</span>
-                <span className="name">Furnace (Additional Coverage)</span>
-              </div>
-              <div className="upgrade">
-                <input type="number" min="0" />
-                <span data-num="3" className="price">$100</span>
-                <span className="name">Enhanced External Pipe Coverage</span>
-              </div>
-              <div className="upgrade">
-                <input type="number" min="0" />
-                <span data-num="2" className="price">$50</span>
-                <span className="name">Discounted Pre-Paid Service Call Fee (ONE TIME FEE)</span>
-              </div>
-              <div className="upgrade">
-                <input type="number" min="0" />
-                <span data-num="3" className="price">$150</span>
-                <span className="name">Casita</span>
-              </div>
-              <div className="upgrade">
-                <input type="number" min="0" />
-                <span data-num="2" className="price">$85</span>
-                <span className="name">Air Conditioning (additional unit)</span>
-              </div>
-              <div className="upgrade">
-                <input type="number" min="0" />
-                <span data-num="2" className="price">$40</span>
-                <span className="name">Additional Refrigeration/Freezer</span>
-              </div>
-              <div className="upgrade">
-                <input type="number" min="0" />
-                <span data-num="2" className="price">$50</span>
-                <span className="name">Water Softener</span>
-              </div>
-              <div className="upgrade">
-                <input type="number" min="0" />
-                <span data-num="2" className="price">$85</span>
-                <span className="name">Additional Washer Dryer (1 set incl in Ultimate Plans)</span>
-              </div>
-              <div className="upgrade">
-                <input type="number" min="0" />
-                <span data-num="3" className="price">$400</span>
-                <span className="name">3rd Year Coverage</span>
-              </div>
-              <div className="upgrade">
-                <input type="number" min="0" />
-                <span data-num="3" className="price">$400</span>
-                <span className="name">2nd Year Coverage</span>
-              </div>
-              <div className="upgrade">
-                <input type="number" min="0" />
-                <span data-num="2" className="price">$75</span>
-                <span className="name"><span>
-                  <a data-toggle="modal" data-target="#forty_items_popup_utah">Premium Coverage Upgrade</a>
-                </span></span>
-              </div>
+              <Idahodata />
             </div>
             <div className="bottom-cont" />
             <div className="cart">
@@ -527,12 +465,12 @@ const Idaho = () => {
             </div>
             <div className="total">
               <h4>Total</h4>
-              {value==1 ? <span>{products[showId-1].yearly} /YR</span>: null}
-              {value==2 ?<span>{products[showId-1].price} /MO</span>: null}
+              {value == 1 ? <span>{products[showId - 1].yearly} /YR</span> : null}
+              {value == 2 ? <span>{products[showId - 1].price} /MO</span> : null}
             </div>
             <div className="footy">
               <button className="btn">Check out</button>
-              <button className="btn cancel" onClick={()=>setShowPlans("ProductsInfo")}>Cancel</button>
+              <button className="btn cancel" onClick={() => setShowPlans("ProductsInfo")}>Cancel</button>
             </div>
           </div>
         </section>
@@ -546,10 +484,12 @@ const Idaho = () => {
         <meta name="description" content="Acclaimed Home Warranty has shared some of the useful resources for those looking out for home warranty plans in Arizona. Contact us today for more information." />
       </Helmet>
       <div className="product_page">
+
         <Produfilter />
-         {showPlans==="ProductsInfo"&&<ProductsInfo />}
-         {showPlans==="Plans"&&<Plans />}
-         
+
+        {showPlans === "ProductsInfo" && <ProductsInfo />}
+        {showPlans === "Plans" && <Plans />}
+
       </div>
     </>
   )
