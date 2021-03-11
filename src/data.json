@@ -45,56 +45,423 @@
     {
         "id":1,
         "name": "Standard",
+        "unitsize":"Single Family",
         "price": "$35.00",
         "yearly": "$400",
-        "unitsize":"Single Family"
+        "yearlyvariations": [
+            {
+              "id": 0,
+              "title": "Swimming Pool/Spa Equipment",
+              "price": "175"
+            },
+            {
+                "id": 1,
+                "title": "Roof Leak Repairs",
+                "price": "100"
+              },
+              {
+                "id": 3,
+                "title": "Grinder Pump",
+                "price": "155"
+              },
+              {
+                "id": 4,
+                "title": "Discounted Pre-Paid Service Call Fee (ONE TIME FEE)",
+                "price": "50"
+              },
+              {
+                "id": 5,
+                "title": "Additional Refrigeration/Freezer",
+                "price": "40"
+              },
+              {
+                "id": 6,
+                "title": "3rd Year Coverage",
+                "price": "400"
+              },
+              {
+                "id": 7,
+                "title": "Septic System/Pumping",
+                "price": "100"
+              }
+          ],
+          "monthlyvariations": [
+            {
+              "id": 0,
+              "title": "Swimming Pool/Spa Equipment",
+              "price": "175"
+            },
+            {
+                "id": 1,
+                "title": "Roof Leak Repairs",
+                "price": "100"
+              },
+              {
+                "id": 3,
+                "title": "Grinder Pump",
+                "price": "155"
+              },
+              {
+                "id": 4,
+                "title": "Discounted Pre-Paid Service Call Fee (ONE TIME FEE)",
+                "price": "50"
+              },
+              {
+                "id": 5,
+                "title": "Additional Refrigeration/Freezer",
+                "price": "40"
+              }
+           
+          ] 
     },
 
     {
         "id":2,
         "name": "Premium",
+        "unitsize":"Single Family",
         "price": "$45.00",
         "yearly": "$475",
-        "unitsize":"Single Family"
+        "yearlyvariations": [
+            {
+              "id": 0,
+              "title": "Swimming Pool/Spa Equipment",
+              "price": "175"
+            },
+            {
+                "id": 1,
+                "title": "Roof Leak Repairs",
+                "price": "100"
+              },
+              {
+                "id": 3,
+                "title": "Grinder Pump",
+                "price": "155"
+              },
+              {
+                "id": 4,
+                "title": "Discounted Pre-Paid Service Call Fee (ONE TIME FEE)",
+                "price": "50"
+              },
+              {
+                "id": 5,
+                "title": "Additional Refrigeration/Freezer",
+                "price": "40"
+              }
+          ],
+          "monthlyvariations": [
+            {
+              "id": 0,
+              "title": "Swimming Pool/Spa Equipment",
+              "price": "175"
+            },
+            {
+                "id": 1,
+                "title": "Roof Leak Repairs",
+                "price": "100"
+              },
+              {
+                "id": 3,
+                "title": "Grinder Pump",
+                "price": "155"
+              },
+              {
+                "id": 4,
+                "title": "Discounted Pre-Paid Service Call Fee (ONE TIME FEE)",
+                "price": "50"
+              },
+              {
+                "id": 5,
+                "title": "Additional Refrigeration/Freezer",
+                "price": "40"
+              }
+           
+          ] 
     },
     {
         "id":3,
         "name": "Premium+",
         "price": "$50.00",
         "yearly": "$400",
-        "unitsize":"Single Family"
+        "unitsize":"Single Family",
+        "yearlyvariations": [
+            {
+              "id": 0,
+              "title": "Swimming Pool/Spa Equipment year",
+              "price": "175"
+            },
+            {
+                "id": 1,
+                "title": "Roof Leak Repairs",
+                "price": "100"
+              },
+              {
+                "id": 3,
+                "title": "Grinder Pump",
+                "price": "155"
+              },
+              {
+                "id": 4,
+                "title": "Discounted Pre-Paid Service Call Fee (ONE TIME FEE)",
+                "price": "50"
+              },
+              {
+                "id": 5,
+                "title": "Additional Refrigeration/Freezer",
+                "price": "40"
+              }
+          ],
+          "monthlyvariations": [
+            {
+              "id": 0,
+              "title": "Swimming Pool/Spa Equipment month",
+              "price": "175"
+            },
+            {
+                "id": 1,
+                "title": "Roof Leak Repairs",
+                "price": "100"
+              },
+              {
+                "id": 3,
+                "title": "Grinder Pump",
+                "price": "155"
+              },
+              {
+                "id": 4,
+                "title": "Discounted Pre-Paid Service Call Fee (ONE TIME FEE)",
+                "price": "50"
+              },
+              {
+                "id": 5,
+                "title": "Additional Refrigeration/Freezer",
+                "price": "40"
+              }
+           
+          ] 
     },
     {
         "id":4,
         "name": "Premium+one",
         "price": "$53.00",
         "yearly": "$580",
-        "unitsize":"Single Family"
+        "unitsize":"Single Family",
+        "yearlyvariations": [
+            {
+              "id": 0,
+              "title": "Swimming Pool/Spa Equipment1",
+              "price": "175"
+            },
+            {
+                "id": 1,
+                "title": "Roof Leak Repairs",
+                "price": "100"
+              },
+              {
+                "id": 3,
+                "title": "Grinder Pump",
+                "price": "155"
+              },
+              {
+                "id": 4,
+                "title": "Discounted Pre-Paid Service Call Fee (ONE TIME FEE)",
+                "price": "50"
+              },
+              {
+                "id": 5,
+                "title": "Additional Refrigeration/Freezer",
+                "price": "40"
+              }
+          ],
+          "monthlyvariations": [
+            {
+              "id": 0,
+              "title": "Swimming Pool/Spa Equipment",
+              "price": "175"
+            },
+            {
+                "id": 1,
+                "title": "Roof Leak Repairs",
+                "price": "100"
+              },
+              {
+                "id": 3,
+                "title": "Grinder Pump",
+                "price": "155"
+              },
+              {
+                "id": 4,
+                "title": "Discounted Pre-Paid Service Call Fee (ONE TIME FEE)",
+                "price": "50"
+              },
+              {
+                "id": 5,
+                "title": "Additional Refrigeration/Freezer",
+                "price": "40"
+              }
+           
+          ] 
     },
     {
         "id":5,
         "name": "Ultimate",
         "price": "$55.00",
         "yearly": "$670",
-        "unitsize":"Single Family"
+        "unitsize":"Single Family",
+        "yearlyvariations": [
+            {
+              "id": 0,
+              "title": "Swimming Pool/Spa Equipment",
+              "price": "175"
+            },
+            {
+                "id": 1,
+                "title": "Roof Leak Repairs",
+                "price": "100"
+              },
+              {
+                "id": 3,
+                "title": "Grinder Pump",
+                "price": "155"
+              },
+              {
+                "id": 4,
+                "title": "Discounted Pre-Paid Service Call Fee (ONE TIME FEE)",
+                "price": "50"
+              },
+              {
+                "id": 5,
+                "title": "Additional Refrigeration/Freezer",
+                "price": "40"
+              }
+          ],
+          "monthlyvariations": [
+            {
+              "id": 0,
+              "title": "Swimming Pool/Spa Equipment",
+              "price": "175"
+            },
+            {
+                "id": 1,
+                "title": "Roof Leak Repairs",
+                "price": "100"
+              },
+              {
+                "id": 3,
+                "title": "Grinder Pump",
+                "price": "155"
+              },
+              {
+                "id": 4,
+                "title": "Discounted Pre-Paid Service Call Fee (ONE TIME FEE)",
+                "price": "50"
+              },
+              {
+                "id": 5,
+                "title": "Additional Refrigeration/Freezer",
+                "price": "40"
+              }
+           
+          ] 
     },
     {
         "id":6,
         "name": "Standard",
         "yearly": "$695",
-        "unitsize":"Duplex"
+        "unitsize":"Duplex",
+          "yearlyvariations": [
+            {
+              "id": 0,
+              "title": "Swimming Pool/Spa Equipment",
+              "price": "175"
+            },
+            {
+                "id": 1,
+                "title": "Roof Leak Repairs",
+                "price": "100"
+              },
+              {
+                "id": 3,
+                "title": "Grinder Pump",
+                "price": "155"
+              },
+              {
+                "id": 4,
+                "title": "Discounted Pre-Paid Service Call Fee (ONE TIME FEE)",
+                "price": "50"
+              },
+              {
+                "id": 5,
+                "title": "Additional Refrigeration/Freezer",
+                "price": "40"
+              }
+          ]
+         
     },
     {
         "id":7,
         "name": "Standard",
         "yearly": "$895",
-        "unitsize":"Triplex"
+        "unitsize":"Triplex",
+        "yearlyvariations": [
+            {
+              "id": 0,
+              "title": "Swimming Pool/Spa Equipment",
+              "price": "175"
+            },
+            {
+                "id": 1,
+                "title": "Roof Leak Repairs",
+                "price": "100"
+              },
+              {
+                "id": 3,
+                "title": "Grinder Pump",
+                "price": "155"
+              },
+              {
+                "id": 4,
+                "title": "Discounted Pre-Paid Service Call Fee (ONE TIME FEE)",
+                "price": "50"
+              },
+              {
+                "id": 5,
+                "title": "Additional Refrigeration/Freezer",
+                "price": "40"
+              }
+          ]
     },
     {
         "id":8,
         "name": "Standard",
         "yearly": "$1095",
-        "unitsize":"Fourplex"
+        "unitsize":"Fourplex",
+        "yearlyvariations": [
+            {
+              "id": 0,
+              "title": "Swimming Pool/Spa Equipment",
+              "price": "175"
+            },
+            {
+                "id": 1,
+                "title": "Roof Leak Repairs",
+                "price": "100"
+              },
+              {
+                "id": 3,
+                "title": "Grinder Pump",
+                "price": "155"
+              },
+              {
+                "id": 4,
+                "title": "Discounted Pre-Paid Service Call Fee (ONE TIME FEE)",
+                "price": "50"
+              },
+              {
+                "id": 5,
+                "title": "Additional Refrigeration/Freezer",
+                "price": "40"
+              }
+          ]
     }
   ],
   "NevadaproList" :[
@@ -186,7 +553,72 @@
         "name": "Standard",
         "price": "$35.00",
         "yearly": "$400",
-        "unitsize":"Single Family"
+        "unitsize":"Single Family",
+        "yearlyvariations": [
+            {
+              "id": 0,
+              "title": "Swimming Pool/Spa Equipment",
+              "price": "175"
+            },
+            {
+                "id": 1,
+                "title": "Roof Leak Repairs",
+                "price": "100"
+              },
+              {
+                "id": 3,
+                "title": "Grinder Pump",
+                "price": "155"
+              },
+              {
+                "id": 4,
+                "title": "Discounted Pre-Paid Service Call Fee (ONE TIME FEE)",
+                "price": "50"
+              },
+              {
+                "id": 5,
+                "title": "Additional Refrigeration/Freezer",
+                "price": "40"
+              },
+              {
+                "id": 6,
+                "title": "3rd Year Coverage",
+                "price": "400"
+              },
+              {
+                "id": 7,
+                "title": "Septic System/Pumping",
+                "price": "100"
+              }
+          ],
+          "monthlyvariations": [
+            {
+              "id": 0,
+              "title": "Swimming Pool/Spa Equipment",
+              "price": "175"
+            },
+            {
+                "id": 1,
+                "title": "Roof Leak Repairs",
+                "price": "100"
+              },
+              {
+                "id": 3,
+                "title": "Grinder Pump",
+                "price": "155"
+              },
+              {
+                "id": 4,
+                "title": "Discounted Pre-Paid Service Call Fee (ONE TIME FEE)",
+                "price": "50"
+              },
+              {
+                "id": 5,
+                "title": "Additional Refrigeration/Freezer",
+                "price": "40"
+              }
+           
+          ] 
     },
 
     {
@@ -194,46 +626,417 @@
         "name": "Premium",
         "price": "$45.00",
         "yearly": "$475",
-        "unitsize":"Single Family"
+        "unitsize":"Single Family",
+        "yearlyvariations": [
+            {
+              "id": 0,
+              "title": "Swimming Pool/Spa Equipment",
+              "price": "175"
+            },
+            {
+                "id": 1,
+                "title": "Roof Leak Repairs",
+                "price": "100"
+              },
+              {
+                "id": 3,
+                "title": "Grinder Pump",
+                "price": "155"
+              },
+              {
+                "id": 4,
+                "title": "Discounted Pre-Paid Service Call Fee (ONE TIME FEE)",
+                "price": "50"
+              },
+              {
+                "id": 5,
+                "title": "Additional Refrigeration/Freezer",
+                "price": "40"
+              },
+              {
+                "id": 6,
+                "title": "3rd Year Coverage",
+                "price": "400"
+              },
+              {
+                "id": 7,
+                "title": "Septic System/Pumping",
+                "price": "100"
+              }
+          ],
+          "monthlyvariations": [
+            {
+              "id": 0,
+              "title": "Swimming Pool/Spa Equipment",
+              "price": "175"
+            },
+            {
+                "id": 1,
+                "title": "Roof Leak Repairs",
+                "price": "100"
+              },
+              {
+                "id": 3,
+                "title": "Grinder Pump",
+                "price": "155"
+              },
+              {
+                "id": 4,
+                "title": "Discounted Pre-Paid Service Call Fee (ONE TIME FEE)",
+                "price": "50"
+              },
+              {
+                "id": 5,
+                "title": "Additional Refrigeration/Freezer",
+                "price": "40"
+              }
+           
+          ] 
     },
     {
         "id":3,
         "name": "Premium+",
         "price": "$50.00",
         "yearly": "$400",
-        "unitsize":"Single Family"
+        "unitsize":"Single Family",
+        "yearlyvariations": [
+            {
+              "id": 0,
+              "title": "Swimming Pool/Spa Equipment",
+              "price": "175"
+            },
+            {
+                "id": 1,
+                "title": "Roof Leak Repairs",
+                "price": "100"
+              },
+              {
+                "id": 3,
+                "title": "Grinder Pump",
+                "price": "155"
+              },
+              {
+                "id": 4,
+                "title": "Discounted Pre-Paid Service Call Fee (ONE TIME FEE)",
+                "price": "50"
+              },
+              {
+                "id": 5,
+                "title": "Additional Refrigeration/Freezer",
+                "price": "40"
+              },
+              {
+                "id": 6,
+                "title": "3rd Year Coverage",
+                "price": "400"
+              },
+              {
+                "id": 7,
+                "title": "Septic System/Pumping",
+                "price": "100"
+              }
+          ],
+          "monthlyvariations": [
+            {
+              "id": 0,
+              "title": "Swimming Pool/Spa Equipment",
+              "price": "175"
+            },
+            {
+                "id": 1,
+                "title": "Roof Leak Repairs",
+                "price": "100"
+              },
+              {
+                "id": 3,
+                "title": "Grinder Pump",
+                "price": "155"
+              },
+              {
+                "id": 4,
+                "title": "Discounted Pre-Paid Service Call Fee (ONE TIME FEE)",
+                "price": "50"
+              },
+              {
+                "id": 5,
+                "title": "Additional Refrigeration/Freezer",
+                "price": "40"
+              }
+           
+          ] 
     },
     {
         "id":4,
         "name": "Premium+one",
         "price": "$53.00",
         "yearly": "$580",
-        "unitsize":"Single Family"
+        "unitsize":"Single Family",
+        "yearlyvariations": [
+            {
+              "id": 0,
+              "title": "Swimming Pool/Spa Equipment",
+              "price": "175"
+            },
+            {
+                "id": 1,
+                "title": "Roof Leak Repairs",
+                "price": "100"
+              },
+              {
+                "id": 3,
+                "title": "Grinder Pump",
+                "price": "155"
+              },
+              {
+                "id": 4,
+                "title": "Discounted Pre-Paid Service Call Fee (ONE TIME FEE)",
+                "price": "50"
+              },
+              {
+                "id": 5,
+                "title": "Additional Refrigeration/Freezer",
+                "price": "40"
+              },
+              {
+                "id": 6,
+                "title": "3rd Year Coverage",
+                "price": "400"
+              },
+              {
+                "id": 7,
+                "title": "Septic System/Pumping",
+                "price": "100"
+              }
+          ],
+          "monthlyvariations": [
+            {
+              "id": 0,
+              "title": "Swimming Pool/Spa Equipment",
+              "price": "175"
+            },
+            {
+                "id": 1,
+                "title": "Roof Leak Repairs",
+                "price": "100"
+              },
+              {
+                "id": 3,
+                "title": "Grinder Pump",
+                "price": "155"
+              },
+              {
+                "id": 4,
+                "title": "Discounted Pre-Paid Service Call Fee (ONE TIME FEE)",
+                "price": "50"
+              },
+              {
+                "id": 5,
+                "title": "Additional Refrigeration/Freezer",
+                "price": "40"
+              }
+           
+          ] 
     },
     {
         "id":5,
         "name": "Ultimate",
         "price": "$55.00",
         "yearly": "$670",
-        "unitsize":"Single Family"
+        "unitsize":"Single Family",
+        "yearlyvariations": [
+            {
+              "id": 0,
+              "title": "Swimming Pool/Spa Equipment",
+              "price": "175"
+            },
+            {
+                "id": 1,
+                "title": "Roof Leak Repairs",
+                "price": "100"
+              },
+              {
+                "id": 3,
+                "title": "Grinder Pump",
+                "price": "155"
+              },
+              {
+                "id": 4,
+                "title": "Discounted Pre-Paid Service Call Fee (ONE TIME FEE)",
+                "price": "50"
+              },
+              {
+                "id": 5,
+                "title": "Additional Refrigeration/Freezer",
+                "price": "40"
+              },
+              {
+                "id": 6,
+                "title": "3rd Year Coverage",
+                "price": "400"
+              },
+              {
+                "id": 7,
+                "title": "Septic System/Pumping",
+                "price": "100"
+              }
+          ],
+          "monthlyvariations": [
+            {
+              "id": 0,
+              "title": "Swimming Pool/Spa Equipment",
+              "price": "175"
+            },
+            {
+                "id": 1,
+                "title": "Roof Leak Repairs",
+                "price": "100"
+              },
+              {
+                "id": 3,
+                "title": "Grinder Pump",
+                "price": "155"
+              },
+              {
+                "id": 4,
+                "title": "Discounted Pre-Paid Service Call Fee (ONE TIME FEE)",
+                "price": "50"
+              },
+              {
+                "id": 5,
+                "title": "Additional Refrigeration/Freezer",
+                "price": "40"
+              }
+           
+          ] 
     },
     {
         "id":6,
         "name": "Standard",
         "yearly": "$695",
-        "unitsize":"Duplex"
+        "unitsize":"Duplex",
+        "yearlyvariations": [
+            {
+              "id": 0,
+              "title": "Swimming Pool/Spa Equipment",
+              "price": "175"
+            },
+            {
+                "id": 1,
+                "title": "Roof Leak Repairs",
+                "price": "100"
+              },
+              {
+                "id": 3,
+                "title": "Grinder Pump",
+                "price": "155"
+              },
+              {
+                "id": 4,
+                "title": "Discounted Pre-Paid Service Call Fee (ONE TIME FEE)",
+                "price": "50"
+              },
+              {
+                "id": 5,
+                "title": "Additional Refrigeration/Freezer",
+                "price": "40"
+              },
+              {
+                "id": 6,
+                "title": "3rd Year Coverage",
+                "price": "400"
+              },
+              {
+                "id": 7,
+                "title": "Septic System/Pumping",
+                "price": "100"
+              }
+          ] 
     },
     {
         "id":7,
         "name": "Standard",
         "yearly": "$895",
-        "unitsize":"Triplex"
+        "unitsize":"Triplex",
+        "yearlyvariations": [
+            {
+              "id": 0,
+              "title": "Swimming Pool/Spa Equipment",
+              "price": "175"
+            },
+            {
+                "id": 1,
+                "title": "Roof Leak Repairs",
+                "price": "100"
+              },
+              {
+                "id": 3,
+                "title": "Grinder Pump",
+                "price": "155"
+              },
+              {
+                "id": 4,
+                "title": "Discounted Pre-Paid Service Call Fee (ONE TIME FEE)",
+                "price": "50"
+              },
+              {
+                "id": 5,
+                "title": "Additional Refrigeration/Freezer",
+                "price": "40"
+              },
+              {
+                "id": 6,
+                "title": "3rd Year Coverage",
+                "price": "400"
+              },
+              {
+                "id": 7,
+                "title": "Septic System/Pumping",
+                "price": "100"
+              }
+          ] 
     },
     {
         "id":8,
         "name": "Standard",
         "yearly": "$1095",
-        "unitsize":"FourPlex"
+        "unitsize":"FourPlex",
+        "yearlyvariations": [
+            {
+              "id": 0,
+              "title": "Swimming Pool/Spa Equipment",
+              "price": "175"
+            },
+            {
+                "id": 1,
+                "title": "Roof Leak Repairs",
+                "price": "100"
+              },
+              {
+                "id": 3,
+                "title": "Grinder Pump",
+                "price": "155"
+              },
+              {
+                "id": 4,
+                "title": "Discounted Pre-Paid Service Call Fee (ONE TIME FEE)",
+                "price": "50"
+              },
+              {
+                "id": 5,
+                "title": "Additional Refrigeration/Freezer",
+                "price": "40"
+              },
+              {
+                "id": 6,
+                "title": "3rd Year Coverage",
+                "price": "400"
+              },
+              {
+                "id": 7,
+                "title": "Septic System/Pumping",
+                "price": "100"
+              }
+          ] 
     }
   ]
 }
