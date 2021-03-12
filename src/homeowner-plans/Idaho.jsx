@@ -410,16 +410,16 @@ const Idaho = () => {
     return (
       <>
         {productid.map((dataIn) =>
-           <div className="upgrade_list">
+           <div key={dataIn.id} className="upgrade_list">
               {value == 1 ? dataIn.yearlyvariations.map((vari) =>
-              <div className="upgrade">
-                <input type="number" min="0" />
+              <div key={vari.id} className="upgrade">
+                <input type="number" min="0"/>
                 <span data-num={vari.id} className="price">{vari.price}</span>
                 <span className="name">{vari.title}</span>
                 </div>
               ) : null}
               {value == 2 ? dataIn.monthlyvariations.map((vari) =>
-               <div className="upgrade">
+               <div key={vari.id} className="upgrade">
                <input type="number" min="0" />
                <span data-num={vari.id} className="price">{vari.price}</span>
                <span className="name">{vari.title}</span>
