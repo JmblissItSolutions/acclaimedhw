@@ -404,6 +404,34 @@ const Texas = () => {
       </section>
     </>
   );
+  const Texasdata = () => {
+    let productid = products.filter(function (ids) {
+      return ids.id == showId
+    });
+    return (
+      <>
+        {productid.map((dataIn) =>
+           <div key={dataIn.id} className="upgrade_list">
+              {value == 1 ? dataIn.yearlyvariations.map((vari) =>
+              <div key={vari.id} className="upgrade">
+                <input type="number" min="0" />
+                <span data-num={vari.id} className="price">{vari.price}</span>
+                <span className="name">{vari.title}</span>
+                </div>
+              ) : null}
+              {value == 2 ? dataIn.monthlyvariations.map((vari) =>
+               <div key={vari.id} className="upgrade">
+               <input type="number" min="0" />
+               <span data-num={vari.id} className="price">{vari.price}</span>
+               <span className="name">{vari.title}</span>
+               </div>
+              ) : null}
+            </div>
+        )}
+        
+      </>
+    );
+  };
   const Plans = () => (
     <>
       <div id="plans" className="search-results">
@@ -426,6 +454,9 @@ const Texas = () => {
             </div>
           </div>
           <div className="container">
+          <div className="upgrade_cont">
+           <Texasdata />
+           </div>
             <div className="bottom-cont" />
             <div className="cart">
               <h4>Cart</h4>
