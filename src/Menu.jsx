@@ -4,11 +4,16 @@ import logo from './logo.jpg';
 import phone from './assets/images/green-phone.jpg';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Button,Navbar, Nav, NavItem, NavDropdown, MenuItem} from 'react-bootstrap';
+import Modal from 'react-bootstrap/Modal'
 function Menu() {
   const [isActive, setActive] = useState(false);
   const toggleClass = () => {
     setActive(!isActive);
   };
+  const [show, setShow] = useState(false);
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
     return (
         <>
          <div className="top-menu">
@@ -18,10 +23,29 @@ function Menu() {
           <img src={phone} alt="Phone Number"/><span>Toll-Free 888.494.9460 </span></a>
        </li>
        <li>
-         <a className="login" data-toggle="modal" data-target="#portal_login">login</a>
+         <a className="login" onClick={handleShow}>login</a>
        </li>
        </ul>
      </div>
+     <Modal show={show} onHide={handleClose}>
+        <Modal.Header closeButton>
+          <h2 className="mode_ttl">Please select your login type</h2>
+        </Modal.Header>  
+        <div className="modal-body">
+						 <div className="button-holder" >
+							<div className="button-holder">
+								<a href="https://acclaimed.homeonewarranty.com/customerportal" className="btn">Homeowners</a>
+								<a href="https://acclaimed.homeonewarranty.com/homeoneportal" className="btn">Real Estate Professionals</a>
+								<a href="https://acclaimed.homeonewarranty.com/homeoneportal" className="btn">Insurance Agent</a>
+							</div>
+						</div>
+            </div>
+        <div className="model_foo">
+          <Button onClick={handleClose}>
+            Close
+          </Button>
+        </div>
+      </Modal>
        <Navbar collapseOnSelect expand="xl">
   <Navbar.Brand href="/"><img src={logo} alt="Acclaimed Logo"/></Navbar.Brand>
   <Navbar.Toggle aria-controls="responsive-navbar-nav"  className={isActive ? 'close-menu': null} 

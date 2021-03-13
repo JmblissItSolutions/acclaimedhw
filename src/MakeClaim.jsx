@@ -27,7 +27,7 @@ const MakeClaim = () =>{
                      <div className="img-pop">
                         <Popup trigger={<button className="play-btn"><img src={playicon } alt="playicon"/> </button>} modal nested>
                           {close => (
-                          <div className="modal">
+                          <div className="makclaim_modal">
                             <button className="close" onClick={close}>
                               &times;
                             </button>

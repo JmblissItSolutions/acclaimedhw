@@ -59,29 +59,29 @@
     background-color: transparent;
     border: none;
 }
-.modal {
+.makclaim_modal {
     font-size: 12px;
     display: block !important;
     position: relative !important;
   }
-  .modal > .header {
+  .makclaim_modal > .header {
     width: 100%;
     border-bottom: 1px solid gray;
     font-size: 18px;
     text-align: center;
     padding: 5px;
   }
-  .modal > .content {
+  .makclaim_modal > .content {
     width: 100%;
     padding: 0px;
   }
-  .modal > .actions {
+  .makclaim_modal > .actions {
     width: 100%;
     padding: 10px 5px;
     margin: auto;
     text-align: center;
   }
-  .modal > .close {
+  .makclaim_modal > .close {
     margin: 0;
     color: #323232;
     opacity: 1  !important;
