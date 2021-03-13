@@ -59,29 +59,29 @@
     background-color: transparent;
     border: none;
 }
-.modal {
+.modalclaim {
     font-size: 12px;
     display: block !important;
     position: relative !important;
   }
-  .modal > .header {
+  .modalclaim > .header {
     width: 100%;
     border-bottom: 1px solid gray;
     font-size: 18px;
     text-align: center;
     padding: 5px;
   }
-  .modal > .content {
+  .modalclaim > .content {
     width: 100%;
     padding: 0px;
   }
-  .modal > .actions {
+  .modalclaim > .actions {
     width: 100%;
     padding: 10px 5px;
     margin: auto;
     text-align: center;
   }
-  .modal > .close {
+  .modalclaim > .close {
     margin: 0;
     color: #323232;
     opacity: 1  !important;

@@ -162,21 +162,31 @@ body h1{
 .contact-us-flag {
   position: fixed;
   background: #212121;
-  top: 30%;
-  left: 0;
-  padding: 15px 10px;
-  z-index: 999999;
-  display: none;
+  top: 20%;
+  left: -60px;
+  padding: 24px 10px;
+  z-index: 99;
+  text-align: center;
+  transform: rotate(-90deg);
 }
-.contact-us-flag img{
-  padding: 0px 5px;
-  margin-bottom: 15px;
+.contact-us-flag a{
+  font-weight: 300;
+  color: #00A1B8;
+  text-decoration: none;
+  font-size: 17px;
+  padding: 4px;
 }
-.antfb-icons .anticon svg,.antinsta-icons .anticon svg {
-  display: inline-block;
-  color: white;
-  width: 30px;
-  height: 30px;
-  border-radius: 15px;
-  margin: 3px;
+a.social_icons {
+    width: 50px;
+    height: 50px;
+    background: white;
+    border-radius: 25px;
+    margin: 3px;
+    color: black;
+    margin: 0px 5px;
+}
+a.desktop {
+  text-transform: uppercase;
+  padding: 0px 6px;
+  font-size: 12px;
 }

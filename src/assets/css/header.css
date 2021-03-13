@@ -97,7 +97,7 @@ div#navbarNav {
 }
 .navbar-light .navbar-nav a.nav-link {
     color: #6F6F6F;
-    font-size: 13px;
+    font-size: 12px;
     font-family: 'lato', sans-serif;
     text-transform: uppercase;
     text-decoration: none;
@@ -203,4 +203,82 @@ div#navbarNav {
         margin-left: 5px;
     }
    
+}
+
+/* login modal box */
+.model_foo button{
+    background-color: #6FA553;
+    color: white;
+    text-transform: uppercase;
+    padding: 15px 20px;
+    text-decoration: none;
+    text-align: center;
+    font-weight: bold;
+    font-size: 14px;
+    letter-spacing: 1px;
+    display: inline-block;
+    white-space: nowrap;
+    border-radius: 4px;
+    border: none;
+    float: right;
+    cursor: pointer;
+    margin: 12px 16px;
+}
+.model_foo button:hover{
+    background-color: #6FA553;
+}
+.mode_ttl{
+    font-size: 36px;
+    font-weight: 300;
+    margin: 0;
+    line-height: 1.42857143;
+    padding: 0px;
+    text-transform: capitalize;
+}
+.button-holder{
+    display: flex;
+    flex-direction: column;
+    align-items: center;   
+}
+.holderbtn{
+    background-color: #6FA553;
+    color: white;
+    text-transform: uppercase;
+    padding: 15px 20px;
+    text-decoration: none;
+    text-align: center;
+    font-weight: bold;
+    font-size: 14px;
+    letter-spacing: 1px;
+    display: inline-block;
+    white-space: nowrap;
+    border-radius: 4px;
+    border: none;
+    box-shadow: 0 4px 6px rgb(0 0 0 / 16%);
+    cursor: pointer;
+    margin-bottom: 10px;
+    width: 100%;
+}
+.holderbtn:hover{
+    background-color: #6FA553;
+    color: white;
+    text-decoration: none;
+}
+.model_foo {
+    border-top: 1px solid #dee2e6;
+}
+.modal_content{
+    position: relative;
+    background-color: #fff;
+    border: 1px solid #999;
+    border: 1px solid rgba(0,0,0,0.2);
+    border-radius: 6px;
+    box-shadow: 0 3px 9px rgb(0 0 0 / 50%);
+    background-clip: padding-box;
+    outline: 0;
+    width: 100%;
+}
+.login_model .modal-dialog {
+    max-width: 600px;
+    border-radius: 6px;
 }
