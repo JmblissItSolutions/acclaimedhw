@@ -16,14 +16,15 @@ import "./assets/css/plan.css";
 import "./assets/css/BuyNow.css";
 import "./assets/css/ChangeLocation.css";
 import "./assets/css/Realstateplans.css";
+import "./assets/css/Renewals.css";
 import { Route, Switch} from "react-router-dom";
 import { useState, useEffect } from "react"
 import HomeWarranty from "./Home-Warranty"
 import  Home  from "./Home";
 import  Contact  from "./Contact";
-import MakeClaim from "./MakeClaim";
+import MakeClaim from "./Make A Claim/MakeClaim";
+import ClaimSubmission from "./Make A Claim/ClaimSubmission";
 import OrderNow from "./OrderNow";
-import Brochers from "./Brochers";
 import MemberAdvantages from "./MemberAdvantages";
 import Faq from "./Faq";
 import Contractors from "./Contractors";
@@ -33,9 +34,25 @@ import Utah from "./homeowner-plans/Utah";
 import Nevada from "./homeowner-plans/Nevada";
 import Texas from "./homeowner-plans/Texas"; 
 import Idaho from "./homeowner-plans/Idaho";
-import ArizonaResource from "./Brochures/ArizonaResource";
+import CheckOut from "./homeowner-plans/CheckOut";
+import ResourceArizona from "./Brochers/ResourceArizona";
+import ResourceNevada from "./Brochers/ResourceNevada";
+import ResourceIdaho from "./Brochers/ResourceIdaho";
+import ResourceTexas from "./Brochers/ResourceTexas";
+import ResourceUtah from "./Brochers/ResourceUtah";
 import SocialFollow from "./component/social-media-bar/SocialFollow";
 import RealStateOrder from "./Realstate-plans/RealStateOrder";
+import ArizonaHomeWarranty from "./ArizonaHomeWarranty";
+import IdahoHomeWarranty from "./IdahoHomeWarranty";
+import NevadaHomeWarranty from "./NevadaHomeWarranty";
+import TexasHomeWarranty from "./TexasHomeWarranty";
+import UtahHomeWarranty from "./UtahHomeWarranty"
+import HomeWarrantyProvider from "./HomeWarrantyProvider";
+import MyAccount from "./MyAccount";
+import PrivacyPolicy from "./PrivacyPolicy";
+import Renewals from "./Renewals";
+
+import Shop from "./Shop";
 import  Error  from "./Error";
 import Menu from "./Menu";
 import { Footer, FooterBottom } from './Footer';
@@ -50,33 +67,49 @@ function App() {
   }, []); 
   return (
     <>
+       <SocialFollow/>
     <div className="App">
       <header className={scroll ? "fixedHeader" : "staticHeader"}>
       <div className="container">
        <Menu/>
       </div>
       </header>
-      <SocialFollow/>
+    
       <div className="pagecontent">
       <main>
             <Switch>
                 <Route path="/" component={Home} exact/>
                 <Route path="/home-warranty" component={HomeWarranty} exact/>
-                <Route path="/order-now" component={OrderNow} exact/>
-                <Route path="/brochers" component={Brochers} exact/>
+                <Route path="/home-plans" component={OrderNow} exact/>
+                <Route path="/resources/arizona" component={ResourceArizona} exact/>
+                <Route path="/resources/nevada" component={ResourceNevada} exact/>
+                <Route path="/resources/idaho" component={ResourceIdaho} exact/>
+                <Route path="/resources/texas" component={ResourceTexas} exact/>
+                <Route path="/resources/Utah" component={ResourceUtah} exact/>
                 <Route path="/member-advantages" component={MemberAdvantages} exact/>
                 <Route path="/home-warranty-faqs" component={Faq} exact/>
                 <Route path="/contractors" component={Contractors} exact/>
                 <Route path="/about-us" component={AboutUs} exact/>
                 <Route path="/make-a-claim" component={MakeClaim} exact/>
+                <Route path="/make-a-claim/claim-submission" component={ClaimSubmission} exact/>
                 <Route path="/contact-us" component={Contact} exact/> 
                 <Route path="/homeowner-plans/arizona" component={Arizona} exact/>
                 <Route path="/homeowner-plans/utah" component={Utah} exact/>
                 <Route path="/homeowner-plans/nevada" component={Nevada} exact/>
                 <Route path="/homeowner-plans/texas" component={Texas} exact/>
                 <Route path="/homeowner-plans/idaho" component={Idaho} exact/>
+                <Route path="/homeowner-plans/checkout" component={CheckOut} exact/>
                 <Route path="/real-estate-orders" component={RealStateOrder} exact/>
-                <Route path="/Brochures/ArizonaResource" component={ArizonaResource} exact/>
+                <Route path="/arizona-home-warranty"component={ArizonaHomeWarranty} exact/>
+                <Route path="/idaho-home-warranty" component={IdahoHomeWarranty} exact/>
+                <Route path="/nevada-home-warranty" component={NevadaHomeWarranty} exact/>
+                <Route path="/texas-home-warranty" component={TexasHomeWarranty} exact/>
+                <Route path="/utah-home-warranty" component={UtahHomeWarranty} exact/>
+                <Route path="/home_warranty_provider"component={HomeWarrantyProvider} exact/>
+                <Route path="/my-account" component={MyAccount} exact/>
+                <Route path="/privacy-policy" component={PrivacyPolicy} exact/>
+                <Route path="/renewals" component={Renewals} exact/>
+                <Route path="/shop" component={Shop} exact/>
                 <Route component={Error}/>
             </Switch>
         </main>
