@@ -64,7 +64,7 @@ console.log(listcheckbox1)
                         <span className="checkmark"></span>
                     </label>
                 ))}
-                {squarevalue === "yes" ? <Construction /> : null}
+                {(squarevalue === "yes") &&(coveragevalue === "Buyer's Coverage")  ? <Construction /> : null}
             </div>
         </>
     )
@@ -99,13 +99,11 @@ console.log(listcheckbox1)
     )
     const Assitance = () => (
         <>
-            <div className="border-container">
                 <div className="assitance">
                     <p>This order requires special assistance.</p>
                     <p>Call an Acclaimed Home Warranty agent at: <a><strong className="greentxt">888-494-9460</strong></a></p>
                     <p>We will be able to add <strong className="bluetxt">COVERAGE UPDGRADES</strong>, finalize you order, and provide an invoice.</p>
                 </div>
-            </div>
         </>
     )
     const Answering = () => (
@@ -139,7 +137,7 @@ console.log(listcheckbox1)
                         </div>
                     </div>
                     <div className="order_flex">
-                        <a className="btn">Start Over</a>
+                        <a onClick={e => setRadio(false) || setCoverage(false) || setWarranty(false)} className="btn">Start Over</a>
                     </div>
                 </div>
             </div>
@@ -261,7 +259,9 @@ console.log(listcheckbox1)
                     {(ordervalue === "Condominium, townhome less than 2k sq ft") && (coveragevalue === "Buyer's Coverage") ? <Condominium /> : null}
                     
                     
-                    {(listcheckbox1 === true) && (listcheckbox2 === true) ? <Answering /> : null}
+                    {(listcheckbox1 === true) && (listcheckbox2 === true) && coveragevalue === "Listing/Seller's Coverage" ? <Answering /> : null}
+                    {(listcheckbox1 === true) && (listcheckbox2 === true) &&(squarevalue === "no") && (ordervalue === "Single-family home less than 6k sq ft, or condominium, townhome, mobile home under 2K sq ft.") && (coveragevalue === "Listing/Seller's Coverage") ? <Assitance /> : null}
+                    {(listcheckbox1 === true) && (listcheckbox2 === true) &&(ordervalue === "Single-family home less than 6k sq ft, or condominium, townhome, mobile home under 2K sq ft.") && (squarevalue === 'yes') && (coveragevalue === "Listing/Seller's Coverage") ? <Bestplan /> : null}
                 </div>
             </div>
         </>
