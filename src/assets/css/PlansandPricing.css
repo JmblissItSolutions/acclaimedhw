@@ -1,0 +1,137 @@
+.plan-ttl h2{
+    font-size: 42px;
+    margin: 0;
+    padding: 0.83em 0;
+}
+.toplist{
+    margin-top: 18px;
+}
+.toplist li{
+    font-size: 15px;
+    margin: 0px 30px;
+    list-style-type: disc;
+}
+.pricingboxholder .standard-features{
+    padding: 16px 0px;
+} 
+.pricing .feature_group{
+    background-color: transparent !important;
+    box-shadow: none !important;   
+}
+.pricing span{
+    font-size: 18px;
+    font-family: 'Lato', sans-serif;
+    font-weight: 500;
+    white-space: nowrap;
+    display: block;
+}
+.pricing h3{
+    font-size: 27px;
+    text-align: center;
+    padding: 0px 0px 3px;
+    letter-spacing: 2px;
+    font-size: 40px;
+    font-weight: 600;
+    color: #fff;
+    text-shadow: 0 2px 1px #034b55;
+}
+.pricing .standard-flexy p.feature_header {
+    font-weight: bold;
+    letter-spacing: 1px;
+    font-family: 'lato';
+    color: white;
+    text-decoration: underline;
+    font-size: 16px;
+}
+.pricing .standard-flexy p {
+    border-bottom: none;
+    color: white;
+    text-align: initial;
+    padding: 5px 10px;
+    padding: 5px 3px;
+    font-size: 15px;
+}
+.light-back{
+    background: linear-gradient(180deg, #e8e8e8 0%, #fff 45%, #fff 100%);
+}
+.feature_plan_option {
+    width: 100%;
+    position: relative;
+    z-index: 3;
+    padding-top: 50px;
+}
+.feature_plan_option .table-cont{
+    display: flex;
+    margin: 0 auto;
+    align-items: center;
+}
+.feature_plan_option .table-cont h2{
+    width: 250px;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    line-height: 0.75em;
+    padding: 0.83em 0 0.3em;
+}
+.feature_plan_option .right-table{
+    display: flex;
+    flex: 1;
+    width: 100%;
+    justify-content: space-between;
+    margin-left: 20px;
+}
+.standard_card{
+    background-color: #5BAC7D;
+    color: white;
+    width: 20%;
+    border-radius: 5px;
+    text-align: center;
+    height: 146px;
+}
+.header .tagdown{
+    margin-top: 22px;
+}
+span.tagtxt-top {
+    font-size: 12px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0px;
+    display: block;
+}
+.standard h4 {
+    font-size: 23px;
+    color: white;
+    font-weight: 700;
+}
+span.tagtxt-mid {
+    font-size: 16px;
+    font-weight: 300;
+}
+span.tagtxt-bot {
+    font-weight: 600;
+}
+.premium,.premiumone,.Ultimate{
+    background-color: #767676;
+    color: white;
+    width: 20%;
+    border-radius: 5px;
+    text-align: center;
+    height: 146px;
+}
+.fridge-txt{
+    font-size: 13px;
+}
+.textured{
+ 
+}
+.textured img{
+    background-color: #3A3A3A;
+    background-attachment: fixed;
+    margin: 0;
+    height: 20px;
+    border: none;
+    width: 100%;
+    z-index: 2;
+    margin-top: -40px;
+    box-shadow: 0 -3px 4px rgb(0 0 0 / 20%)
+}

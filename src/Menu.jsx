@@ -46,8 +46,6 @@ function Menu() {
           </Button>
         </div>
       </Modal>
-
-
       <Navbar collapseOnSelect expand="xl">
         <Navbar.Brand href="/"><img src={logo} alt="Acclaimed Logo" /></Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" className={isActive ? 'close-menu' : null}
