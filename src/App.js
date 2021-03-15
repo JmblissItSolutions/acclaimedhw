@@ -17,6 +17,7 @@ import "./assets/css/BuyNow.css";
 import "./assets/css/ChangeLocation.css";
 import "./assets/css/Realstateplans.css";
 import "./assets/css/Renewals.css";
+import "./assets/css/PlansandPricing.css";
 import { Route, Switch} from "react-router-dom";
 import { useState, useEffect } from "react"
 import HomeWarranty from "./Home-Warranty"
@@ -51,7 +52,6 @@ import HomeWarrantyProvider from "./HomeWarrantyProvider";
 import MyAccount from "./MyAccount";
 import PrivacyPolicy from "./PrivacyPolicy";
 import Renewals from "./Renewals";
-
 import Shop from "./Shop";
 import  Error  from "./Error";
 import Menu from "./Menu";
@@ -124,5 +124,4 @@ function App() {
     </>
   );
 }
-
 export default App;

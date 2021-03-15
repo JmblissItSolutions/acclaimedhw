@@ -20,7 +20,7 @@ const RealStateOrder = () => {
 
     const [listcheckbox1, setListcheck1] = useState('');
     const [listcheckbox2, setListcheck2] = useState('');
-console.log(listcheckbox1)
+    console.log(listcheckbox1)
 
     const Homeplan = () => (
         <>

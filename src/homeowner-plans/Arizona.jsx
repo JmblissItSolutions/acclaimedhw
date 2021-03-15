@@ -349,7 +349,7 @@ const Arizona = () => {
                   </span>
                 </span>
               </p>
-              <div className="feature"  ><i className="achi white-checkmark"></i></div>
+              <div className="feature"><i className="achi white-checkmark"></i></div>
               <div className="feature included"  ><i className="achi white-checkmark"></i></div>
               <div className="feature included"  ><i className="achi white-checkmark"></i></div>
               <div className="feature included"  ><i className="achi white-checkmark"></i></div>

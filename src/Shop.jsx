@@ -1,5 +1,6 @@
 import React from 'react'
 import { Helmet } from "react-helmet";
+import PlansandPricing from "./Realstate-plans/PlansandPricing";
 
 const Shop =()=>{
     return(
@@ -10,6 +11,7 @@ const Shop =()=>{
           </Helmet>
         <div>
             <h1>Shop</h1>
+            <PlansandPricing/>
         </div>
         </>
     )
