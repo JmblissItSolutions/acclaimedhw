@@ -1,7 +1,11 @@
 import React from 'react'
 import { Helmet } from "react-helmet";
-import PlansandPricing from "./Realstate-plans/PlansandPricing";
-
+import SingleConstruction from "./Realstate-plans/SingleConstruction";
+// import SingleStandard from "./Realstate-plans/SingleStandard"; 
+// import CondoPlans from "./Realstate-plans/CondoPlans";
+// import DuplexPlans from "./Realstate-plans/DuplexPlans";
+// import TriplexPlans from "./Realstate-plans/TriplexPlans";
+import FourplexPlans from "./Realstate-plans/FourplexPlans";
 const Shop =()=>{
     return(
         <>
@@ -11,7 +15,12 @@ const Shop =()=>{
           </Helmet>
         <div>
             <h1>Shop</h1>
-            <PlansandPricing/>
+            {/* <SingleSquare/> */}
+            <SingleConstruction/>
+            {/* <CondoPlans/> */}
+            {/* <DuplexPlans/> */}
+            {/* <TriplexPlans/> */}
+            {/* <FourplexPlans/> */}
         </div>
         </>
     )
