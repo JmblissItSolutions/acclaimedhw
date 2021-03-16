@@ -1,10 +1,12 @@
 import React, { useState, useRef } from 'react';
 import { Helmet } from "react-helmet";
 import homewarranty from "../assets/images/homewarranty.png";
+import PlansandPricing from "./SingleSquare";
 
 const RealStateOrder = () => {
     let hompalan = ["Utah", "Idaho", "Nevada", "Arizona", "Texas"];
     const [radiovalue, setRadio] = useState('');
+
     let coverageoption = ["Buyer's Coverage", "Listing/Seller's Coverage"];
     const [coveragevalue, setCoverage] = useState('');
 
@@ -21,6 +23,8 @@ const RealStateOrder = () => {
     const [listcheckbox1, setListcheck1] = useState('');
     const [listcheckbox2, setListcheck2] = useState('');
     console.log(listcheckbox1)
+
+    const [showResults, setShowResults] = React.useState(false)
 
     const Homeplan = () => (
         <>
@@ -190,7 +194,7 @@ const RealStateOrder = () => {
                         <h4 className="or">OR</h4>
                     </div>
                     <div className="click_here">
-                        <button type="button" className="btn">Click Here</button><br />
+                        <button type="button" className="btn"  onClick={e => setShowResults(true) || setCoverage(false) || setWarranty(false) || setSqure(false) || setRadio(false)}>Click Here</button><br/>
                         <span id="click_span"><em>to Compare Home Warranty Plans Side-By-Side and make your selection/customize</em></span>
                     </div>
                 </div>
@@ -247,8 +251,11 @@ const RealStateOrder = () => {
                 <div className="realstate">
                     <h1>Real Estate Orders</h1>
                 </div>
+                <div>
+                { showResults ? <PlansandPricing /> : null }
+                </div>
                 <div className="container">
-                    <Homeplan />
+                    <Homeplan/>
                     {(radiovalue === 'Utah') || (radiovalue === 'Idaho') || (radiovalue === 'Nevada') || (radiovalue === 'Arizona') || (radiovalue === 'Texas') ? <Coverage /> : null}
                     {coveragevalue === "Buyer's Coverage" ? <Answering /> : null}
                     {coveragevalue === "Listing/Seller's Coverage" ? <Terms /> : null}
@@ -257,8 +264,6 @@ const RealStateOrder = () => {
                     {(ordervalue === "Single-family home less than 6k sq ft, or condominium, townhome, mobile home under 2K sq ft.") && (squarevalue === 'yes') && (constructionvalue === 'yes') && (coveragevalue === "Buyer's Coverage") ? <ConstCall /> : null}
                     {(ordervalue === 'Duplex') && (coveragevalue === "Buyer's Coverage") || (ordervalue === 'Triplex') && (coveragevalue === "Buyer's Coverage") || (ordervalue === 'Fourplex') && (coveragevalue === "Buyer's Coverage") ? <Baseprice /> : null}
                     {(ordervalue === "Condominium, townhome less than 2k sq ft") && (coveragevalue === "Buyer's Coverage") ? <Condominium /> : null}
-                    
-                    
                     {(listcheckbox1 === true) && (listcheckbox2 === true) && coveragevalue === "Listing/Seller's Coverage" ? <Answering /> : null}
                     {(listcheckbox1 === true) && (listcheckbox2 === true) &&(squarevalue === "no") && (ordervalue === "Single-family home less than 6k sq ft, or condominium, townhome, mobile home under 2K sq ft.") && (coveragevalue === "Listing/Seller's Coverage") ? <Assitance /> : null}
                     {(listcheckbox1 === true) && (listcheckbox2 === true) &&(ordervalue === "Single-family home less than 6k sq ft, or condominium, townhome, mobile home under 2K sq ft.") && (squarevalue === 'yes') && (coveragevalue === "Listing/Seller's Coverage") ? <Bestplan /> : null}
