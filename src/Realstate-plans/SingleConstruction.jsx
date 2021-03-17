@@ -1,10 +1,16 @@
-import React from 'react'
+import React, { useState, useRef } from 'react';
 import { Helmet } from "react-helmet";
 import { TiChevronLeft } from 'react-icons/ti';
 import latticebackground from "../assets/images/lattice-background.png"
-import { CheckOutlined } from '@ant-design/icons';
+import RealStateOrder from "./RealStateOrder";
 
-const SingleStandard = () => {
+const SingleConstruction = () => {
+
+    const [showPlans, setShowPlans] = useState(false)
+    const changehandle = () => {
+        setShowPlans(true)
+    };
+
     return (
         <>
             <Helmet>
@@ -15,7 +21,12 @@ const SingleStandard = () => {
                 <div className="container">
                     <div className="plan-ttl">
                         <h2>PLANS & PRICING</h2>
-                        <button type="button" className="btn"><TiChevronLeft />Go back</button>
+                        <button type="button" className="btn" onClick={changehandle}><TiChevronLeft/>Go back</button>
+                        <div>
+                            {showPlans ? <RealStateOrder/>:null}
+                            {/* {showPlans === "RealStateOrder" && <RealStateOrder />} */}
+                            {/* {showPlans === "SingleConstruction" && <SingleConstruction/>} */}
+                        </div>
                     </div>
                     <div className='pricingboxholder'>
                         <div className="standard-features pricing">
@@ -78,11 +89,11 @@ const SingleStandard = () => {
                                     <div className="tagdown standard">
                                         <span className="tagtxt-top">You've selected</span>
                                         <h4>Standard</h4>
-                                        <span className="tagtxt-mid"> New Home Warranty</span><br/>
-                                        <span>|</span><br/>
+                                        <span className="tagtxt-mid">New Home Warranty</span><br />
+                                        <span>|</span><br />
                                         <span className="tagtxt-bot">$525</span>
                                     </div>
-                                </div> 
+                                </div>
                             </div>
                         </div>
                         <div className="textured">
@@ -105,8 +116,8 @@ const SingleStandard = () => {
                                     <div className="upgrade-table__input">
                                         <input type="text" min="0" />
                                         <div className="upgrade-table__price">$225</div>
-                                        <div className="upgrade-table__title">Premium Coverage Upgrade<br/>
-                                        <a style={{fontsize:"10px"}}>(adds over 40 items to standard coverage)</a>
+                                        <div className="upgrade-table__title">Premium Coverage Upgrade<br />
+                                            <a style={{ fontsize: "10px" }}>(adds over 40 items to standard coverage)</a>
                                         </div>
                                     </div>
                                     <div className="upgrade-table__input">
@@ -161,7 +172,7 @@ const SingleStandard = () => {
                                         <div className="upgrade-table__title">Septic System/Pumping</div>
                                     </div>
                                     <div className="upgrade-table__input">
-                                    <input type="checkbox" min="0" />
+                                        <input type="checkbox" min="0" />
                                         <div className="upgrade-table__price">$150</div>
                                         <div className="upgrade-table__title">Extra Water Heater</div>
                                     </div>
@@ -224,4 +235,4 @@ const SingleStandard = () => {
         </>
     )
 }
-export default SingleStandard;
+export default SingleConstruction;

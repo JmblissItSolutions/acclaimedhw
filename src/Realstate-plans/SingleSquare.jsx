@@ -13,13 +13,10 @@ const SingleSquare = () => {
                 <meta name="description" content="Arizona Resources - Acclaimed Home Warranty" />
             </Helmet>
             <div className="home_page">
-                <div>
-                {/* { showResults ? <RealStateOrder /> : null } */}
-                </div>
                 <div className="container">
                     <div className="plan-ttl">
                         <h2>PLANS & PRICING</h2>
-                        <button type="button" className="btn" ><TiChevronLeft />Go back</button>
+                        <button type="button" className="btn"><TiChevronLeft/>Go back</button>
                     </div>
                     <section className="planPricingHolder">
                         <div className="toplist">
