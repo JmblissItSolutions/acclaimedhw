@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useState, useEffect } from 'react';
+import APIUrl from "./Api"
 import Slider from "./component/Homeslider";
 import { ChooseWhat, Experienced, Convenience, CompanyBack, Slideshow } from "./component/WhyChooseUs";
 import { Fasterfixes, Numerousplan, ResponsiveCustomer, LocallyOwned, AdvantageSlideshow } from "./component/AdvantagesWarranty";
@@ -8,7 +9,6 @@ import bluecall from "./assets/images/blue-call.jpg";
 import bluemarker from "./assets/images/blue-marker.jpg";
 import leackage from "./assets/images/leackage.jpeg";
 import playicon from "./assets/images/play-icon.png";
-import Iframe from 'react-iframe';
 import Popup from 'reactjs-popup';
 import { Helmet } from "react-helmet";
 import 'reactjs-popup/dist/index.css';
@@ -21,6 +21,13 @@ import Texas from "./assets/images/compare-texas.jpg";
 import Idaho from "./assets/images/compare_idaho.jpg";
 
 const Home = () => {
+  const rep = (APIUrl.defaults.baseURL)
+  const [data, setData] = useState([]);
+  useEffect(async () => {
+   const result = await APIUrl.get(`/api/get_holocations`)
+   setData(result.data);
+ }, []);
+ console.log(rep)
   return (
     <>
       <Helmet>
@@ -117,61 +124,19 @@ const Home = () => {
           <section id="home-perfect-plan" style={{ backgroundImage: `url(${homeperfect})` }}>
             <div className="plans" style={{ backgroundImage: `url(${comparedoor})` }}>
               <div className="inner">
-                <div className="col-3" style={{ backgroundImage: `url(${arizona})` }}>
-                  <div className="perfect-cta">
-                    <span className="perfect-cta__compare cormor">Compare</span>
-                    <span className="perfect-cta__state">Arizona</span>
-                    <span className="perfect-cta__plans">Plans</span>
-                  </div>
-                  <div className="btn-cont">
-                    <a href="/homeowner-plans/arizona" className="btn">compare homeowner&nbsp;plans</a>
-                    <a href="/real-estate-orders/" className="btn">compare real estate&nbsp;plans&nbsp;</a>
-                  </div>
-                </div>
-                <div className="col-2" style={{ backgroundImage: `url(${Utah})` }}>
-                  <div className="perfect-cta">
-                    <span className="perfect-cta__compare cormor">Compare</span>
-                    <span className="perfect-cta__state">Utah</span>
-                    <span className="perfect-cta__plans">Plans</span>
-                  </div>
-                  <div className="btn-cont">
-                    <a href="/homeowner-plans/utah" className="btn">compare homeowner&nbsp;plans</a>
-                    <a href="/real-estate-orders/" className="btn">compare real&nbsp;estate&nbsp;plans</a>
-                  </div>
-                </div>
-                <div className="col-3" style={{ backgroundImage: `url(${Nevada})` }}>
-                  <div className="perfect-cta">
-                    <span className="perfect-cta__compare cormor">Compare</span>
-                    <span className="perfect-cta__state">Nevada</span>
-                    <span className="perfect-cta__plans">Plans</span>
-                  </div>
-                  <div className="btn-cont">
-                    <a href="/homeowner-plans/nevada" className="btn">compare homeowner&nbsp;plans</a>
-                    <a href="/real-estate-orders/" className="btn">compare real estate&nbsp;plans&nbsp;</a>
-                  </div>
-                </div>
-                <div className="col-4" style={{ backgroundImage: `url(${Texas})` }}>
-                  <div className="perfect-cta">
-                    <span className="perfect-cta__compare cormor">Compare</span>
-                    <span className="perfect-cta__state">Texas</span>
-                    <span className="perfect-cta__plans">Plans</span>
-                  </div>
-                  <div className="btn-cont">
-                    <a href="/homeowner-plans/texas" className="btn">compare homeowner&nbsp;plans</a>
-                    <a href="/real-estate-orders/" className="btn">compare real&nbsp;estate&nbsp;plans</a>
-                  </div>
-                </div>
-                <div className="col-2 idaho_img" style={{ backgroundImage: `url(${Idaho})` }}>
-                  <div className="perfect-cta">
-                    <span className="perfect-cta__compare cormor">Compare</span>
-                    <span className="perfect-cta__state">Idaho</span>
-                    <span className="perfect-cta__plans">Plans</span>
-                  </div>
-                  <div className="btn-cont">
-                    <a href="/homeowner-plans/idaho" className="btn">compare homeowner&nbsp;plans</a>
-                    <a href="/real-estate-orders/" className="btn">compare real&nbsp;estate&nbsp;plans</a>
-                  </div>
-                </div>
+              {data.map(item => (
+       <div className="col-3" key={item.id} style={{ backgroundImage: `url(${rep}/${item.image})` }}>
+       <div className="perfect-cta">
+         <span className="perfect-cta__compare cormor">Compare</span>
+         <span className="perfect-cta__state">{item.location_name}</span>
+         <span className="perfect-cta__plans">Plans</span>
+       </div>
+       <div className="btn-cont">
+         <a href={'/homeowner-plans/' + item.slug} className="btn">compare homeowner&nbsp;plans</a>
+         <a href="/real-estate-orders/" className="btn">compare real estate&nbsp;plans&nbsp;</a>
+       </div>
+     </div>
+      ))}
               </div>
             </div>
           </section>
