@@ -222,7 +222,7 @@ const RealStateOrder = () => {
                         <h4 className="or">OR</h4>
                     </div>
                     <div className="click_here">
-                        <button type="button" className="btn" onClick={changehandle}>Click Here</button><br />
+                        <button type="button" className="btn" onClick={changehandle}>Click Here..</button><br />
                         <span id="click_span"><em>to Compare Home Warranty Plans Side-By-Side and make your selection/customize</em></span>
                     </div>
                 </div>
@@ -285,6 +285,7 @@ const RealStateOrder = () => {
                 <title>Real Estate Orders in Arizona by Acclaimed Home Warranty</title>
                 <meta name="description" content="Are you looking for a home warranty for your property in Arizona? Reach out to Acclaimed Home Warranty for coverage details for buyers and sellers." />
             </Helmet>
+            {showResults === "SingleSquare" ? <SingleSquare /> :
             <div className="home_page">
                 <div className="top_img">
                     <img src={homewarranty} alt="homewarranty" />
@@ -293,7 +294,7 @@ const RealStateOrder = () => {
                     <h1>Real Estate Orders</h1>
                 </div>
                 <div className="container">
-                    {showResults === "SingleSquare" ? <SingleSquare /> :
+                   
                         <div>
                             <Homeplan />
                             {(radiovalue === 'Utah') || (radiovalue === 'Idaho') || (radiovalue === 'Nevada') || (radiovalue === 'Arizona') || (radiovalue === 'Texas') ? <Coverage /> : null}
@@ -309,9 +310,10 @@ const RealStateOrder = () => {
                             {(coveragevalue === "Listing/Seller's Coverage") && (listcheckbox1 === true) && (listcheckbox2 === true) && (ordervalue === "Single-family home less than 6k sq ft, or condominium, townhome, mobile home under 2K sq ft.") && (squarevalue === 'yes') ? <ListBestplan /> : null}
                             {(ordervalue === 'Duplex') && (coveragevalue === "Listing/Seller's Coverage") || (ordervalue === 'Triplex') && (coveragevalue === "Listing/Seller's Coverage") || (ordervalue === 'Fourplex') && (coveragevalue === "Listing/Seller's Coverage") ? <Baseprice /> : null}
                         </div>
-                     }
+                     
                 </div>
             </div>
+            }
         </>
     )
 };
