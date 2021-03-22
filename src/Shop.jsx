@@ -1,11 +1,12 @@
 import React from 'react'
 import { Helmet } from "react-helmet";
-import SingleConstruction from "./Realstate-plans/SingleConstruction";
+import ApplicationInformation from "./Realstate-plans/ApplicationInformation"
+// import SingleConstruction from "./Realstate-plans/SingleConstruction";
 // import SingleStandard from "./Realstate-plans/SingleStandard"; 
 // import CondoPlans from "./Realstate-plans/CondoPlans";
 // import DuplexPlans from "./Realstate-plans/DuplexPlans";
 // import TriplexPlans from "./Realstate-plans/TriplexPlans";
-import FourplexPlans from "./Realstate-plans/FourplexPlans";
+// import FourplexPlans from "./Realstate-plans/FourplexPlans";
 const Shop =()=>{
     return(
         <>
@@ -16,11 +17,12 @@ const Shop =()=>{
         <div>
             <h1>Shop</h1>
             {/* <SingleSquare/> */}
-            <SingleConstruction/>
+            {/* <SingleConstruction/> */}
             {/* <CondoPlans/> */}
             {/* <DuplexPlans/> */}
             {/* <TriplexPlans/> */}
             {/* <FourplexPlans/> */}
+            <ApplicationInformation/>
         </div>
         </>
     )

@@ -11,23 +11,25 @@ import play from "../assets/images/play.png";
 import ChangeLocation from "../ChangeLocation/ChangeLocation";
 import { Modal, Button } from 'antd';
 import 'antd/dist/antd.css';
+import Carousel from 'react-bootstrap/Carousel';
 
-const Arizona = () => {
+const ResourceArizona = () => {
    const [isActive, setActive] = useState(false);
    const toggleClass = () => {
-      setActive(!isActive);
+      setActive(true);
    };
-   // const [isModalVisible, setIsModalVisible] = useState(false);
-   // const showModal = () => {
-   //    setIsModalVisible(true);
-   // };
-   // const handleOk = () => {
-   //    setIsModalVisible(false);
-   // };
-   // const handleCancel = () => {
-   //    setIsModalVisible(false);
-   // };
-   // Modal
+   // pdf
+   const [isPdf, setIsPdf] = useState(false);
+   const showPdf = () => {
+      setIsPdf(true);
+   };
+   const handleOk = () => {
+      setIsPdf(false);
+   };
+   const handleCancel = () => {
+      setIsPdf(false);
+   };
+   // Modal1
    const [isModalVisible1, setIsModalVisible1] = useState(false);
    const showModal1 = () => {
       setIsModalVisible1(true);
@@ -72,6 +74,7 @@ const Arizona = () => {
    const handleCancel4 = () => {
       setIsModalVisible4(false);
    };
+
    return (
       <>
          <Helmet>
@@ -100,32 +103,88 @@ const Arizona = () => {
                   <h2>Documents</h2>
                   <div className="doc-cont">
                      <div className="doc">
-                        <a href="https://acclaimedhw.com/wp-content/uploads/2020/10/FullbrochureIDrealtor-AHW.pdf" className="venobox vbox-item" data-vbtype="iframe" data-gall="docs">
-                           <i className="achi-pdf">
-                              <img src={pdf} alt="pdf" className="pdf_img" /></i>
-                           <p className="name">Brochure (real estate transaction) w Example Contract</p>
-                        </a>
+                        <i className="achi-pdf">
+                           <img src={pdf} alt="pdf" className="pdf_img" onClick={showPdf}/></i>
+                        <p className="name">Brochure (real estate transaction) w Example Contract</p>
+                        <Modal style={{ width: "680px", height: "400px" }} onOk={handleOk} visible={isPdf}
+                           onCancel={handleCancel}
+                           okButtonProps={{ disabled: true }}
+                           cancelButtonProps={{ disabled: true }}>
+                           <Carousel fade={true} >
+                              <Carousel.Item>
+                                 <iframe className="pdf_iframe" src="http://www.africau.edu/images/default/sample.pdf" ></iframe>
+                              </Carousel.Item>
+                              <Carousel.Item>
+                                 <iframe className="pdf_iframe" src="http://www.africau.edu/images/default/sample.pdf" ></iframe>
+                              </Carousel.Item>
+                              <Carousel.Item>
+                                 <iframe className="pdf_iframe" src="http://www.africau.edu/images/default/sample.pdf" ></iframe>
+                              </Carousel.Item>
+                           </Carousel>
+                        </Modal>
                      </div>
                      <div className="doc">
-                        <a href="https://acclaimedhw.com/wp-content/uploads/2020/03/Acclaimed-Home-Warranty-Price-Options-Realtors-AZ.pdf" className="venobox vbox-item" data-vbtype="iframe" data-gall="docs">
-                           <i className="achi-pdf">
-                              <img src={pdf} alt="pdf" className="pdf_img" /></i>
-                           <p className="name">Realtors Price & Options</p>
-                        </a>
+                        <i className="achi-pdf">
+                           <img src={pdf} alt="pdf" className="pdf_img" onClick={showPdf}/></i>
+                        <p className="name">Realtors Price & Options</p>
+                        <Modal style={{ width: "680px", height: "400px" }} onOk={handleOk} visible={isPdf}
+                           onCancel={handleCancel}
+                           okButtonProps={{ disabled: true }}
+                           cancelButtonProps={{ disabled: true }}>
+                           <Carousel fade={true} >
+                              <Carousel.Item>
+                                 <iframe className="pdf_iframe" src="http://www.africau.edu/images/default/sample.pdf" ></iframe>
+                              </Carousel.Item>
+                              <Carousel.Item>
+                                 <iframe className="pdf_iframe" src="http://www.africau.edu/images/default/sample.pdf" ></iframe>
+                              </Carousel.Item>
+                              <Carousel.Item>
+                                 <iframe className="pdf_iframe" src="http://www.africau.edu/images/default/sample.pdf" ></iframe>
+                              </Carousel.Item>
+                           </Carousel>
+                        </Modal>
                      </div>
                      <div className="doc">
-                        <a href="https://acclaimedhw.com/wp-content/uploads/2020/03/AHW-Understanding-Your-Home-Warranty-AZ.pdf" className="venobox vbox-item" data-vbtype="iframe" data-gall="docs">
-                           <i className="achi-pdf">
-                              <img src={pdf} alt="pdf" className="pdf_img" /></i>
-                           <p className="name">Understanding Your Home Warranty</p>
-                        </a>
+                        <i className="achi-pdf">
+                           <img src={pdf} alt="pdf" className="pdf_img" onClick={showPdf}/></i>
+                        <p className="name">Understanding Your Home Warranty</p>
+                        <Modal style={{ width: "680px", height: "400px" }} onOk={handleOk} visible={isPdf}
+                           onCancel={handleCancel}
+                           okButtonProps={{ disabled: true }}
+                           cancelButtonProps={{ disabled: true }}>
+                           <Carousel fade={true} >
+                              <Carousel.Item>
+                                 <iframe className="pdf_iframe" src="http://www.africau.edu/images/default/sample.pdf" ></iframe>
+                              </Carousel.Item>
+                              <Carousel.Item>
+                                 <iframe className="pdf_iframe" src="http://www.africau.edu/images/default/sample.pdf" ></iframe>
+                              </Carousel.Item>
+                              <Carousel.Item>
+                                 <iframe className="pdf_iframe" src="http://www.africau.edu/images/default/sample.pdf" ></iframe>
+                              </Carousel.Item>
+                           </Carousel>
+                        </Modal>
                      </div>
                      <div className="doc">
-                        <a href="https://acclaimedhw.com/wp-content/uploads/2020/03/Acclaimed-Home-Warranty-Price-Guide-Consumer-AZ.pdf" className="venobox vbox-item" data-vbtype="iframe" data-gall="docs">
-                           <i className="achi-pdf">
-                              <img src={pdf} alt="pdf" className="pdf_img" /></i>
-                           <p className="name">Understanding Your Home Warranty</p>
-                        </a>
+                        <i className="achi-pdf">
+                           <img src={pdf} alt="pdf" className="pdf_img" onClick={showPdf}/></i>
+                        <p className="name">Understanding Your Home Warranty</p>
+                        <Modal style={{ width: "680px", height: "400px" }} onOk={handleOk} visible={isPdf}
+                           onCancel={handleCancel}
+                           okButtonProps={{ disabled: true }}
+                           cancelButtonProps={{ disabled: true }}>
+                           <Carousel fade={true} >
+                              <Carousel.Item>
+                                 <iframe className="pdf_iframe" src="http://www.africau.edu/images/default/sample.pdf" ></iframe>
+                              </Carousel.Item>
+                              <Carousel.Item>
+                                 <iframe className="pdf_iframe" src="http://www.africau.edu/images/default/sample.pdf" ></iframe>
+                              </Carousel.Item>
+                              <Carousel.Item>
+                                 <iframe className="pdf_iframe" src="http://www.africau.edu/images/default/sample.pdf" ></iframe>
+                              </Carousel.Item>
+                           </Carousel>
+                        </Modal>
                      </div>
                   </div>
                </div>
@@ -144,9 +203,23 @@ const Arizona = () => {
                               onCancel={handleCancel1}
                               okButtonProps={{ disabled: true }}
                               cancelButtonProps={{ disabled: true }}>
-                              <div className="content">
-                                 <iframe style={{ width: "680px", height: "400px", border: "none", background: "black" }} src="https://www.youtube.com/embed/1mzkbJSIMHc"></iframe>
-                              </div>
+                              <Carousel fade={true} >
+                                 <Carousel.Item>
+                                    <div className="content">
+                                       <iframe style={{ width: "680px", height: "400px", border: "none", background: "black" }} src="https://www.youtube.com/embed/1mzkbJSIMHc"></iframe>
+                                    </div>
+                                 </Carousel.Item>
+                                 <Carousel.Item>
+                                    <div className="content">
+                                       <iframe style={{ width: "680px", height: "400px", border: "none", background: "black" }} src="https://youtube.com/embed/q7-GQn3-ZLs"></iframe>
+                                    </div>
+                                 </Carousel.Item>
+                                 <Carousel.Item>
+                                    <div className="content">
+                                       <iframe style={{ width: "680px", height: "400px", border: "none", background: "black" }} src="https://youtube.com/embed/iG5o3j7P7I4"></iframe>
+                                    </div>
+                                 </Carousel.Item>
+                              </Carousel>
                            </Modal>
                            <p className="name">Why Choose Acclaimed?</p>
                         </div>
@@ -159,9 +232,23 @@ const Arizona = () => {
                               onCancel={handleCancel2}
                               okButtonProps={{ disabled: true }}
                               cancelButtonProps={{ disabled: true }}>
-                              <div className="content">
-                                 <iframe style={{ width: "680px", height: "400px", border: "none", background: "black" }} src="https://www.youtube.com/embed/QsmndywTysA"></iframe>
-                              </div>
+                              <Carousel fade={true} >
+                                 <Carousel.Item>
+                                    <div className="content">
+                                       <iframe style={{ width: "680px", height: "400px", border: "none", background: "black" }} src="https://www.youtube.com/embed/QsmndywTysA"></iframe>
+                                    </div>
+                                 </Carousel.Item>
+                                 <Carousel.Item>
+                                    <div className="content">
+                                       <iframe style={{ width: "680px", height: "400px", border: "none", background: "black" }} src="https://www.youtube.com/embed/1mzkbJSIMHc"></iframe>
+                                    </div>
+                                 </Carousel.Item>
+                                 <Carousel.Item>
+                                    <div className="content">
+                                       <iframe style={{ width: "680px", height: "400px", border: "none", background: "black" }} src="https://youtube.com/embed/iG5o3j7P7I4"></iframe>
+                                    </div>
+                                 </Carousel.Item>
+                              </Carousel>
                            </Modal>
                            <p className="name">How To Use Our New Website</p>
                         </div>
@@ -174,9 +261,23 @@ const Arizona = () => {
                               onCancel={handleCancel3}
                               okButtonProps={{ disabled: true }}
                               cancelButtonProps={{ disabled: true }}>
-                              <div className="content">
-                                 <iframe style={{ width: "680px", height: "400px", border: "none", background: "black" }} src="https://youtube.com/embed/q7-GQn3-ZLs"></iframe>
-                              </div>
+                              <Carousel fade={true} >
+                                 <Carousel.Item>
+                                    <div className="content">
+                                       <iframe style={{ width: "680px", height: "400px", border: "none", background: "black" }} src="https://www.youtube.com/embed/q7-GQn3-ZLs"></iframe>
+                                    </div>
+                                 </Carousel.Item>
+                                 <Carousel.Item>
+                                    <div className="content">
+                                       <iframe style={{ width: "680px", height: "400px", border: "none", background: "black" }} src="https://www.youtube.com/embed/1mzkbJSIMHc"></iframe>
+                                    </div>
+                                 </Carousel.Item>
+                                 <Carousel.Item>
+                                    <div className="content">
+                                       <iframe style={{ width: "680px", height: "400px", border: "none", background: "black" }} src="https://youtube.com/embed/iG5o3j7P7I4"></iframe>
+                                    </div>
+                                 </Carousel.Item>
+                              </Carousel>
                            </Modal>
                            <p className="name">Donating to Family Promise</p>
                         </div>
@@ -189,18 +290,32 @@ const Arizona = () => {
                               onCancel={handleCancel4}
                               okButtonProps={{ disabled: true }}
                               cancelButtonProps={{ disabled: true }}>
-                              <div className="content">
-                                 <iframe style={{ width: "680px", height: "400px", border: "none", background: "black" }} src="https://youtube.com/embed/iG5o3j7P7I4"></iframe>
-                              </div>
+                              <Carousel fade={true} >
+                                 <Carousel.Item>
+                                    <div className="content">
+                                       <iframe style={{ width: "680px", height: "400px", border: "none", background: "black" }} src="https://www.youtube.com/embed/iG5o3j7P7I4"></iframe>
+                                    </div>
+                                 </Carousel.Item>
+                                 <Carousel.Item>
+                                    <div className="content">
+                                       <iframe style={{ width: "680px", height: "400px", border: "none", background: "black" }} src="https://www.youtube.com/embed/1mzkbJSIMHc"></iframe>
+                                    </div>
+                                 </Carousel.Item>
+                                 <Carousel.Item>
+                                    <div className="content">
+                                       <iframe style={{ width: "680px", height: "400px", border: "none", background: "black" }} src="https://youtube.com/embed/iG5o3j7P7I4"></iframe>
+                                    </div>
+                                 </Carousel.Item>
+                              </Carousel>
                            </Modal>
                            <p className="name">Live you Life ... Don't Fix It! </p>
                         </div>
                      </div>
                   </div>
-                </div>
+               </div>
             </section>
          </div>
-       </>
-    )
+      </>
+   )
 };
-export default Arizona;
+export default ResourceArizona;
