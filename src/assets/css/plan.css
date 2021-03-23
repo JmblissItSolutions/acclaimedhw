@@ -467,3 +467,115 @@ div#root .plan-options .option .btn {
 .feature.included{
     text-align: center;
 }
+
+/* checkout page */
+.checkout_ttl h1{
+    padding: 45px 20px;
+    text-transform: uppercase;
+    font-size: 72px;
+    text-align: center;
+    font-weight: 300;
+}
+.showcoupon{
+    color: #6FA553;
+}
+.woocommerce form.checkout_coupon, .woocommerce form.login, .woocommerce form.register {
+    border: 1px solid #d3ced2;
+    padding: 20px;
+    margin: 2em 0;
+    text-align: left;
+    border-radius: 5px;
+}
+.woocommerce form .form-row {
+    padding: 3px;
+    margin: 0 0 6px;
+}
+.woocommerce form .form-row select {
+    cursor: pointer;
+    margin: 0;
+}
+.woocommerce form .form-row-first{
+    float: left;
+}
+.woocommerce form .form-row-first, .woocommerce form .form-row-last{
+    width: 50%;
+    overflow: visible;
+}
+.woocommerce form .form-row input.input-text {
+    box-sizing: border-box;
+    width: 100%;
+    outline: 0;
+    line-height: normal;
+    height: 25px;
+}
+button.button, .woocommerce input.button {
+    font-size: 100%;
+    margin: 0;
+    line-height: 1;
+    cursor: pointer;
+    position: relative;
+    text-decoration: none;
+    overflow: visible;
+    padding: .618em 1em;
+    font-weight: 700;
+    border-radius: 3px;
+    left: auto;
+    color: #515151;
+    background-color: #ebe9eb;
+    border: 0;
+    display: inline-block;
+    background-image: none;
+    box-shadow: none;
+    text-shadow: none;
+}
+form.checkout.woocommerce-checkout {
+    width: 100%;
+    display: inline-block;
+}
+.woocommerce form .form-row .input-text{
+    box-sizing: border-box;
+    width: 100%;
+}
+.woocommerce .col2-set{
+    width: 100%;
+}
+.woocommerce .col2-set::before,.woocommerce .woocommerce-billing-fields::before,.woocommerce .woocommerce-shipping-fields::before{
+    content: ' ';
+    display: table;
+}
+.woocommerce .col2-set .col-1{
+    float: left;
+    width: 50%;
+}
+.col-1 h3{
+    font-size: 14px;
+    text-transform: capitalize;
+}
+.col-1{
+    flex: 0 0 8.333333%;
+    max-width: 100% !important;
+}
+.woocommerce form .form-row .required {
+    visibility: visible;
+}
+.woocommerce form .form-row .required {
+    color: red !important;
+    font-weight: 700;
+    border: 0!important;
+    text-decoration: none;
+    visibility: visible;
+}
+.woocommerce form .form-row-wide,.woocommerce .woocommerce-shipping-fields::after {
+    clear: both;
+}
+.woocommerce .col2-set .col-2 {
+    width: 50%;
+}
+.col-2 h3{
+    font-size: 14px;
+    text-transform: capitalize;
+}
+.col-2 {
+    flex: 0 0 16.666667%;
+    max-width: 100% !important;
+}

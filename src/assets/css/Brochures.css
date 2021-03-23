@@ -107,9 +107,9 @@
 }
 .ant-modal-wrap {
     opacity: 1 !important;
+    /* background: rgba(0, 0, 0, 0.8) !important; */
 }
 .ant-modal-content {
-    background-color: #000 !important;
     opacity: 1 !important;
     margin-top: 30px !important;
     margin-bottom: 30px !important;
@@ -119,4 +119,17 @@
 }
 .ant-modal-close-x {
     display: none !important;
+}
+.pdf_iframe{
+    width: 100%;
+    margin: 0 auto;
+    height: 400px;
+    max-width: 600px !important;
+}
+.carousel-control-next-icon, .carousel-control-prev-icon {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    background: 50%/100% 100% no-repeat;
+    background-color: red !important;
 }
