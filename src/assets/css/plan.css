@@ -579,3 +579,124 @@ form.checkout.woocommerce-checkout {
     flex: 0 0 16.666667%;
     max-width: 100% !important;
 }
+.woocommerce h3 {
+    font-size: 16px;
+    font-weight: 300;
+    padding: 15px 20px;
+    text-transform: capitalize;
+}
+.woocommerce table.shop_table {
+    border: 1px solid rgba(0,0,0,.1);
+    margin: 0 -1px 24px 0;
+    text-align: left;
+    width: 100%;
+    border-collapse: separate;
+    border-radius: 5px;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+.woocommerce table.shop_table th {
+    font-weight: 700;
+    padding: 9px 12px;
+    line-height: 1.5em;
+}
+.woocommerce table.shop_table td {
+    border-top: 1px solid rgba(0,0,0,.1);
+    padding: 9px 12px;
+    vertical-align: middle;
+    line-height: 1.5em;
+}
+.woocommerce table.shop_table tfoot th,.woocommerce table.shop_table tfoot td{
+    font-weight: 700;
+    border-top: 1px solid rgba(0,0,0,.1);
+}
+.woocommerce-checkout-payment{
+    background: #ebe9eb;
+    border-radius: 5px;
+    margin-bottom: 60px;
+}
+.woocommerce-checkout-payment ul.payment_methods{
+    text-align: left;
+    padding: 1em;
+    border-bottom: 1px solid #d3ced2;
+    margin: 0;
+    list-style: none outside;
+}
+ .woocommerce-checkout-payment ul.payment_methods li{
+    line-height: 2;
+    text-align: left;
+    margin: 0;
+    font-weight: 400;
+}
+.woocommerce-checkout-payment ul.payment_methods li input{
+    margin: 0 1em 0 0;
+}
+.woocommerce-checkout-payment label img{
+    width: 40px;
+    height: 25px;
+}
+.woocommerce-checkout-payment .payment_box{
+    position: relative;
+    box-sizing: border-box;
+    width: 100%;
+    padding: 1em;
+    margin: 1em 0;
+    font-size: .92em;
+    border-radius: 2px;
+    line-height: 1.5;
+    background-color: #dfdcde;
+    color: #515151;
+}
+.woocommerce-checkout-payment fieldset {
+    border: 1px solid #c0c0c0;
+    margin: 0 2px;
+    padding: 0.35em 0.625em 1.75em;
+}
+.woocommerce-checkout-payment .payment_box .form-row {
+    margin: 0 0 1em;
+}
+.woocommerce-checkout-payment .form-row.woocommerce-invalid label {
+    color: #a00;
+}
+.woocommerce-checkout-payment .form-row label {
+    display: block;
+    line-height: 2;
+}
+.woocommerce-checkout-payment .woocommerce-input-wrapper .input-text[type="tel"]{
+    font-size: 1.5em;
+    padding: 8px;
+}
+.woocommerce-checkout-payment .form-row .required {
+    color: red !important;
+    font-weight: 700;
+    border: 0!important;
+    text-decoration: none;
+    visibility: visible;
+}
+.woocommerce-checkout-payment .input-text{
+    border-top: 2px solid #515151;
+    border-left: 2px solid #515151;
+    font-size: 20px;
+}
+.woocommerce-checkout-payment .input-radio{
+    display: none;
+}
+.woocommerce-checkout-payment .form-row-first{
+    float: left;
+}
+.woocommerce-checkout-payment .form-row-first ,.woocommerce-checkout-payment .form-row-last{
+    width: 50%;
+    overflow: visible;
+}
+.woocommerce-checkout-payment button.button.alt {
+    background-color: #a46497;
+    color: #fff;
+    margin-top: 32px;
+    margin-left: 13%;
+}
+.woocommerce-terms-and-conditions-wrapper p {
+    font-size: 14px;
+    margin: 8px 30px;
+}
