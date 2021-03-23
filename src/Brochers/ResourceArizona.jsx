@@ -110,7 +110,7 @@ const ResourceArizona = () => {
                            onCancel={handleCancel}
                            okButtonProps={{ disabled: true }}
                            cancelButtonProps={{ disabled: true }}>
-                           <Carousel fade={true} >
+                           <Carousel fade={true} interval={null}>
                               <Carousel.Item>
                                  <iframe className="pdf_iframe" src="http://www.africau.edu/images/default/sample.pdf" ></iframe>
                               </Carousel.Item>
@@ -131,7 +131,7 @@ const ResourceArizona = () => {
                            onCancel={handleCancel}
                            okButtonProps={{ disabled: true }}
                            cancelButtonProps={{ disabled: true }}>
-                           <Carousel fade={true} >
+                           <Carousel fade={true} interval={null}>
                               <Carousel.Item>
                                  <iframe className="pdf_iframe" src="http://www.africau.edu/images/default/sample.pdf" ></iframe>
                               </Carousel.Item>
@@ -152,7 +152,7 @@ const ResourceArizona = () => {
                            onCancel={handleCancel}
                            okButtonProps={{ disabled: true }}
                            cancelButtonProps={{ disabled: true }}>
-                           <Carousel fade={true} >
+                           <Carousel fade={true} interval={null}>
                               <Carousel.Item>
                                  <iframe className="pdf_iframe" src="http://www.africau.edu/images/default/sample.pdf" ></iframe>
                               </Carousel.Item>
@@ -173,7 +173,7 @@ const ResourceArizona = () => {
                            onCancel={handleCancel}
                            okButtonProps={{ disabled: true }}
                            cancelButtonProps={{ disabled: true }}>
-                           <Carousel fade={true} >
+                           <Carousel fade={true} interval={null}>
                               <Carousel.Item>
                                  <iframe className="pdf_iframe" src="http://www.africau.edu/images/default/sample.pdf" ></iframe>
                               </Carousel.Item>
@@ -203,10 +203,10 @@ const ResourceArizona = () => {
                               onCancel={handleCancel1}
                               okButtonProps={{ disabled: true }}
                               cancelButtonProps={{ disabled: true }}>
-                              <Carousel fade={true} >
+                              <Carousel fade={true} interval={null}>
                                  <Carousel.Item>
                                     <div className="content">
-                                       <iframe style={{ width: "680px", height: "400px", border: "none", background: "black" }} src="https://www.youtube.com/embed/1mzkbJSIMHc"></iframe>
+                                       <iframe data-interval="false" style={{ width: "680px", height: "400px", border: "none", background: "black" }} src="https://www.youtube.com/embed/1mzkbJSIMHc"></iframe>
                                     </div>
                                  </Carousel.Item>
                                  <Carousel.Item>
@@ -232,7 +232,7 @@ const ResourceArizona = () => {
                               onCancel={handleCancel2}
                               okButtonProps={{ disabled: true }}
                               cancelButtonProps={{ disabled: true }}>
-                              <Carousel fade={true} >
+                              <Carousel fade={true} interval={null}>
                                  <Carousel.Item>
                                     <div className="content">
                                        <iframe style={{ width: "680px", height: "400px", border: "none", background: "black" }} src="https://www.youtube.com/embed/QsmndywTysA"></iframe>
@@ -261,7 +261,7 @@ const ResourceArizona = () => {
                               onCancel={handleCancel3}
                               okButtonProps={{ disabled: true }}
                               cancelButtonProps={{ disabled: true }}>
-                              <Carousel fade={true} >
+                              <Carousel fade={true} interval={null}>
                                  <Carousel.Item>
                                     <div className="content">
                                        <iframe style={{ width: "680px", height: "400px", border: "none", background: "black" }} src="https://www.youtube.com/embed/q7-GQn3-ZLs"></iframe>
@@ -290,7 +290,7 @@ const ResourceArizona = () => {
                               onCancel={handleCancel4}
                               okButtonProps={{ disabled: true }}
                               cancelButtonProps={{ disabled: true }}>
-                              <Carousel fade={true} >
+                              <Carousel fade={true} interval={null}>
                                  <Carousel.Item>
                                     <div className="content">
                                        <iframe style={{ width: "680px", height: "400px", border: "none", background: "black" }} src="https://www.youtube.com/embed/iG5o3j7P7I4"></iframe>

@@ -17,8 +17,8 @@ const ChangeLocation = () =>{
             <meta name="description" content="Join Acclaimed Home Warranty Team as Contractors, coverage area for five Western US States"/>
           </Helmet>
           <div className="home-page">
-          <section id="location-perfect-plan"  style={{ backgroundImage: `url(${homeperfect})` }}>
-				   <div className="location-plans"  style={{ backgroundImage: `url(${comparedoor})` }}> 
+          <section id="location-perfect-plan">
+				   <div className="location-plans"> 
                      <h1>choose a location</h1>
 					  <div className="inner">
                         <div className="col-3" style={{ backgroundImage: `url(${arizona})` }}>

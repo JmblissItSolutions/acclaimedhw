@@ -1,6 +1,6 @@
 import React from 'react'
 import { Helmet } from "react-helmet";
-import ApplicationInformation from "./Realstate-plans/ApplicationInformation"
+// import ApplicationInformation from "./Realstate-plans/ApplicationInformation";
 // import SingleConstruction from "./Realstate-plans/SingleConstruction";
 // import SingleStandard from "./Realstate-plans/SingleStandard"; 
 // import CondoPlans from "./Realstate-plans/CondoPlans";
@@ -22,7 +22,7 @@ const Shop =()=>{
             {/* <DuplexPlans/> */}
             {/* <TriplexPlans/> */}
             {/* <FourplexPlans/> */}
-            <ApplicationInformation/>
+            {/* <ApplicationInformation/> */}
         </div>
         </>
     )

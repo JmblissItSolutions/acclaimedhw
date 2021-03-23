@@ -120,7 +120,8 @@ div#navbarNav {
     -moz-transition: height 0.5s ease;
     -o-transition: height 0.5s ease;
 }
-.navbar-light .navbar-nav a.nav-link:hover:after{
+.navbar-light .navbar-nav a.nav-link:hover:after,
+.navbar-light .navbar-nav a.nav-link.active:after{
     height: 8px
 }
 /*end of navigation*/

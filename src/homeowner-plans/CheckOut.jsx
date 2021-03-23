@@ -2,6 +2,14 @@ import React from 'react'
 import { Helmet } from "react-helmet";
 import Checkoutbg from "../assets/images/Checkoutbg.png";
 import { FaRegWindowMaximize } from 'react-icons/fa';
+import visa from "../assets/images/card-visa.png";
+import master from "../assets/images/card-mastercard.png";
+import american from "../assets/images/card-amex.png";
+import discover from "../assets/images/card-discover.png";
+import dinnerclub from "../assets/images/card-dinersclub.png";
+import jcb from "../assets/images/card-jcb.png";
+import cardccplain from "../assets/images/card-cc-plain.png";
+
 const CheckOut = () => {
     return (
         <>
@@ -140,7 +148,118 @@ const CheckOut = () => {
                                 </div>
                             </div>
                         </form>
-                        <h3 id="order_review_heading">Your order</h3>
+                        <h3>Your order</h3>
+                        <div className="order_review">
+                            <table className="shop_table woocommerce-checkout-review-order-table">
+                                <thead>
+                                    <tr>
+                                        <th className="product-name">Product</th>
+                                        <th className="product-total">Subtotal</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr className="cart_item">
+                                        <td className="product-name">Standard - Annual,Single
+                                         <strong className="product-quantity"> × 1</strong>
+                                        </td>
+                                        <td className="product-total">
+                                            <span className="woocommerce-Price-amount amount">
+                                                <bdi>
+                                                    <span className="woocommerce-Price-currencySymbol">$</span>
+                                                 400.00
+                                                </bdi>
+                                            </span>
+                                        </td>
+                                    </tr>
+                                    <tr className="cart_item">
+                                        <td className="product-name">Swimming Pool/Spa Equipment - Utah,Annual
+                                         <strong className="product-quantity"> × 2</strong>
+                                        </td>
+                                        <td className="product-total">
+                                            <span className="woocommerce-Price-amount amount">
+                                                <bdi>
+                                                    <span className="woocommerce-Price-currencySymbol">$</span>
+                                                    350.00
+                                                </bdi>
+                                            </span>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                                <tfoot>
+                                    <tr className="cart-subtotal">
+                                        <th>Subtotal</th>
+                                        <td>
+                                            <strong>
+                                                <span className="woocommerce-Price-amount amount">
+                                                    <bdi>
+                                                        <span className="woocommerce-Price-currencySymbol">$</span>
+                                                  750.00
+                                                </bdi>
+                                                </span>
+                                            </strong>
+                                        </td>
+                                    </tr>
+                                    <tr className="order-total">
+                                        <th>Total</th>
+                                        <td>
+                                            <strong>
+                                                <span className="woocommerce-Price-amount amount">
+                                                    <bdi>
+                                                        <span className="woocommerce-Price-currencySymbol">$</span>
+                                                  750.00
+                                                </bdi>
+                                                </span>
+                                            </strong>
+                                        </td>
+                                    </tr>
+                                </tfoot>
+                            </table>
+                        </div>
+                        <div className="woocommerce-checkout-payment">
+                            <ul className="wc_payment_methods payment_methods methods">
+                                <li className="wc_payment_method payment_method_authorize_net_aim">
+                                    <input type="radio" className="input-radio" name="payment_method" />
+                                    <label>Credit Card
+                                       <img src={visa} alt="visa" />
+                                        <img src={master} alt="master" />
+                                        <img src={american} alt="american" />
+                                        <img src={discover} alt="discover" />
+                                        <img src={dinnerclub} alt="dinnerclub" />
+                                        <img src={jcb} alt="jcb" />
+                                    </label>
+                                    <div className="payment_box payment_method_authorize_net_aim">
+                                        <p>Pay securely using your credit card.</p>
+                                        <fieldset>
+                                            <div className="payment-method-form">
+                                                <p className="form-row form-row-wide validate-required woocommerce-invalid">
+                                                    <label>Card Number</label>
+                                                    <abbr className="required" title="required">*</abbr>
+                                                    <input type="text" className="input-text" maxLength="20" placeholder="••••••••••••••••" />
+                                                </p>
+                                                <div>
+                                                    <p className="form-row form-row-first validate-required woocommerce-invalid woocommerce-invalid-required-field">
+                                                        <label>Expiration (MM/YY) </label>
+                                                        <abbr className="required" title="required">*</abbr>
+                                                        <input type="text" className="input-text" maxLength="20" placeholder="MM / YY" />
+                                                    </p>
+                                                    <p className="form-row form-row-last validate-required woocommerce-invalid woocommerce-invalid-required-field">
+                                                        <label>Card Security Code </label>
+                                                        <abbr className="required" title="required">*</abbr>
+                                                        <input type="text" className="input-text" maxLength="20" placeholder="CSC" />
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </fieldset>
+                                    </div>
+                                </li>
+                            </ul>
+                            <div className="form-row place-order">
+                                <div className="woocommerce-terms-and-conditions-wrapper">
+                                    <p>Your personal data will be used to process your order, support your experience throughout this website, and for other purposes described in our </p>
+                                </div>
+                                <button type="submit" className="button alt" value="Place order">Place order</button>
+                            </div>
+                        </div>
                     </div>
                 </section>
             </div>
