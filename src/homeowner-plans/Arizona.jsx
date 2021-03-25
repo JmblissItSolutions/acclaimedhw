@@ -73,7 +73,6 @@ const Arizona = () => {
           <p className="text-center sub-txt">We want you to feel confident in your home—that’s why we provide a variety of coverage options for different needs. While all of our plans cover a variety of appliances and accessories, you can choose a more extensive option to make sure every item in your home is in good hands.</p>
         </div>
       </section>
-
       <section className="change-location-header">
         <div className="container d-flex just-space">
           <span className="big upper">Arizona Homeowner Plans</span>
