@@ -49,10 +49,12 @@ img.locationmarker {
     background-position: center center;
     transition: all .3s ease;
 }
-#location-perfect-plan .col-2:hover:before, #location-perfect-plan .col-3:hover:before, #location-perfect-plan .col-4:hover:before {
+#location-perfect-plan .col-2:hover:before, #location-perfect-plan .col-3:hover:before, 
+#location-perfect-plan .col-4:hover:before {
     opacity: 0;
 }
-#location-perfect-plan .col-2:before, #location-perfect-plan .col-3:before, #location-perfect-plan .col-4:before{
+#location-perfect-plan .col-2:before, #location-perfect-plan .col-3:before,
+#location-perfect-plan .col-4:before{
     content: '';
     position: absolute;
     top: 0;
@@ -63,7 +65,9 @@ img.locationmarker {
     opacity: .5;
     transition: all .3s ease;
 }
-#location-perfect-plan .col-2 .perfect-cta, #location-perfect-plan .col-3 .perfect-cta, #location-perfect-plan .col-4 .perfect-cta {
+#location-perfect-plan .col-2 .perfect-cta, 
+#location-perfect-plan .col-3 .perfect-cta, 
+#location-perfect-plan .col-4 .perfect-cta {
     color: white;
     text-align: center;
     font-size: 35px;
