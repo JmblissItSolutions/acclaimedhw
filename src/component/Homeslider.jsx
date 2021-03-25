@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import APIUrl from "../Api"
-import Carousel from 'react-bootstrap/Carousel'
+import APIUrl from "../Api";
+import Carousel from 'react-bootstrap/Carousel';
 
 const Homeslider = () => {
   const sliderImage = (APIUrl.defaults.assetsURL)

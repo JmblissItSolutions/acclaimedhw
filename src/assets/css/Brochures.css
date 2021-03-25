@@ -149,7 +149,7 @@
     height: 500px;
     max-width: 100% !important;
 }
-.carousel-control-next-icon, .carousel-control-prev-icon {
+.ant-modal-root .carousel-control-next-icon, .ant-modal-root .carousel-control-prev-icon {
     display: inline-block;
     width: 20px;
     height: 20px;
@@ -166,7 +166,7 @@
     box-shadow: none !important;
     
 }
-.carousel-inner{
+.ant-modal-root .carousel-inner{
     max-width: 850px;
     margin: auto;
 }
@@ -174,16 +174,16 @@
     background: transparent  !important;
     box-shadow: none !important;
 }
-.carousel-control-prev,
-.carousel-control-next {
+.ant-modal-root .carousel-control-prev,
+.ant-modal-root .carousel-control-next {
     width: 60px;
 }
-body .carousel-indicators{
+ .ant-modal-root .carousel-indicators{
     display: none;
 }
 
-span.carousel-control-prev-icon ,
-span.carousel-control-next-icon {
+.ant-modal-root span.carousel-control-prev-icon ,
+.ant-modal-root span.carousel-control-next-icon {
     width: 20px;
     height: 20px;
     border: 2px solid transparent;
@@ -199,13 +199,13 @@ span.carousel-control-next-icon {
     transform: rotate(45deg);    
 }
 
-span.carousel-control-prev-icon{
+.ant-modal-root span.carousel-control-prev-icon{
     -ms-transform: rotate(-135deg);
     -webkit-transform: rotate( -135deg );
     transform: rotate( -135deg );
 }
 
-iframe {
+.ant-modal-root iframe {
     width: 100% !important;
     max-height: 60vh;
 }
@@ -262,11 +262,11 @@ iframe {
     .ant-modal-body .carousel {
         padding: 0 20px !important;
     }   
-    .carousel-control-next, .carousel-control-prev{
+    .ant-modal-root .carousel-control-next, .ant-modal-root .carousel-control-prev{
        width: 20px;
        max-width: 20px;
     }
-    iframe{
+    .ant-modal-root iframe{
         max-height: 300px;
     }
     .video {

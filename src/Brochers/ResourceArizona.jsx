@@ -81,7 +81,7 @@ const ResourceArizona = () => {
             <title>Arizona Resources - Acclaimed Home Warranty : Acclaimed Home Warranty</title>
             <meta name="description" content="Arizona Resources - Acclaimed Home Warranty" />
          </Helmet>
-         <div className="home_page">
+         <div className="home_page broshure-pg">
             <div>
                {isActive ? <ChangeLocation /> : null}
             </div>
