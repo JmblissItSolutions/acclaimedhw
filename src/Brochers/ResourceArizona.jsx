@@ -1,8 +1,12 @@
-import React, { useState, Component } from "react";
+import React, { useState, Component, useEffect } from "react";
 import { Helmet } from "react-helmet";
 import brochersbanner from "../assets/images/brochers-banner.png";
 import locationmarker from "../assets/images/location-marker.png";
 import pdf from "../assets/images/pdf.png";
+import pdf1 from "../assets/images/pdf1.pdf";
+import pdf2 from "../assets/images/pdf2.pdf";
+import pdf3 from "../assets/images/pdf3.pdf";
+import pdf4 from "../assets/images/pdf4.pdf";
 import video1 from "../assets/images/vid-1.jpg";
 import video2 from "../assets/images/vid-2.jpg";
 import video3 from "../assets/images/vid-3.jpg";
@@ -18,11 +22,15 @@ const ResourceArizona = () => {
    const toggleClass = () => {
       setActive(true);
    };
-   // pdf
+   //  const [isVisible,setIsVisible] = useState(false)
+   //  const handleClick =()=>{
+   //    setIsVisible(!isVisible);
+   //  }
+   // pdf1
    const [isPdf, setIsPdf] = useState(false);
-   const showPdf = () => {
+   const showpdf = () => {
       setIsPdf(true);
-   };
+   }
    const handleOk = () => {
       setIsPdf(false);
    };
@@ -82,7 +90,7 @@ const ResourceArizona = () => {
             <meta name="description" content="Arizona Resources - Acclaimed Home Warranty" />
          </Helmet>
          <div className="home_page broshure-pg">
-            <div>
+            <div onMouseLeave={() => setActive(false)}>
                {isActive ? <ChangeLocation /> : null}
             </div>
             <div className="top_img">
@@ -94,7 +102,8 @@ const ResourceArizona = () => {
             <section className="change-location-header">
                <div className="inner">
                   <span className="big-upper">Arizona Resources</span>
-                  <span className="location" onClick={toggleClass}>Change Location
+                  <span className="location" onClick={toggleClass}>
+                     Change Location
                <img src={locationmarker} alt=" brochers-banner" className="locationmarker" /></span>
                </div>
             </section>
@@ -104,7 +113,7 @@ const ResourceArizona = () => {
                   <div className="doc-cont">
                      <div className="doc">
                         <i className="achi-pdf">
-                           <img src={pdf} alt="pdf" className="pdf_img" onClick={showPdf}/></i>
+                           <img src={pdf} alt="pdf" className="pdf_img" onClick={showpdf} /></i>
                         <p className="name">Brochure (real estate transaction) w Example Contract</p>
                         <Modal style={{ width: "680px", height: "400px" }} onOk={handleOk} visible={isPdf}
                            onCancel={handleCancel}
@@ -112,20 +121,23 @@ const ResourceArizona = () => {
                            cancelButtonProps={{ disabled: true }}>
                            <Carousel fade={true} interval={null}>
                               <Carousel.Item>
-                                 <iframe className="pdf_iframe" src="http://www.africau.edu/images/default/sample.pdf" ></iframe>
+                                 <iframe className="pdf_iframe" src={pdf1}></iframe>
                               </Carousel.Item>
                               <Carousel.Item>
-                                 <iframe className="pdf_iframe" src="http://www.africau.edu/images/default/sample.pdf" ></iframe>
+                                 <iframe className="pdf_iframe" src={pdf2}></iframe>
                               </Carousel.Item>
                               <Carousel.Item>
-                                 <iframe className="pdf_iframe" src="http://www.africau.edu/images/default/sample.pdf" ></iframe>
+                                 <iframe className="pdf_iframe" src={pdf3} ></iframe>
+                              </Carousel.Item>
+                              <Carousel.Item>
+                                 <iframe className="pdf_iframe" src={pdf4} ></iframe>
                               </Carousel.Item>
                            </Carousel>
                         </Modal>
                      </div>
                      <div className="doc">
                         <i className="achi-pdf">
-                           <img src={pdf} alt="pdf" className="pdf_img" onClick={showPdf}/></i>
+                           <img src={pdf} alt="pdf" className="pdf_img" onClick={setIsPdf} /></i>
                         <p className="name">Realtors Price & Options</p>
                         <Modal style={{ width: "680px", height: "400px" }} onOk={handleOk} visible={isPdf}
                            onCancel={handleCancel}
@@ -133,59 +145,50 @@ const ResourceArizona = () => {
                            cancelButtonProps={{ disabled: true }}>
                            <Carousel fade={true} interval={null}>
                               <Carousel.Item>
-                                 <iframe className="pdf_iframe" src="http://www.africau.edu/images/default/sample.pdf" ></iframe>
+                                 <iframe className="pdf_iframe" src={pdf2}></iframe>
                               </Carousel.Item>
                               <Carousel.Item>
-                                 <iframe className="pdf_iframe" src="http://www.africau.edu/images/default/sample.pdf" ></iframe>
+                                 <iframe className="pdf_iframe" src={pdf3} ></iframe>
                               </Carousel.Item>
                               <Carousel.Item>
-                                 <iframe className="pdf_iframe" src="http://www.africau.edu/images/default/sample.pdf" ></iframe>
+                                 <iframe className="pdf_iframe" src={pdf4} ></iframe>
                               </Carousel.Item>
                            </Carousel>
                         </Modal>
                      </div>
-                     <div className="doc">
+                     {/* <div className="doc">
                         <i className="achi-pdf">
-                           <img src={pdf} alt="pdf" className="pdf_img" onClick={showPdf}/></i>
+                           <img src={pdf} alt="pdf" className="pdf_img" onClick={showPdf} onMouseEnter={ProId} /></i>
                         <p className="name">Understanding Your Home Warranty</p>
                         <Modal style={{ width: "680px", height: "400px" }} onOk={handleOk} visible={isPdf}
                            onCancel={handleCancel}
                            okButtonProps={{ disabled: true }}
                            cancelButtonProps={{ disabled: true }}>
-                           <Carousel fade={true} interval={null}>
+                          <Carousel fade={true} interval={null}>
                               <Carousel.Item>
-                                 <iframe className="pdf_iframe" src="http://www.africau.edu/images/default/sample.pdf" ></iframe>
+                                 <iframe className="pdf_iframe" src={pdf3} ></iframe>
                               </Carousel.Item>
                               <Carousel.Item>
-                                 <iframe className="pdf_iframe" src="http://www.africau.edu/images/default/sample.pdf" ></iframe>
-                              </Carousel.Item>
-                              <Carousel.Item>
-                                 <iframe className="pdf_iframe" src="http://www.africau.edu/images/default/sample.pdf" ></iframe>
+                                 <iframe className="pdf_iframe" src={pdf4} ></iframe>
                               </Carousel.Item>
                            </Carousel>
                         </Modal>
-                     </div>
-                     <div className="doc">
+                     </div> */}
+                     {/* <div className="doc">
                         <i className="achi-pdf">
-                           <img src={pdf} alt="pdf" className="pdf_img" onClick={showPdf}/></i>
+                           <img src={pdf} alt="pdf" className="pdf_img" onClick={showPdf} onMouseEnter={ProId}/></i>
                         <p className="name">Understanding Your Home Warranty</p>
                         <Modal style={{ width: "680px", height: "400px" }} onOk={handleOk} visible={isPdf}
                            onCancel={handleCancel}
                            okButtonProps={{ disabled: true }}
                            cancelButtonProps={{ disabled: true }}>
-                           <Carousel fade={true} interval={null}>
+                          <Carousel fade={true} interval={null}>
                               <Carousel.Item>
-                                 <iframe className="pdf_iframe" src="http://www.africau.edu/images/default/sample.pdf" ></iframe>
-                              </Carousel.Item>
-                              <Carousel.Item>
-                                 <iframe className="pdf_iframe" src="http://www.africau.edu/images/default/sample.pdf" ></iframe>
-                              </Carousel.Item>
-                              <Carousel.Item>
-                                 <iframe className="pdf_iframe" src="http://www.africau.edu/images/default/sample.pdf" ></iframe>
+                                 <iframe className="pdf_iframe" src={pdf4} ></iframe>
                               </Carousel.Item>
                            </Carousel>
                         </Modal>
-                     </div>
+                     </div> */}
                   </div>
                </div>
             </section>

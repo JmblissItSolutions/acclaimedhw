@@ -19,6 +19,7 @@
     "jquery": "^3.5.1",
     "multiselect-react-dropdown": "^1.6.7",
     "npm-install": "^1.7.1",
+    "pdf-viewer-reactjs": "^2.2.3",
     "popper.js": "^1.16.1",
     "react": "^17.0.1",
     "react-accessible-accordion": "^3.3.4",
