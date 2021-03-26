@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from "react";
+import APIUrl from "../Api"
 import { BrowserRouter as Router, useHistory, useLocation } from "react-router-dom";
 import { Helmet } from "react-helmet";
 import UtahHomeowner from "./../assets/images/UtahHomeowner.png"
 import { StarFilled, CheckOutlined } from '@ant-design/icons';
 import lattice from "../assets/images/lattice-background.png"
 import { Radio } from 'antd';
+import UniqueFeature from "./UniqueFeature"
 const Idaho = () => {
-  const [products, setproducts] = useState([]);
+  // const [products, setproducts] = useState([]);
   const [product, setproduct] = useState("Single Family");
 
   const handleChangeCourse = event => {
@@ -20,15 +22,20 @@ const Idaho = () => {
       .map(e => arr[e]);
     return unique;
   }
-  useEffect(() => {
-    const productss = require("../data.json");
-    const products = productss.IdahoproList;
-    setproducts(products)
+  const [uniquefeature, setUnique] = useState([]);
+  useEffect(async () => {
+    const uniquefeature = await APIUrl.get(`/get_location_unique_features/5`)
+    setUnique(uniquefeature.data);
   }, []);
 
-  const uniqueCouse = getUnique(products, "unitsize");
-  const filterDropdown = products.filter(function (result) {
-    return result.unitsize === product;
+  const [products, setproducts] = useState([]);
+  useEffect(async () => {
+    const products = await APIUrl.get(`/get_hoproducts/5`)
+    setproducts(products.data);
+  }, []);
+  const uniqueCouse = getUnique(products, "unit_type");
+  const filterDropdown = products.filter(function (products) {
+    return products.unit_type === product;
   });
 
   // above all code for filter only dont touch above
@@ -44,11 +51,13 @@ const Idaho = () => {
 
   const [showPlans, setShowPlans] = useState("ProductsInfo")
   const [showId, setId] = useState("0")
+  const [index, setIndex] = useState("")
   const changehandle = () => {
     setShowPlans("Plans")
   };
   const productId = e => {
     setId(e.target.id)
+    setIndex(e.target.getAttribute("data-index"));
   };
 
   const [value, setValue] = useState(1);
@@ -76,8 +85,8 @@ const Idaho = () => {
               <span>Unit Size</span>
               <select value={product} onChange={handleChangeCourse}>
                 {uniqueCouse.map(product => (
-                  <option key={product.id} value={product.unitsize}>
-                    {product.unitsize}
+                  <option key={product.id} value={product.unit_type}>
+                    {product.unit_type}
                   </option>
                 ))}
               </select>
@@ -107,20 +116,20 @@ const Idaho = () => {
             <h2 className="upper table-left">plan options<br />
               <span>{product}</span></h2>
             <div className="option-cont table-right">
-              {filterDropdown.map(product => (
+            {filterDropdown.map((product,index) => (
                 <div className="option" key={product.id}>
                   <div className="star-cont">
                     <StarFilled className="antstar" />
                   </div>
                   <div className="body">
                     <h6 className="upper">{product.name}</h6>
-                    {product.price ? <h4 className="lato">{product.price}
-                      <span style={{ fontSize: "0.4em" }}>/MO</span></h4> :
-                      <h4 className="lato">{product.yearly}
-                        <span style={{ fontSize: "0.4em" }}>/YR</span></h4>}
-                    {product.price ? <h5 className="lato">{product.yearly}/YR</h5> : null}
-                    <input className="btn" type="submit" id={product.id} value="Buy Now"
-                      onClick={changehandle} onMouseEnter={productId} />
+                    {product.monthly_price !== "0" ? <h4 className="lato">{product.monthly_price}
+                    <span style={{ fontSize: "0.4em" }}>/MO</span></h4> :
+                    <h4 className="lato">{product.yearly_price}
+                    <span style={{ fontSize: "0.4em" }}>/YR</span></h4>}
+                    {product.monthly_price !== "0"? <h5 className="lato">{product.yearly_price}/YR</h5> : null }
+                    <input className="btn" type="submit" id={product.id} data-index={index} value="Buy Now" 
+                     onClick={changehandle} onMouseEnter={productId}/>
                   </div>
                 </div>
               ))}
@@ -183,254 +192,39 @@ const Idaho = () => {
           </div>
         </div>
       </section>
-      <section className="unique-features">
-        <h3 className="upper text-center lato light-back">Unique Features</h3>
-        <div className="container">
-          <div className="table-cont">
-            <div className="table-left">
-              <p><span>Central Vacuum</span></p>
-              <p><span>Registers</span></p>
-              <p><span>Grills</span></p>
-              <p><span>Heat Lamps</span></p>
-              <p><span>Angle Stops, and Gate Valves</span></p>
-              <p><span>Toilet Replacement</span></p>
-              <p><span>Interior Hose Bibs</span></p>
-              <p><span>Shower Heads</span></p>
-              <p><span>Shower Arms - Faucets</span></p>
-              <p>
-                <span>
-                  <span>
-                    <a data-toggle="modal" data-target="#forty_items_popup_utah">Premium Coverage Upgrade</a>
-                  </span>
-                </span>
-              </p>
-              <p>
-                <span>
-                  <a data-toggle="modal" data-target="#forty_items_popup_utah">No Fault Coverage</a>
-                </span>
-              </p>
-              <p><span>Refrigerator</span></p>
-              <p><span>Washer and Dryer</span></p>
-            </div>
-            <div className="table-right desktop">
-              <div className="feature-col">
-                <div className="feature"><i className="achi white-checkmark"></i></div>
-                <div className="feature"><i className="achi white-checkmark"></i></div>
-                <div className="feature"><i className="achi white-checkmark"></i></div>
-                <div className="feature"><i className="achi white-checkmark"></i></div>
-                <div className="feature"><i className="achi white-checkmark"></i></div>
-                <div className="feature"><i className="achi white-checkmark"></i></div>
-                <div className="feature"><i className="achi white-checkmark"></i></div>
-                <div className="feature"><i className="achi white-checkmark"></i></div>
-                <div className="feature"><i className="achi white-checkmark"></i></div>
-                <div className="feature"><i className="achi white-checkmark"></i></div>
-                <div className="feature"><i className="achi white-checkmark"></i></div>
-                <div className="feature"><i className="achi white-checkmark"></i></div>
-                <div className="feature"><i className="achi white-checkmark"></i></div>
-              </div>
-              <div className="feature-col">
-                <div className="feature included"><CheckOutlined className="antcheck" /></div>
-                <div className="feature included"><CheckOutlined className="antcheck" /></div>
-                <div className="feature included"><CheckOutlined className="antcheck" /></div>
-                <div className="feature included"><CheckOutlined className="antcheck" /></div>
-                <div className="feature included"><CheckOutlined className="antcheck" /></div>
-                <div className="feature included"><CheckOutlined className="antcheck" /></div>
-                <div className="feature included"><CheckOutlined className="antcheck" /></div>
-                <div className="feature included"><CheckOutlined className="antcheck" /></div>
-                <div className="feature included"><CheckOutlined className="antcheck" /></div>
-                <div className="feature"><i className="achi white-checkmark"></i></div>
-                <div className="feature"><i className="achi white-checkmark"></i></div>
-                <div className="feature included"><CheckOutlined className="antcheck" /></div>
-                <div className="feature"></div>
-              </div>
-              <div className="feature-col">
-                <div className="feature included"><CheckOutlined className="antcheck" /></div>
-                <div className="feature included"><CheckOutlined className="antcheck" /></div>
-                <div className="feature included"><CheckOutlined className="antcheck" /></div>
-                <div className="feature included"><CheckOutlined className="antcheck" /></div>
-                <div className="feature included"><CheckOutlined className="antcheck" /></div>
-                <div className="feature included"><CheckOutlined className="antcheck" /></div>
-                <div className="feature included"><CheckOutlined className="antcheck" /></div>
-                <div className="feature included"><CheckOutlined className="antcheck" /></div>
-                <div className="feature included"><CheckOutlined className="antcheck" /></div>
-                <div className="feature"><i className="achi white-checkmark"></i></div>
-                <div className="feature"><i className="achi white-checkmark"></i></div>
-                <div className="feature included"><CheckOutlined className="antcheck" /></div>
-                <div className="feature included"><CheckOutlined className="antcheck" /></div>
-              </div>
-            </div>
-            <div data-num="5" className="table-right mobile">
-              <p className="feature-text-mobile"><span>Central Vacuum</span></p>
-              <div className="feature"  ><i className="achi white-checkmark"></i></div>
-              <div className="feature included"  ><i className="achi white-checkmark"></i></div>
-              <div className="feature included"  ><i className="achi white-checkmark"></i></div>
-              <div className="feature included"  ><i className="achi white-checkmark"></i></div>
-              <div className="feature included"  ><i className="achi white-checkmark"></i></div>
-              <p className="feature-text-mobile"><span>Registers</span></p>
-              <div className="feature"  ><i className="achi white-checkmark"></i></div>
-              <div className="feature included"  ><i className="achi white-checkmark"></i></div>
-              <div className="feature included"  ><i className="achi white-checkmark"></i></div>
-              <div className="feature included"  ><i className="achi white-checkmark"></i></div>
-              <div className="feature included"  ><i className="achi white-checkmark"></i></div>
-              <p className="feature-text-mobile"><span>Free ReKey (travel fees may apply)</span></p>
-              <div className="feature"  ><i className="achi white-checkmark"></i></div>
-              <div className="feature"  ><i className="achi white-checkmark"></i></div>
-              <div className="feature"  ><i className="achi white-checkmark"></i></div>
-              <div className="feature"  ><i className="achi white-checkmark"></i></div>
-              <div className="feature included"  ><i className="achi white-checkmark"></i></div>
-              <p className="feature-text-mobile"><span>Grills</span></p>
-              <div className="feature"  ><i className="achi white-checkmark"></i></div>
-              <div className="feature included"  ><i className="achi white-checkmark"></i></div>
-              <div className="feature included"  ><i className="achi white-checkmark"></i></div>
-              <div className="feature included"  ><i className="achi white-checkmark"></i></div>
-              <div className="feature included"  ><i className="achi white-checkmark"></i></div>
-              <p className="feature-text-mobile"><span>Heat Lamps</span></p>
-              <div className="feature"  ><i className="achi white-checkmark"></i></div>
-              <div className="feature included"  ><i className="achi white-checkmark"></i></div>
-              <div className="feature included"  ><i className="achi white-checkmark"></i></div>
-              <div className="feature included"  ><i className="achi white-checkmark"></i></div>
-              <div className="feature included"  ><i className="achi white-checkmark"></i></div>
-              <p className="feature-text-mobile"><span>Exterior hose bibs</span></p>
-              <div className="feature"  ><i className="achi white-checkmark"></i></div>
-              <div className="feature"  ><i className="achi white-checkmark"></i></div>
-              <div className="feature"  ><i className="achi white-checkmark"></i></div>
-              <div className="feature"  ><i className="achi white-checkmark"></i></div>
-              <div className="feature included"  ><i className="achi white-checkmark"></i></div>
-              <p className="feature-text-mobile"><span>Pressure Regulator Valve</span></p>
-              <div className="feature"  ><i className="achi white-checkmark"></i></div>
-              <div className="feature"  ><i className="achi white-checkmark"></i></div>
-              <div className="feature"  ><i className="achi white-checkmark"></i></div>
-              <div className="feature"  ><i className="achi white-checkmark"></i></div>
-              <div className="feature included"  ><i className="achi white-checkmark"></i></div>
-              <p className="feature-text-mobile"><span>Angle Stops, and Gate Valves</span></p>
-              <div className="feature"  ><i className="achi white-checkmark"></i></div>
-              <div className="feature included"  ><i className="achi white-checkmark"></i></div>
-              <div className="feature included"  ><i className="achi white-checkmark"></i></div>
-              <div className="feature included"  ><i className="achi white-checkmark"></i></div>
-              <div className="feature included"  ><i className="achi white-checkmark"></i></div>
-              <p className="feature-text-mobile"><span>Toilet Replacement</span></p>
-              <div className="feature"  ><i className="achi white-checkmark"></i></div>
-              <div className="feature included"  ><i className="achi white-checkmark"></i></div>
-              <div className="feature included"  ><i className="achi white-checkmark"></i></div>
-              <div className="feature included"  ><i className="achi white-checkmark"></i></div>
-              <div className="feature included"  ><i className="achi white-checkmark"></i></div>
-              <p className="feature-text-mobile"><span>Interior Hose Bibs</span></p>
-              <div className="feature"  ><i className="achi white-checkmark"></i></div>
-              <div className="feature included"  ><i className="achi white-checkmark"></i></div>
-              <div className="feature included"  ><i className="achi white-checkmark"></i></div>
-              <div className="feature included"  ><i className="achi white-checkmark"></i></div>
-              <div className="feature included"  ><i className="achi white-checkmark"></i></div>
-              <p className="feature-text-mobile"><span>Shower Heads</span></p>
-              <div className="feature"  ><i className="achi white-checkmark"></i></div>
-              <div className="feature included"  ><i className="achi white-checkmark"></i></div>
-              <div className="feature included"  ><i className="achi white-checkmark"></i></div>
-              <div className="feature included"  ><i className="achi white-checkmark"></i></div>
-              <div className="feature included"  ><i className="achi white-checkmark"></i></div>
-              <p className="feature-text-mobile"><span>Shower Arms - Faucets</span></p>
-              <div className="feature"  ><i className="achi white-checkmark"></i></div>
-              <div className="feature included"  ><i className="achi white-checkmark"></i></div>
-              <div className="feature included"  ><i className="achi white-checkmark"></i></div>
-              <div className="feature included"  ><i className="achi white-checkmark"></i></div>
-              <div className="feature included"  ><i className="achi white-checkmark"></i></div>
-              <p className="feature-text-mobile"><span>Toilet replacement</span></p>
-              <div className="feature"  ><i className="achi white-checkmark"></i></div>
-              <div className="feature included"  ><i className="achi white-checkmark"></i></div>
-              <div className="feature included"  ><i className="achi white-checkmark"></i></div>
-              <div className="feature"  ><i className="achi white-checkmark"></i></div>
-              <div className="feature included"  ><i className="achi white-checkmark"></i></div>
-              <p className="feature-text-mobile">
-                <span>
-                  <span>
-                    <a data-toggle="modal" data-target="#forty_items_popup_utah">Premium Coverage Upgrade</a>
-                  </span>
-                </span>
-                <span>
-                  <span>
-                    <a data-toggle="modal" data-target="#forty_items_popup_utah">No Fault Coverage</a>
-                  </span>
-                </span>
-              </p>
-              <div className="feature"  ><i className="achi white-checkmark"></i></div>
-              <div className="feature included"  ><i className="achi white-checkmark"></i></div>
-              <div className="feature included"  ><i className="achi white-checkmark"></i></div>
-              <div className="feature included"  ><i className="achi white-checkmark"></i></div>
-              <div className="feature included"  ><i className="achi white-checkmark"></i></div>
-              <p className="feature-text-mobile"><span>Refrigerator</span></p>
-              <div className="feature"  ><i className="achi white-checkmark"></i></div>
-              <div className="feature"  ><i className="achi white-checkmark"></i></div>
-              <div className="feature included"  ><i className="achi white-checkmark"></i></div>
-              <div className="feature included"  ><i className="achi white-checkmark"></i></div>
-              <div className="feature included"  ><i className="achi white-checkmark"></i></div>
-              <p className="feature-text-mobile"><span>R-22 Conversion</span></p>
-              <div className="feature"  ><i className="achi white-checkmark"></i></div>
-              <div className="feature"  ><i className="achi white-checkmark"></i></div>
-              <div className="feature"  ><i className="achi white-checkmark"></i></div>
-              <div className="feature"  ><i className="achi white-checkmark"></i></div>
-              <div className="feature included"  ><i className="achi white-checkmark"></i></div>
-              <p className="feature-text-mobile"><span>No Fault (code upgrades &amp; mismatched systems)</span></p>
-              <div className="feature"  ><i className="achi white-checkmark"></i></div>
-              <div className="feature"  ><i className="achi white-checkmark"></i></div>
-              <div className="feature"  ><i className="achi white-checkmark"></i></div>
-              <div className="feature"  ><i className="achi white-checkmark"></i></div>
-              <div className="feature"  ><i className="achi white-checkmark"></i></div>
-              <p className="feature-text-mobile">
-                <span>
-                  <span>
-                    <a data-toggle="modal" data-target="#no_fault_popup_utah">No Fault Coverage</a>
-                  </span>
-                </span>
-              </p>
-              <div className="feature"  ><i className="achi white-checkmark"></i></div>
-              <div className="feature"  ><i className="achi white-checkmark"></i></div>
-              <div className="feature"  ><i className="achi white-checkmark"></i></div>
-              <div className="feature included"  ><i className="achi white-checkmark"></i></div>
-              <div className="feature included"  ><i className="achi white-checkmark"></i></div>
-              <p className="feature-text-mobile"><span>Radiant heating/broiler</span></p>
-              <div className="feature"  ><i className="achi white-checkmark"></i></div>
-              <div className="feature"  ><i className="achi white-checkmark"></i></div>
-              <div className="feature"  ><i className="achi white-checkmark"></i></div>
-              <div className="feature"  ><i className="achi white-checkmark"></i></div>
-              <div className="feature included"  ><i className="achi white-checkmark"></i></div>
-              <p className="feature-text-mobile"><span>Washer and Dryer</span></p>
-              <div className="feature"  ><i className="achi white-checkmark"></i></div>
-              <div className="feature"  ><i className="achi white-checkmark"></i></div>
-              <div className="feature"  ><i className="achi white-checkmark"></i></div>
-              <div className="feature"  ><i className="achi white-checkmark"></i></div>
-              <div className="feature included"  ><i className="achi white-checkmark"></i></div>
-            </div>
-          </div>
-        </div>
-      </section>
+      {product === "Single Family" ?
+       <UniqueFeature/>
+      : ""  } 
     </>
   )
-  const Idahodata = () => {
-    let productid = products.filter(function (ids) {
-      return ids.id == showId
-    });
-    return (
-      <>
-        {productid.map((dataIn) =>
-           <div key={dataIn.id} className="upgrade_list">
-              {value == 1 ? dataIn.yearlyvariations.map((vari) =>
-              <div key={vari.id} className="upgrade">
-                <input type="number" min="0"/>
-                <span data-num={vari.id} className="price">{vari.price}</span>
-                <span className="name">{vari.title}</span>
-                </div>
-              ) : null}
-              {value == 2 ? dataIn.monthlyvariations.map((vari) =>
-               <div key={vari.id} className="upgrade">
-               <input type="number" min="0" />
-               <span data-num={vari.id} className="price">{vari.price}</span>
-               <span className="name">{vari.title}</span>
-               </div>
-              ) : null}
-            </div>
-        )}
+  // const Idahodata = () => {
+  //   let productid = products.filter(function (ids) {
+  //     return ids.id == showId
+  //   });
+  //   return (
+  //     <>
+  //       {productid.map((dataIn) =>
+  //          <div key={dataIn.id} className="upgrade_list">
+  //             {value == 1 ? dataIn.yearlyvariations.map((vari) =>
+  //             <div key={vari.id} className="upgrade">
+  //               <input type="number" min="0"/>
+  //               <span data-num={vari.id} className="price">{vari.price}</span>
+  //               <span className="name">{vari.title}</span>
+  //               </div>
+  //             ) : null}
+  //             {value == 2 ? dataIn.monthlyvariations.map((vari) =>
+  //              <div key={vari.id} className="upgrade">
+  //              <input type="number" min="0" />
+  //              <span data-num={vari.id} className="price">{vari.price}</span>
+  //              <span className="name">{vari.title}</span>
+  //              </div>
+  //             ) : null}
+  //           </div>
+  //       )}
         
-      </>
-    );
-  };
+  //     </>
+  //   );
+  // };
 
   const Plans = () => (
     <>
@@ -438,14 +232,14 @@ const Idaho = () => {
       <div id="plans" className="search-results">
         <section id="upgrades_and_cart">
           <div className="container">
-            <h2>You have selected the<strong> {product} {products[showId - 1].name} </strong>plan</h2>
+            <h2>You have selected the<strong> {product} {products[index].name} </strong>plan</h2>
             <div className="plan_interval">
               <p style={{ margin: "0px", textalign: "center", fontsize: "18px" }}></p>
               <strong>Payment Options:</strong>
               <span className="spacer"></span>
               <label><Radio.Group onChange={onChange} value={value}>
-                {products[showId - 1].yearly ? <label><Radio value={1}>{products[showId - 1].yearly} /YR</Radio></label> : null}
-                {products[showId - 1].price ? <label><Radio value={2}>{products[showId - 1].price} /MO</Radio></label> : null}</Radio.Group></label>
+                {products[index].yearly_price ? <label><Radio value={1}>{products[index].yearly_price} /YR</Radio></label>: null}
+                {products[index].monthly_price !=="0" ?<label><Radio value={2}>{products[index].monthly_price} /MO</Radio></label>: null}</Radio.Group></label>  
             </div>
           </div>
           <div className="textured-back" style={{ backgroundImage: `url(${lattice})` }}>
@@ -456,7 +250,7 @@ const Idaho = () => {
           </div>
           <div className="container">
             <div className="upgrade_cont">
-              <Idahodata />
+              {/* <Idahodata /> */}
             </div>
             <div className="bottom-cont" />
             <div className="cart">
@@ -465,8 +259,8 @@ const Idaho = () => {
             </div>
             <div className="total">
               <h4>Total</h4>
-              {value == 1 ? <span>{products[showId - 1].yearly} /YR</span> : null}
-              {value == 2 ? <span>{products[showId - 1].price} /MO</span> : null}
+              {value==1 ? <span>{products[index].yearly_price} /YR</span>: null}
+              {value==2 ?<span>{products[index].monthly_price} /MO</span>: null}
             </div>
             <div className="footy">
               <button className="btn">Check out</button>
