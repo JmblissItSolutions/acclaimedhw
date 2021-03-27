@@ -51,11 +51,13 @@ const Arizona = () => {
   }
   const [showPlans, setShowPlans] = useState("ProductsInfo")
   const [showId, setId] = useState("0")
+  const [index, setIndex] = useState("")
   const changehandle= () => {
      setShowPlans("Plans")   
    };
   const productId = e => {
     setId(e.target.id)
+    setIndex(e.target.getAttribute("data-index"));
   };
 
   const [value, setValue] =useState(1);
@@ -112,7 +114,7 @@ const Arizona = () => {
             <h2 className="upper table-left">plan options<br />
               <span>{product}</span></h2>
             <div className="option-cont table-right">
-              {filterDropdown.map(product => (
+              {filterDropdown.map((product,index) => (
                 <div className="option" key={product.id}>
                   <div className="star-cont">
                     <StarFilled className="antstar" />
@@ -124,7 +126,7 @@ const Arizona = () => {
                     <h4 className="lato">{product.yearly_price}
                     <span style={{ fontSize: "0.4em" }}>/YR</span></h4>}
                     {product.monthly_price !== "0"? <h5 className="lato">{product.yearly_price}/YR</h5> : null }
-                    <input className="btn" type="submit" id={product.id} value="Buy Now" 
+                    <input className="btn" type="submit" id={product.id} data-index={index} value="Buy Now" 
                      onClick={changehandle} onMouseEnter={productId}/>
                   </div>
                 </div>
@@ -198,14 +200,14 @@ const Arizona = () => {
       <div id="plans" className="search-results">
         <section id="upgrades_and_cart">
           <div className="container">
-            <h2>You have selected the<strong> {product} {products[showId-1].name} </strong>plan</h2>
+            <h2>You have selected the<strong> {product} {products[index].name} </strong>plan</h2>
             <div className="plan_interval">
               <p style={{ margin: "0px", textalign: "center", fontsize: "18px" }}></p>
                 <strong>Payment Options:</strong>
                 <span className="spacer"></span>
                 <label><Radio.Group onChange={onChange} value={value}>
-                {products[showId-1].yearly_price ? <label><Radio value={1}>{products[showId-1].yearly_price} /YR</Radio></label>: null}
-                {products[showId-1].monthly_price !=="0" ?<label><Radio value={2}>{products[showId-1].monthly_price} /MO</Radio></label>: null}</Radio.Group></label>  
+                {products[index].yearly_price ? <label><Radio value={1}>{products[index].yearly_price} /YR</Radio></label>: null}
+                {products[index].monthly_price !=="0" ?<label><Radio value={2}>{products[index].monthly_price} /MO</Radio></label>: null}</Radio.Group></label>  
             </div>
           </div>
           <div className="textured-back" style={{ backgroundImage: `url(${lattice})` }}>
@@ -222,8 +224,8 @@ const Arizona = () => {
             </div>
             <div className="total">
               <h4>Total</h4>
-              {value==1 ? <span>{products[showId-1].yearly_price} /YR</span>: null}
-              {value==2 ?<span>{products[showId-1].monthly_price} /MO</span>: null}
+              {value==1 ? <span>{products[index].yearly_price} /YR</span>: null}
+              {value==2 ?<span>{products[index].monthly_price} /MO</span>: null}
             </div>
             <div className="footy">
               <button className="btn">Check out</button>
