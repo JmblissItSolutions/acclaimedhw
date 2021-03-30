@@ -52,11 +52,8 @@ const Texas = () => {
   const [showPlans, setShowPlans] = useState("ProductsInfo")
   const [showId, setId] = useState("0")
   const [index, setIndex] = useState("")
-  const changehandle = () => {
+  const changehandle = (e) => {
     setShowPlans("Plans")
-  };
-
-  const productId = e => {
     setId(e.target.id)
     setIndex(e.target.getAttribute("data-index"));
   };
@@ -67,9 +64,10 @@ const Texas = () => {
   };
   const [coverage, setCoverage] = useState([]);
   useEffect(async () => {
-    const coverages = await APIUrl.get(`/get_hoproducts_covup/${showId}`)
+    const url = "/get_hoproducts_covup/"+`${showId}`
+    const coverages = await APIUrl.get(`${url}`)
     setCoverage(coverages.data);
-  }, []);
+  }, [showId]);
   const Produfilter = () => (
     <>
       <section className="top-image">
@@ -134,7 +132,7 @@ const Texas = () => {
                         <span style={{ fontSize: "0.4em" }}>/YR</span></h4>}
                     {product.monthly_price !== "0" ? <h5 className="lato">{product.yearly_price}/YR</h5> : null}
                     <input className="btn" type="submit" id={product.id} data-index={index} value="Buy Now"
-                      onClick={changehandle} onMouseEnter={productId} />
+                      onClick={changehandle} />
                   </div>
                 </div>
               ))}

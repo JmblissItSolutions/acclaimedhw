@@ -6,7 +6,8 @@ import UtahHomeowner from "./../assets/images/UtahHomeowner.png"
 import { StarFilled, CheckOutlined } from '@ant-design/icons';
 import lattice from "../assets/images/lattice-background.png"
 import { Radio } from 'antd';
-import UniqueFeature from "./UniqueFeature"
+import UniqueFeature from "./UniqueFeature";
+
 const Idaho = () => {
   // const [products, setproducts] = useState([]);
   const [product, setproduct] = useState("Single Family");
@@ -43,27 +44,30 @@ const Idaho = () => {
 
   const location = useLocation();
   const sel = location.pathname;
-
   let history = useHistory();
   function handleChange(e) {
     history.push(e.target.value);
   }
-
   const [showPlans, setShowPlans] = useState("ProductsInfo")
-  const [showId, setId] = useState("0")
+  const [showId, setId] = useState("")
   const [index, setIndex] = useState("")
-  const changehandle = () => {
+  
+  const changehandle = (e) => {
     setShowPlans("Plans")
-  };
-  const productId = e => {
     setId(e.target.id)
     setIndex(e.target.getAttribute("data-index"));
   };
-
   const [value, setValue] = useState(1);
   const onChange = e => {
     setValue(e.target.value);
   };
+  const [coverage, setCoverage] = useState([]);
+
+  useEffect(async () => {
+    const url = "/get_hoproducts_covup/"+`${showId}`
+    const coverages = await APIUrl.get(`${url}`)
+    setCoverage(coverages.data);
+  }, [showId]);
 
   const Produfilter = () => (
     <>
@@ -76,7 +80,6 @@ const Idaho = () => {
           <p className="text-center sub-txt">We want you to feel confident in your home—that’s why we provide a variety of coverage options for different needs. While all of our plans cover a variety of appliances and accessories, you can choose a more extensive option to make sure every item in your home is in good hands.</p>
         </div>
       </section>
-
       <section className="change-location-header">
         <div className="container d-flex just-space">
           <span className="big upper">Idaho Homeowner Plans</span>
@@ -108,7 +111,7 @@ const Idaho = () => {
       </section>
     </>
   )
-  const ProductsInfo = () => (
+  const ProductsInfo = (props) => (
     <>
       <section className="light-back plan-options">
         <div className="container">
@@ -129,11 +132,10 @@ const Idaho = () => {
                     <span style={{ fontSize: "0.4em" }}>/YR</span></h4>}
                     {product.monthly_price !== "0"? <h5 className="lato">{product.yearly_price}/YR</h5> : null }
                     <input className="btn" type="submit" id={product.id} data-index={index} value="Buy Now" 
-                     onClick={changehandle} onMouseEnter={productId}/>
+                     onClick={changehandle}/>
                   </div>
                 </div>
               ))}
-
             </div>
             <hr className="textured" />
           </div>
@@ -197,38 +199,24 @@ const Idaho = () => {
       : ""  } 
     </>
   )
-  // const Idahodata = () => {
-  //   let productid = products.filter(function (ids) {
-  //     return ids.id == showId
-  //   });
-  //   return (
-  //     <>
-  //       {productid.map((dataIn) =>
-  //          <div key={dataIn.id} className="upgrade_list">
-  //             {value == 1 ? dataIn.yearlyvariations.map((vari) =>
-  //             <div key={vari.id} className="upgrade">
-  //               <input type="number" min="0"/>
-  //               <span data-num={vari.id} className="price">{vari.price}</span>
-  //               <span className="name">{vari.title}</span>
-  //               </div>
-  //             ) : null}
-  //             {value == 2 ? dataIn.monthlyvariations.map((vari) =>
-  //              <div key={vari.id} className="upgrade">
-  //              <input type="number" min="0" />
-  //              <span data-num={vari.id} className="price">{vari.price}</span>
-  //              <span className="name">{vari.title}</span>
-  //              </div>
-  //             ) : null}
-  //           </div>
-  //       )}
-        
-  //     </>
-  //   );
-  // };
-
+  const Idahodata = () => {
+    return (
+      <>
+        <div className="upgrade_list">
+          {coverage.map((dataIn) =>
+            <div key={dataIn.id} className="upgrade">
+              <input type="number" min="0" />
+              {value == 1 ? <span data-num={dataIn.id} className="price">{dataIn.yearly_price}</span> : null}
+              {value == 2 ? <span data-num={dataIn.id} className="price">{dataIn.monthly_price}</span> : null}
+              <span className="name">{dataIn.name}</span>
+            </div>
+          )}
+        </div>
+      </>
+    );
+  };
   const Plans = () => (
     <>
-
       <div id="plans" className="search-results">
         <section id="upgrades_and_cart">
           <div className="container">
@@ -250,7 +238,7 @@ const Idaho = () => {
           </div>
           <div className="container">
             <div className="upgrade_cont">
-              {/* <Idahodata /> */}
+              <Idahodata />
             </div>
             <div className="bottom-cont" />
             <div className="cart">
@@ -278,12 +266,9 @@ const Idaho = () => {
         <meta name="description" content="Acclaimed Home Warranty has shared some of the useful resources for those looking out for home warranty plans in Arizona. Contact us today for more information." />
       </Helmet>
       <div className="product_page">
-
         <Produfilter />
-
         {showPlans === "ProductsInfo" && <ProductsInfo />}
         {showPlans === "Plans" && <Plans />}
-
       </div>
     </>
   )
