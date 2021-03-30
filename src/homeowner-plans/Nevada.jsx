@@ -51,18 +51,21 @@ const Nevada = () => {
   const [showPlans, setShowPlans] = useState("ProductsInfo")
   const [showId, setId] = useState("0")
   const [index, setIndex] = useState("")
-  const changehandle= () => {
-     setShowPlans("Plans")   
+  const changehandle= (e) => {
+     setShowPlans("Plans")
+     setId(e.target.id)
+     setIndex(e.target.getAttribute("data-index"));  
    };
-  const productId = e => {
-    setId(e.target.id)
-    setIndex(e.target.getAttribute("data-index"));
-  };
-  
   const [value, setValue] =useState(1);
   const onChange = e => {
     setValue(e.target.value);
   };
+  const [coverage, setCoverage] = useState([]);
+  useEffect(async () => {
+    const url = "/get_hoproducts_covup/"+`${showId}`
+    const coverages = await APIUrl.get(`${url}`)
+    setCoverage(coverages.data);
+  }, [showId]);
 
   const Produfilter = () => (
     <>
@@ -128,7 +131,7 @@ const Nevada = () => {
                     <span style={{ fontSize: "0.4em" }}>/YR</span></h4>}
                     {product.monthly_price !== "0"? <h5 className="lato">{product.yearly_price}/YR</h5> : null }
                     <input className="btn" type="submit" id={product.id} data-index={index} value="Buy Now" 
-                     onClick={changehandle} onMouseEnter={productId}/>
+                     onClick={changehandle}/>
                   </div>
                 </div>
               ))}
@@ -196,34 +199,22 @@ const Nevada = () => {
       : ""  } 
     </>
   );
-  // const Nevadadata = () => {
-  //   let productid = products.filter(function (ids) {
-  //     return ids.id == showId
-  //   });
-  //   return (
-  //     <>
-  //       {productid.map((dataIn) =>
-  //          <div key={dataIn.id} className="upgrade_list">
-  //             {value == 1 ? dataIn.yearlyvariations.map((vari) =>
-  //             <div key={vari.id} className="upgrade">
-  //               <input type="number" min="0" />
-  //               <span data-num={vari.id} className="price">{vari.price}</span>
-  //               <span className="name">{vari.title}</span>
-  //               </div>
-  //             ) : null}
-  //             {value == 2 ? dataIn.monthlyvariations.map((vari) =>
-  //              <div key={vari.id} className="upgrade">
-  //              <input type="number" min="0" />
-  //              <span data-num={vari.id} className="price">{vari.price}</span>
-  //              <span className="name">{vari.title}</span>
-  //              </div>
-  //             ) : null}
-  //           </div>
-  //       )}
-        
-  //     </>
-  //   );
-  // };
+  const Nevadadata = () => {
+    return (
+      <>
+        <div className="upgrade_list">
+          {coverage.map((dataIn) =>
+            <div key={dataIn.id} className="upgrade">
+              <input type="number" min="0" />
+              {value == 1 ? <span data-num={dataIn.id} className="price">{dataIn.yearly_price}</span> : null}
+              {value == 2 ? <span data-num={dataIn.id} className="price">{dataIn.monthly_price}</span> : null}
+              <span className="name">{dataIn.name}</span>
+            </div>
+          )}
+        </div>
+      </>
+    );
+  };
   const Plans = () => (
     <>
       <div id="plans" className="search-results">
@@ -247,7 +238,7 @@ const Nevada = () => {
           </div>
           <div className="container">
           <div className="upgrade_cont">
-           {/* <Nevadadata/> */}
+           <Nevadadata/>
            </div>
             <div className="bottom-cont" />
             <div className="cart">

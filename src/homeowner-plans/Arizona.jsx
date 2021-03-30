@@ -52,13 +52,11 @@ const Arizona = () => {
   const [showPlans, setShowPlans] = useState("ProductsInfo")
   const [showId, setId] = useState("0")
   const [index, setIndex] = useState("")
-  const changehandle= () => {
-     setShowPlans("Plans")   
+  const changehandle= (e) => {
+     setShowPlans("Plans")
+     setId(e.target.id)
+     setIndex(e.target.getAttribute("data-index"));  
    };
-  const productId = e => {
-    setId(e.target.id)
-    setIndex(e.target.getAttribute("data-index"));
-  };
 
   const [value, setValue] =useState(1);
   const onChange = e => {
@@ -127,7 +125,7 @@ const Arizona = () => {
                     <span style={{ fontSize: "0.4em" }}>/YR</span></h4>}
                     {product.monthly_price !== "0"? <h5 className="lato">{product.yearly_price}/YR</h5> : null }
                     <input className="btn" type="submit" id={product.id} data-index={index} value="Buy Now" 
-                     onClick={changehandle} onMouseEnter={productId}/>
+                     onClick={changehandle}/>
                   </div>
                 </div>
               ))}
