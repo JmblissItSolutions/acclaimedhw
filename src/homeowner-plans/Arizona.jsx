@@ -7,9 +7,11 @@ import { StarFilled, CheckOutlined } from '@ant-design/icons';
 import lattice from "../assets/images/lattice-background.png"
 import { Radio } from 'antd';
 import UniqueFeature from "./UniqueFeature"
+import StandarFeature from './StandardFeature'
+import Cart from "./Cart"
+
 
 const Arizona = () => {
-  // const [products, setproducts] = useState([]);
   const [product, setproduct] = useState("Single Family");
 
   const handleChangeCourse = event => {
@@ -34,11 +36,12 @@ const Arizona = () => {
     const products = await APIUrl.get(`/get_hoproducts/1`)
     setproducts(products.data);
   }, []);
+ 
   const uniqueCouse = getUnique(products, "unit_type");
   const filterDropdown = products.filter(function (products) {
     return products.unit_type === product;
   });
-  
+
   // above all code for filter only dont touch above
   //  code you can add you code belove this line
 
@@ -52,15 +55,22 @@ const Arizona = () => {
   const [showPlans, setShowPlans] = useState("ProductsInfo")
   const [showId, setId] = useState("0")
   const [index, setIndex] = useState("")
-  const changehandle= (e) => {
-     setShowPlans("Plans")
-     setId(e.target.id)
-     setIndex(e.target.getAttribute("data-index"));  
-   };
+  const changehandle = (e) => {
+    setShowPlans("Plans")
+    setId(e.target.id)
+    setIndex(e.target.getAttribute("data-index"));
+  };
 
-  const [value, setValue] =useState(1);
+  const [value, setValue] = useState(1);
   const onChange = e => {
     setValue(e.target.value);
+  };
+  const [cart, setCart] = useState([]);
+  function addToCart(product) {
+    setCart([...cart, product])
+  };
+  const clearCart = () => {
+    setCart([]);
   };
   const Produfilter = () => (
     <>
@@ -76,7 +86,7 @@ const Arizona = () => {
       <section className="change-location-header">
         <div className="container d-flex just-space">
           <span className="big upper">Arizona Homeowner Plans</span>
-          <div>
+          <div className={showPlans == "Plans" ? 'hidefilter' : null }>
             <div>
               <span>Unit Size</span>
               <select value={product} onChange={handleChangeCourse}>
@@ -112,7 +122,7 @@ const Arizona = () => {
             <h2 className="upper table-left">plan options<br />
               <span>{product}</span></h2>
             <div className="option-cont table-right">
-              {filterDropdown.map((product,index) => (
+              {filterDropdown.map((product, index) => (
                 <div className="option" key={product.id}>
                   <div className="star-cont">
                     <StarFilled className="antstar" />
@@ -120,77 +130,24 @@ const Arizona = () => {
                   <div className="body">
                     <h6 className="upper">{product.name}</h6>
                     {product.monthly_price !== "0" ? <h4 className="lato">{product.monthly_price}
-                    <span style={{ fontSize: "0.4em" }}>/MO</span></h4> :
-                    <h4 className="lato">{product.yearly_price}
-                    <span style={{ fontSize: "0.4em" }}>/YR</span></h4>}
-                    {product.monthly_price !== "0"? <h5 className="lato">{product.yearly_price}/YR</h5> : null }
-                    <input className="btn" type="submit" id={product.id} data-index={index} value="Buy Now" 
-                     onClick={changehandle}/>
+                      <span style={{ fontSize: "0.4em" }}>/MO</span></h4> :
+                      <h4 className="lato">{product.yearly_price}
+                        <span style={{ fontSize: "0.4em" }}>/YR</span></h4>}
+                    {product.monthly_price !== "0" ? <h5 className="lato">{product.yearly_price}/YR</h5> : null}
+                    <button className="buybtn" onClick={() => { addToCart(product) }}> <input className="buyinput" type="submit" id={product.id} data-index={index} value="Buy Now"
+                      onClick={changehandle} /></button>
                   </div>
                 </div>
               ))}
-
             </div>
             <hr className="textured" />
           </div>
         </div>
       </section>
-      <section className="standard-features blueBack">
-        <div className="container">
-          <h3 className="upper text-center lato">
-            Standard Features for all plans
-         <div style={{ fontSize: "10px" }}>*(service fee may be required)</div>
-          </h3>
-          <div className="standard-flexy">
-            <div className="feature_group">
-              <p className="feature_header">Member benefits &amp; discounts</p>
-              <p>Re-Key*</p>
-              <p>Pre Season tune up’s for heating and cooling*</p>
-              <p>Filter delivery*</p>
-              <p>Discounted home security</p>
-              <p>Garage door reprogramming</p>
-            </div>
-            <div className="feature_group">
-              <p className="feature_header">HVAC</p>
-              <p>A/C </p>
-              <p>Heating </p>
-              <p>Duct from heating and cooling</p>
-              <p>Heat pump</p>
-              <p>Thermostat</p>
-            </div>
-            <div className="feature_group">
-              <p className="feature_header">Plumbing </p>
-              <p>Inside plumbing systems</p>
-              <p>Drain line stoppages</p>
-              <p>Toilet (parts)</p>
-              <p>Water heater (1) (up to 50 Gal)</p>
-            </div>
-            <div className="feature_group">
-              <p className="feature_header">Electrical </p>
-              <p>Interior electrical systems</p>
-              <p>Exhaust fans</p>
-              <p>Circuit breakers</p>
-              <p>Ceiling fans</p>
-              <p>Panels and subpanels</p>
-              <p>Garage door systems</p>
-            </div>
-            <div className="feature_group">
-              <p className="feature_header">Appliances (Built In)</p>
-              <p>Oven</p>
-              <p>Range</p>
-              <p>Cooktop</p>
-              <p>Dishwasher</p>
-              <p>Built in microwave</p>
-              <p>Garbage disposal</p>
-              <p>Trash compactor</p>
-              <p>1 Refrigerator per unit *(not available to single family properties)</p>
-            </div>
-          </div>
-        </div>
-      </section>
+  <StandarFeature/>
       {product === "Single Family" ?
-       <UniqueFeature/>
-      : ""  } 
+        <UniqueFeature />
+        : ""}
     </>
   );
   const Plans = () => (
@@ -201,11 +158,11 @@ const Arizona = () => {
             <h2>You have selected the<strong> {product} {products[index].name} </strong>plan</h2>
             <div className="plan_interval">
               <p style={{ margin: "0px", textalign: "center", fontsize: "18px" }}></p>
-                <strong>Payment Options:</strong>
-                <span className="spacer"></span>
-                <label><Radio.Group onChange={onChange} value={value}>
-                {products[index].yearly_price ? <label><Radio value={1}>{products[index].yearly_price} /YR</Radio></label>: null}
-                {products[index].monthly_price !=="0" ?<label><Radio value={2}>{products[index].monthly_price} /MO</Radio></label>: null}</Radio.Group></label>  
+              <strong>Payment Options:</strong>
+              <span className="spacer"></span>
+              <label><Radio.Group onChange={onChange} value={value}>
+                {filterDropdown[index].yearly_price ? <label><Radio value={1}>{filterDropdown[index].yearly_price} /YR</Radio></label> : null}
+                {filterDropdown[index].monthly_price !== "0" ? <label><Radio value={2}>{filterDropdown[index].monthly_price} /MO</Radio></label> : null}</Radio.Group></label>
             </div>
           </div>
           <div className="textured-back" style={{ backgroundImage: `url(${lattice})` }}>
@@ -217,17 +174,13 @@ const Arizona = () => {
           <div className="container">
             <div className="bottom-cont" />
             <div className="cart">
-              <h4>Cart</h4>
-              <ul><li>1x Single Family-Standard</li><li></li><li></li><li></li><li></li><li></li></ul>
-            </div>
-            <div className="total">
-              <h4>Total</h4>
-              {value==1 ? <span>{products[index].yearly_price} /YR</span>: null}
-              {value==2 ?<span>{products[index].monthly_price} /MO</span>: null}
+              <Cart cart={cart} setCart={setCart} value={value} hometype={product} />
             </div>
             <div className="footy">
               <button className="btn">Check out</button>
-              <button className="btn cancel" onClick={()=>setShowPlans("ProductsInfo")}>Cancel</button>
+              <button className="redirectcancel" onClick={() => setShowPlans("ProductsInfo")}>
+                <input className="btn cancel" defaultValue="Cancel"
+                  onClick={clearCart} /></button>
             </div>
           </div>
         </section>
@@ -242,8 +195,8 @@ const Arizona = () => {
       </Helmet>
       <div className="product_page">
         <Produfilter />
-         {showPlans==="ProductsInfo"&&<ProductsInfo />}
-         {showPlans==="Plans"&&<Plans />}
+        {showPlans === "ProductsInfo" && <ProductsInfo />}
+        {showPlans === "Plans" && <Plans />}
       </div>
     </>
   )

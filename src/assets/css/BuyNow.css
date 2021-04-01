@@ -144,6 +144,49 @@ section#upgrades_and_cart .textured-back h4 {
 .cart {
     margin-top: 30px;
 }
+.buybtn {
+    background-color: #6FA553;
+    text-align: center;
+    width: 75%;
+    margin: 0 auto;
+    color: white !important;
+    text-transform: uppercase;
+    text-decoration: none;
+    font-size: 14px;
+    letter-spacing: 1px;
+    display: block;
+    white-space: nowrap;
+    border-radius: 4px;
+    border: none;
+    box-shadow: 0 4px 6px rgb(0 0 0 / 16%);
+    cursor: pointer;
+    transition: background-color 0.25s ease;
+    -webkit-transition: background-color 0.25s ease;
+    -ms-transition: background-color 0.25s ease;
+    -moz-transition: background-color 0.25s ease;
+    -o-transition: background-color 0.25s ease;
+    position: relative;
+}
+.buyinput {
+    background: transparent !important;
+    width: 100%;
+    margin: 0 !important;
+    color: white !important;
+    letter-spacing: 1px;
+    font-size: 14px !important;
+    border: none !important;
+    padding: 0 !important;
+ 
+}
+button.redirectcancel {
+    background: transparent;
+    border: none;
+}
+.hidefilter select {
+    background: gray;
+    opacity: 0.5;
+    pointer-events: none;
+}
 
 @media (max-width:991px){
     #upgrades_and_cart .upgrade_cont .upgrade {
