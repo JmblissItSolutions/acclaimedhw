@@ -1,4 +1,5 @@
-import React from 'react'
+import React, { useState, useEffect } from "react";
+import APIUrl from "../Api"
 import { Helmet } from "react-helmet";
 import Checkoutbg from "../assets/images/Checkoutbg.png";
 import { FaRegWindowMaximize } from 'react-icons/fa';
@@ -10,7 +11,34 @@ import dinnerclub from "../assets/images/card-dinersclub.png";
 import jcb from "../assets/images/card-jcb.png";
 import cardccplain from "../assets/images/card-cc-plain.png";
 
-const CheckOut = () => {
+const CheckOut = ({ value }) => {
+    let localdata = JSON.parse(localStorage.getItem('cart'));
+    let val = JSON.parse(localStorage.getItem('value'));
+    let protype = JSON.parse(localStorage.getItem('product'));
+    const [firstname, setFirstname] = useState("");
+    const [lastname, setLastname] = useState("");
+    const [phone, setPhone] = useState("");
+    const [email, setEmail] = useState("");
+    const [country, setCountry] = useState("");
+    console.log(country)
+    function saveData()
+    {
+      let data={firstname,lastname,phone,email,country}
+     //console.warn(data);
+      fetch("https://replatform.acclaimedhw.com/replatform/api/create_checkout", {
+        method: "POST",
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json',
+        },
+        body:JSON.stringify(data)
+      }).then((resp)=>{
+        // console.warn("resp",resp);;
+        resp.json().then((result)=>{
+          console.warn("result",result)
+        })
+      })
+    }
     return (
         <>
             <Helmet>
@@ -24,6 +52,7 @@ const CheckOut = () => {
                 <div className="container">
                     <div className="checkout_ttl">
                         <h1>Checkout</h1>
+
                     </div>
                 </div>
                 <section className="inner">
@@ -52,11 +81,11 @@ const CheckOut = () => {
                                         <div className="woocommerce-billing-fields__field-wrapper">
                                             <p className="form-row form-row-first validate-required">
                                                 <label>First name<abbr className="required" title="required">*</abbr></label>
-                                                <input type="text" className="input-text"></input>
+                                                <input type="text" name="firstname" value={firstname} onChange={(e)=>{setFirstname(e.target.value)}} className="input-text"/>
                                             </p>
                                             <p className="form-row form-row-first validate-required">
                                                 <label>Last name<abbr className="required" title="required">*</abbr></label>
-                                                <input type="text" className="input-text"></input>
+                                                <input type="text" name="lastname" value={lastname} onChange={(e)=>{setLastname(e.target.value)}} className="input-text"/>
                                             </p>
                                             <p className="form-row form-row-wide">
                                                 <label>Company name<span>(optional)</span></label>
@@ -64,7 +93,7 @@ const CheckOut = () => {
                                             </p>
                                             <p className="form-row form-row-wide">
                                                 <label>Country/Region<abbr className="required" title="required">*</abbr></label>
-                                                <select>
+                                                <select name="country" value={country} onChange={(e)=>{setCountry(e.target.value)}}>
                                                     <option value="default">Select a country / region…</option>
                                                     <option value="AF">Afghanistan</option>
                                                     <option value="AX">Åland Islands</option>
@@ -101,11 +130,11 @@ const CheckOut = () => {
                                             </p>
                                             <p className="form-row form-row-wide">
                                                 <label>Phone<abbr className="required" title="required">*</abbr></label>
-                                                <input type="number" className="input-text"></input>
+                                                <input type="text" name="phone" value={phone} onChange={(e)=>{setPhone(e.target.value)}} className="input-text"/>
                                             </p>
                                             <p className="form-row form-row-wide">
                                                 <label>Email address<abbr className="required" title="required">*</abbr></label>
-                                                <input type="email" className="input-text"></input>
+                                                <input type="email" name="email" value={email} onChange={(e)=>{setEmail(e.target.value)}} className="input-text"/>
                                             </p>
                                         </div>
                                     </div>
@@ -149,6 +178,7 @@ const CheckOut = () => {
                             </div>
                         </form>
                         <h3>Your order</h3>
+
                         <div className="order_review">
                             <table className="shop_table woocommerce-checkout-review-order-table">
                                 <thead>
@@ -158,32 +188,34 @@ const CheckOut = () => {
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr className="cart_item">
-                                        <td className="product-name">Standard - Annual,Single
-                                         <strong className="product-quantity"> × 1</strong>
-                                        </td>
-                                        <td className="product-total">
-                                            <span className="woocommerce-Price-amount amount">
-                                                <bdi>
-                                                    <span className="woocommerce-Price-currencySymbol">$</span>
-                                                 400.00
-                                                </bdi>
-                                            </span>
-                                        </td>
-                                    </tr>
-                                    <tr className="cart_item">
-                                        <td className="product-name">Swimming Pool/Spa Equipment - Utah,Annual
+                                    {localdata.map((item, index) => (
+                                        <tr className="cart_item" key={index}>
+                                            <td className="product-name">{item.name} - {val == 2 ? "Monthly" : "Annual"} ,{protype}
+                                                <strong className="product-quantity"> × 1</strong>
+                                            </td>
+                                            <td className="product-total">
+                                                <span className="woocommerce-Price-amount amount">
+                                                    <bdi>
+                                                        <span className="woocommerce-Price-currencySymbol">$</span>
+                                                        {val == 2 ? item.monthly_price : item.yearly_price}
+                                                    </bdi>
+                                                </span>
+                                            </td>
+                                        </tr>
+                                    ))}
+                                    {/* <tr className="cart_item">
+                                            <td className="product-name">Swimming Pool/Spa Equipment - Utah,Annual
                                          <strong className="product-quantity"> × 2</strong>
-                                        </td>
-                                        <td className="product-total">
-                                            <span className="woocommerce-Price-amount amount">
-                                                <bdi>
-                                                    <span className="woocommerce-Price-currencySymbol">$</span>
+                                            </td>
+                                            <td className="product-total">
+                                                <span className="woocommerce-Price-amount amount">
+                                                    <bdi>
+                                                        <span className="woocommerce-Price-currencySymbol">$</span>
                                                     350.00
                                                 </bdi>
-                                            </span>
-                                        </td>
-                                    </tr>
+                                                </span>
+                                            </td>
+                                        </tr> */}
                                 </tbody>
                                 <tfoot>
                                     <tr className="cart-subtotal">
@@ -191,10 +223,12 @@ const CheckOut = () => {
                                         <td>
                                             <strong>
                                                 <span className="woocommerce-Price-amount amount">
-                                                    <bdi>
-                                                        <span className="woocommerce-Price-currencySymbol">$</span>
-                                                  750.00
-                                                </bdi>
+                                                    {localdata.map((item, index) => (
+                                                        <bdi key={index} >
+                                                            <span className="woocommerce-Price-currencySymbol">$</span>
+                                                            {val == 2 ? item.monthly_price : item.yearly_price}
+                                                        </bdi>
+                                                    ))}
                                                 </span>
                                             </strong>
                                         </td>
@@ -204,10 +238,12 @@ const CheckOut = () => {
                                         <td>
                                             <strong>
                                                 <span className="woocommerce-Price-amount amount">
-                                                    <bdi>
-                                                        <span className="woocommerce-Price-currencySymbol">$</span>
-                                                  750.00
-                                                </bdi>
+                                                {localdata.map((item, index) => (
+                                                        <bdi key={index}>
+                                                            <span className="woocommerce-Price-currencySymbol">$</span>
+                                                            {val == 2 ? item.monthly_price : item.yearly_price}
+                                                        </bdi>
+                                                    ))}
                                                 </span>
                                             </strong>
                                         </td>
@@ -257,7 +293,7 @@ const CheckOut = () => {
                                 <div className="woocommerce-terms-and-conditions-wrapper">
                                     <p>Your personal data will be used to process your order, support your experience throughout this website, and for other purposes described in our </p>
                                 </div>
-                                <button type="submit" className="button alt" value="Place order">Place order</button>
+                                <button type="submit" onClick={saveData} className="button alt" value="Place order">Place order</button>
                             </div>
                         </div>
                     </div>

@@ -3,14 +3,13 @@ import APIUrl from "../Api"
 import { BrowserRouter as Router, useHistory, useLocation } from "react-router-dom";
 import { Helmet } from "react-helmet";
 import UtahHomeowner from "./../assets/images/UtahHomeowner.png"
-import { StarFilled, CheckOutlined } from '@ant-design/icons';
+import { StarFilled, CheckOutlined, ControlOutlined } from '@ant-design/icons';
 import lattice from "../assets/images/lattice-background.png"
 import { Radio } from 'antd';
 import UniqueFeature from "./UniqueFeature"
 import StandarFeature from './StandardFeature'
 import Cart from "./Cart"
 const Utah = () => {
-  // const [products, setproducts] = useState([]);
   const [product, setproduct] = useState("Single Family");
   const handleChangeCourse = event => {
     setproduct(event.target.value);
@@ -49,24 +48,22 @@ const Utah = () => {
   function handleChange(e) {
     history.push(e.target.value);
   }
-
-   const [showPlans, setShowPlans] = useState("ProductsInfo")
-  
+  const [showPlans, setShowPlans] = useState("ProductsInfo")
   const [showId, setId] = useState("0")
   const [index, setIndex] = useState("")
-  const changehandle= (e) => {
-     setShowPlans("Plans")
-     setId(e.target.id)
-     setIndex(e.target.getAttribute("data-index")); 
-   };
-  
-  const [value, setValue] =useState(1);
+  const changehandle = (e) => {
+    setShowPlans("Plans")
+    setId(e.target.id)
+    setIndex(e.target.getAttribute("data-index"));
+  };
+
+  const [value, setValue] = useState(1);
   const onChange = e => {
     setValue(e.target.value);
   };
   const [coverage, setCoverage] = useState([]);
   useEffect(async () => {
-    const url = "/get_hoproducts_covup/"+`${showId}`
+    const url = "/get_hoproducts_covup/" + `${showId}`
     const coverages = await APIUrl.get(`${url}`)
     setCoverage(coverages.data);
   }, [showId]);
@@ -78,7 +75,27 @@ const Utah = () => {
   const clearCart = () => {
     setCart([]);
   };
+  useEffect(() => {
+    localStorage.setItem("value", JSON.stringify(value));
+  }, [value]); 
+  useEffect(() => {
+    localStorage.setItem("product", JSON.stringify(product));
+  }, [product]);
 
+  let newinfo = coverage.map(function(jobjectt) {
+    jobjectt['quantity'] = 0;
+ });
+ console.log(coverage);
+	const QuantityIncrease = (index) => {
+		const newItems = [...coverage];
+		newItems[index].id++;
+		setCoverage(newItems);
+	};
+	const QuantityDecrease = (index) => {
+		const newItems = [...coverage];
+		newItems[index].id--;
+		setCoverage(newItems);
+	};
   const Produfilter = () => (
     <>
       <section className="top-image">
@@ -94,7 +111,7 @@ const Utah = () => {
       <section className="change-location-header">
         <div className="container d-flex just-space">
           <span className="big upper">Utah Homeowner Plans</span>
-          <div className={showPlans == "Plans" ? 'hidefilter' : null }>
+          <div className={showPlans == "Plans" ? 'hidefilter' : null}>
             <div>
               <span>Unit Size</span>
               <select value={product} onChange={handleChangeCourse}>
@@ -130,7 +147,7 @@ const Utah = () => {
             <h2 className="upper table-left">plan options<br />
               <span>{product}</span></h2>
             <div className="option-cont table-right">
-            {filterDropdown.map((product,index) => (
+              {filterDropdown.map((product, index) => (
                 <div className="option" key={product.id}>
                   <div className="star-cont">
                     <StarFilled className="antstar" />
@@ -138,10 +155,10 @@ const Utah = () => {
                   <div className="body">
                     <h6 className="upper">{product.name}</h6>
                     {product.monthly_price !== "0" ? <h4 className="lato">{product.monthly_price}
-                    <span style={{ fontSize: "0.4em" }}>/MO</span></h4> :
-                    <h4 className="lato">{product.yearly_price}
-                    <span style={{ fontSize: "0.4em" }}>/YR</span></h4>}
-                    {product.monthly_price !== "0"? <h5 className="lato">{product.yearly_price}/YR</h5> : null }
+                      <span style={{ fontSize: "0.4em" }}>/MO</span></h4> :
+                      <h4 className="lato">{product.yearly_price}
+                        <span style={{ fontSize: "0.4em" }}>/YR</span></h4>}
+                    {product.monthly_price !== "0" ? <h5 className="lato">{product.yearly_price}/YR</h5> : null}
                     <button className="buybtn" onClick={() => { addToCart(product) }}> <input className="buyinput" type="submit" id={product.id} data-index={index} value="Buy Now"
                       onClick={changehandle} /></button>
                   </div>
@@ -152,21 +169,26 @@ const Utah = () => {
           </div>
         </div>
       </section>
-      <StandarFeature/>
+      <StandarFeature />
       {product === "Single Family" ?
-  <UniqueFeature/>
- : ""  }
+        <UniqueFeature />
+        : ""}
     </>
   );
   const Utahdata = () => {
+   
     return (
       <>
         <div className="upgrade_list">
-          {coverage.map((dataIn) =>
-            <div key={dataIn.id} className="upgrade">
-              <input type="number" min="0" />
-              {value == 1 ? <span data-num={dataIn.id} className="price">{dataIn.yearly_price}</span> : null}
-              {value == 2 ? <span data-num={dataIn.id} className="price">{dataIn.monthly_price}</span> : null}
+          {coverage.map((dataIn, i) =>
+            <div key={i} className="upgrade">
+              <div className="quntity_box">
+              <span> {dataIn.id} </span>
+              <button className="qua_btn" onClick={() => QuantityIncrease(i)} >+</button>
+              <button className="qua_btn" onClick={() => QuantityDecrease(i)}>-</button>
+              </div>
+              {value == 1 ? <span id={dataIn.id} data-num={dataIn.id} className="price">{dataIn.yearly_price}</span> : null}
+              {value == 2 ? <span id={dataIn.id} data-num={dataIn.id} className="price">{dataIn.monthly_price}</span> : null}
               <span className="name">{dataIn.name}</span>
             </div>
           )}
@@ -174,7 +196,7 @@ const Utah = () => {
       </>
     );
   };
- 
+
   const Plans = () => (
     <>
       <div id="plans" className="search-results">
@@ -183,11 +205,11 @@ const Utah = () => {
             <h2>You have selected the<strong> {product} {products[index].name} </strong>plan</h2>
             <div className="plan_interval">
               <p style={{ margin: "0px", textalign: "center", fontsize: "18px" }}></p>
-                <strong>Payment Options:</strong>
-                <span className="spacer"></span>
-                <label><Radio.Group onChange={onChange} value={value}>
-                {filterDropdown[index].yearly_price ? <label><Radio value={1}>{filterDropdown[index].yearly_price} /YR</Radio></label>: null}
-                {filterDropdown[index].monthly_price !=="0" ?<label><Radio value={2}>{filterDropdown[index].monthly_price} /MO</Radio></label>: null}</Radio.Group></label>  
+              <strong>Payment Options:</strong>
+              <span className="spacer"></span>
+              <label><Radio.Group onChange={onChange} value={value}>
+                {filterDropdown[index].yearly_price ? <label><Radio value={1}>{filterDropdown[index].yearly_price} /YR</Radio></label> : null}
+                {filterDropdown[index].monthly_price !== "0" ? <label><Radio value={2}>{filterDropdown[index].monthly_price} /MO</Radio></label> : null}</Radio.Group></label>
             </div>
           </div>
           <div className="textured-back" style={{ backgroundImage: `url(${lattice})` }}>
@@ -197,16 +219,16 @@ const Utah = () => {
             </div>
           </div>
           <div className="container">
-          <div className="upgrade_cont">
-           <Utahdata/>
-           </div>
+            <div className="upgrade_cont">
+              <Utahdata />
+            </div>
             <div className="bottom-cont" />
             <div className="cart">
-            <Cart cart={cart} setCart={setCart} value={value} hometype={product} />
+              <Cart cart={cart} setCart={setCart} value={value} hometype={product} />
             </div>
-            
+
             <div className="footy">
-              <button className="btn">Check out</button>
+              <button value={value} onClick={()=> history.push("/homeowner-plans/checkout/")} className="btn">Check out</button>
               <button className="redirectcancel" onClick={() => setShowPlans("ProductsInfo")}>
                 <input className="btn cancel" defaultValue="Cancel"
                   onClick={clearCart} /></button>
@@ -224,9 +246,9 @@ const Utah = () => {
       </Helmet>
       <div className="product_page">
         <Produfilter />
-         {showPlans==="ProductsInfo"&&<ProductsInfo />}
-         {showPlans==="Plans"&&<Plans />}
-         
+        {showPlans === "ProductsInfo" && <ProductsInfo />}
+        {showPlans === "Plans" && <Plans />}
+
       </div>
     </>
   )
