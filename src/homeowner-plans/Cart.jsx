@@ -1,6 +1,11 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import {useHistory } from "react-router-dom";
 
 export default function Cart({ cart, setCart,value,hometype }) {
+  let history = useHistory();
+  useEffect(() => {
+    localStorage.setItem("cart", JSON.stringify(cart));
+  }, [cart]); 
   const getTotalSumYearly = () => {
     return cart.reduce(
       (sum, { yearly_price }) => sum + yearly_price,
@@ -20,6 +25,8 @@ export default function Cart({ cart, setCart,value,hometype }) {
 
 
 
+  // let storage= JSON.parse(localStorage.getItem('cart'));
+  // console.log(storage);
   return (
     <>
       <h4>Cart</h4>
@@ -38,7 +45,6 @@ export default function Cart({ cart, setCart,value,hometype }) {
               {value == 1 ? <span>{getTotalSumYearly()} /YR</span> : null}
               {value == 2 ? <span>{getTotalSumMonthly()} /MO</span> : null}
             </div>
-      <div> </div>
     </>
   );
 }

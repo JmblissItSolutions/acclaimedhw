@@ -79,6 +79,12 @@ const Idaho = () => {
   const clearCart = () => {
     setCart([]);
   };
+  useEffect(() => {
+    localStorage.setItem("value", JSON.stringify(value));
+  }, [value]); 
+  useEffect(() => {
+    localStorage.setItem("product", JSON.stringify(product));
+  }, [product]);
   const Produfilter = () => (
     <>
       <section className="top-image">
@@ -203,7 +209,7 @@ const Idaho = () => {
             <Cart cart={cart} setCart={setCart} value={value} hometype={product} />
             </div>
             <div className="footy">
-              <button className="btn">Check out</button>
+            <button value={value} onClick={()=> history.push("/homeowner-plans/checkout/")} className="btn">Check out</button>
               <button className="redirectcancel" onClick={() => setShowPlans("ProductsInfo")}>
                 <input className="btn cancel" defaultValue="Cancel"
                   onClick={clearCart} /></button>
