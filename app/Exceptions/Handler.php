@@ -4,6 +4,7 @@ namespace App\Exceptions;
 
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 use Throwable;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
 
 class Handler extends ExceptionHandler
 {
@@ -48,8 +49,27 @@ class Handler extends ExceptionHandler
      *
      * @throws \Throwable
      */
-    public function render($request, Throwable $exception)
+    public function render($request, Throwable $e)
     {
+        if ($request->wantsJson() && !($e instanceof ValidationException)) {
+            $response = [
+                'message' => (string)$e->getMessage(),
+                'status_code' => 400,
+            ];
+    
+            if ($e instanceof HttpException) {
+                $response['message'] = Response::$statusTexts[$e->getStatusCode()];
+                $response['status_code'] = $e->getStatusCode();
+            } else if ($e instanceof ModelNotFoundException) {
+                $response['message'] = Response::$statusTexts[Response::HTTP_NOT_FOUND];
+                $response['status_code'] = Response::HTTP_NOT_FOUND;
+            }
+            return response()->json([
+                'result'      => false,
+                'massage'     => $response['message'],
+                'status_code' => $response['status_code'],
+            ], $response['status_code']);
+        }
         return parent::render($request, $exception);
     }
 }

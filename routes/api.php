@@ -34,3 +34,10 @@ Route::get('get_location_unique_features/{loc_id}', 'HomeOwnerController@getLoca
 
 //For get Homeowner Product Coverage Upgrades by Product id 
 Route::get('get_hoproducts_covup/{prod_id}', 'HomeOwnerController@getProductCovUpgrade');
+
+//For Submit checkout and create order for homeowner plan
+Route::post('create_checkout', 'HomeOwnerController@createCheckoutOrder');
+
+
+//For Submit product items on checkout order 
+Route::post('add_orderitems', 'HomeOwnerController@addItemsinOrder');

@@ -14,7 +14,7 @@ class CreateProductLocationsTable extends Migration
 	public function up()
 	{
 		Schema::create('ho_product_locations', function (Blueprint $table) {
-			$table->id();
+			$table->increments('id');
 			$table->string('location_name');
 			$table->string('slug');
 			$table->string('image');

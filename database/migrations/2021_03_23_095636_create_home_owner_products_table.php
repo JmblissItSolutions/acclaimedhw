@@ -14,7 +14,7 @@ class CreateHomeOwnerProductsTable extends Migration
 	public function up()
 	{
 		Schema::create('ho_products', function (Blueprint $table) {
-			$table->id();
+			$table->increments('id');
 			$table->integer('location_id')->unsigned();
 			$table->integer('property_type_id')->unsigned();
 			$table->string('name');
@@ -25,13 +25,11 @@ class CreateHomeOwnerProductsTable extends Migration
 
 			$table->foreign('location_id')
 			->references('id')
-			->on('ho_product_locations')
-			->onDelete('cascade');
+			->on('ho_product_locations');
 
 			$table->foreign('property_type_id')
 			->references('id')
-			->on('ho_property_type')
-			->onDelete('cascade');
+			->on('ho_property_type');
 		});
 	}
 
