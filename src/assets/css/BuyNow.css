@@ -68,13 +68,13 @@ span.spacer {
     width: 40px;
     flex-shrink: 0;
     text-align: right;
-    padding-right: 2px;
+    padding-right: 5px;
     padding-left: 2px;
     border-right: 1px solid #00A1B8;
     font-weight: bold;
 }
 #upgrades_and_cart .upgrade_cont .upgrade .name {
-    padding-left: 2px;
+    padding-left: 5px;
 }
 #upgrades_and_cart .bottom-cont {
     display: -webkit-box;
@@ -187,6 +187,39 @@ button.redirectcancel {
     opacity: 0.5;
     pointer-events: none;
 }
+.upgrade .quntity_box {
+    position: relative;
+    padding: 8px 30px 8px 8px;
+    border: 1px solid #a5a5a5;
+}
+.upgrade .name {
+    margin: 0;
+    margin-top: 0;
+}   
+.upgrade .quntity_box button.qua_btn {
+    position: absolute;
+    right: 0;
+    border: 0;
+    bottom: 0;
+    padding: 0 5px;
+    height: 50%;
+    width: 18px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 50%;
+    transition: all 500ms ease-in;
+}
+.upgrade .quntity_box button.qua_btn:hover {
+    background: #00A1B8;
+    color: #fff;
+}
+.upgrade .quntity_box button.qua_btn + button.qua_btn {
+    top: 0;
+    border-bottom: 1px solid #ccc;
+}
+
 
 @media (max-width:991px){
     #upgrades_and_cart .upgrade_cont .upgrade {

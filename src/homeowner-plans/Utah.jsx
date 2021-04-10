@@ -81,19 +81,19 @@ const Utah = () => {
   useEffect(() => {
     localStorage.setItem("product", JSON.stringify(product));
   }, [product]);
+  useEffect(() => {
+    localStorage.setItem("coverage", JSON.stringify(coverage));
+  }, [coverage]); 
 
-  let newinfo = coverage.map(function(jobjectt) {
-    jobjectt['quantity'] = 0;
- });
  console.log(coverage);
 	const QuantityIncrease = (index) => {
 		const newItems = [...coverage];
-		newItems[index].id++;
+		newItems[index].quantity++;
 		setCoverage(newItems);
 	};
 	const QuantityDecrease = (index) => {
 		const newItems = [...coverage];
-		newItems[index].id--;
+		newItems[index].quantity--;
 		setCoverage(newItems);
 	};
   const Produfilter = () => (
@@ -183,7 +183,7 @@ const Utah = () => {
           {coverage.map((dataIn, i) =>
             <div key={i} className="upgrade">
               <div className="quntity_box">
-              <span> {dataIn.id} </span>
+              <span> {dataIn.quantity} </span>
               <button className="qua_btn" onClick={() => QuantityIncrease(i)} >+</button>
               <button className="qua_btn" onClick={() => QuantityDecrease(i)}>-</button>
               </div>
@@ -224,7 +224,7 @@ const Utah = () => {
             </div>
             <div className="bottom-cont" />
             <div className="cart">
-              <Cart cart={cart} setCart={setCart} value={value} hometype={product} />
+              <Cart cart={cart} setCart={setCart} value={value} hometype={product} coverage={coverage} />
             </div>
 
             <div className="footy">
