@@ -15,30 +15,54 @@ const CheckOut = ({ value }) => {
     let localdata = JSON.parse(localStorage.getItem('cart'));
     let val = JSON.parse(localStorage.getItem('value'));
     let protype = JSON.parse(localStorage.getItem('product'));
+    let covrage = JSON.parse(localStorage.getItem('coverage'));
     const [firstname, setFirstname] = useState("");
     const [lastname, setLastname] = useState("");
+    const [company, setCompany] = useState("");
+    const [country, setCountry] = useState("");
+    const [street1, setStreet1] = useState("");
+    const [street2, setStreet2] = useState("");
+    const [city, setCity] = useState("");
+    const [state, setState] = useState("");
+    const [pincode, setPincode] = useState("");
     const [phone, setPhone] = useState("");
     const [email, setEmail] = useState("");
-    const [country, setCountry] = useState("");
-    console.log(country)
-    function saveData()
-    {
-      let data={firstname,lastname,phone,email,country}
-     //console.warn(data);
-      fetch("https://replatform.acclaimedhw.com/replatform/api/create_checkout", {
-        method: "POST",
-        headers: {
-          'Accept': 'application/json',
-          'Content-Type': 'application/json',
-        },
-        body:JSON.stringify(data)
-      }).then((resp)=>{
-        // console.warn("resp",resp);;
-        resp.json().then((result)=>{
-          console.warn("result",result)
+    const [prop_street1, SetProp_Street1] = useState("");
+    const [prop_street2, SetProp_Street2] = useState("");
+    const [prop_city, SetProp_City] = useState("");
+    const [prop_state, SetProp_state] = useState("");
+    const [prop_zipcode, SetProp_zipcode] = useState("");
+    const [order_notes, SetOrder_notes] = useState("");
+    const [subtotal, SetSubtotal] = useState("1000");
+    const [total, SetTotal] = useState("500");
+    const [pay_method, SetPay_method] = useState("Cash");
+
+    function saveData() {
+        let data = { firstname, lastname, company, country, street1, street2, city, state, pincode, phone, email, prop_street1, prop_street2, prop_city, prop_state, prop_zipcode, order_notes, subtotal, total, pay_method }
+        fetch("https://replatform.acclaimedhw.com/replatform/api/create_checkout", {
+            method: "POST",
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(data)
         })
-      })
+            .then((resp) => {
+                // console.warn("resp",resp);;
+                resp.json().then((result) => {
+                    console.warn("result", result)
+                })
+            })
     }
+    const Cove = ()=>(
+        <>
+         {covrage.map((pro, index) => (
+                <div className="option" key={index}>
+                  <ul>{pro.quantity > 0 ? <li>{pro.quantity}x{pro.name} </li> :""}</ul>
+                </div>
+              ))}
+        </>
+      )
     return (
         <>
             <Helmet>
@@ -52,7 +76,6 @@ const CheckOut = ({ value }) => {
                 <div className="container">
                     <div className="checkout_ttl">
                         <h1>Checkout</h1>
-
                     </div>
                 </div>
                 <section className="inner">
@@ -81,19 +104,19 @@ const CheckOut = ({ value }) => {
                                         <div className="woocommerce-billing-fields__field-wrapper">
                                             <p className="form-row form-row-first validate-required">
                                                 <label>First name<abbr className="required" title="required">*</abbr></label>
-                                                <input type="text" name="firstname" value={firstname} onChange={(e)=>{setFirstname(e.target.value)}} className="input-text"/>
+                                                <input type="text" name="firstname" value={firstname} onChange={(e) => { setFirstname(e.target.value) }} className="input-text" />
                                             </p>
                                             <p className="form-row form-row-first validate-required">
                                                 <label>Last name<abbr className="required" title="required">*</abbr></label>
-                                                <input type="text" name="lastname" value={lastname} onChange={(e)=>{setLastname(e.target.value)}} className="input-text"/>
+                                                <input type="text" name="lastname" value={lastname} onChange={(e) => { setLastname(e.target.value) }} className="input-text" />
                                             </p>
                                             <p className="form-row form-row-wide">
                                                 <label>Company name<span>(optional)</span></label>
-                                                <input type="text" className="input-text"></input>
+                                                <input type="text" className="input-text" value={company} onChange={(e) => { setCompany(e.target.value) }}></input>
                                             </p>
                                             <p className="form-row form-row-wide">
                                                 <label>Country/Region<abbr className="required" title="required">*</abbr></label>
-                                                <select name="country" value={country} onChange={(e)=>{setCountry(e.target.value)}}>
+                                                <select name="country" value={country} onChange={(e) => { setCountry(e.target.value) }}>
                                                     <option value="default">Select a country / region…</option>
                                                     <option value="AF">Afghanistan</option>
                                                     <option value="AX">Åland Islands</option>
@@ -105,16 +128,16 @@ const CheckOut = ({ value }) => {
                                             </p>
                                             <p className="form-row form-row-wide">
                                                 <label>Street address<abbr className="required" title="required">*</abbr></label>
-                                                <input type="text" className="input-text" placeholder="House number and street name"></input>
-                                                <input type="text" className="input-text" placeholder="Apartment, suite, unit, etc. (optional)"></input>
+                                                <input type="text" className="input-text" value={street1} onChange={(e) => { setStreet1(e.target.value) }} placeholder="House number and street name"></input>
+                                                <input type="text" className="input-text" value={street2} onChange={(e) => { setStreet2(e.target.value) }} placeholder="Apartment, suite, unit, etc. (optional)"></input>
                                             </p>
                                             <p className="form-row form-row-wide">
                                                 <label>Town/City<abbr className="required" title="required">*</abbr></label>
-                                                <input type="text" className="input-text"></input>
+                                                <input type="text" className="input-text" value={city} onChange={(e) => { setCity(e.target.value) }}></input>
                                             </p>
                                             <p className="form-row form-row-wide">
                                                 <label>State<abbr className="required" title="required">*</abbr></label>
-                                                <select>
+                                                <select value={state} onChange={(e) => { setState(e.target.value) }}>
                                                     <option value="AX">Tennessee</option>
                                                     <option value="default">Texsas</option>
                                                     <option value="AF">Utah</option>
@@ -126,15 +149,15 @@ const CheckOut = ({ value }) => {
                                             </p>
                                             <p className="form-row form-row-wide">
                                                 <label>ZIP<abbr className="required" title="required">*</abbr></label>
-                                                <input type="number" className="input-text"></input>
+                                                <input type="number" className="input-text" value={pincode} onChange={(e) => { setPincode(e.target.value) }}></input>
                                             </p>
                                             <p className="form-row form-row-wide">
                                                 <label>Phone<abbr className="required" title="required">*</abbr></label>
-                                                <input type="text" name="phone" value={phone} onChange={(e)=>{setPhone(e.target.value)}} className="input-text"/>
+                                                <input type="text" name="phone" value={phone} onChange={(e) => { setPhone(e.target.value) }} className="input-text" />
                                             </p>
                                             <p className="form-row form-row-wide">
                                                 <label>Email address<abbr className="required" title="required">*</abbr></label>
-                                                <input type="email" name="email" value={email} onChange={(e)=>{setEmail(e.target.value)}} className="input-text"/>
+                                                <input type="email" name="email" value={email} onChange={(e) => { setEmail(e.target.value) }} className="input-text" />
                                             </p>
                                         </div>
                                     </div>
@@ -145,16 +168,16 @@ const CheckOut = ({ value }) => {
                                         <h3>Warrantied Property Address</h3>
                                         <p className="form-row form-row-wide">
                                             <label>Street address<abbr className="required" title="required">*</abbr></label>
-                                            <input type="text" className="input-text" placeholder="House number and street name"></input>
-                                            <input type="text" className="input-text" placeholder="Apartment, suite, unit, etc. (optional)"></input>
+                                            <input type="text" className="input-text" value={prop_street1} onChange={(e) => { SetProp_Street1(e.target.value) }} placeholder="House number and street name"></input>
+                                            <input type="text" className="input-text" value={prop_street2} onChange={(e) => { SetProp_Street2(e.target.value) }} placeholder="Apartment, suite, unit, etc. (optional)"></input>
                                         </p>
                                         <p className="form-row form-row-wide">
                                             <label>City<abbr className="required" title="required">*</abbr></label>
-                                            <input type="text" className="input-text"></input>
+                                            <input type="text" className="input-text" value={prop_city} onChange={(e) => { SetProp_City(e.target.value) }}></input>
                                         </p>
                                         <p className="form-row form-row-wide">
-                                            <label>Country/Region<abbr className="required" title="required">*</abbr></label>
-                                            <select>
+                                            <label>State<abbr className="required" title="required">*</abbr></label>
+                                            <select value={prop_state} onChange={(e) => { SetProp_state(e.target.value) }}>
                                                 <option value="default">Select an option...</option>
                                                 <option value="AF">Afghanistan</option>
                                                 <option value="AX">Åland Islands</option>
@@ -166,19 +189,21 @@ const CheckOut = ({ value }) => {
                                         </p>
                                         <p className="form-row form-row-wide">
                                             <label>Zip Code<abbr className="required" title="required">*</abbr></label>
-                                            <input type="number" className="input-text"></input>
+                                            <input type="number" className="input-text" value={prop_zipcode} onChange={(e) => { SetProp_zipcode(e.target.value) }}></input>
                                         </p>
                                         <h3>Additional information</h3>
                                         <p className="form-row form-row-wide">
                                             <label>Order notes<span>(optional)</span></label>
-                                            <textarea className="input-text" rows="2" col="5" placeholder="Notes about your order, e.g. special notes for delivery."></textarea>
+                                            <textarea className="input-text" rows="2" col="5" placeholder="Notes about your order, e.g. special notes for delivery." value={order_notes} onChange={(e) => { SetOrder_notes(e.target.value) }}></textarea>
                                         </p>
+                                        <input type="hidden" value={subtotal} onChange={(e) => { SetSubtotal(e.target.value) }} />
+                                        <input type="hidden" value={total} onChange={(e) => { SetTotal(e.target.value) }} />
+                                        <input type="hidden" value={pay_method} onChange={(e) => { SetPay_method(e.target.value) }} />
                                     </div>
                                 </div>
                             </div>
                         </form>
                         <h3>Your order</h3>
-
                         <div className="order_review">
                             <table className="shop_table woocommerce-checkout-review-order-table">
                                 <thead>
@@ -192,7 +217,9 @@ const CheckOut = ({ value }) => {
                                         <tr className="cart_item" key={index}>
                                             <td className="product-name">{item.name} - {val == 2 ? "Monthly" : "Annual"} ,{protype}
                                                 <strong className="product-quantity"> × 1</strong>
+                                                {covrage ? <Cove/> : null }
                                             </td>
+
                                             <td className="product-total">
                                                 <span className="woocommerce-Price-amount amount">
                                                     <bdi>
@@ -238,7 +265,7 @@ const CheckOut = ({ value }) => {
                                         <td>
                                             <strong>
                                                 <span className="woocommerce-Price-amount amount">
-                                                {localdata.map((item, index) => (
+                                                    {localdata.map((item, index) => (
                                                         <bdi key={index}>
                                                             <span className="woocommerce-Price-currencySymbol">$</span>
                                                             {val == 2 ? item.monthly_price : item.yearly_price}
