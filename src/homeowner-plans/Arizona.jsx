@@ -12,6 +12,7 @@ import Cart from "./Cart"
 
 
 const Arizona = () => {
+  localStorage.clear()
   const [product, setproduct] = useState("Single Family");
 
   const handleChangeCourse = event => {

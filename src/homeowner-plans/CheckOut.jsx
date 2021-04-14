@@ -9,13 +9,17 @@ import american from "../assets/images/card-amex.png";
 import discover from "../assets/images/card-discover.png";
 import dinnerclub from "../assets/images/card-dinersclub.png";
 import jcb from "../assets/images/card-jcb.png";
-import cardccplain from "../assets/images/card-cc-plain.png";
+import { Radio } from 'antd';
 
 const CheckOut = ({ value }) => {
     let localdata = JSON.parse(localStorage.getItem('cart'));
     let val = JSON.parse(localStorage.getItem('value'));
     let protype = JSON.parse(localStorage.getItem('product'));
     let covrage = JSON.parse(localStorage.getItem('coverage'));
+    let totalMonthly = JSON.parse(localStorage.getItem('totalMonthly'));
+    let totalYearly = JSON.parse(localStorage.getItem('totalYearly'));
+    let MonthlyPrice = JSON.parse(localStorage.getItem('MonthlyPrice'));
+    let YearlyPrice = JSON.parse(localStorage.getItem('YearlyPrice'));
     const [firstname, setFirstname] = useState("");
     const [lastname, setLastname] = useState("");
     const [company, setCompany] = useState("");
@@ -33,12 +37,14 @@ const CheckOut = ({ value }) => {
     const [prop_state, SetProp_state] = useState("");
     const [prop_zipcode, SetProp_zipcode] = useState("");
     const [order_notes, SetOrder_notes] = useState("");
-    const [subtotal, SetSubtotal] = useState("1000");
+    const [subtotal, SetSubtotal] = useState("200");
     const [total, SetTotal] = useState("500");
-    const [pay_method, SetPay_method] = useState("Cash");
+    const [pay_method, setPayment] = useState("card")
+    const [status, setStatus] = useState("pending")
 
+    const [result, setResult] = useState([]);
     function saveData() {
-        let data = { firstname, lastname, company, country, street1, street2, city, state, pincode, phone, email, prop_street1, prop_street2, prop_city, prop_state, prop_zipcode, order_notes, subtotal, total, pay_method }
+        let data = { firstname, lastname, company, country, street1, street2, city, state, pincode, phone, email, prop_street1, prop_street2, prop_city, prop_state, prop_zipcode, order_notes, subtotal, total, pay_method,status }
         fetch("https://replatform.acclaimedhw.com/replatform/api/create_checkout", {
             method: "POST",
             headers: {
@@ -48,21 +54,30 @@ const CheckOut = ({ value }) => {
             body: JSON.stringify(data)
         })
             .then((resp) => {
-                // console.warn("resp",resp);;
                 resp.json().then((result) => {
                     console.warn("result", result)
+                    // const resultMsg = (result.message)
+                    setResult(result);
                 })
             })
     }
-    const Cove = ()=>(
+    let resultMsg = (result.message)
+    let orderId = (result.order_id)
+    console.log(result.result)
+    const Cove = () => (
         <>
-         {covrage.map((pro, index) => (
+            {covrage.map((pro, index) => (
                 <div className="option" key={index}>
-                  <ul>{pro.quantity > 0 ? <li>{pro.quantity}x{pro.name} </li> :""}</ul>
+                    <ul>{(pro.quantity > 0) ? <li>{pro.quantity}x{pro.name}</li> : ""}
+                    </ul>
                 </div>
-              ))}
+            ))}
         </>
-      )
+    )
+    const PaymentOption = e => {
+        setPayment(e.target.value);
+    }
+
     return (
         <>
             <Helmet>
@@ -96,11 +111,13 @@ const CheckOut = ({ value }) => {
                                 <button type="submit" className="button" value="Apply coupon">Apply coupon</button>
                             </p>
                         </form>
+                        <p>{resultMsg}</p>
                         <form className="checkout woocommerce-checkout">
                             <div className="col2-set">
                                 <div className="col-1">
                                     <div className="woocommerce-billing-fields">
                                         <h3>Billing details</h3>
+
                                         <div className="woocommerce-billing-fields__field-wrapper">
                                             <p className="form-row form-row-first validate-required">
                                                 <label>First name<abbr className="required" title="required">*</abbr></label>
@@ -196,14 +213,14 @@ const CheckOut = ({ value }) => {
                                             <label>Order notes<span>(optional)</span></label>
                                             <textarea className="input-text" rows="2" col="5" placeholder="Notes about your order, e.g. special notes for delivery." value={order_notes} onChange={(e) => { SetOrder_notes(e.target.value) }}></textarea>
                                         </p>
-                                        <input type="hidden" value={subtotal} onChange={(e) => { SetSubtotal(e.target.value) }} />
-                                        <input type="hidden" value={total} onChange={(e) => { SetTotal(e.target.value) }} />
-                                        <input type="hidden" value={pay_method} onChange={(e) => { SetPay_method(e.target.value) }} />
+                                        {(totalMonthly) || (totalYearly) ? <input name="subtotal" type="hidden" onChange={(e) => { SetSubtotal(e.target.value) }} value={(val === 2) ? totalMonthly : totalYearly} /> : <input type="hidden" onChange={(e) => { SetSubtotal(e.target.value) }} value={(val === 2) ? MonthlyPrice : YearlyPrice} />}
+                                        {(totalMonthly) || (totalYearly) ? <input name="total" type="hidden" onChange={(e) => { SetTotal(e.target.value) }} value={(val === 2) ? totalMonthly : totalYearly} /> : <input type="hidden" onChange={(e) => { SetTotal(e.target.value) }} value={(val === 2) ? MonthlyPrice : YearlyPrice} />}
+                                        <input type="hidden" onChange={(e) => { setPayment(e.target.value) }} value={pay_method} />
                                     </div>
                                 </div>
                             </div>
                         </form>
-                        <h3>Your order</h3>
+                        <h3>Your order{subtotal}</h3>
                         <div className="order_review">
                             <table className="shop_table woocommerce-checkout-review-order-table">
                                 <thead>
@@ -217,32 +234,21 @@ const CheckOut = ({ value }) => {
                                         <tr className="cart_item" key={index}>
                                             <td className="product-name">{item.name} - {val == 2 ? "Monthly" : "Annual"} ,{protype}
                                                 <strong className="product-quantity"> × 1</strong>
-                                                {covrage ? <Cove/> : null }
+                                                {covrage ? <Cove /> : null}
                                             </td>
 
                                             <td className="product-total">
                                                 <span className="woocommerce-Price-amount amount">
                                                     <bdi>
                                                         <span className="woocommerce-Price-currencySymbol">$</span>
-                                                        {val == 2 ? item.monthly_price : item.yearly_price}
+
+                                                        {val === 2 ? item.monthly_price : item.yearly_price}
+
                                                     </bdi>
                                                 </span>
                                             </td>
                                         </tr>
                                     ))}
-                                    {/* <tr className="cart_item">
-                                            <td className="product-name">Swimming Pool/Spa Equipment - Utah,Annual
-                                         <strong className="product-quantity"> × 2</strong>
-                                            </td>
-                                            <td className="product-total">
-                                                <span className="woocommerce-Price-amount amount">
-                                                    <bdi>
-                                                        <span className="woocommerce-Price-currencySymbol">$</span>
-                                                    350.00
-                                                </bdi>
-                                                </span>
-                                            </td>
-                                        </tr> */}
                                 </tbody>
                                 <tfoot>
                                     <tr className="cart-subtotal">
@@ -250,12 +256,13 @@ const CheckOut = ({ value }) => {
                                         <td>
                                             <strong>
                                                 <span className="woocommerce-Price-amount amount">
-                                                    {localdata.map((item, index) => (
-                                                        <bdi key={index} >
-                                                            <span className="woocommerce-Price-currencySymbol">$</span>
-                                                            {val == 2 ? item.monthly_price : item.yearly_price}
-                                                        </bdi>
-                                                    ))}
+                                                    <bdi>
+                                                        <span className="woocommerce-Price-currencySymbol">$</span>
+                                                        {(val === 2) ? totalMonthly : totalYearly}
+                                                        {(val === 2) ? MonthlyPrice : YearlyPrice}
+                                                        {/* {(!covrage) && (val == 1) ? MonthlyPrice : YearlyPrice} */}
+                                                    </bdi>
+
                                                 </span>
                                             </strong>
                                         </td>
@@ -265,12 +272,13 @@ const CheckOut = ({ value }) => {
                                         <td>
                                             <strong>
                                                 <span className="woocommerce-Price-amount amount">
-                                                    {localdata.map((item, index) => (
-                                                        <bdi key={index}>
-                                                            <span className="woocommerce-Price-currencySymbol">$</span>
-                                                            {val == 2 ? item.monthly_price : item.yearly_price}
-                                                        </bdi>
-                                                    ))}
+                                                    <bdi>
+                                                        <span className="woocommerce-Price-currencySymbol">$</span>
+                                                        {(val === 2) ? totalMonthly : totalYearly}
+                                                        {(val === 2) ? MonthlyPrice : YearlyPrice}
+                                                        {/* {(!covrage) && (val == 1) totalMonthly? MonthlyPrice : YearlyPrice} */}
+                                                    </bdi>
+
                                                 </span>
                                             </strong>
                                         </td>
@@ -278,9 +286,15 @@ const CheckOut = ({ value }) => {
                                 </tfoot>
                             </table>
                         </div>
+                        <div className="payment_option">
+                            <label><Radio.Group onChange={PaymentOption} value={pay_method}>
+                                <p></p>
+                                <label><Radio value="cash">cash</Radio></label>
+                                <label><Radio value="card">card</Radio></label></Radio.Group></label>
+                        </div>
                         <div className="woocommerce-checkout-payment">
                             <ul className="wc_payment_methods payment_methods methods">
-                                <li className="wc_payment_method payment_method_authorize_net_aim">
+                                <li className={pay_method == "card" ? "wc_payment_method payment_method_authorize_net_aim showcard" : "hidecard"}>
                                     <input type="radio" className="input-radio" name="payment_method" />
                                     <label>Credit Card
                                        <img src={visa} alt="visa" />
@@ -323,6 +337,7 @@ const CheckOut = ({ value }) => {
                                 <button type="submit" onClick={saveData} className="button alt" value="Place order">Place order</button>
                             </div>
                         </div>
+
                     </div>
                 </section>
             </div>

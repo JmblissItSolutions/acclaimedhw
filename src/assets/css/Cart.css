@@ -47,3 +47,6 @@ p.return-to-shop {
     top: 1em;
     left: 1.5em;
 }
+.hidecard {
+    display: none;
+}
