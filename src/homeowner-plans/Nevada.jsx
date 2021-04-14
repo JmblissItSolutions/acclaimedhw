@@ -82,6 +82,20 @@ const Nevada = () => {
   useEffect(() => {
     localStorage.setItem("product", JSON.stringify(product));
   }, [product]);
+  useEffect(() => {
+    localStorage.setItem("coverage", JSON.stringify(coverage));
+  }, [coverage]); 
+
+	const QuantityIncrease = (i) => {
+		const newItems = [...coverage];
+		newItems[i].quantity++;
+		setCoverage(newItems);
+	};
+	const QuantityDecrease = (i) => {
+		const newItems = [...coverage];
+		newItems[i].quantity--;
+		setCoverage(newItems);
+	};
   const Produfilter = () => (
     <>
       <section className="top-image">
@@ -166,11 +180,15 @@ const Nevada = () => {
     return (
       <>
         <div className="upgrade_list">
-          {coverage.map((dataIn) =>
-            <div key={dataIn.id} className="upgrade">
-              <input type="number" min="0" />
-              {value == 1 ? <span data-num={dataIn.id} className="price">{dataIn.yearly_price}</span> : null}
-              {value == 2 ? <span data-num={dataIn.id} className="price">{dataIn.monthly_price}</span> : null}
+        {coverage.map((dataIn, i) =>
+            <div key={i} className="upgrade">
+              <div className="quntity_box">
+              <span> {dataIn.quantity} </span>
+              <button className="qua_btn" onClick={() => QuantityIncrease(i)} >+</button>
+              <button className="qua_btn" onClick={() => QuantityDecrease(i)}>-</button>
+              </div>
+              {value == 1 ? <span id={dataIn.id} data-num={dataIn.id} className="price">{dataIn.yearly_price}</span> : null}
+              {value == 2 ? <span id={dataIn.id} data-num={dataIn.id} className="price">{dataIn.monthly_price}</span> : null}
               <span className="name">{dataIn.name}</span>
             </div>
           )}
@@ -205,7 +223,7 @@ const Nevada = () => {
            </div>
             <div className="bottom-cont" />
             <div className="cart">
-            <Cart cart={cart} setCart={setCart} value={value} hometype={product} />
+            <Cart cart={cart} setCart={setCart} value={value} hometype={product} coverage={coverage} />
             </div>
             
             <div className="footy">

@@ -85,17 +85,17 @@ const Utah = () => {
     localStorage.setItem("coverage", JSON.stringify(coverage));
   }, [coverage]); 
 
- console.log(coverage);
-	const QuantityIncrease = (index) => {
+	const QuantityIncrease = (i) => {
 		const newItems = [...coverage];
-		newItems[index].quantity++;
+		newItems[i].quantity++;
 		setCoverage(newItems);
 	};
-	const QuantityDecrease = (index) => {
+	const QuantityDecrease = (i) => {
 		const newItems = [...coverage];
-		newItems[index].quantity--;
+		newItems[i].quantity--;
 		setCoverage(newItems);
 	};
+
   const Produfilter = () => (
     <>
       <section className="top-image">
