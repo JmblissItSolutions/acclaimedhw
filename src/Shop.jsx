@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useRef, useEffect, useState } from "react";
 import { Helmet } from "react-helmet";
 // import ApplicationInformation from "./Realstate-plans/ApplicationInformation";
 // import SingleConstruction from "./Realstate-plans/SingleConstruction";
@@ -8,23 +8,23 @@ import { Helmet } from "react-helmet";
 // import TriplexPlans from "./Realstate-plans/TriplexPlans";
 // import FourplexPlans from "./Realstate-plans/FourplexPlans";
 const Shop =()=>{
-    return(
-        <>
-          <Helmet>
-             <title>Arizona Resources - Acclaimed Home Warranty : Acclaimed Home Warranty</title>
-             <meta name="description" content="Arizona Resources - Acclaimed Home Warranty" />
-          </Helmet>
-        <div>
-            <h1>Shop</h1>
-            {/* <SingleSquare/> */}
-            {/* <SingleConstruction/> */}
-            {/* <CondoPlans/> */}
-            {/* <DuplexPlans/> */}
-            {/* <TriplexPlans/> */}
-            {/* <FourplexPlans/> */}
-            {/* <ApplicationInformation/> */}
-        </div>
-        </>
-    )
+    const ref = useRef(null);
+const [input, setinput] = useState("")
+    const myfunc = (e) => {
+      console.log("I was activated 5 seconds later");
+      setinput(e.target.id)
+      console.log(input)
+    };
+  
+    useEffect(() => {
+      setTimeout(() => {
+        ref.current.click();
+      }, 5000); //miliseconds
+    }, []);
+    return (
+      <button ref={ref} id="5" onClick={myfunc}>
+        TEST
+      </button>
+    );
 }
 export default Shop;

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useRef, useEffect, useState } from "react";
 import APIUrl from "../Api"
 import { Helmet } from "react-helmet";
 import Checkoutbg from "../assets/images/Checkoutbg.png";
@@ -37,14 +37,12 @@ const CheckOut = ({ value }) => {
     const [prop_state, SetProp_state] = useState("");
     const [prop_zipcode, SetProp_zipcode] = useState("");
     const [order_notes, SetOrder_notes] = useState("");
-    const [subtotal, SetSubtotal] = useState("200");
-    const [total, SetTotal] = useState("500");
     const [pay_method, setPayment] = useState("card")
     const [status, setStatus] = useState("pending")
 
     const [result, setResult] = useState([]);
     function saveData() {
-        let data = { firstname, lastname, company, country, street1, street2, city, state, pincode, phone, email, prop_street1, prop_street2, prop_city, prop_state, prop_zipcode, order_notes, subtotal, total, pay_method,status }
+        let data = { firstname, lastname, company, country, street1, street2, city, state, pincode, phone, email, prop_street1, prop_street2, prop_city, prop_state, prop_zipcode, order_notes, subtotal, total, pay_method, status }
         fetch("https://replatform.acclaimedhw.com/replatform/api/create_checkout", {
             method: "POST",
             headers: {
@@ -63,7 +61,7 @@ const CheckOut = ({ value }) => {
     }
     let resultMsg = (result.message)
     let orderId = (result.order_id)
-    console.log(result.result)
+    // console.log(result.result)
     const Cove = () => (
         <>
             {covrage.map((pro, index) => (
@@ -78,6 +76,43 @@ const CheckOut = ({ value }) => {
         setPayment(e.target.value);
     }
 
+    function subtotalfun() {
+        if (totalMonthly && val === 2) {
+            return totalMonthly
+        }
+        else if (totalYearly && val === 1 || val === null) {
+            return totalYearly
+        }
+    }
+    function subtotalfun2() {
+        if (MonthlyPrice && val === 2) {
+            return MonthlyPrice
+        }
+        else if (YearlyPrice && val === 1 || val === null) {
+            return YearlyPrice
+        }
+    }
+    // function totalfun() {
+    //     if(totalMonthly && val === 2){
+    //        return totalMonthly
+    //       }
+    //       else if(totalYearly && val === 1 || val === null){
+    //         return totalYearly
+    //       }
+    //     }
+    let subtotalall = subtotalfun()
+    let subtotalall2 = subtotalfun2()
+    function sub() {
+        if (totalYearly) {
+            return subtotalall
+        } else if (YearlyPrice) {
+            return subtotalall2
+        }
+    }
+    let v1 = sub()
+    const [subtotal, SetSubtotal] = useState(v1);
+    const [total, SetTotal] = useState(v1);
+
     return (
         <>
             <Helmet>
@@ -91,6 +126,7 @@ const CheckOut = ({ value }) => {
                 <div className="container">
                     <div className="checkout_ttl">
                         <h1>Checkout</h1>
+
                     </div>
                 </div>
                 <section className="inner">
@@ -213,13 +249,11 @@ const CheckOut = ({ value }) => {
                                             <label>Order notes<span>(optional)</span></label>
                                             <textarea className="input-text" rows="2" col="5" placeholder="Notes about your order, e.g. special notes for delivery." value={order_notes} onChange={(e) => { SetOrder_notes(e.target.value) }}></textarea>
                                         </p>
-                                        {(totalMonthly) || (totalYearly) ? <input name="subtotal" type="hidden" onChange={(e) => { SetSubtotal(e.target.value) }} value={(val === 2) ? totalMonthly : totalYearly} /> : <input type="hidden" onChange={(e) => { SetSubtotal(e.target.value) }} value={(val === 2) ? MonthlyPrice : YearlyPrice} />}
-                                        {(totalMonthly) || (totalYearly) ? <input name="total" type="hidden" onChange={(e) => { SetTotal(e.target.value) }} value={(val === 2) ? totalMonthly : totalYearly} /> : <input type="hidden" onChange={(e) => { SetTotal(e.target.value) }} value={(val === 2) ? MonthlyPrice : YearlyPrice} />}
-                                        <input type="hidden" onChange={(e) => { setPayment(e.target.value) }} value={pay_method} />
                                     </div>
                                 </div>
                             </div>
                         </form>
+
                         <h3>Your order{subtotal}</h3>
                         <div className="order_review">
                             <table className="shop_table woocommerce-checkout-review-order-table">
