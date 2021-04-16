@@ -60,8 +60,49 @@ const CheckOut = ({ value }) => {
             })
     }
     let resultMsg = (result.message)
-    let orderId = (result.order_id)
-    // console.log(result.result)
+    let orderid = (result.order_id)
+    let res = (result.result)
+
+    function interval() {
+        if (val == 1 || val == null) {
+            return 'yearly'
+        }
+        else if (val == 2) {
+            return 'monthly'
+        }
+    }
+    let intervaltype = interval()
+    let order_id = orderid
+    const [product_id, setProductid] = useState("2")
+    const [product_name, setProductname] = useState("product name")
+    const [prod_type, setProdtype] = useState("simple")
+    const [pay_interval_type, setpayIntervalType] = useState(intervaltype)
+    const [quantity, setQuantity] = useState("1")
+    const [productlist, setProductlist] = useState([]);
+    function saveProduct (e) {
+        setProductid(e.target.id);
+        setProductname(e.target.getAttribute("productname"));
+        setProdtype(e.target.getAttribute("producttype"));
+        setQuantity(e.target.getAttribute("quantity"));
+        let data = { order_id, product_id, product_name, prod_type, pay_interval_type, quantity }
+        fetch("https://replatform.acclaimedhw.com/replatform/api/add_orderitems", {
+            method: "POST",
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(data)
+        })
+            .then((resp) => {
+                resp.json().then((productlist) => {
+                    console.warn("productlist", productlist)
+                    // const resultMsg = (result.message)
+                    setProductlist(productlist);
+                })
+            })
+    }
+
+    
     const Cove = () => (
         <>
             {covrage.map((pro, index) => (
@@ -74,7 +115,7 @@ const CheckOut = ({ value }) => {
     )
     const PaymentOption = e => {
         setPayment(e.target.value);
-    }
+    }   
 
     function subtotalfun() {
         if (totalMonthly && val === 2) {
@@ -369,6 +410,13 @@ const CheckOut = ({ value }) => {
                                     <p>Your personal data will be used to process your order, support your experience throughout this website, and for other purposes described in our </p>
                                 </div>
                                 <button type="submit" onClick={saveData} className="button alt" value="Place order">Place order</button>
+                                {localdata.map((item, index) => (
+                                    <p key={index}>
+                                        {/* {res == true ? <input  value="productt" type="submit" onClick={saveProduct} className="button" productname={item.name} producttype="simple" quantity="1" id={item.id}/> : null}   */}
+                                        <button onClick={saveProduct} className="button" productname={item.name} id={item.id}>hey</button>
+                                    </p>
+                                ))}
+
                             </div>
                         </div>
 
