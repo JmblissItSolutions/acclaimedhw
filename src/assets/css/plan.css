@@ -257,9 +257,6 @@ section.top-image img{
     margin: 0 2px;
     height: 22px;
 }
-.plan-options .option .star-cont .achi.white-star {
-    /* background: url("../images/star-single.png") no-repeat center center; */
-}
 .plan-options .option .body {
     padding: 5px 5px 15px 5px;
     text-align: center;
@@ -321,7 +318,10 @@ div#root .plan-options .option .btn {
     display: inline-block;
     max-width: max-content;
 }
-
+.error-msg{
+    color: #b81c23;
+    font-size: 12px;
+} 
 @media (min-width: 991px){
     .unique-features .table-right.mobile {
         display: none !important;

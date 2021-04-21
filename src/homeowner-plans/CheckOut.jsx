@@ -39,7 +39,14 @@ const CheckOut = ({ value }) => {
     const [order_notes, SetOrder_notes] = useState("");
     const [pay_method, setPayment] = useState("card")
     const [status, setStatus] = useState("pending")
+    const [visible, setVisible] = useState(false);
+    const [coupon_code, setCoupon_code] = useState("");
+    const [couponresult, setCouponresult] = useState([]);
 
+    const onClick = (e) => {
+        e.preventDefault();
+        setVisible(!visible);
+    }
     const [result, setResult] = useState([]);
     function saveData() {
         let data = { firstname, lastname, company, country, street1, street2, city, state, pincode, phone, email, prop_street1, prop_street2, prop_city, prop_state, prop_zipcode, order_notes, subtotal, total, pay_method, status }
@@ -63,6 +70,26 @@ const CheckOut = ({ value }) => {
     let orderid = (result.order_id)
     let res = (result.result)
 
+    function CouponData(e) {
+        e.preventDefault();
+        let data = { coupon_code }
+        fetch("https://replatform.acclaimedhw.com/replatform/api/check_coupon", {
+            method: "POST",
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(data)
+        })
+            .then((resp) => {
+                resp.json().then((couponresult) => {
+                    console.warn("couponresult", couponresult)
+                    setCouponresult(couponresult);
+                })
+            })
+    }
+    let couponMsg = (couponresult.message)
+
     function interval() {
         if (val == 1 || val == null) {
             return 'yearly'
@@ -73,36 +100,76 @@ const CheckOut = ({ value }) => {
     }
     let intervaltype = interval()
     let order_id = orderid
-    const [product_id, setProductid] = useState("2")
-    const [product_name, setProductname] = useState("product name")
-    const [prod_type, setProdtype] = useState("simple")
-    const [pay_interval_type, setpayIntervalType] = useState(intervaltype)
-    const [quantity, setQuantity] = useState("1")
+    const mainPro = localdata.map(item => {
+        let orderid = "order_id"
+        let product_id = "product_id"
+        let product_name = "product_name"
+        let prod_type = "prod_type"
+        let pay_interval_type = "pay_interval_type"
+        let quantity = "quantity"
+        const container = {};
+        container[orderid] = order_id
+        container[product_id] = item.id
+        container[product_name] = item.name
+        container[prod_type] = "simple"
+        container[pay_interval_type] = intervaltype
+        container[quantity] = 1
+        return container;
+    })
+    const CovList = covrage.filter(person =>
+        person.quantity > 0).map(item => {
+            let orderid = "order_id"
+            let product_id = "product_id"
+            let product_name = "product_name"
+            let prod_type = "prod_type"
+            let pay_interval_type = "pay_interval_type"
+            let quantity = "quantity"
+            const container = {};
+            container[orderid] = order_id
+            container[product_id] = item.id
+            container[product_name] = item.name
+            container[prod_type] = "addon"
+            container[pay_interval_type] = intervaltype
+            container[quantity] = item.quantity
+            return container;
+        })
     const [productlist, setProductlist] = useState([]);
-    function saveProduct (e) {
-        setProductid(e.target.id);
-        setProductname(e.target.getAttribute("productname"));
-        setProdtype(e.target.getAttribute("producttype"));
-        setQuantity(e.target.getAttribute("quantity"));
-        let data = { order_id, product_id, product_name, prod_type, pay_interval_type, quantity }
+    //console.log(CovList)
+    //console.log(mainPro[0])
+
+    CovList.push(mainPro[0]);
+    console.log(CovList)
+
+    function saveProduct() {
         fetch("https://replatform.acclaimedhw.com/replatform/api/add_orderitems", {
             method: "POST",
             headers: {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify(data)
+            // body: JSON.stringify({order_id:5,product_id:1,product_name:"test999",prod_type:"simple",pay_interval_type:"monthly",quantity:5})
+            body: JSON.stringify(CovList)
         })
             .then((resp) => {
                 resp.json().then((productlist) => {
-                    console.warn("productlist", productlist)
+                    //  console.warn("productlist", productlist)
                     // const resultMsg = (result.message)
                     setProductlist(productlist);
+                    console.log(productlist)
                 })
             })
     }
 
-    
+    // if (res == false) {
+    //     console.log("Thank you StackOverflow, you're a very big gift for all programmers!");
+    //     saveProduct();
+       
+    //    } else {
+    //      console.log("not")
+    //    }
+
+
+   
     const Cove = () => (
         <>
             {covrage.map((pro, index) => (
@@ -115,7 +182,7 @@ const CheckOut = ({ value }) => {
     )
     const PaymentOption = e => {
         setPayment(e.target.value);
-    }   
+    }
 
     function subtotalfun() {
         if (totalMonthly && val === 2) {
@@ -154,6 +221,7 @@ const CheckOut = ({ value }) => {
     const [subtotal, SetSubtotal] = useState(v1);
     const [total, SetTotal] = useState(v1);
 
+    //console.log(CovList)
     return (
         <>
             <Helmet>
@@ -167,7 +235,6 @@ const CheckOut = ({ value }) => {
                 <div className="container">
                     <div className="checkout_ttl">
                         <h1>Checkout</h1>
-
                     </div>
                 </div>
                 <section className="inner">
@@ -176,18 +243,21 @@ const CheckOut = ({ value }) => {
                         <div className="woocommerce-form-coupon-toggle">
                             <div className="woocommerce-info">
                                 <FaRegWindowMaximize className="windowmaximize" />Have a coupon?
-                                 <a className="showcoupon" href="#">Click here to enter your code</a>
+                                 <a className="showcoupon" onClick={onClick}>Click here to enter your code</a>
                             </div>
+                            <p className="error-msg">{couponMsg}</p>
+                            {visible ?
+                                <form className="checkout_coupon woocommerce-form-coupon">
+                                    <p>If you have a coupon code, please apply it below.</p>
+                                    <p className="form-row form-row-first">
+                                        <input type="text" className="input-text" placeholder="Coupon code"
+                                         name="coupon_code" value={coupon_code} onChange={(e) =>{setCoupon_code(e.target.value)}}/>
+                                    </p>
+                                    <p className="form-row form-row-last">
+                                        <button type="submit" className="button" value="Apply coupon" onClick={CouponData}>Apply coupon</button>
+                                    </p>
+                                </form> : null}
                         </div>
-                        <form className="checkout_coupon woocommerce-form-coupon">
-                            <p>If you have a coupon code, please apply it below.</p>
-                            <p className="form-row form-row-first">
-                                <input type="text" className="input-text" placeholder="Coupon code"></input>
-                            </p>
-                            <p className="form-row form-row-last">
-                                <button type="submit" className="button" value="Apply coupon">Apply coupon</button>
-                            </p>
-                        </form>
                         <p>{resultMsg}</p>
                         <form className="checkout woocommerce-checkout">
                             <div className="col2-set">
@@ -410,13 +480,9 @@ const CheckOut = ({ value }) => {
                                     <p>Your personal data will be used to process your order, support your experience throughout this website, and for other purposes described in our </p>
                                 </div>
                                 <button type="submit" onClick={saveData} className="button alt" value="Place order">Place order</button>
-                                {localdata.map((item, index) => (
-                                    <p key={index}>
-                                        {/* {res == true ? <input  value="productt" type="submit" onClick={saveProduct} className="button" productname={item.name} producttype="simple" quantity="1" id={item.id}/> : null}   */}
-                                        <button onClick={saveProduct} className="button" productname={item.name} id={item.id}>hey</button>
-                                    </p>
-                                ))}
+                                <div>
 
+                                </div>
                             </div>
                         </div>
 
