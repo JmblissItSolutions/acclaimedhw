@@ -1,0 +1,4123 @@
+{
+  "ArizonaproList": [
+    {
+      "id": 1,
+      "name": "Standard",
+      "price": "$35.00",
+      "yearly": "$450",
+      "unitsize": "Single Family"
+    },
+    {
+      "id": 2,
+      "name": "Premium",
+      "price": "$40.00",
+      "yearly": "$550",
+      "unitsize": "Single Family"
+    },
+    {
+      "id": 3,
+      "name": "Ultimate",
+      "price": "$54.00",
+      "yearly": "$650",
+      "unitsize": "Single Family"
+    },
+    {
+      "id": 4,
+      "name": "Standard",
+      "yearly": "$795",
+      "unitsize": "Duplex"
+    },
+    {
+      "id": 5,
+      "name": "Ultimate",
+      "yearly": "$995",
+      "unitsize": "Triplex"
+    },
+    {
+      "id": 6,
+      "name": "Ultimate",
+      "yearly": "$1195",
+      "unitsize": "Fourplex"
+    }
+  ],
+  "IdahoproList": [
+    {
+      "id": 1,
+      "name": "Standard",
+      "unitsize": "Single Family",
+      "price": "$35.00",
+      "yearly": "$400",
+      "yearlyvariations": [
+        {
+          "id": 0,
+          "title": "Swimming Pool/Spa Equipment",
+          "price": "$175"
+        },
+        {
+          "id": 1,
+          "title": "Roof Leak Repairs",
+          "price": "$100"
+        },
+        {
+          "id": 3,
+          "title": "Grinder Pump",
+          "price": "$155"
+        },
+        {
+          "id": 4,
+          "title": "Discounted Pre-Paid Service Call Fee (ONE TIME FEE)",
+          "price": "$50"
+        },
+        {
+          "id": 5,
+          "title": "Additional Refrigeration/Freezer",
+          "price": "$40"
+        },
+        {
+          "id": 6,
+          "title": "3rd Year Coverage",
+          "price": "$400"
+        },
+        {
+          "id": 7,
+          "title": "Septic System/Pumping",
+          "price": "$100"
+        },
+        {
+          "id": 8,
+          "title": "No Fault Coverage",
+          "price": "$60"
+        },
+        {
+          "id": 9,
+          "title": "Furnace (Additional Coverage)",
+          "price": "$85"
+        },
+        {
+          "id": 10,
+          "title": "Casita",
+          "price": "$150"
+        },
+        {
+          "id": 11,
+          "title": "Water Softener",
+          "price": "$50"
+        },
+        {
+          "id": 12,
+          "title": "2nd Year Coverage",
+          "price": "$200"
+        },
+        {
+          "id": 13,
+          "title": "Salt Water Swimming Pool",
+          "price": "$350"
+        },
+        {
+          "id": 14,
+          "title": "Kitchen Refrigerator (inc in Premium & Ultimate plans)",
+          "price": "$50"
+        },
+        {
+          "id": 15,
+          "title": "Enhanced External Pipe Coverage",
+          "price": "$100"
+        },
+        {
+          "id": 16,
+          "title": "Air Conditioning (additional unit)",
+          "price": "$85"
+        },
+        {
+          "id": 17,
+          "title": "Additional Washer Dryer (1 set incl in Ultimate Plans)",
+          "price": "$85"
+        },
+        {
+          "id": 18,
+          "title": "Premium Coverage Upgrade",
+          "price": "$75"
+        }
+      ],
+      "monthlyvariations": [
+        {
+          "id": 0,
+          "title": "Swimming Pool/Spa Equipment",
+          "price": "$14.58"
+        },
+        {
+          "id": 1,
+          "title": "Roof Leak Repairs",
+          "price": "$8.33"
+        },
+        {
+          "id": 3,
+          "title": "Grinder Pump",
+          "price": "$12.91"
+        },
+        {
+          "id": 4,
+          "title": "Discounted Pre-Paid Service Call Fee (ONE TIME FEE)",
+          "price": "$50"
+        },
+        {
+          "id": 5,
+          "title": "Additional Refrigeration/Freezer",
+          "price": "$3.33"
+        },
+        {
+          "id": 6,
+          "title": "Premium Coverage Upgrade",
+          "price": "$6.25"
+        },
+        {
+          "id": 7,
+          "title": "Septic System/Pumping",
+          "price": "$8.33"
+        },
+        {
+          "id": 8,
+          "title": "No Fault Coverage",
+          "price": "$5"
+        },
+        {
+          "id": 9,
+          "title": "Furnace (Additional Coverage)",
+          "price": "$7.08"
+        },
+        {
+          "id": 10,
+          "title": "Casita",
+          "price": "$12.5"
+        },
+        {
+          "id": 11,
+          "title": "Water Softener",
+          "price": "$4.16"
+        },
+        {
+          "id": 12,
+          "title": "Salt Water Swimming Pool",
+          "price": "$29.16"
+        },
+        {
+          "id": 13,
+          "title": "Kitchen Refrigerator (inc in Premium & Ultimate plans)",
+          "price": "$4.16"
+        },
+        {
+          "id": 14,
+          "title": "Enhanced External Pipe Coverage",
+          "price": "$8.33"
+        },
+        {
+          "id": 15,
+          "title": "Air Conditioning (additional unit)",
+          "price": "$7.08"
+        },
+        {
+          "id": 16,
+          "title": "Additional Washer Dryer (1 set incl in Ultimate Plans)",
+          "price": "$7.08"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Premium",
+      "unitsize": "Single Family",
+      "price": "$45.00",
+      "yearly": "$475",
+      "yearlyvariations": [
+        {
+          "id": 0,
+          "title": "Swimming Pool/Spa Equipment",
+          "price": "$175"
+        },
+        {
+          "id": 1,
+          "title": "Roof Leak Repairs",
+          "price": "$100"
+        },
+        {
+          "id": 3,
+          "title": "Grinder Pump",
+          "price": "$155"
+        },
+        {
+          "id": 4,
+          "title": "Discounted Pre-Paid Service Call Fee (ONE TIME FEE)",
+          "price": "$50"
+        },
+        {
+          "id": 5,
+          "title": "Additional Refrigeration/Freezer",
+          "price": "$40"
+        },
+        {
+          "id": 6,
+          "title": "3rd Year Coverage",
+          "price": "$475"
+        },
+        {
+          "id": 7,
+          "title": "Septic System/Pumping",
+          "price": "$100"
+        },
+        {
+          "id": 8,
+          "title": "No Fault Coverage",
+          "price": "$60"
+        },
+        {
+          "id": 9,
+          "title": "Furnace (Additional Coverage)",
+          "price": "$85"
+        },
+        {
+          "id": 10,
+          "title": "Casita",
+          "price": "$150"
+        },
+        {
+          "id": 11,
+          "title": "Water Softener",
+          "price": "$50"
+        },
+        {
+          "id": 12,
+          "title": "2nd Year Coverage",
+          "price": "$475"
+        },
+        {
+          "id": 13,
+          "title": "Salt Water Swimming Pool",
+          "price": "$350"
+        },
+        {
+          "id": 14,
+          "title": "Kitchen Refrigerator (inc in Premium & Ultimate plans)",
+          "price": "$50"
+        },
+        {
+          "id": 15,
+          "title": "Enhanced External Pipe Coverage",
+          "price": "$100"
+        },
+        {
+          "id": 16,
+          "title": "Air Conditioning (additional unit)",
+          "price": "$85"
+        },
+        {
+          "id": 17,
+          "title": "Additional Washer Dryer (1 set incl in Ultimate Plans)",
+          "price": "$85"
+        },
+        {
+          "id": 18,
+          "title": "Premium Coverage Upgrade",
+          "price": "$75"
+        }
+      ],
+      "monthlyvariations": [
+        {
+          "id": 0,
+          "title": "Swimming Pool/Spa Equipment",
+          "price": "$14.58"
+        },
+        {
+          "id": 1,
+          "title": "Roof Leak Repairs",
+          "price": "$8.33"
+        },
+        {
+          "id": 3,
+          "title": "Grinder Pump",
+          "price": "$12.91"
+        },
+        {
+          "id": 4,
+          "title": "Discounted Pre-Paid Service Call Fee (ONE TIME FEE)",
+          "price": "$50"
+        },
+        {
+          "id": 5,
+          "title": "Additional Refrigeration/Freezer",
+          "price": "$3.33"
+        },
+        {
+          "id": 6,
+          "title": "Premium Coverage Upgrade",
+          "price": "$6.25"
+        },
+        {
+          "id": 7,
+          "title": "Septic System/Pumping",
+          "price": "$8.33"
+        },
+        {
+          "id": 8,
+          "title": "No Fault Coverage",
+          "price": "$5"
+        },
+        {
+          "id": 9,
+          "title": "Furnace (Additional Coverage)",
+          "price": "$7.08"
+        },
+        {
+          "id": 10,
+          "title": "Casita",
+          "price": "$12.5"
+        },
+        {
+          "id": 11,
+          "title": "Water Softener",
+          "price": "$4.16"
+        },
+        {
+          "id": 12,
+          "title": "Salt Water Swimming Pool",
+          "price": "$29.16"
+        },
+        {
+          "id": 13,
+          "title": "Kitchen Refrigerator (inc in Premium & Ultimate plans)",
+          "price": "$4.16"
+        },
+        {
+          "id": 14,
+          "title": "Enhanced External Pipe Coverage",
+          "price": "$8.33"
+        },
+        {
+          "id": 15,
+          "title": "Air Conditioning (additional unit)",
+          "price": "$7.08"
+        },
+        {
+          "id": 16,
+          "title": "Additional Washer Dryer (1 set incl in Ultimate Plans)",
+          "price": "$7.08"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "name": "Premium+",
+      "price": "$50.00",
+      "yearly": "$500",
+      "unitsize": "Single Family",
+      "yearlyvariations": [
+        {
+          "id": 0,
+          "title": "Swimming Pool/Spa Equipment",
+          "price": "$175"
+        },
+        {
+          "id": 1,
+          "title": "Roof Leak Repairs",
+          "price": "$100"
+        },
+        {
+          "id": 3,
+          "title": "Grinder Pump",
+          "price": "$155"
+        },
+        {
+          "id": 4,
+          "title": "Discounted Pre-Paid Service Call Fee (ONE TIME FEE)",
+          "price": "$50"
+        },
+        {
+          "id": 5,
+          "title": "Additional Refrigeration/Freezer",
+          "price": "$40"
+        },
+        {
+          "id": 6,
+          "title": "3rd Year Coverage",
+          "price": "$500"
+        },
+        {
+          "id": 7,
+          "title": "Septic System/Pumping",
+          "price": "$100"
+        },
+        {
+          "id": 8,
+          "title": "No Fault Coverage",
+          "price": "$60"
+        },
+        {
+          "id": 9,
+          "title": "Furnace (Additional Coverage)",
+          "price": "$85"
+        },
+        {
+          "id": 10,
+          "title": "Casita",
+          "price": "$150"
+        },
+        {
+          "id": 11,
+          "title": "Water Softener",
+          "price": "$50"
+        },
+        {
+          "id": 12,
+          "title": "2nd Year Coverage",
+          "price": "$500"
+        },
+        {
+          "id": 13,
+          "title": "Salt Water Swimming Pool",
+          "price": "$350"
+        },
+        {
+          "id": 14,
+          "title": "Kitchen Refrigerator (inc in Premium & Ultimate plans)",
+          "price": "$50"
+        },
+        {
+          "id": 15,
+          "title": "Enhanced External Pipe Coverage",
+          "price": "$100"
+        },
+        {
+          "id": 16,
+          "title": "Air Conditioning (additional unit)",
+          "price": "$85"
+        },
+        {
+          "id": 17,
+          "title": "Additional Washer Dryer (1 set incl in Ultimate Plans)",
+          "price": "$85"
+        },
+        {
+          "id": 18,
+          "title": "Premium Coverage Upgrade",
+          "price": "$75"
+        }
+      ],
+      "monthlyvariations": [
+        {
+          "id": 0,
+          "title": "Swimming Pool/Spa Equipment",
+          "price": "$14.58"
+        },
+        {
+          "id": 1,
+          "title": "Roof Leak Repairs",
+          "price": "$8.33"
+        },
+        {
+          "id": 3,
+          "title": "Grinder Pump",
+          "price": "$12.91"
+        },
+        {
+          "id": 4,
+          "title": "Discounted Pre-Paid Service Call Fee (ONE TIME FEE)",
+          "price": "$50"
+        },
+        {
+          "id": 5,
+          "title": "Additional Refrigeration/Freezer",
+          "price": "$3.33"
+        },
+        {
+          "id": 6,
+          "title": "Premium Coverage Upgrade",
+          "price": "$6.25"
+        },
+        {
+          "id": 7,
+          "title": "Septic System/Pumping",
+          "price": "$8.33"
+        },
+        {
+          "id": 8,
+          "title": "No Fault Coverage",
+          "price": "$5"
+        },
+        {
+          "id": 9,
+          "title": "Furnace (Additional Coverage)",
+          "price": "$7.08"
+        },
+        {
+          "id": 10,
+          "title": "Casita",
+          "price": "$12.5"
+        },
+        {
+          "id": 11,
+          "title": "Water Softener",
+          "price": "$4.16"
+        },
+        {
+          "id": 12,
+          "title": "Salt Water Swimming Pool",
+          "price": "$29.16"
+        },
+        {
+          "id": 13,
+          "title": "Kitchen Refrigerator (inc in Premium & Ultimate plans)",
+          "price": "$4.16"
+        },
+        {
+          "id": 14,
+          "title": "Enhanced External Pipe Coverage",
+          "price": "$8.33"
+        },
+        {
+          "id": 15,
+          "title": "Air Conditioning (additional unit)",
+          "price": "$7.08"
+        },
+        {
+          "id": 16,
+          "title": "Additional Washer Dryer (1 set incl in Ultimate Plans)",
+          "price": "$7.08"
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "name": "Premium+one",
+      "price": "$53.50",
+      "yearly": "$550",
+      "unitsize": "Single Family",
+      "yearlyvariations": [
+        {
+          "id": 0,
+          "title": "Swimming Pool/Spa Equipment",
+          "price": "$175"
+        },
+        {
+          "id": 1,
+          "title": "Roof Leak Repairs",
+          "price": "$100"
+        },
+        {
+          "id": 3,
+          "title": "Grinder Pump",
+          "price": "$155"
+        },
+        {
+          "id": 4,
+          "title": "Discounted Pre-Paid Service Call Fee (ONE TIME FEE)",
+          "price": "$50"
+        },
+        {
+          "id": 5,
+          "title": "Additional Refrigeration/Freezer",
+          "price": "$40"
+        },
+        {
+          "id": 6,
+          "title": "3rd Year Coverage",
+          "price": "$500"
+        },
+        {
+          "id": 7,
+          "title": "Septic System/Pumping",
+          "price": "$100"
+        },
+        {
+          "id": 8,
+          "title": "No Fault Coverage",
+          "price": "$60"
+        },
+        {
+          "id": 9,
+          "title": "Furnace (Additional Coverage)",
+          "price": "$85"
+        },
+        {
+          "id": 10,
+          "title": "Casita",
+          "price": "$150"
+        },
+        {
+          "id": 11,
+          "title": "Water Softener",
+          "price": "$50"
+        },
+        {
+          "id": 12,
+          "title": "2nd Year Coverage",
+          "price": "$500"
+        },
+        {
+          "id": 13,
+          "title": "Salt Water Swimming Pool",
+          "price": "$350"
+        },
+        {
+          "id": 14,
+          "title": "Kitchen Refrigerator (inc in Premium & Ultimate plans)",
+          "price": "$50"
+        },
+        {
+          "id": 15,
+          "title": "Enhanced External Pipe Coverage",
+          "price": "$100"
+        },
+        {
+          "id": 16,
+          "title": "Air Conditioning (additional unit)",
+          "price": "$85"
+        },
+        {
+          "id": 17,
+          "title": "Additional Washer Dryer (1 set incl in Ultimate Plans)",
+          "price": "$85"
+        },
+        {
+          "id": 18,
+          "title": "Premium Coverage Upgrade",
+          "price": "$75"
+        }
+      ],
+      "monthlyvariations": [
+        {
+          "id": 0,
+          "title": "Swimming Pool/Spa Equipment",
+          "price": "$14.58"
+        },
+        {
+          "id": 1,
+          "title": "Roof Leak Repairs",
+          "price": "$8.33"
+        },
+        {
+          "id": 3,
+          "title": "Grinder Pump",
+          "price": "$12.91"
+        },
+        {
+          "id": 4,
+          "title": "Discounted Pre-Paid Service Call Fee (ONE TIME FEE)",
+          "price": "$50"
+        },
+        {
+          "id": 5,
+          "title": "Additional Refrigeration/Freezer",
+          "price": "$3.33"
+        },
+        {
+          "id": 6,
+          "title": "Premium Coverage Upgrade",
+          "price": "$6.25"
+        },
+        {
+          "id": 7,
+          "title": "Septic System/Pumping",
+          "price": "$8.33"
+        },
+        {
+          "id": 8,
+          "title": "No Fault Coverage",
+          "price": "$5"
+        },
+        {
+          "id": 9,
+          "title": "Furnace (Additional Coverage)",
+          "price": "$7.08"
+        },
+        {
+          "id": 10,
+          "title": "Casita",
+          "price": "$12.5"
+        },
+        {
+          "id": 11,
+          "title": "Water Softener",
+          "price": "$4.16"
+        },
+        {
+          "id": 12,
+          "title": "Salt Water Swimming Pool",
+          "price": "$29.16"
+        },
+        {
+          "id": 13,
+          "title": "Kitchen Refrigerator (inc in Premium & Ultimate plans)",
+          "price": "$4.16"
+        },
+        {
+          "id": 14,
+          "title": "Enhanced External Pipe Coverage",
+          "price": "$8.33"
+        },
+        {
+          "id": 15,
+          "title": "Air Conditioning (additional unit)",
+          "price": "$7.08"
+        },
+        {
+          "id": 16,
+          "title": "Additional Washer Dryer (1 set incl in Ultimate Plans)",
+          "price": "$7.08"
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "name": "Ultimate",
+      "price": "$55.00",
+      "yearly": "$600",
+      "unitsize": "Single Family",
+      "yearlyvariations": [
+        {
+          "id": 0,
+          "title": "Swimming Pool/Spa Equipment",
+          "price": "$175"
+        },
+        {
+          "id": 1,
+          "title": "Roof Leak Repairs",
+          "price": "$100"
+        },
+        {
+          "id": 3,
+          "title": "Grinder Pump",
+          "price": "$155"
+        },
+        {
+          "id": 4,
+          "title": "Discounted Pre-Paid Service Call Fee (ONE TIME FEE)",
+          "price": "$50"
+        },
+        {
+          "id": 5,
+          "title": "Additional Refrigeration/Freezer",
+          "price": "$40"
+        },
+        {
+          "id": 6,
+          "title": "3rd Year Coverage",
+          "price": "$600"
+        },
+        {
+          "id": 7,
+          "title": "Septic System/Pumping",
+          "price": "$100"
+        },
+        {
+          "id": 8,
+          "title": "No Fault Coverage",
+          "price": "$60"
+        },
+        {
+          "id": 9,
+          "title": "Furnace (Additional Coverage)",
+          "price": "$85"
+        },
+        {
+          "id": 10,
+          "title": "Casita",
+          "price": "$150"
+        },
+        {
+          "id": 11,
+          "title": "Water Softener",
+          "price": "$50"
+        },
+        {
+          "id": 12,
+          "title": "2nd Year Coverage",
+          "price": "$600"
+        },
+        {
+          "id": 13,
+          "title": "Salt Water Swimming Pool",
+          "price": "$350"
+        },
+        {
+          "id": 14,
+          "title": "Kitchen Refrigerator (inc in Premium & Ultimate plans)",
+          "price": "$50"
+        },
+        {
+          "id": 15,
+          "title": "Enhanced External Pipe Coverage",
+          "price": "$100"
+        },
+        {
+          "id": 16,
+          "title": "Air Conditioning (additional unit)",
+          "price": "$85"
+        },
+        {
+          "id": 17,
+          "title": "Additional Washer Dryer (1 set incl in Ultimate Plans)",
+          "price": "$85"
+        },
+        {
+          "id": 18,
+          "title": "Premium Coverage Upgrade",
+          "price": "$75"
+        }
+      ],
+      "monthlyvariations": [
+        {
+          "id": 0,
+          "title": "Swimming Pool/Spa Equipment",
+          "price": "$14.58"
+        },
+        {
+          "id": 1,
+          "title": "Roof Leak Repairs",
+          "price": "$8.33"
+        },
+        {
+          "id": 3,
+          "title": "Grinder Pump",
+          "price": "$12.91"
+        },
+        {
+          "id": 4,
+          "title": "Discounted Pre-Paid Service Call Fee (ONE TIME FEE)",
+          "price": "$50"
+        },
+        {
+          "id": 5,
+          "title": "Additional Refrigeration/Freezer",
+          "price": "$3.33"
+        },
+        {
+          "id": 6,
+          "title": "Premium Coverage Upgrade",
+          "price": "$6.25"
+        },
+        {
+          "id": 7,
+          "title": "Septic System/Pumping",
+          "price": "$8.33"
+        },
+        {
+          "id": 8,
+          "title": "No Fault Coverage",
+          "price": "$5"
+        },
+        {
+          "id": 9,
+          "title": "Furnace (Additional Coverage)",
+          "price": "$7.08"
+        },
+        {
+          "id": 10,
+          "title": "Casita",
+          "price": "$12.5"
+        },
+        {
+          "id": 11,
+          "title": "Water Softener",
+          "price": "$4.16"
+        },
+        {
+          "id": 12,
+          "title": "Salt Water Swimming Pool",
+          "price": "$29.16"
+        },
+        {
+          "id": 13,
+          "title": "Kitchen Refrigerator (inc in Premium & Ultimate plans)",
+          "price": "$4.16"
+        },
+        {
+          "id": 14,
+          "title": "Enhanced External Pipe Coverage",
+          "price": "$8.33"
+        },
+        {
+          "id": 15,
+          "title": "Air Conditioning (additional unit)",
+          "price": "$7.08"
+        },
+        {
+          "id": 16,
+          "title": "Additional Washer Dryer (1 set incl in Ultimate Plans)",
+          "price": "$7.08"
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "name": "Standard",
+      "yearly": "$695",
+      "unitsize": "Duplex",
+      "yearlyvariations": [
+        {
+          "id": 0,
+          "title": "Kitchen Refrigerator (included)",
+          "price": "$0"
+        },
+        {
+          "id": 1,
+          "title": "Salt Water Swimming Pool",
+          "price": "$700"
+        },
+        {
+          "id": 3,
+          "title": "Furnace (Additional Coverage)",
+          "price": "$170"
+        },
+        {
+          "id": 4,
+          "title": "Casita",
+          "price": "$300"
+        },
+        {
+          "id": 5,
+          "title": "Water Softener",
+          "price": "$100"
+        },
+        {
+          "id": 6,
+          "title": "Swimming Pool/Spa Equipment",
+          "price": "$350"
+        },
+        {
+          "id": 7,
+          "title": "Roof Leak Repairs",
+          "price": "$200"
+        },
+        {
+          "id": 8,
+          "title": "Enhanced External Pipe Coverage",
+          "price": "$200"
+        },
+        {
+          "id": 9,
+          "title": "Air Conditioning (additional unit)",
+          "price": "$170"
+        },
+        {
+          "id": 10,
+          "title": "Additional Washer Dryer (1 set incl in Ultimate Plans)",
+          "price": "$170"
+        },
+        {
+          "id": 11,
+          "title": "Septic System/Pumping",
+          "price": "$200"
+        },
+        {
+          "id": 12,
+          "title": "Grinder Pump",
+          "price": "$310"
+        },
+        {
+          "id": 13,
+          "title": "Discounted Pre-Paid Service Call Fee (ONE TIME FEE)",
+          "price": "$50"
+        },
+        {
+          "id": 14,
+          "title": "Additional Refrigeration/Freezer",
+          "price": "$80"
+        },
+        {
+          "id": 15,
+          "title": "Premium Coverage Upgrade",
+          "price": "$150"
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "name": "Standard",
+      "yearly": "$895",
+      "unitsize": "Triplex",
+      "yearlyvariations": [
+        {
+          "id": 0,
+          "title": "Kitchen Refrigerator (included)",
+          "price": "$0"
+        },
+        {
+          "id": 1,
+          "title": "Salt Water Swimming Pool",
+          "price": "$1050"
+        },
+        {
+          "id": 3,
+          "title": "Furnace (Additional Coverage)",
+          "price": "$255"
+        },
+        {
+          "id": 4,
+          "title": "Casita",
+          "price": "$450"
+        },
+        {
+          "id": 5,
+          "title": "Water Softener",
+          "price": "$150"
+        },
+        {
+          "id": 6,
+          "title": "Swimming Pool/Spa Equipment",
+          "price": "$525"
+        },
+        {
+          "id": 7,
+          "title": "Roof Leak Repairs",
+          "price": "$300"
+        },
+        {
+          "id": 8,
+          "title": "Enhanced External Pipe Coverage",
+          "price": "$300"
+        },
+        {
+          "id": 9,
+          "title": "Air Conditioning (additional unit)",
+          "price": "$255"
+        },
+        {
+          "id": 10,
+          "title": "Additional Washer Dryer (1 set incl in Ultimate Plans)",
+          "price": "$255"
+        },
+        {
+          "id": 11,
+          "title": "Septic System/Pumping",
+          "price": "$300"
+        },
+        {
+          "id": 12,
+          "title": "Grinder Pump",
+          "price": "$465"
+        },
+        {
+          "id": 13,
+          "title": "Discounted Pre-Paid Service Call Fee (ONE TIME FEE)",
+          "price": "$50"
+        },
+        {
+          "id": 14,
+          "title": "Additional Refrigeration/Freezer",
+          "price": "$120"
+        },
+        {
+          "id": 15,
+          "title": "Premium Coverage Upgrade",
+          "price": "$225"
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "name": "Standard",
+      "yearly": "$1095",
+      "unitsize": "Fourplex",
+      "yearlyvariations": [
+        {
+          "id": 0,
+          "title": "Kitchen Refrigerator (included)",
+          "price": "$0"
+        },
+        {
+          "id": 1,
+          "title": "Salt Water Swimming Pool",
+          "price": "$1400"
+        },
+        {
+          "id": 3,
+          "title": "Furnace (Additional Coverage)",
+          "price": "$340"
+        },
+        {
+          "id": 4,
+          "title": "Casita",
+          "price": "$600"
+        },
+        {
+          "id": 5,
+          "title": "Water Softener",
+          "price": "$200"
+        },
+        {
+          "id": 6,
+          "title": "Swimming Pool/Spa Equipment",
+          "price": "$700"
+        },
+        {
+          "id": 7,
+          "title": "Roof Leak Repairs",
+          "price": "$400"
+        },
+        {
+          "id": 8,
+          "title": "Enhanced External Pipe Coverage",
+          "price": "$400"
+        },
+        {
+          "id": 9,
+          "title": "Air Conditioning (additional unit)",
+          "price": "$340"
+        },
+        {
+          "id": 10,
+          "title": "Additional Washer Dryer (1 set incl in Ultimate Plans)",
+          "price": "$340"
+        },
+        {
+          "id": 11,
+          "title": "Septic System/Pumping",
+          "price": "$400"
+        },
+        {
+          "id": 12,
+          "title": "Grinder Pump",
+          "price": "$620"
+        },
+        {
+          "id": 13,
+          "title": "Discounted Pre-Paid Service Call Fee (ONE TIME FEE)",
+          "price": "$50"
+        },
+        {
+          "id": 14,
+          "title": "Additional Refrigeration/Freezer",
+          "price": "$160"
+        },
+        {
+          "id": 15,
+          "title": "Premium Coverage Upgrade",
+          "price": "$300"
+        }
+      ]
+    }
+  ],
+  "NevadaproList": [
+    {
+      "id": 1,
+      "name": "Standard",
+      "price": "$45.00",
+      "yearly": "$475",
+      "unitsize": "Single Family",
+      "yearlyvariations": [
+        {
+          "id": 0,
+          "title": "Swimming Pool/Spa Equipment",
+          "price": "$175"
+        },
+        {
+          "id": 1,
+          "title": "Salt Water Swimming Pool",
+          "price": "$275"
+        },
+        {
+          "id": 3,
+          "title": "Kitchen Refrigerator (inc in Premium & Ultimate plans)",
+          "price": "$50"
+        },
+        {
+          "id": 4,
+          "title": "Enhanced External Pipe Coverage",
+          "price": "$100"
+        },
+        {
+          "id": 5,
+          "title": "Air Conditioning (additional unit)",
+          "price": "$85"
+        },
+        {
+          "id": 6,
+          "title": "3rd Year Coverage",
+          "price": "$475"
+        },
+        {
+          "id": 7,
+          "title": "Water Heater (additional unit)",
+          "price": "$50"
+        },
+        {
+          "id": 8,
+          "title": "Roof Leak Repairs",
+          "price": "$100"
+        },
+        {
+          "id": 9,
+          "title": "Grinder Pump",
+          "price": "$155"
+        },
+        {
+          "id": 10,
+          "title": "Discounted Pre-Paid Service Call Fee (ONE TIME FEE)",
+          "price": "$60"
+        },
+        {
+          "id": 11,
+          "title": "Additional Refrigeration/Freezer",
+          "price": "$40"
+        },
+        {
+          "id": 12,
+          "title": "2nd Year Coverage",
+          "price": "$475"
+        },
+        {
+          "id": 13,
+          "title": "Septic System/Pumping",
+          "price": "$100"
+        },
+        {
+          "id": 14,
+          "title": "No Fault Coverage",
+          "price": "$60"
+        },
+        {
+          "id": 15,
+          "title": "Furnace (Additional Coverage)",
+          "price": "$85"
+        },
+        {
+          "id": 16,
+          "title": "Casita",
+          "price": "$150"
+        },
+        {
+          "id": 17,
+          "title": "Additional Washer Dryer (1 set incl in Ultimate Plans)",
+          "price": "$85"
+        },
+        {
+          "id": 18,
+          "title": "Premium Coverage Upgrade",
+          "price": "$75"
+        }
+      ],
+      "monthlyvariations": [
+        {
+          "id": 0,
+          "title": "Swimming Pool/Spa Equipment",
+          "price": "$14.58"
+        },
+        {
+          "id": 1,
+          "title": "Salt Water Swimming Pool",
+          "price": "$22.91"
+        },
+        {
+          "id": 3,
+          "title": "Kitchen Refrigerator (inc in Premium & Ultimate plans)",
+          "price": "$4.16"
+        },
+        {
+          "id": 4,
+          "title": "Enhanced External Pipe Coverage",
+          "price": "$8.33"
+        },
+        {
+          "id": 5,
+          "title": "Air Conditioning (additional unit)",
+          "price": "$7.08"
+        },
+        {
+          "id": 6,
+          "title": "Premium Coverage Upgrade",
+          "price": "$6.25"
+        },
+        {
+          "id": 7,
+          "title": "Water Heater (additional unit)",
+          "price": "$4.16"
+        },
+        {
+          "id": 8,
+          "title": "Roof Leak Repairs",
+          "price": "$8.33"
+        },
+        {
+          "id": 9,
+          "title": "Grinder Pump",
+          "price": "$12.91"
+        },
+        {
+          "id": 10,
+          "title": "Discounted Pre-Paid Service Call Fee (ONE TIME FEE)",
+          "price": "$60"
+        },
+        {
+          "id": 11,
+          "title": "Additional Refrigeration/Freezer",
+          "price": "$3.33"
+        },
+        {
+          "id": 12,
+          "title": "Septic System/Pumping",
+          "price": "$8.33"
+        },
+        {
+          "id": 13,
+          "title": "No Fault Coverage",
+          "price": "$5"
+        },
+        {
+          "id": 14,
+          "title": "Furnace (Additional Coverage)",
+          "price": "$7.08"
+        },
+        {
+          "id": 15,
+          "title": "Casita",
+          "price": "$12.5"
+        },
+        {
+          "id": 16,
+          "title": "Additional Washer Dryer (1 set incl in Ultimate Plans)",
+          "price": "$7.08"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Premium",
+      "price": "$50.00",
+      "yearly": "$550",
+      "unitsize": "Single Family",
+      "yearlyvariations": [
+        {
+          "id": 0,
+          "title": "No Fault Coverage (Included)",
+          "price": "$0"
+        },
+        {
+          "id": 1,
+          "title": "Septic System/Pumping",
+          "price": "$100"
+        },
+        {
+          "id": 3,
+          "title": "Kitchen Refrigerator (inc in Premium & Ultimate plans)",
+          "price": "$50"
+        },
+        {
+          "id": 4,
+          "title": "Enhanced External Pipe Coverage",
+          "price": "$100"
+        },
+        {
+          "id": 5,
+          "title": "Air Conditioning (additional unit)",
+          "price": "$85"
+        },
+        {
+          "id": 6,
+          "title": "3rd Year Coverage",
+          "price": "$550"
+        },
+        {
+          "id": 7,
+          "title": "Swimming Pool/Spa Equipment",
+          "price": "$175"
+        },
+        {
+          "id": 8,
+          "title": "Salt Water Swimming Pool",
+          "price": "$275"
+        },
+        {
+          "id": 9,
+          "title": "Grinder Pump",
+          "price": "$155"
+        },
+        {
+          "id": 10,
+          "title": "Discounted Pre-Paid Service Call Fee (ONE TIME FEE)",
+          "price": "$60"
+        },
+        {
+          "id": 11,
+          "title": "Additional Refrigeration/Freezer",
+          "price": "$40"
+        },
+        {
+          "id": 12,
+          "title": "2nd Year Coverage",
+          "price": "$550"
+        },
+        {
+          "id": 13,
+          "title": "Water Heater (additional unit)",
+          "price": "$50"
+        },
+        {
+          "id": 14,
+          "title": "Roof Leak Repairs",
+          "price": "$100"
+        },
+        {
+          "id": 15,
+          "title": "Furnace (Additional Coverage)",
+          "price": "$85"
+        },
+        {
+          "id": 16,
+          "title": "Casita",
+          "price": "$150"
+        },
+        {
+          "id": 17,
+          "title": "Additional Washer Dryer (1 set incl in Ultimate Plans)",
+          "price": "$85"
+        },
+        {
+          "id": 18,
+          "title": "Premium Coverage Upgrade",
+          "price": "$75"
+        }
+      ],
+      "monthlyvariations": [
+        {
+          "id": 0,
+          "title": "No Fault Coverage (Included)",
+          "price": "$0"
+        },
+        {
+          "id": 1,
+          "title": "Septic System/Pumping",
+          "price": "$8.33"
+        },
+        {
+          "id": 3,
+          "title": "Kitchen Refrigerator (inc in Premium & Ultimate plans)",
+          "price": "$4.16"
+        },
+        {
+          "id": 4,
+          "title": "Enhanced External Pipe Coverage",
+          "price": "$8.33"
+        },
+        {
+          "id": 5,
+          "title": "Air Conditioning (additional unit)",
+          "price": "$7.08"
+        },
+        {
+          "id": 6,
+          "title": "3rd Year Coverage",
+          "price": "$6.25"
+        },
+        {
+          "id": 7,
+          "title": "Swimming Pool/Spa Equipment",
+          "price": "$14.58"
+        },
+        {
+          "id": 8,
+          "title": "Salt Water Swimming Pool",
+          "price": "$22.91"
+        },
+        {
+          "id": 9,
+          "title": "Grinder Pump",
+          "price": "$12.91"
+        },
+        {
+          "id": 10,
+          "title": "Discounted Pre-Paid Service Call Fee (ONE TIME FEE)",
+          "price": "$60"
+        },
+        {
+          "id": 11,
+          "title": "Additional Refrigeration/Freezer",
+          "price": "$3.33"
+        },
+        {
+          "id": 12,
+          "title": "Water Heater (additional unit)",
+          "price": "$4.16"
+        },
+        {
+          "id": 13,
+          "title": "Roof Leak Repairs",
+          "price": "$8.33"
+        },
+        {
+          "id": 14,
+          "title": "Furnace (Additional Coverage)",
+          "price": "$7.08"
+        },
+        {
+          "id": 15,
+          "title": "Casita",
+          "price": "$12.5"
+        },
+        {
+          "id": 16,
+          "title": "Additional Washer Dryer (1 set incl in Ultimate Plans)",
+          "price": "$7.08"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "name": "Ultimate",
+      "price": "$60.00",
+      "yearly": "$635",
+      "unitsize": "Single Family",
+      "yearlyvariations": [
+        {
+          "id": 0,
+          "title": "No Fault Coverage (Included)",
+          "price": "$0"
+        },
+        {
+          "id": 1,
+          "title": "Water Heater (additional unit)",
+          "price": "$50"
+        },
+        {
+          "id": 3,
+          "title": "Roof Leak Repairs",
+          "price": "$100"
+        },
+        {
+          "id": 4,
+          "title": "Enhanced External Pipe Coverage",
+          "price": "$100"
+        },
+        {
+          "id": 5,
+          "title": "Air Conditioning (additional unit)",
+          "price": "$85"
+        },
+        {
+          "id": 6,
+          "title": "3rd Year Coverage",
+          "price": "$550"
+        },
+        {
+          "id": 7,
+          "title": "Kitchen Refrigerator (included)",
+          "price": "$0"
+        },
+        {
+          "id": 8,
+          "title": "Septic System/Pumping",
+          "price": "$100"
+        },
+        {
+          "id": 9,
+          "title": "Grinder Pump",
+          "price": "$155"
+        },
+        {
+          "id": 10,
+          "title": "Discounted Pre-Paid Service Call Fee (ONE TIME FEE)",
+          "price": "$60"
+        },
+        {
+          "id": 11,
+          "title": "Additional Refrigeration/Freezer",
+          "price": "$40"
+        },
+        {
+          "id": 12,
+          "title": "2nd Year Coverage",
+          "price": "$635"
+        },
+        {
+          "id": 13,
+          "title": "Swimming Pool/Spa Equipment",
+          "price": "$175"
+        },
+        {
+          "id": 14,
+          "title": "Salt Water Swimming Pool",
+          "price": "$275"
+        },
+        {
+          "id": 15,
+          "title": "Furnace (Additional Coverage)",
+          "price": "$85"
+        },
+        {
+          "id": 16,
+          "title": "Casita",
+          "price": "$150"
+        },
+        {
+          "id": 17,
+          "title": "Additional Washer Dryer (1 set incl in Ultimate Plans)",
+          "price": "$85"
+        },
+        {
+          "id": 18,
+          "title": "Premium Coverage Upgrade",
+          "price": "$75"
+        }
+      ],
+      "monthlyvariations": [
+        {
+          "id": 0,
+          "title": "No Fault Coverage (Included)",
+          "price": "$0"
+        },
+        {
+          "id": 1,
+          "title": "Water Heater (additional unit)",
+          "price": "$4.16"
+        },
+        {
+          "id": 3,
+          "title": "Roof Leak Repairs",
+          "price": "$8.33"
+        },
+        {
+          "id": 4,
+          "title": "Enhanced External Pipe Coverage",
+          "price": "$8.33"
+        },
+        {
+          "id": 5,
+          "title": "Air Conditioning (additional unit)",
+          "price": "$7.08"
+        },
+        {
+          "id": 6,
+          "title": "Premium Coverage Upgrade",
+          "price": "$6.25"
+        },
+        {
+          "id": 7,
+          "title": "Kitchen Refrigerator (included)",
+          "price": "$0"
+        },
+        {
+          "id": 8,
+          "title": "Septic System/Pumping",
+          "price": "$8.33"
+        },
+        {
+          "id": 9,
+          "title": "Grinder Pump",
+          "price": "$12.91"
+        },
+        {
+          "id": 10,
+          "title": "Discounted Pre-Paid Service Call Fee (ONE TIME FEE)",
+          "price": "$60"
+        },
+        {
+          "id": 11,
+          "title": "Additional Refrigeration/Freezer",
+          "price": "$3.33"
+        },
+        {
+          "id": 12,
+          "title": "Swimming Pool/Spa Equipment",
+          "price": "$14.58"
+        },
+        {
+          "id": 13,
+          "title": "Salt Water Swimming Pool",
+          "price": "$22.91"
+        },
+        {
+          "id": 14,
+          "title": "Furnace (Additional Coverage)",
+          "price": "$7.08"
+        },
+        {
+          "id": 15,
+          "title": "Casita",
+          "price": "$12.5"
+        },
+        {
+          "id": 16,
+          "title": "Additional Washer Dryer (1 set incl in Ultimate Plans)",
+          "price": "$7.08"
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "name": "Standard",
+      "yearly": "$795",
+      "unitsize": "Duplex",
+      "yearlyvariations": [
+        {
+          "id": 1,
+          "title": "Kitchen Refrigerator (included)",
+          "price": "$0"
+        },
+        {
+          "id": 2,
+          "title": "Septic System/Pumping",
+          "price": "$200"
+        },
+        {
+          "id": 3,
+          "title": "Grinder Pump",
+          "price": "$310"
+        },
+        {
+          "id": 4,
+          "title": "Discounted Pre-Paid Service Call Fee (ONE TIME FEE)",
+          "price": "$60"
+        },
+        {
+          "id": 5,
+          "title": "Additional Refrigeration/Freezer",
+          "price": "$80"
+        },
+        {
+          "id": 6,
+          "title": "Swimming Pool/Spa Equipment",
+          "price": "$350"
+        },
+        {
+          "id": 7,
+          "title": "Salt Water Swimming Pool",
+          "price": "$550"
+        },
+        {
+          "id": 8,
+          "title": "Furnace (Additional Coverage)",
+          "price": "$170"
+        },
+        {
+          "id": 9,
+          "title": "Casita",
+          "price": "$300"
+        },
+        {
+          "id": 10,
+          "title": "Additional Washer Dryer (1 set incl in Ultimate Plans)",
+          "price": "$170"
+        },
+        {
+          "id": 11,
+          "title": "Water Heater (additional unit)",
+          "price": "$100"
+        },
+        {
+          "id": 12,
+          "title": "Roof Leak Repairs",
+          "price": "$200"
+        },
+        {
+          "id": 13,
+          "title": "Enhanced External Pipe Coverage",
+          "price": "$200"
+        },
+        {
+          "id": 14,
+          "title": "Air Conditioning (additional unit)",
+          "price": "$170"
+        },
+        {
+          "id": 15,
+          "title": "Premium Coverage Upgrade",
+          "price": "$150"
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "name": "Standard",
+      "yearly": "$995",
+      "unitsize": "Triplex",
+      "yearlyvariations": [
+        {
+          "id": 1,
+          "title": "Kitchen Refrigerator (included)",
+          "price": "$0"
+        },
+        {
+          "id": 2,
+          "title": "Septic System/Pumping",
+          "price": "$300"
+        },
+        {
+          "id": 3,
+          "title": "Grinder Pump",
+          "price": "$465"
+        },
+        {
+          "id": 4,
+          "title": "Discounted Pre-Paid Service Call Fee (ONE TIME FEE)",
+          "price": "$60"
+        },
+        {
+          "id": 5,
+          "title": "Additional Refrigeration/Freezer",
+          "price": "$120"
+        },
+        {
+          "id": 6,
+          "title": "Swimming Pool/Spa Equipment",
+          "price": "$525"
+        },
+        {
+          "id": 7,
+          "title": "Salt Water Swimming Pool",
+          "price": "$825"
+        },
+        {
+          "id": 8,
+          "title": "Furnace (Additional Coverage)",
+          "price": "$255"
+        },
+        {
+          "id": 9,
+          "title": "Casita",
+          "price": "$450"
+        },
+        {
+          "id": 10,
+          "title": "Additional Washer Dryer (1 set incl in Ultimate Plans)",
+          "price": "$255"
+        },
+        {
+          "id": 11,
+          "title": "Water Heater (additional unit)",
+          "price": "$150"
+        },
+        {
+          "id": 12,
+          "title": "Roof Leak Repairs",
+          "price": "$300"
+        },
+        {
+          "id": 13,
+          "title": "Enhanced External Pipe Coverage",
+          "price": "$300"
+        },
+        {
+          "id": 14,
+          "title": "Air Conditioning (additional unit)",
+          "price": "$255"
+        },
+        {
+          "id": 15,
+          "title": "Premium Coverage Upgrade",
+          "price": "$225"
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "name": "Standard",
+      "yearly": "$1195",
+      "unitsize": "Fourplex",
+      "yearlyvariations": [
+        {
+          "id": 1,
+          "title": "Kitchen Refrigerator (included)",
+          "price": "$0"
+        },
+        {
+          "id": 2,
+          "title": "Septic System/Pumping",
+          "price": "$400"
+        },
+        {
+          "id": 3,
+          "title": "Grinder Pump",
+          "price": "$620"
+        },
+        {
+          "id": 4,
+          "title": "Discounted Pre-Paid Service Call Fee (ONE TIME FEE)",
+          "price": "$60"
+        },
+        {
+          "id": 5,
+          "title": "Additional Refrigeration/Freezer",
+          "price": "$160"
+        },
+        {
+          "id": 6,
+          "title": "Swimming Pool/Spa Equipment",
+          "price": "$700"
+        },
+        {
+          "id": 7,
+          "title": "Salt Water Swimming Pool",
+          "price": "$1100"
+        },
+        {
+          "id": 8,
+          "title": "Furnace (Additional Coverage)",
+          "price": "$340"
+        },
+        {
+          "id": 9,
+          "title": "Casita",
+          "price": "$600"
+        },
+        {
+          "id": 10,
+          "title": "Additional Washer Dryer (1 set incl in Ultimate Plans)",
+          "price": "$340"
+        },
+        {
+          "id": 11,
+          "title": "Water Heater (additional unit)",
+          "price": "$200"
+        },
+        {
+          "id": 12,
+          "title": "Roof Leak Repairs",
+          "price": "$400"
+        },
+        {
+          "id": 13,
+          "title": "Enhanced External Pipe Coverage",
+          "price": "$400"
+        },
+        {
+          "id": 14,
+          "title": "Air Conditioning (additional unit)",
+          "price": "$340"
+        },
+        {
+          "id": 15,
+          "title": "Premium Coverage Upgrade",
+          "price": "$300"
+        }
+      ]
+    }
+  ],
+  "TexasproList": [
+    {
+      "id": 1,
+      "name": "Standard",
+      "price": "$47.00",
+      "yearly": "$495",
+      "unitsize": "Single Family",
+      "yearlyvariations": [
+        {
+          "id": 0,
+          "title": "Well Pump",
+          "price": "$75"
+        },
+        {
+          "id": 1,
+          "title": "Additional Dishwasher",
+          "price": "$45"
+        },
+        {
+          "id": 3,
+          "title": "Additional Built-In Microwave",
+          "price": "$45"
+        },
+        {
+          "id": 4,
+          "title": "Salt Water Swimming Pool",
+          "price": "$195"
+        },
+        {
+          "id": 5,
+          "title": "Kitchen Refrigerator (inc in Premium & Ultimate plans)",
+          "price": "$55"
+        },
+        {
+          "id": 6,
+          "title": "Discounted Pre-Paid Service Call Fee (ONE TIME FEE)",
+          "price": "$400"
+        },
+        {
+          "id": 7,
+          "title": "Septic System/Pumping",
+          "price": "$55"
+        },
+        {
+          "id": 8,
+          "title": "Additional Washer Dryer (1 set incl in Ultimate Plans)",
+          "price": "$85"
+        },
+        {
+          "id": 9,
+          "title": "Premium Coverage Upgrade",
+          "price": "$100"
+        },
+        {
+          "id": 10,
+          "title": "Booster Pump",
+          "price": "$175"
+        },
+        {
+          "id": 11,
+          "title": "Water Heater (additional unit)",
+          "price": "$55"
+        },
+        {
+          "id": 12,
+          "title": "Roof Leak Repairs",
+          "price": "$85"
+        },
+        {
+          "id": 13,
+          "title": "Grinder Pump",
+          "price": "$155"
+        },
+        {
+          "id": 14,
+          "title": "Casita",
+          "price": "$145"
+        },
+        {
+          "id": 15,
+          "title": "3rd Year Coverage",
+          "price": "$495"
+        },
+        {
+          "id": 16,
+          "title": "Additional Range/Oven",
+          "price": "$45"
+        },
+        {
+          "id": 17,
+          "title": "Additional Garbage Disposal",
+          "price": "$45"
+        },
+        {
+          "id": 18,
+          "title": "Septic System/Pumping",
+          "price": "$65"
+        },
+        {
+          "id": 19,
+          "title": "No Fault Coverage",
+          "price": "$55"
+        },
+        {
+          "id": 20,
+          "title": "Enhanced External Pipe Coverage",
+          "price": "$85"
+        },
+        {
+          "id": 21,
+          "title": "Additional Refrigeration/Freezer",
+          "price": "$45"
+        },
+        {
+          "id": 22,
+          "title": "2nd Year Coverage",
+          "price": "$495"
+        }
+      ],
+      "monthlyvariations": [
+        {
+          "id": 0,
+          "title": "Well Pump",
+          "price": "$6.25"
+        },
+        {
+          "id": 1,
+          "title": "Additional Dishwasher",
+          "price": "$3.75"
+        },
+        {
+          "id": 3,
+          "title": "Additional Built-In Microwave",
+          "price": "$3.75"
+        },
+        {
+          "id": 4,
+          "title": "Salt Water Swimming Pool",
+          "price": "$16.25"
+        },
+        {
+          "id": 5,
+          "title": "Kitchen Refrigerator (inc in Premium & Ultimate plans)",
+          "price": "$4.59"
+        },
+        {
+          "id": 6,
+          "title": "Discounted Pre-Paid Service Call Fee (ONE TIME FEE)",
+          "price": "$55"
+        },
+        {
+          "id": 7,
+          "title": "Additional Washer Dryer (1 set incl in Ultimate Plans)",
+          "price": "$7.08"
+        },
+        {
+          "id": 8,
+          "title": "Booster Pump",
+          "price": "$6.25"
+        },
+        {
+          "id": 9,
+          "title": "Swimming Pool/Spa Equipment",
+          "price": "$14.58"
+        },
+        {
+          "id": 10,
+          "title": "Water Heater (additional unit)",
+          "price": "$4.59"
+        },
+        {
+          "id": 11,
+          "title": "Roof Leak Repairs",
+          "price": "$7.09"
+        },
+        {
+          "id": 12,
+          "title": "Grinder Pump",
+          "price": "$12.92"
+        },
+        {
+          "id": 13,
+          "title": "Casita",
+          "price": "$12.09"
+        },
+        {
+          "id": 14,
+          "title": "Premium Coverage Upgrade",
+          "price": "$6.25"
+        },
+        {
+          "id": 15,
+          "title": "Additional Range/Oven",
+          "price": "$3.75"
+        },
+        {
+          "id": 16,
+          "title": "Additional Garbage Disposal",
+          "price": "$3.75"
+        },
+        {
+          "id": 17,
+          "title": "Septic System/Pumping",
+          "price": "$5.42"
+        },
+        {
+          "id": 18,
+          "title": "No Fault Coverage",
+          "price": "$4.59"
+        },
+        {
+          "id": 19,
+          "title": "Enhanced External Pipe Coverage",
+          "price": "$7.09"
+        },
+        {
+          "id": 20,
+          "title": "Additional Refrigeration/Freezer",
+          "price": "$3.75"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Premium",
+      "price": "$55.00",
+      "yearly": "$595",
+      "unitsize": "Single Family",
+      "yearlyvariations": [
+        {
+          "id": 0,
+          "title": "No Fault Coverage (Included)",
+          "price": "$0"
+        },
+        {
+          "id": 1,
+          "title": "Booster Pump",
+          "price": "$75"
+        },
+        {
+          "id": 3,
+          "title": "Swimming Pool/Spa Equipment",
+          "price": "$175"
+        },
+        {
+          "id": 4,
+          "title": "Water Heater (additional unit)",
+          "price": "$55"
+        },
+        {
+          "id": 5,
+          "title": "Roof Leak Repairs",
+          "price": "$85"
+        },
+        {
+          "id": 6,
+          "title": "Discounted Pre-Paid Service Call Fee (ONE TIME FEE)",
+          "price": "$55"
+        },
+        {
+          "id": 7,
+          "title": "Additional Washer Dryer (1 set incl in Ultimate Plans)",
+          "price": "$85"
+        },
+        {
+          "id": 8,
+          "title": "Premium Coverage Upgrade",
+          "price": "$100"
+        },
+        {
+          "id": 9,
+          "title": "Kitchen Refrigerator (included)",
+          "price": "$0"
+        },
+        {
+          "id": 10,
+          "title": "Additional Range/Oven",
+          "price": "$45"
+        },
+        {
+          "id": 11,
+          "title": "Additional Garbage Disposal",
+          "price": "$45"
+        },
+        {
+          "id": 12,
+          "title": "Septic System/Pumping",
+          "price": "$65"
+        },
+        {
+          "id": 13,
+          "title": "Grinder Pump",
+          "price": "$155"
+        },
+        {
+          "id": 14,
+          "title": "Casita",
+          "price": "$145"
+        },
+        {
+          "id": 15,
+          "title": "3rd Year Coverage",
+          "price": "$595"
+        },
+        {
+          "id": 16,
+          "title": "Well Pump",
+          "price": "$75"
+        },
+        {
+          "id": 17,
+          "title": "Additional Dishwasher",
+          "price": "$45"
+        },
+        {
+          "id": 18,
+          "title": "Additional Built-In Microwave",
+          "price": "$45"
+        },
+        {
+          "id": 19,
+          "title": "Salt Water Swimming Pool",
+          "price": "$195"
+        },
+        {
+          "id": 20,
+          "title": "Enhanced External Pipe Coverage",
+          "price": "$85"
+        },
+        {
+          "id": 21,
+          "title": "Additional Refrigeration/Freezer",
+          "price": "$45"
+        },
+        {
+          "id": 22,
+          "title": "2nd Year Coverage",
+          "price": "$595"
+        }
+      ],
+      "monthlyvariations": [
+        {
+          "id": 0,
+          "title": "No Fault Coverage (Included)",
+          "price": "$0"
+        },
+        {
+          "id": 1,
+          "title": "Booster Pump",
+          "price": "$6.25"
+        },
+        {
+          "id": 3,
+          "title": "Swimming Pool/Spa Equipment",
+          "price": "$14.58"
+        },
+        {
+          "id": 4,
+          "title": "Water Heater (additional unit)",
+          "price": "$4.59"
+        },
+        {
+          "id": 5,
+          "title": "Roof Leak Repairs",
+          "price": "$7.09"
+        },
+        {
+          "id": 6,
+          "title": "Discounted Pre-Paid Service Call Fee (ONE TIME FEE)",
+          "price": "$55"
+        },
+        {
+          "id": 7,
+          "title": "Additional Washer Dryer (1 set incl in Ultimate Plans)",
+          "price": "$7.08"
+        },
+        {
+          "id": 8,
+          "title": "Kitchen Refrigerator (included)",
+          "price": "$0"
+        },
+        {
+          "id": 9,
+          "title": "Additional Range/Oven",
+          "price": "$3.75"
+        },
+        {
+          "id": 10,
+          "title": "Additional Garbage Disposal",
+          "price": "$3.75"
+        },
+        {
+          "id": 11,
+          "title": "Septic System/Pumping",
+          "price": "$5.42"
+        },
+        {
+          "id": 12,
+          "title": "Grinder Pump",
+          "price": "$12.92"
+        },
+        {
+          "id": 13,
+          "title": "Casita",
+          "price": "$12.09"
+        },
+        {
+          "id": 14,
+          "title": "Premium Coverage Upgrade",
+          "price": "$6.25"
+        },
+        {
+          "id": 15,
+          "title": "Well Pump",
+          "price": "$6.25"
+        },
+        {
+          "id": 16,
+          "title": "Additional Dishwasher",
+          "price": "$3.75"
+        },
+        {
+          "id": 17,
+          "title": "Additional Built-In Microwave",
+          "price": "$3.75"
+        },
+        {
+          "id": 18,
+          "title": "Salt Water Swimming Pool",
+          "price": "$16.25"
+        },
+        {
+          "id": 19,
+          "title": "Enhanced External Pipe Coverage",
+          "price": "$7.09"
+        },
+        {
+          "id": 20,
+          "title": "Additional Refrigeration/Freezer",
+          "price": "$3.75"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "name": "Ultimate",
+      "price": "$62.00",
+      "yearly": "$675",
+      "unitsize": "Single Family",
+      "yearlyvariations": [
+        {
+          "id": 0,
+          "title": "No Fault Coverage (Included)",
+          "price": "$0"
+        },
+        {
+          "id": 1,
+          "title": "Booster Pump",
+          "price": "$75"
+        },
+        {
+          "id": 3,
+          "title": "Swimming Pool/Spa Equipment",
+          "price": "$175"
+        },
+        {
+          "id": 4,
+          "title": "Water Heater (additional unit)",
+          "price": "$55"
+        },
+        {
+          "id": 5,
+          "title": "Roof Leak Repairs",
+          "price": "$85"
+        },
+        {
+          "id": 6,
+          "title": "Discounted Pre-Paid Service Call Fee (ONE TIME FEE)",
+          "price": "$55"
+        },
+        {
+          "id": 7,
+          "title": "Additional Washer Dryer (1 set incl in Ultimate Plans)",
+          "price": "$85"
+        },
+        {
+          "id": 8,
+          "title": "Premium Coverage Upgrade",
+          "price": "$100"
+        },
+        {
+          "id": 9,
+          "title": "Kitchen Refrigerator (included)",
+          "price": "$0"
+        },
+        {
+          "id": 10,
+          "title": "Additional Range/Oven",
+          "price": "$45"
+        },
+        {
+          "id": 11,
+          "title": "Additional Garbage Disposal",
+          "price": "$45"
+        },
+        {
+          "id": 12,
+          "title": "Septic System/Pumping",
+          "price": "$65"
+        },
+        {
+          "id": 13,
+          "title": "Grinder Pump",
+          "price": "$155"
+        },
+        {
+          "id": 14,
+          "title": "Casita",
+          "price": "$145"
+        },
+        {
+          "id": 15,
+          "title": "3rd Year Coverage",
+          "price": "$675"
+        },
+        {
+          "id": 16,
+          "title": "Well Pump",
+          "price": "$75"
+        },
+        {
+          "id": 17,
+          "title": "Additional Dishwasher",
+          "price": "$45"
+        },
+        {
+          "id": 18,
+          "title": "Additional Built-In Microwave",
+          "price": "$45"
+        },
+        {
+          "id": 19,
+          "title": "Salt Water Swimming Pool",
+          "price": "$195"
+        },
+        {
+          "id": 20,
+          "title": "Enhanced External Pipe Coverage",
+          "price": "$85"
+        },
+        {
+          "id": 21,
+          "title": "Additional Refrigeration/Freezer",
+          "price": "$45"
+        },
+        {
+          "id": 22,
+          "title": "2nd Year Coverage",
+          "price": "$67 5"
+        }
+      ],
+      "monthlyvariations": [
+        {
+          "id": 0,
+          "title": "No Fault Coverage (Included)",
+          "price": "$0"
+        },
+        {
+          "id": 1,
+          "title": "Booster Pump",
+          "price": "$6.25"
+        },
+        {
+          "id": 3,
+          "title": "Swimming Pool/Spa Equipment",
+          "price": "$14.58"
+        },
+        {
+          "id": 4,
+          "title": "Water Heater (additional unit)",
+          "price": "$4.59"
+        },
+        {
+          "id": 5,
+          "title": "Roof Leak Repairs",
+          "price": "$7.09"
+        },
+        {
+          "id": 6,
+          "title": "Discounted Pre-Paid Service Call Fee (ONE TIME FEE)",
+          "price": "$55"
+        },
+        {
+          "id": 7,
+          "title": "Additional Washer Dryer (1 set incl in Ultimate Plans)",
+          "price": "$7.08"
+        },
+        {
+          "id": 8,
+          "title": "Kitchen Refrigerator (included)",
+          "price": "$0"
+        },
+        {
+          "id": 9,
+          "title": "Additional Range/Oven",
+          "price": "$3.75"
+        },
+        {
+          "id": 10,
+          "title": "Additional Garbage Disposal",
+          "price": "$3.75"
+        },
+        {
+          "id": 11,
+          "title": "Septic System/Pumping",
+          "price": "$5.42"
+        },
+        {
+          "id": 12,
+          "title": "Grinder Pump",
+          "price": "$12.92"
+        },
+        {
+          "id": 13,
+          "title": "Casita",
+          "price": "$12.09"
+        },
+        {
+          "id": 14,
+          "title": "Premium Coverage Upgrade",
+          "price": "$6.25"
+        },
+        {
+          "id": 15,
+          "title": "Well Pump",
+          "price": "$6.25"
+        },
+        {
+          "id": 16,
+          "title": "Additional Dishwasher",
+          "price": "$3.75"
+        },
+        {
+          "id": 17,
+          "title": "Additional Built-In Microwave",
+          "price": "$3.75"
+        },
+        {
+          "id": 18,
+          "title": "Salt Water Swimming Pool",
+          "price": "$16.25"
+        },
+        {
+          "id": 19,
+          "title": "Enhanced External Pipe Coverage",
+          "price": "$7.09"
+        },
+        {
+          "id": 20,
+          "title": "Additional Refrigeration/Freezer",
+          "price": "$3.75"
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "name": "Standard",
+      "yearly": "$775",
+      "unitsize": "Duplex",
+      "yearlyvariations": [
+        {
+          "id": 1,
+          "title": "Kitchen Refrigerator (included)",
+          "price": "$0"
+        },
+        {
+          "id": 2,
+          "title": "Additional Range/Oven",
+          "price": "$90"
+        },
+        {
+          "id": 3,
+          "title": "Additional Garbage Disposal",
+          "price": "$90"
+        },
+        {
+          "id": 4,
+          "title": "Septic System/Pumping",
+          "price": "$130"
+        },
+        {
+          "id": 5,
+          "title": "Grinder Pump",
+          "price": "$310"
+        },
+        {
+          "id": 6,
+          "title": "Casita",
+          "price": "$290"
+        },
+        {
+          "id": 7,
+          "title": "Premium Coverage Upgrade",
+          "price": "$200"
+        },
+        {
+          "id": 8,
+          "title": "Well Pump",
+          "price": "$150"
+        },
+        {
+          "id": 9,
+          "title": "Additional Dishwasher",
+          "price": "$90"
+        },
+        {
+          "id": 10,
+          "title": "Additional Built-In Microwave",
+          "price": "$90"
+        },
+        {
+          "id": 11,
+          "title": "Salt Water Swimming Pool",
+          "price": "$390"
+        },
+        {
+          "id": 12,
+          "title": "Enhanced External Pipe Coverage",
+          "price": "$170"
+        },
+        {
+          "id": 13,
+          "title": "Additional Refrigeration/Freezer",
+          "price": "$90"
+        },
+        {
+          "id": 14,
+          "title": "Booster Pump",
+          "price": "$150"
+        },
+        {
+          "id": 15,
+          "title": "Swimming Pool/Spa Equipment",
+          "price": "$350"
+        },
+        {
+          "id": 16,
+          "title": "Water Heater (additional unit)",
+          "price": "$110"
+        },
+        {
+          "id": 17,
+          "title": "Roof Leak Repairs",
+          "price": "$170"
+        },
+        {
+          "id": 18,
+          "title": "Discounted Pre-Paid Service Call Fee (ONE TIME FEE)",
+          "price": "$55"
+        },
+        {
+          "id": 19,
+          "title": "Additional Washer Dryer (1 set incl in Ultimate Plans)",
+          "price": "$170"
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "name": "Standard",
+      "yearly": "$1035",
+      "unitsize": "Triplex",
+      "yearlyvariations": [
+        {
+          "id": 1,
+          "title": "Kitchen Refrigerator (included)",
+          "price": "$0"
+        },
+        {
+          "id": 2,
+          "title": "Additional Range/Oven",
+          "price": "$135"
+        },
+        {
+          "id": 3,
+          "title": "Additional Garbage Disposal",
+          "price": "$135"
+        },
+        {
+          "id": 4,
+          "title": "Septic System/Pumping",
+          "price": "$195"
+        },
+        {
+          "id": 5,
+          "title": "Grinder Pump",
+          "price": "$465"
+        },
+        {
+          "id": 6,
+          "title": "Casita",
+          "price": "$435"
+        },
+        {
+          "id": 7,
+          "title": "Premium Coverage Upgrade",
+          "price": "$300"
+        },
+        {
+          "id": 8,
+          "title": "Well Pump",
+          "price": "$225"
+        },
+        {
+          "id": 9,
+          "title": "Additional Dishwasher",
+          "price": "$135"
+        },
+        {
+          "id": 10,
+          "title": "Additional Built-In Microwave",
+          "price": "$135"
+        },
+        {
+          "id": 11,
+          "title": "Salt Water Swimming Pool",
+          "price": "$585"
+        },
+        {
+          "id": 12,
+          "title": "Enhanced External Pipe Coverage",
+          "price": "$255"
+        },
+        {
+          "id": 13,
+          "title": "Additional Refrigeration/Freezer",
+          "price": "$135"
+        },
+        {
+          "id": 14,
+          "title": "Booster Pump",
+          "price": "$225"
+        },
+        {
+          "id": 15,
+          "title": "Swimming Pool/Spa Equipment",
+          "price": "$525"
+        },
+        {
+          "id": 16,
+          "title": "Water Heater (additional unit)",
+          "price": "$165"
+        },
+        {
+          "id": 17,
+          "title": "Roof Leak Repairs",
+          "price": "$255"
+        },
+        {
+          "id": 18,
+          "title": "Discounted Pre-Paid Service Call Fee (ONE TIME FEE)",
+          "price": "$55"
+        },
+        {
+          "id": 19,
+          "title": "Additional Washer Dryer (1 set incl in Ultimate Plans)",
+          "price": "$255"
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "name": "Standard",
+      "yearly": "$1295",
+      "unitsize": "Fourplex",
+      "yearlyvariations": [
+        {
+          "id": 1,
+          "title": "Kitchen Refrigerator (included)",
+          "price": "$0"
+        },
+        {
+          "id": 2,
+          "title": "Additional Range/Oven",
+          "price": "$180"
+        },
+        {
+          "id": 3,
+          "title": "Additional Garbage Disposal",
+          "price": "$180"
+        },
+        {
+          "id": 4,
+          "title": "Septic System/Pumping",
+          "price": "$260"
+        },
+        {
+          "id": 5,
+          "title": "Grinder Pump",
+          "price": "$620"
+        },
+        {
+          "id": 6,
+          "title": "Casita",
+          "price": "$580"
+        },
+        {
+          "id": 7,
+          "title": "Premium Coverage Upgrade",
+          "price": "$400"
+        },
+        {
+          "id": 8,
+          "title": "Well Pump",
+          "price": "$300"
+        },
+        {
+          "id": 9,
+          "title": "Additional Dishwasher",
+          "price": "$180"
+        },
+        {
+          "id": 10,
+          "title": "Additional Built-In Microwave",
+          "price": "$180"
+        },
+        {
+          "id": 11,
+          "title": "Salt Water Swimming Pool",
+          "price": "$780"
+        },
+        {
+          "id": 12,
+          "title": "Enhanced External Pipe Coverage",
+          "price": "$340"
+        },
+        {
+          "id": 13,
+          "title": "Additional Refrigeration/Freezer",
+          "price": "$180"
+        },
+        {
+          "id": 14,
+          "title": "Booster Pump",
+          "price": "$300"
+        },
+        {
+          "id": 15,
+          "title": "Swimming Pool/Spa Equipment",
+          "price": "$700"
+        },
+        {
+          "id": 16,
+          "title": "Water Heater (additional unit)",
+          "price": "$220"
+        },
+        {
+          "id": 17,
+          "title": "Roof Leak Repairs",
+          "price": "$340"
+        },
+        {
+          "id": 18,
+          "title": "Discounted Pre-Paid Service Call Fee (ONE TIME FEE)",
+          "price": "$55"
+        },
+        {
+          "id": 19,
+          "title": "Additional Washer Dryer (1 set incl in Ultimate Plans)",
+          "price": "$340"
+        }
+      ]
+    }
+  ],
+  "UtahproList": [
+    {
+      "id": 1,
+      "name": "Standard",
+      "price": "$35.00",
+      "yearly": "$400",
+      "unitsize": "Single Family",
+      "yearlyvariations": [
+        {
+          "id": 0,
+          "title": "Swimming Pool/Spa Equipment",
+          "price": "$175"
+        },
+        {
+          "id": 1,
+          "title": "Roof Leak Repairs",
+          "price": "$100"
+        },
+        {
+          "id": 3,
+          "title": "Grinder Pump",
+          "price": "$155"
+        },
+        {
+          "id": 4,
+          "title": "Discounted Pre-Paid Service Call Fee (ONE TIME FEE)",
+          "price": "$50"
+        },
+        {
+          "id": 5,
+          "title": "Additional Refrigeration/Freezer",
+          "price": "$40"
+        },
+        {
+          "id": 6,
+          "title": "3rd Year Coverage",
+          "price": "$400"
+        },
+        {
+          "id": 7,
+          "title": "Septic System/Pumping",
+          "price": "$100"
+        },
+        {
+          "id": 8,
+          "title": "No Fault Coverage",
+          "price": "$60"
+        },
+        {
+          "id": 9,
+          "title": "Furnace (Additional Coverage)",
+          "price": "$85"
+        },
+        {
+          "id": 10,
+          "title": "Casita",
+          "price": "$150"
+        },
+        {
+          "id": 11,
+          "title": "Water Softener",
+          "price": "$50"
+        },
+        {
+          "id": 12,
+          "title": "2nd Year Coverage",
+          "price": "$400"
+        },
+        {
+          "id": 13,
+          "title": "Salt Water Swimming Pool",
+          "price": "$350"
+        },
+        {
+          "id": 14,
+          "title": "Kitchen Refrigerator (inc in Premium & Ultimate plans)",
+          "price": "$50"
+        },
+        {
+          "id": 15,
+          "title": "Enhanced External Pipe Coverage",
+          "price": "$100"
+        },
+        {
+          "id": 16,
+          "title": "Air Conditioning (additional unit)",
+          "price": "$85"
+        },
+        {
+          "id": 17,
+          "title": "Additional Washer Dryer (1 set incl in Ultimate Plans)",
+          "price": "$85"
+        },
+        {
+          "id": 18,
+          "title": "Premium Coverage Upgrade",
+          "price": "$75"
+        }
+      ],
+      "monthlyvariations": [
+        {
+          "id": 0,
+          "title": "Swimming Pool/Spa Equipment",
+          "price": "$14.58"
+        },
+        {
+          "id": 1,
+          "title": "Roof Leak Repairs",
+          "price": "$8.33"
+        },
+        {
+          "id": 3,
+          "title": "Grinder Pump",
+          "price": "$12.91"
+        },
+        {
+          "id": 4,
+          "title": "Discounted Pre-Paid Service Call Fee (ONE TIME FEE)",
+          "price": "$50"
+        },
+        {
+          "id": 5,
+          "title": "Additional Refrigeration/Freezer",
+          "price": "$3.33"
+        },
+        {
+          "id": 6,
+          "title": "3rd Year Coverage",
+          "price": "$6.25"
+        },
+        {
+          "id": 7,
+          "title": "Septic System/Pumping",
+          "price": "$8.33"
+        },
+        {
+          "id": 8,
+          "title": "No Fault Coverage",
+          "price": "$5"
+        },
+        {
+          "id": 9,
+          "title": "Furnace (Additional Coverage)",
+          "price": "$7.08"
+        },
+        {
+          "id": 10,
+          "title": "Casita",
+          "price": "$12.5"
+        },
+        {
+          "id": 11,
+          "title": "Water Softener",
+          "price": "$4.16"
+        },
+        {
+          "id": 12,
+          "title": "Salt Water Swimming Pool",
+          "price": "$29.16"
+        },
+        {
+          "id": 13,
+          "title": "Kitchen Refrigerator (inc in Premium & Ultimate plans)",
+          "price": "$4.16"
+        },
+        {
+          "id": 14,
+          "title": "Enhanced External Pipe Coverage",
+          "price": "$8.33"
+        },
+        {
+          "id": 15,
+          "title": "Air Conditioning (additional unit)",
+          "price": "$7.08"
+        },
+        {
+          "id": 16,
+          "title": "Additional Washer Dryer (1 set incl in Ultimate Plans)",
+          "price": "$85"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Premium",
+      "price": "$45.00",
+      "yearly": "$475",
+      "unitsize": "Single Family",
+      "yearlyvariations": [
+        {
+          "id": 0,
+          "title": "Swimming Pool/Spa Equipment",
+          "price": "$175"
+        },
+        {
+          "id": 1,
+          "title": "Roof Leak Repairs",
+          "price": "$100"
+        },
+        {
+          "id": 3,
+          "title": "Grinder Pump",
+          "price": "$155"
+        },
+        {
+          "id": 4,
+          "title": "Discounted Pre-Paid Service Call Fee (ONE TIME FEE)",
+          "price": "$50"
+        },
+        {
+          "id": 5,
+          "title": "Additional Refrigeration/Freezer",
+          "price": "$40"
+        },
+        {
+          "id": 6,
+          "title": "3rd Year Coverage",
+          "price": "$475"
+        },
+        {
+          "id": 7,
+          "title": "Septic System/Pumping",
+          "price": "$100"
+        },
+        {
+          "id": 8,
+          "title": "No Fault Coverage",
+          "price": "$60"
+        },
+        {
+          "id": 9,
+          "title": "Furnace (Additional Coverage)",
+          "price": "$85"
+        },
+        {
+          "id": 10,
+          "title": "Casita",
+          "price": "$150"
+        },
+        {
+          "id": 11,
+          "title": "Water Softener",
+          "price": "$50"
+        },
+        {
+          "id": 12,
+          "title": "2nd Year Coverage",
+          "price": "$475"
+        },
+        {
+          "id": 13,
+          "title": "Salt Water Swimming Pool",
+          "price": "$350"
+        },
+        {
+          "id": 14,
+          "title": "Kitchen Refrigerator (inc in Premium & Ultimate plans)",
+          "price": "$50"
+        },
+        {
+          "id": 15,
+          "title": "Enhanced External Pipe Coverage",
+          "price": "$100"
+        },
+        {
+          "id": 16,
+          "title": "Air Conditioning (additional unit)",
+          "price": "$85"
+        },
+        {
+          "id": 17,
+          "title": "Additional Washer Dryer (1 set incl in Ultimate Plans)",
+          "price": "$85"
+        },
+        {
+          "id": 18,
+          "title": "Premium Coverage Upgrade",
+          "price": "$75"
+        }
+      ],
+      "monthlyvariations": [
+        {
+          "id": 0,
+          "title": "Swimming Pool/Spa Equipment",
+          "price": "$14.58"
+        },
+        {
+          "id": 1,
+          "title": "Roof Leak Repairs",
+          "price": "$8.33"
+        },
+        {
+          "id": 3,
+          "title": "Grinder Pump",
+          "price": "$12.91"
+        },
+        {
+          "id": 4,
+          "title": "Discounted Pre-Paid Service Call Fee (ONE TIME FEE)",
+          "price": "$50"
+        },
+        {
+          "id": 5,
+          "title": "Additional Refrigeration/Freezer",
+          "price": "$3.33"
+        },
+        {
+          "id": 6,
+          "title": "Premium Coverage Upgrade",
+          "price": "$6.25"
+        },
+        {
+          "id": 7,
+          "title": "Septic System/Pumping",
+          "price": "$8.33"
+        },
+        {
+          "id": 8,
+          "title": "No Fault Coverage",
+          "price": "$5"
+        },
+        {
+          "id": 9,
+          "title": "Furnace (Additional Coverage)",
+          "price": "$7.08"
+        },
+        {
+          "id": 10,
+          "title": "Casita",
+          "price": "$12.5"
+        },
+        {
+          "id": 11,
+          "title": "Water Softener",
+          "price": "$4.16"
+        },
+        {
+          "id": 12,
+          "title": "Salt Water Swimming Pool",
+          "price": "$29.16"
+        },
+        {
+          "id": 13,
+          "title": "Kitchen Refrigerator (inc in Premium & Ultimate plans)",
+          "price": "$4.16"
+        },
+        {
+          "id": 14,
+          "title": "Enhanced External Pipe Coverage",
+          "price": "$8.33"
+        },
+        {
+          "id": 15,
+          "title": "Air Conditioning (additional unit)",
+          "price": "$7.08"
+        },
+        {
+          "id": 16,
+          "title": "Additional Washer Dryer (1 set incl in Ultimate Plans)",
+          "price": "$7.08"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "name": "Premium+",
+      "price": "$50.00",
+      "yearly": "$500",
+      "unitsize": "Single Family",
+      "yearlyvariations": [
+        {
+          "id": 0,
+          "title": "Kitchen Refrigerator (included)",
+          "price": "$0"
+        },
+        {
+          "id": 1,
+          "title": "Salt Water Swimming Pool",
+          "price": "$350  "
+        },
+        {
+          "id": 3,
+          "title": "Grinder Pump",
+          "price": "$155"
+        },
+        {
+          "id": 4,
+          "title": "Discounted Pre-Paid Service Call Fee (ONE TIME FEE)",
+          "price": "$50"
+        },
+        {
+          "id": 5,
+          "title": "Additional Refrigeration/Freezer",
+          "price": "$40"
+        },
+        {
+          "id": 6,
+          "title": "3rd Year Coverage",
+          "price": "$500"
+        },
+        {
+          "id": 7,
+          "title": "Swimming Pool/Spa Equipment",
+          "price": "$175"
+        },
+        {
+          "id": 8,
+          "title": "Roof Leak Repairs",
+          "price": "$100"
+        },
+        {
+          "id": 9,
+          "title": "Furnace (Additional Coverage)",
+          "price": "$85"
+        },
+        {
+          "id": 10,
+          "title": "Casita",
+          "price": "$150"
+        },
+        {
+          "id": 11,
+          "title": "Water Softener",
+          "price": "$50"
+        },
+        {
+          "id": 12,
+          "title": "2nd Year Coverage",
+          "price": "$500"
+        },
+        {
+          "id": 13,
+          "title": "Septic System/Pumping",
+          "price": "$100"
+        },
+        {
+          "id": 14,
+          "title": "No Fault Coverage",
+          "price": "$60"
+        },
+        {
+          "id": 15,
+          "title": "Enhanced External Pipe Coverage",
+          "price": "$100"
+        },
+        {
+          "id": 16,
+          "title": "Air Conditioning (additional unit)",
+          "price": "$85"
+        },
+        {
+          "id": 17,
+          "title": "Additional Washer Dryer (1 set incl in Ultimate Plans)",
+          "price": "$85"
+        },
+        {
+          "id": 18,
+          "title": "Premium Coverage Upgrade",
+          "price": "$75"
+        }
+      ],
+      "monthlyvariations": [
+        {
+          "id": 0,
+          "title": "Kitchen Refrigerator (included)",
+          "price": "$0"
+        },
+        {
+          "id": 1,
+          "title": "Salt Water Swimming Pool",
+          "price": "$29.16"
+        },
+        {
+          "id": 3,
+          "title": "Grinder Pump",
+          "price": "$12.91"
+        },
+        {
+          "id": 4,
+          "title": "Discounted Pre-Paid Service Call Fee (ONE TIME FEE)",
+          "price": "$50"
+        },
+        {
+          "id": 5,
+          "title": "Additional Refrigeration/Freezer",
+          "price": "$3.33"
+        },
+        {
+          "id": 6,
+          "title": "Premium Coverage Upgrade",
+          "price": "$6.25"
+        },
+        {
+          "id": 7,
+          "title": "Swimming Pool/Spa Equipment",
+          "price": "$14.58"
+        },
+        {
+          "id": 8,
+          "title": "Roof Leak Repairs",
+          "price": "$8.33"
+        },
+        {
+          "id": 9,
+          "title": "Furnace (Additional Coverage)",
+          "price": "$7.08"
+        },
+        {
+          "id": 10,
+          "title": "Casita",
+          "price": "$12.5"
+        },
+        {
+          "id": 11,
+          "title": "Water Softener",
+          "price": "$4.16"
+        },
+        {
+          "id": 12,
+          "title": "Septic System/Pumping",
+          "price": "$8.33"
+        },
+        {
+          "id": 13,
+          "title": "No Fault Coverage",
+          "price": "$5"
+        },
+        {
+          "id": 14,
+          "title": "Enhanced External Pipe Coverage",
+          "price": "$8.33"
+        },
+        {
+          "id": 15,
+          "title": "Air Conditioning (additional unit)",
+          "price": "$7.08"
+        },
+        {
+          "id": 16,
+          "title": "Additional Washer Dryer (1 set incl in Ultimate Plans)",
+          "price": "$7.08"
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "name": "Premium+one",
+      "price": "$53.50",
+      "yearly": "$550",
+      "unitsize": "Single Family",
+      "yearlyvariations": [
+        {
+          "id": 0,
+          "title": "No Fault Coverage (Included)",
+          "price": "$0"
+        },
+        {
+          "id": 1,
+          "title": "Septic System/Pumping",
+          "price": "$100"
+        },
+        {
+          "id": 3,
+          "title": "Grinder Pump",
+          "price": "$155"
+        },
+        {
+          "id": 4,
+          "title": "Discounted Pre-Paid Service Call Fee (ONE TIME FEE)",
+          "price": "$50"
+        },
+        {
+          "id": 5,
+          "title": "Additional Refrigeration/Freezer",
+          "price": "$40"
+        },
+        {
+          "id": 6,
+          "title": "3rd Year Coverage",
+          "price": "$550"
+        },
+        {
+          "id": 7,
+          "title": "Kitchen Refrigerator (included)",
+          "price": "$0"
+        },
+        {
+          "id": 8,
+          "title": "Salt Water Swimming Pool",
+          "price": "$350"
+        },
+        {
+          "id": 9,
+          "title": "Furnace (Additional Coverage)",
+          "price": "$85"
+        },
+        {
+          "id": 10,
+          "title": "Casita",
+          "price": "$150"
+        },
+        {
+          "id": 11,
+          "title": "Water Softener",
+          "price": "$50"
+        },
+        {
+          "id": 12,
+          "title": "2nd Year Coverage",
+          "price": "$550"
+        },
+        {
+          "id": 13,
+          "title": "Swimming Pool/Spa Equipment",
+          "price": "$175"
+        },
+        {
+          "id": 14,
+          "title": "Roof Leak Repairs",
+          "price": "$100"
+        },
+        {
+          "id": 15,
+          "title": "Enhanced External Pipe Coverage",
+          "price": "$100"
+        },
+        {
+          "id": 16,
+          "title": "Air Conditioning (additional unit)",
+          "price": "$85"
+        },
+        {
+          "id": 17,
+          "title": "Additional Washer Dryer (1 set incl in Ultimate Plans)",
+          "price": "$85"
+        },
+        {
+          "id": 18,
+          "title": "Premium Coverage Upgrade",
+          "price": "$75"
+        }
+      ],
+      "monthlyvariations": [
+        {
+          "id": 0,
+          "title": "No Fault Coverage (Included)",
+          "price": "$0"
+        },
+        {
+          "id": 1,
+          "title": "Septic System/Pumping",
+          "price": "$8.33"
+        },
+        {
+          "id": 3,
+          "title": "Grinder Pump",
+          "price": "$12.91"
+        },
+        {
+          "id": 4,
+          "title": "Discounted Pre-Paid Service Call Fee (ONE TIME FEE)",
+          "price": "$50"
+        },
+        {
+          "id": 5,
+          "title": "Additional Refrigeration/Freezer",
+          "price": "$3.33"
+        },
+        {
+          "id": 6,
+          "title": "Premium Coverage Upgrade",
+          "price": "$6.25"
+        },
+        {
+          "id": 7,
+          "title": "Kitchen Refrigerator (included)",
+          "price": "$0"
+        },
+        {
+          "id": 8,
+          "title": "Salt Water Swimming Pool",
+          "price": "$29.16"
+        },
+        {
+          "id": 9,
+          "title": "Furnace (Additional Coverage)",
+          "price": "$7.08"
+        },
+        {
+          "id": 10,
+          "title": "Casita",
+          "price": "$12.5"
+        },
+        {
+          "id": 11,
+          "title": "Water Softener",
+          "price": "$4.16"
+        },
+        {
+          "id": 12,
+          "title": "Swimming Pool/Spa Equipment",
+          "price": "$14.58"
+        },
+        {
+          "id": 15,
+          "title": "Roof Leak Repairs",
+          "price": "$8.33"
+        },
+        {
+          "id": 16,
+          "title": "Enhanced External Pipe Coverage",
+          "price": "$8.33"
+        },
+        {
+          "id": 17,
+          "title": "Air Conditioning (additional unit)",
+          "price": "$7.08"
+        },
+        {
+          "id": 18,
+          "title": "Additional Washer Dryer (1 set incl in Ultimate Plans)",
+          "price": "$7.08"
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "name": "Ultimate",
+      "price": "$55.00",
+      "yearly": "$600",
+      "unitsize": "Single Family",
+      "yearlyvariations": [
+        {
+          "id": 0,
+          "title": "Kitchen Refrigerator (included)",
+          "price": "$0"
+        },
+        {
+          "id": 1,
+          "title": "Salt Water Swimming Pool",
+          "price": "$350"
+        },
+        {
+          "id": 3,
+          "title": "Grinder Pump",
+          "price": "$155"
+        },
+        {
+          "id": 4,
+          "title": "Discounted Pre-Paid Service Call Fee (ONE TIME FEE)",
+          "price": "$50"
+        },
+        {
+          "id": 5,
+          "title": "Additional Refrigeration/Freezer",
+          "price": "$40"
+        },
+        {
+          "id": 6,
+          "title": "3rd Year Coverage",
+          "price": "$600"
+        },
+        {
+          "id": 7,
+          "title": "Swimming Pool/Spa Equipment",
+          "price": "$175"
+        },
+        {
+          "id": 8,
+          "title": "Roof Leak Repairs",
+          "price": "$100"
+        },
+        {
+          "id": 9,
+          "title": "Furnace (Additional Coverage)",
+          "price": "$85"
+        },
+        {
+          "id": 10,
+          "title": "Casita",
+          "price": "$150"
+        },
+        {
+          "id": 11,
+          "title": "Water Softener",
+          "price": "$50"
+        },
+        {
+          "id": 12,
+          "title": "2nd Year Coverage",
+          "price": "$600"
+        },
+        {
+          "id": 13,
+          "title": "Septic System/Pumping",
+          "price": "$100"
+        },
+        {
+          "id": 14,
+          "title": "No Fault Coverage",
+          "price": "$60"
+        },
+        {
+          "id": 15,
+          "title": "Enhanced External Pipe Coverage",
+          "price": "$100"
+        },
+        {
+          "id": 16,
+          "title": "Air Conditioning (additional unit)",
+          "price": "$85"
+        },
+        {
+          "id": 17,
+          "title": "Additional Washer Dryer (1 set incl in Ultimate Plans)",
+          "price": "$85"
+        },
+        {
+          "id": 18,
+          "title": "Premium Coverage Upgrade",
+          "price": "$75"
+        }
+      ],
+      "monthlyvariations": [
+        {
+          "id": 0,
+          "title": "Kitchen Refrigerator (included)",
+          "price": "$0"
+        },
+        {
+          "id": 1,
+          "title": "Salt Water Swimming Pool",
+          "price": "$29.16"
+        },
+        {
+          "id": 3,
+          "title": "Grinder Pump",
+          "price": "$12.91"
+        },
+        {
+          "id": 4,
+          "title": "Discounted Pre-Paid Service Call Fee (ONE TIME FEE)",
+          "price": "$50"
+        },
+        {
+          "id": 5,
+          "title": "Additional Refrigeration/Freezer",
+          "price": "$40"
+        },
+        {
+          "id": 6,
+          "title": "Premium Coverage Upgrade",
+          "price": "$6.25"
+        },
+        {
+          "id": 7,
+          "title": "Swimming Pool/Spa Equipment",
+          "price": "$14.58"
+        },
+        {
+          "id": 8,
+          "title": "Roof Leak Repairs",
+          "price": "$8.33"
+        },
+        {
+          "id": 9,
+          "title": "Furnace (Additional Coverage)",
+          "price": "$7.08"
+        },
+        {
+          "id": 10,
+          "title": "Casita",
+          "price": "$12.5"
+        },
+        {
+          "id": 11,
+          "title": "Water Softener",
+          "price": "$4.16"
+        },
+        {
+          "id": 12,
+          "title": "Septic System/Pumping",
+          "price": "$8.33"
+        },
+        {
+          "id": 13,
+          "title": "No Fault Coverage",
+          "price": "$5"
+        },
+        {
+          "id": 14,
+          "title": "Enhanced External Pipe Coverage",
+          "price": "$8.33"
+        },
+        {
+          "id": 15,
+          "title": "Air Conditioning (additional unit)",
+          "price": "$7.08"
+        },
+        {
+          "id": 16,
+          "title": "Additional Washer Dryer (1 set incl in Ultimate Plans)",
+          "price": "$7.08"
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "name": "Standard",
+      "yearly": "$695",
+      "unitsize": "Duplex",
+      "yearlyvariations": [
+        {
+          "id": 0,
+          "title": "Kitchen Refrigerator (included)",
+          "price": "$0"
+        },
+        {
+          "id": 1,
+          "title": "Salt Water Swimming Pool",
+          "price": "$700"
+        },
+        {
+          "id": 2,
+          "title": "Furnace (Additional Coverage)",
+          "price": "$170"
+        },
+        {
+          "id": 3,
+          "title": "Casita",
+          "price": "$300"
+        },
+        {
+          "id": 4,
+          "title": "Water Softener",
+          "price": "$100"
+        },
+        {
+          "id": 5,
+          "title": "Swimming Pool/Spa Equipment",
+          "price": "$350"
+        },
+        {
+          "id": 6,
+          "title": "Roof Leak Repairs",
+          "price": "$200"
+        },
+        {
+          "id": 7,
+          "title": "Enhanced External Pipe Coverage",
+          "price": "$200"
+        },
+        {
+          "id": 8,
+          "title": "Air Conditioning (additional unit)",
+          "price": "$170"
+        },
+        {
+          "id": 9,
+          "title": "Additional Washer Dryer (1 set incl in Ultimate Plans)",
+          "price": "$170"
+        },
+        {
+          "id": 10,
+          "title": "Septic System/Pumping",
+          "price": "$200"
+        },
+        {
+          "id": 11,
+          "title": "Grinder Pump",
+          "price": "$310"
+        },
+        {
+          "id": 12,
+          "title": "Discounted Pre-Paid Service Call Fee (ONE TIME FEE)",
+          "price": "$50"
+        },
+        {
+          "id": 13,
+          "title": "Additional Refrigeration/Freezer",
+          "price": "$80"
+        },
+        {
+          "id": 14,
+          "title": "Premium Coverage Upgrade",
+          "price": "$150"
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "name": "Standard",
+      "yearly": "$895",
+      "unitsize": "Triplex",
+      "yearlyvariations": [
+        {
+          "id": 0,
+          "title": "Kitchen Refrigerator (included)",
+          "price": "$0"
+        },
+        {
+          "id": 1,
+          "title": "Salt Water Swimming Pool",
+          "price": "$1050"
+        },
+        {
+          "id": 2,
+          "title": "Furnace (Additional Coverage)",
+          "price": "$255"
+        },
+        {
+          "id": 3,
+          "title": "Casita",
+          "price": "$450"
+        },
+        {
+          "id": 4,
+          "title": "Water Softener",
+          "price": "$150"
+        },
+        {
+          "id": 5,
+          "title": "Swimming Pool/Spa Equipment",
+          "price": "$525"
+        },
+        {
+          "id": 6,
+          "title": "Roof Leak Repairs",
+          "price": "$300"
+        },
+        {
+          "id": 7,
+          "title": "Enhanced External Pipe Coverage",
+          "price": "$300"
+        },
+        {
+          "id": 8,
+          "title": "Air Conditioning (additional unit)",
+          "price": "$255"
+        },
+        {
+          "id": 9,
+          "title": "Additional Washer Dryer (1 set incl in Ultimate Plans)",
+          "price": "$255"
+        },
+        {
+          "id": 10,
+          "title": "Septic System/Pumping",
+          "price": "$300"
+        },
+        {
+          "id": 11,
+          "title": "Grinder Pump",
+          "price": "$465"
+        },
+        {
+          "id": 12,
+          "title": "Discounted Pre-Paid Service Call Fee (ONE TIME FEE)",
+          "price": "$50"
+        },
+        {
+          "id": 13,
+          "title": "Additional Refrigeration/Freezer",
+          "price": "$120"
+        },
+        {
+          "id": 14,
+          "title": "Premium Coverage Upgrade",
+          "price": "$225"
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "name": "Standard",
+      "yearly": "$1095",
+      "unitsize": "FourPlex",
+      "yearlyvariations": [
+        {
+          "id": 0,
+          "title": "Kitchen Refrigerator (included)",
+          "price": "$0"
+        },
+        {
+          "id": 1,
+          "title": "Salt Water Swimming Pool",
+          "price": "$1400"
+        },
+        {
+          "id": 2,
+          "title": "Furnace (Additional Coverage)",
+          "price": "$340"
+        },
+        {
+          "id": 3,
+          "title": "Casita",
+          "price": "$600"
+        },
+        {
+          "id": 4,
+          "title": "Water Softener",
+          "price": "$200"
+        },
+        {
+          "id": 5,
+          "title": "Swimming Pool/Spa Equipment",
+          "price": "$700"
+        },
+        {
+          "id": 6,
+          "title": "Roof Leak Repairs",
+          "price": "$400"
+        },
+        {
+          "id": 7,
+          "title": "Enhanced External Pipe Coverage",
+          "price": "$400"
+        },
+        {
+          "id": 8,
+          "title": "Air Conditioning (additional unit)",
+          "price": "$340"
+        },
+        {
+          "id": 9,
+          "title": "Additional Washer Dryer (1 set incl in Ultimate Plans)",
+          "price": "$340"
+        },
+        {
+          "id": 10,
+          "title": "Septic System/Pumping",
+          "price": "$340"
+        },
+        {
+          "id": 11,
+          "title": "Grinder Pump",
+          "price": "$620"
+        },
+        {
+          "id": 12,
+          "title": "Discounted Pre-Paid Service Call Fee (ONE TIME FEE)",
+          "price": "$50"
+        },
+        {
+          "id": 13,
+          "title": "Additional Refrigeration/Freezer",
+          "price": "$160"
+        },
+        {
+          "id": 14,
+          "title": "Premium Coverage Upgrade",
+          "price": "$300"
+        }
+      ]
+    }
+  ]
+}
