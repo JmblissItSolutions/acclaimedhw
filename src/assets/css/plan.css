@@ -322,6 +322,41 @@ div#root .plan-options .option .btn {
     color: #b81c23;
     font-size: 12px;
 } 
+.monthyear select {
+    display: inline-flex;
+    flex-wrap: wrap;
+    width: 45%;
+}
+select.monthselect {
+    margin-right: 20px;
+}
+.form_month label{
+    line-height: 30px;
+}
+.form_month {
+    margin-top: 15px;
+}
+.order_details li{
+    display: inline-block;
+    margin-right: 2em;
+    text-transform: uppercase;
+    font-size: .715em;
+    line-height: 1;
+    border-right: 1px dashed #d3ced2;
+    padding-right: 2em;
+    margin-left: 0;
+    padding-left: 0;
+    list-style-type: none;
+}
+.order_details {
+    margin: 0 0 3em;
+    list-style: none;
+}
+.order_details li strong{
+    font-size: 15px;
+    display: block;
+    line-height: 20px;
+}
 @media (min-width: 991px){
     .unique-features .table-right.mobile {
         display: none !important;

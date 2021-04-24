@@ -59,6 +59,7 @@ import  Error  from "./Error";
 import Menu from "./Menu";
 import { Footer, FooterBottom } from './Footer';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import OrderReceived from './homeowner-plans/Order-Received';
 
 function App() {
   const [scroll, setScroll] = useState(false);
@@ -113,6 +114,7 @@ function App() {
                 <Route path="/renewals" component={Renewals} exact/>
                 <Route path="/shop" component={Shop} exact/>
                 <Route path="/cart" component={Cart} exact/>
+                <Route path="/homeowner-plans/checkout/order-received" component={OrderReceived} exact/>
                 <Route component={Error}/>
             </Switch>
         </main>

@@ -1,4 +1,5 @@
 import React, { useRef, useEffect, useState } from "react";
+import { useHistory } from "react-router-dom";
 import APIUrl from "../Api"
 import { Helmet } from "react-helmet";
 import Checkoutbg from "../assets/images/Checkoutbg.png";
@@ -10,8 +11,10 @@ import discover from "../assets/images/card-discover.png";
 import dinnerclub from "../assets/images/card-dinersclub.png";
 import jcb from "../assets/images/card-jcb.png";
 import { Radio } from 'antd';
+import OrderRecieved from "./Order-Received"
 
-const CheckOut = ({ value }) => {
+const CheckOut = () => {
+    let history = useHistory();
     let localdata = JSON.parse(localStorage.getItem('cart'));
     let val = JSON.parse(localStorage.getItem('value'));
     let protype = JSON.parse(localStorage.getItem('product'));
@@ -40,8 +43,6 @@ const CheckOut = ({ value }) => {
     const [pay_method, setPayment] = useState("card")
     const [status, setStatus] = useState("pending")
     const [visible, setVisible] = useState(false);
-    const [coupon_code, setCoupon_code] = useState("");
-    const [couponresult, setCouponresult] = useState([]);
 
     const onClick = (e) => {
         e.preventDefault();
@@ -60,8 +61,6 @@ const CheckOut = ({ value }) => {
         })
             .then((resp) => {
                 resp.json().then((result) => {
-                    console.warn("result", result)
-                    // const resultMsg = (result.message)
                     setResult(result);
                 })
             })
@@ -70,6 +69,8 @@ const CheckOut = ({ value }) => {
     let orderid = (result.order_id)
     let res = (result.result)
 
+    const [coupon_code, setCoupon_code] = useState("");
+    const [couponresult, setCouponresult] = useState([]);
     function CouponData(e) {
         e.preventDefault();
         let data = { coupon_code }
@@ -100,6 +101,7 @@ const CheckOut = ({ value }) => {
     }
     let intervaltype = interval()
     let order_id = orderid
+
     const mainPro = localdata.map(item => {
         let orderid = "order_id"
         let product_id = "product_id"
@@ -116,6 +118,14 @@ const CheckOut = ({ value }) => {
         container[quantity] = 1
         return container;
     })
+    function getArray() {
+        if (covrage) {
+            return covrage
+        } else {
+            return covrage = []
+        }
+    }
+    let arr = getArray()
     const CovList = covrage.filter(person =>
         person.quantity > 0).map(item => {
             let orderid = "order_id"
@@ -133,12 +143,9 @@ const CheckOut = ({ value }) => {
             container[quantity] = item.quantity
             return container;
         })
-    const [productlist, setProductlist] = useState([]);
-    //console.log(CovList)
-    //console.log(mainPro[0])
-
     CovList.push(mainPro[0]);
-    console.log(CovList)
+
+    const [productlist, setProductlist] = useState([]);
 
     function saveProduct() {
         fetch("https://replatform.acclaimedhw.com/replatform/api/add_orderitems", {
@@ -147,29 +154,19 @@ const CheckOut = ({ value }) => {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json',
             },
-            // body: JSON.stringify({order_id:5,product_id:1,product_name:"test999",prod_type:"simple",pay_interval_type:"monthly",quantity:5})
             body: JSON.stringify(CovList)
         })
             .then((resp) => {
                 resp.json().then((productlist) => {
                     //  console.warn("productlist", productlist)
                     // const resultMsg = (result.message)
-                    setProductlist(productlist);
-                    console.log(productlist)
+                    if (res == true) {
+                        setProductlist(productlist);
+                    }
                 })
             })
+        let res = false
     }
-
-    // if (res == false) {
-    //     console.log("Thank you StackOverflow, you're a very big gift for all programmers!");
-    //     saveProduct();
-       
-    //    } else {
-    //      console.log("not")
-    //    }
-
-
-   
     const Cove = () => (
         <>
             {covrage.map((pro, index) => (
@@ -221,7 +218,47 @@ const CheckOut = ({ value }) => {
     const [subtotal, SetSubtotal] = useState(v1);
     const [total, SetTotal] = useState(v1);
 
-    //console.log(CovList)
+    let payer_email = email
+    let amount = total
+    const [cc_number, setcc_number] = useState("");
+    const [expiry_month, setexpiry_month] = useState("");
+    const [expiry_year, setexpiry_year] = useState("");
+    const [cvv, setcvv] = useState("");
+    const [paymentresult, setPaymentresult] = useState([]);
+    function paymentData() {
+
+        let data = { cc_number, expiry_month, expiry_year, cvv, amount, order_id, payer_email }
+        fetch("https://replatform.acclaimedhw.com/replatform/api/chargepayment", {
+            method: "POST",
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(data)
+        })
+            .then((resp) => {
+                resp.json().then((paymentresult) => {
+                    console.warn("paymentresult", paymentresult)
+                    if (res == true) {
+                        setPaymentresult(paymentresult);
+                    }
+                })
+            })
+        let res = false
+    }
+    if (res) {
+        saveProduct()
+        paymentData()
+    }   
+    function RedirectInvoice() {
+        history.push("/homeowner-plans/checkout/order-received")
+      }
+    if(res == true){
+        RedirectInvoice()
+    }
+    useEffect(()=>{
+        localStorage.setItem('order_id',JSON.stringify(order_id))
+      })
     return (
         <>
             <Helmet>
@@ -251,7 +288,7 @@ const CheckOut = ({ value }) => {
                                     <p>If you have a coupon code, please apply it below.</p>
                                     <p className="form-row form-row-first">
                                         <input type="text" className="input-text" placeholder="Coupon code"
-                                         name="coupon_code" value={coupon_code} onChange={(e) =>{setCoupon_code(e.target.value)}}/>
+                                            name="coupon_code" value={coupon_code} onChange={(e) => { setCoupon_code(e.target.value) }} />
                                     </p>
                                     <p className="form-row form-row-last">
                                         <button type="submit" className="button" value="Apply coupon" onClick={CouponData}>Apply coupon</button>
@@ -453,21 +490,50 @@ const CheckOut = ({ value }) => {
                                         <p>Pay securely using your credit card.</p>
                                         <fieldset>
                                             <div className="payment-method-form">
-                                                <p className="form-row form-row-wide validate-required woocommerce-invalid">
+                                                <p className="form-row form-row-wide">
                                                     <label>Card Number</label>
                                                     <abbr className="required" title="required">*</abbr>
-                                                    <input type="text" className="input-text" maxLength="20" placeholder="••••••••••••••••" />
+                                                    <input type="text" maxLength="20" placeholder="••••••••••••••••" value={cc_number} onChange={(e) => { setcc_number(e.target.value) }} />
                                                 </p>
                                                 <div>
-                                                    <p className="form-row form-row-first validate-required woocommerce-invalid woocommerce-invalid-required-field">
+                                                    <div className="form_month form-row-first">
                                                         <label>Expiration (MM/YY) </label>
                                                         <abbr className="required" title="required">*</abbr>
-                                                        <input type="text" className="input-text" maxLength="20" placeholder="MM / YY" />
-                                                    </p>
-                                                    <p className="form-row form-row-last validate-required woocommerce-invalid woocommerce-invalid-required-field">
+                                                        <div className="monthyear">
+                                                        <select className="monthselect" value={expiry_month} onChange={(e) => { setexpiry_month(e.target.value) }}>
+                                                            <option value=""></option>
+                                                            <option value="01">01</option>
+                                                            <option value="02">02</option>
+                                                            <option value="03">03</option>
+                                                            <option value="04">04</option>
+                                                            <option value="05">05</option>
+                                                            <option value="06">06</option>
+                                                            <option value="07">07</option>
+                                                            <option value="08">08</option>
+                                                            <option value="09">09</option>
+                                                            <option value="10">10</option>
+                                                            <option value="11">11</option>
+                                                            <option value="12">12</option>
+                                                        </select>
+                                                        <select className="yearselect" value={expiry_year} onChange={(e) => { setexpiry_year(e.target.value) }}>
+                                                            <option value=""></option>
+                                                            <option value="2021">2021</option>
+                                                            <option value="2022">2022</option>
+                                                            <option value="2023">2023</option>
+                                                            <option value="2024">2024</option>
+                                                            <option value="2015">2025</option>
+                                                            <option value="2016">2026</option>
+                                                            <option value="2017">2027</option>
+                                                            <option value="2018">2028</option>
+                                                            <option value="2019">2029</option>
+                                                            <option value="2020">2030</option>
+                                                        </select>
+                                                        </div>
+                                                    </div>
+                                                    <p className="form-row form-row-last">
                                                         <label>Card Security Code </label>
                                                         <abbr className="required" title="required">*</abbr>
-                                                        <input type="text" className="input-text" maxLength="20" placeholder="CSC" />
+                                                        <input type="text" maxLength="3" placeholder="CSC" value={cvv} onChange={(e) => { setcvv(e.target.value) }} />
                                                     </p>
                                                 </div>
                                             </div>
@@ -480,9 +546,6 @@ const CheckOut = ({ value }) => {
                                     <p>Your personal data will be used to process your order, support your experience throughout this website, and for other purposes described in our </p>
                                 </div>
                                 <button type="submit" onClick={saveData} className="button alt" value="Place order">Place order</button>
-                                <div>
-
-                                </div>
                             </div>
                         </div>
 
