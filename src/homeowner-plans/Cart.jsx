@@ -24,7 +24,7 @@ export default function Cart({ cart, coverage, setCart, value, hometype }) {
 
   const getTotalSumYearly = () => {
     return cart.reduce(
-     (sum, { yearly_price }) => sum + yearly_price,
+      (sum, { yearly_price }) => sum + yearly_price,
       ""
     ); 
   };
@@ -35,20 +35,31 @@ export default function Cart({ cart, coverage, setCart, value, hometype }) {
       ""
     );
   };
+
+  let yy = getTotalSumYearly()
+  let yprice = parseFloat(yy).toFixed(2)
+  let mm = getTotalSumMonthly()
+  let mprice = parseFloat(mm).toFixed(2)
+
+
+
  const totalMonthly = parseFloat(Toalpricemonthly())+parseFloat(getTotalSumMonthly())
+ let tm = parseFloat(totalMonthly).toFixed(2)
  const totalYearly = parseFloat(Toalpriceyearly())+parseFloat(getTotalSumYearly())
- 
+ let ty = parseFloat(totalYearly).toFixed(2)
+ console.log(tm)
+ console.log(ty)
  useEffect(()=>{
   if(coverage){
-  localStorage.setItem('totalMonthly',JSON.stringify(totalMonthly))
-  localStorage.setItem('totalYearly',JSON.stringify(totalYearly))
+  localStorage.setItem('totalMonthly',JSON.stringify(tm))
+  localStorage.setItem('totalYearly',JSON.stringify(ty))
   }
 })
 
 useEffect(()=>{
   if(!coverage){
-  localStorage.setItem('MonthlyPrice',JSON.stringify(getTotalSumMonthly()))
-  localStorage.setItem('YearlyPrice',JSON.stringify(getTotalSumYearly()))
+  localStorage.setItem('MonthlyPrice',JSON.stringify(mprice))
+  localStorage.setItem('YearlyPrice',JSON.stringify(yprice))
 }})
 
   const clearCart = () => {
@@ -80,10 +91,10 @@ const Cove = ()=>(
       
       <div className="total">
         <h4>Total</h4>
-        {(coverage) && (value == 1) ? <span>{totalYearly} /YR</span> : null}
-        {(coverage) && (value == 2) ? <span>{totalMonthly} /MO</span> : null}
-        {(!coverage) && (value == 1) ? <span>{getTotalSumYearly()} /YR</span> : null}
-        {(!coverage) && (value == 2) ? <span>{getTotalSumMonthly()}  /MO</span> : null}
+        {(coverage) && (value == 1) ? <span>${totalYearly.toFixed(2)} /YR</span> : null}
+        {(coverage) && (value == 2) ? <span>${totalMonthly.toFixed(2)} /MO</span> : null}
+        {(!coverage) && (value == 1) ? <span>${yprice} /YR</span> : null}
+        {(!coverage) && (value == 2) ? <span>${mprice}  /MO</span> : null}
       </div>
 
     </>
