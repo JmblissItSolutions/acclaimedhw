@@ -136,11 +136,11 @@ const Arizona = () => {
                   </div>
                   <div className="body">
                     <h6 className="upper">{product.name}</h6>
-                    {product.monthly_price !== "0" ? <h4 className="lato">{product.monthly_price}
+                    {product.monthly_price !== "0" ? <h4 className="lato">${product.monthly_price}
                       <span style={{ fontSize: "0.4em" }}>/MO</span></h4> :
-                      <h4 className="lato">{product.yearly_price}
+                      <h4 className="lato">${product.yearly_price}
                         <span style={{ fontSize: "0.4em" }}>/YR</span></h4>}
-                    {product.monthly_price !== "0" ? <h5 className="lato">{product.yearly_price}/YR</h5> : null}
+                    {product.monthly_price !== "0" ? <h5 className="lato">${product.yearly_price}/YR</h5> : null}
                     <button className="buybtn" onClick={() => { addToCart(product) }}> <input className="buyinput" type="submit" id={product.id} data-index={index} value="Buy Now"
                       onClick={changehandle} /></button>
                   </div>
@@ -168,8 +168,8 @@ const Arizona = () => {
               <strong>Payment Options:</strong>
               <span className="spacer"></span>
               <label><Radio.Group onChange={onChange} value={value}>
-                {filterDropdown[index].yearly_price ? <label><Radio value={1}>{filterDropdown[index].yearly_price} /YR</Radio></label> : null}
-                {filterDropdown[index].monthly_price !== "0" ? <label><Radio value={2}>{filterDropdown[index].monthly_price} /MO</Radio></label> : null}</Radio.Group></label>
+                {filterDropdown[index].yearly_price ? <label><Radio value={1}>${filterDropdown[index].yearly_price} /YR</Radio></label> : null}
+                {filterDropdown[index].monthly_price !== "0" ? <label><Radio value={2}>${filterDropdown[index].monthly_price} /MO</Radio></label> : null}</Radio.Group></label>
             </div>
           </div>
           <div className="textured-back" style={{ backgroundImage: `url(${lattice})` }}>

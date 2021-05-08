@@ -95,8 +95,10 @@ const Texas = () => {
 	};
 	const QuantityDecrease = (i) => {
 		const newItems = [...coverage];
-		newItems[i].quantity--;
-		setCoverage(newItems);
+		if(newItems[i].quantity > 0){
+      newItems[i].quantity--;
+      setCoverage(newItems);
+    }
 	};
   const Produfilter = () => (
     <>
@@ -156,11 +158,11 @@ const Texas = () => {
                   </div>
                   <div className="body">
                     <h6 className="upper">{product.name}</h6>
-                    {product.monthly_price !== "0" ? <h4 className="lato">{product.monthly_price}
+                    {product.monthly_price !== "0" ? <h4 className="lato">${product.monthly_price}
                       <span style={{ fontSize: "0.4em" }}>/MO</span></h4> :
-                      <h4 className="lato">{product.yearly_price}
+                      <h4 className="lato">${product.yearly_price}
                         <span style={{ fontSize: "0.4em" }}>/YR</span></h4>}
-                    {product.monthly_price !== "0" ? <h5 className="lato">{product.yearly_price}/YR</h5> : null}
+                    {product.monthly_price !== "0" ? <h5 className="lato">${product.yearly_price}/YR</h5> : null}
                     <button className="buybtn" onClick={() => { addToCart(product) }}> <input className="buyinput" type="submit" id={product.id} data-index={index} value="Buy Now"
                       onClick={changehandle} /></button>
                   </div>
@@ -189,8 +191,8 @@ const Texas = () => {
               <button className="qua_btn" onClick={() => QuantityIncrease(i)} >+</button>
               <button className="qua_btn" onClick={() => QuantityDecrease(i)}>-</button>
               </div>
-              {value == 1 ? <span id={dataIn.id} data-num={dataIn.id} className="price">{dataIn.yearly_price}</span> : null}
-              {value == 2 ? <span id={dataIn.id} data-num={dataIn.id} className="price">{dataIn.monthly_price}</span> : null}
+              {value == 1 ? <span id={dataIn.id} data-num={dataIn.id} className="price">${dataIn.yearly_price}</span> : null}
+              {value == 2 ? <span id={dataIn.id} data-num={dataIn.id} className="price">${dataIn.monthly_price}</span> : null}
               <span className="name">{dataIn.name}</span>
             </div>
           )}
@@ -209,8 +211,8 @@ const Texas = () => {
               <strong>Payment Options:</strong>
               <span className="spacer"></span>
               <label><Radio.Group onChange={onChange} value={value}>
-              {filterDropdown[index].yearly_price ? <label><Radio value={1}>{filterDropdown[index].yearly_price} /YR</Radio></label>: null}
-                {filterDropdown[index].monthly_price !=="0" ?<label><Radio value={2}>{filterDropdown[index].monthly_price} /MO</Radio></label>: null}</Radio.Group></label>  
+              {filterDropdown[index].yearly_price ? <label><Radio value={1}>${filterDropdown[index].yearly_price} /YR</Radio></label>: null}
+                {filterDropdown[index].monthly_price !=="0" ?<label><Radio value={2}>${filterDropdown[index].monthly_price} /MO</Radio></label>: null}</Radio.Group></label>  
             </div>
           </div>
           <div className="textured-back" style={{ backgroundImage: `url(${lattice})` }}>
