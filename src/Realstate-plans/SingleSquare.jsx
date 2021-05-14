@@ -7,11 +7,12 @@ import RealStateOrder from "./RealStateOrder";
 import homewarranty from "../assets/images/homewarranty.png";
 
 
-const SingleSquare = () => {
+const SingleSquare = ({productlist}) => {
     const [showResults, setShowResults] = useState("SingleSquareContent")
     const changehandle = () => {
         setShowResults("RealStateOrder")
     };
+    console.log(productlist)
     const SingleSquareContent = () =>(
         <div className="home_page">
              <div className="top_img">
@@ -19,6 +20,7 @@ const SingleSquare = () => {
                 </div>
                 <div className="realstate">
                     <h1>Real Estate Orders</h1>
+                   
                 </div>
         <div className="container">
             <div className="plan-ttl">
@@ -94,15 +96,19 @@ const SingleSquare = () => {
                 <div className="table-cont">
                     <h2>INDIVIDUAL PLANS INCLUDE THESE ADDITIONAL OPTIONS</h2>
                     <div className="right-table">
-                        <div className="standard_card header">
-                            <div className="tagdown standard">
-                                <span className="tagtxt-top">You've selected</span>
-                                <h4>Standard</h4>
-                                <span className="tagtxt-mid">Home Warranty</span><br />
-                                <span className="tagtxt-bot">$300</span>
-                            </div>
-                        </div>
-                        <div className="premium header">
+                    {productlist.map((pro, index) => (
+          <div className="standard_card header">
+          <div className="tagdown standard">
+              <span className="tagtxt-top">You've selected</span>
+              <h4>{pro.name}</h4>
+              <span className="tagtxt-mid"><div dangerouslySetInnerHTML={{ __html: pro.short_desc }} /></span><br />
+              <span className="tagtxt-bot">${pro.price}</span>
+          </div>
+      </div>
+        ))}
+                       
+
+                        {/* <div className="premium header">
                             <div className="tagdown standard">
                                 <span className="tagtxt-top">Click to add</span>
                                 <h4>Premium+</h4>
@@ -110,8 +116,8 @@ const SingleSquare = () => {
                                 <span className="fridge-txt">+ Fridge</span><br />
                                 <span className="tagtxt-bot">$400</span>
                             </div>
-                        </div>
-                        <div className="premiumone header">
+                        </div> */}
+                        {/* <div className="premiumone header">
                             <div className="tagdown standard">
                                 <span className="tagtxt-top">Click to add</span>
                                 <h4>Premium+1</h4>
@@ -119,15 +125,15 @@ const SingleSquare = () => {
                                 <span className="fridge-txt">+Fridge,No Fault</span><br />
                                 <span className="tagtxt-bot">$450</span>
                             </div>
-                        </div>
-                        <div className="Ultimate header">
+                        </div> */}
+                        {/* <div className="Ultimate header">
                             <div className="tagdown standard">
                                 <span className="tagtxt-top">You've selected</span>
                                 <h4>Ultimate</h4>
                                 <span className="tagtxt-mid">Home Warranty</span><br />
                                 <span className="tagtxt-bot">$500</span>
                             </div>
-                        </div>
+                        </div> */}
                     </div>
                 </div>
                 <div className="textured">

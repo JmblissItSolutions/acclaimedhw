@@ -1,19 +1,21 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useEffect } from "react";
+import APIUrl from "../Api"
 import { Helmet } from "react-helmet";
 import homewarranty from "../assets/images/homewarranty.png";
 import SingleSquare from "./SingleSquare";
 
 const RealStateOrder = () => {
-    let hompalan = ["Utah", "Idaho", "Nevada", "Arizona", "Texas"];
-    const [radiovalue, setRadio] = useState('');
+    // let hompalan = ["Utah", "Idaho", "Nevada", "Arizona", "Texas"];
+    const [state_id, setStateId] = useState();
+    //console.log(state_id)
 
-    let coverageoption = ["Buyer's Coverage", "Listing/Seller's Coverage"];
-    const [coveragevalue, setCoverage] = useState('');
+    // let coverageoption = ["Buyer's Coverage", "Listing/Seller's Coverage"];
+    const [cov_type_id, setCoverage] = useState();
+    //console.log(cov_type_id)
 
     let iamoptions = ["escrow-officer", "buyer-agent", "listing-agent", "buyer"];
-    let warantyorder = ["Single-family home less than 6k sq ft, or condominium, townhome, mobile home under 2K sq ft.", "Condominium, townhome less than 2k sq ft", "Duplex", "Triplex", "Fourplex"];
-    const [ordervalue, setWarranty] = useState('');
-
+    //let warantyorder = ["Single-family home less than 6k sq ft, or condominium, townhome, mobile home under 2K sq ft.", "Condominium, townhome less than 2k sq ft", "Duplex", "Triplex", "Fourplex"];
+    const [question_id, setWarranty] = useState();
     let suarefootage = ["yes", "no"];
     const [squarevalue, setSqure] = useState('yes');
 
@@ -22,21 +24,101 @@ const RealStateOrder = () => {
 
     const [listcheckbox1, setListcheck1] = useState('');
     const [listcheckbox2, setListcheck2] = useState('');
-    console.log(listcheckbox1)
 
     const [showResults, setShowResults] = useState("")
     const changehandle = () => {
         setShowResults("SingleSquare")
     };
+
+    const [hompalan, sethompalan] = useState([]);
+    useEffect(async () => {
+        const hompalans = await APIUrl.get(`/get_realstate_states`)
+        sethompalan(hompalans.data);
+
+    }, []);
+
+    const [coveragetype, setcoveragetype] = useState([]);
+    useEffect(async () => {
+        const coveragetypes = await APIUrl.get(`/get_realstate_covtype`)
+        setcoveragetype(coveragetypes.data);
+    }, []);
+    let covtypearay = (coveragetype.questions)
+    let covres = (coveragetype.result)
+
+    const [result, setResult] = useState([]);
+    function AnswerList() {
+        let data = { state_id, cov_type_id }
+        fetch("https://replatform.acclaimedhw.com/replatform/api/get_realstate_questions", {
+            method: "POST",
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(data)
+        })
+            .then((resp) => {
+                resp.json().then((result) => {
+                    setResult(result);
+                })
+            })
+    }
+
+    const quesList = result.questions
+    let response = (result.result)
+
+    useEffect(() => {
+        AnswerList()
+    }, [state_id, cov_type_id]);
+
+    const [product, setProduct] = useState([]);
+    const ProductList = () => {
+        let data = { state_id, cov_type_id, question_id }
+        fetch("https://replatform.acclaimedhw.com/replatform/api/get_realstate_products", {
+            method: "POST",
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(data)
+        })
+            .then((resp) => {
+                resp.json().then((product) => {
+                    setProduct(product);
+                })
+            })
+    }
+    let productlist = product.products
+    let prores = product.result
+    useEffect(() => {
+        ProductList()
+    }, [question_id]);
+
+    //    function test(){
+    //        return productlist.map((n) => n.price);
+    //    }
+    function allprices() {
+        if (prores) {
+            return productlist.map((n) => n.price);
+        }
+    }
+    function minprices() {
+        if (prores) {
+            return Math.min(...allprice)
+        }
+    }
+    const allprice = allprices()
+    const minprice = minprices()
+    console.log(allprice)
+    console.log(minprice)
     const Homeplan = () => (
         <>
             <div className="homplan">
                 <h4>I want to get a home warranty for a property in:</h4>
                 {hompalan.map(palan => (
-                    <label key={palan} className="radiodesign">
-                        <input checked={radiovalue === palan}
-                            {...setRadio} type="radio" value={palan} onChange={e => setRadio(e.target.value)} />
-                        {palan}
+                    <label key={palan.location_name} className="radiodesign">
+                        <input checked={state_id == palan.id}
+                            type="radio" value={palan.id} onChange={e => setStateId(e.target.value)} />
+                        {palan.location_name}
                         <span className="checkmark"></span>
                     </label>
                 ))}
@@ -47,17 +129,18 @@ const RealStateOrder = () => {
         <>
             <div className="coverage">
                 <h4>Let us know what type of coverage this is...</h4>
-                {coverageoption.map(coverage => (
-                    <label key={coverage} className="radiodesign">
-                        <input checked={coveragevalue === coverage}
-                            {...setCoverage} type="radio" value={coverage} onChange={e => setCoverage(e.target.value)} />
-                        {coverage}
+                {covtypearay.map(coverage => (
+                    <label key={coverage.co_type_name} className="radiodesign">
+                        <input checked={cov_type_id == coverage.id}
+                            type="radio" value={coverage.id} onChange={e => setCoverage(e.target.value)} />
+                        {coverage.co_type_name}
                         <span className="checkmark"></span>
                     </label>
                 ))}
             </div>
         </>
     )
+
     const Squarefootege = () => (
         <>
             <div className="square">
@@ -70,7 +153,7 @@ const RealStateOrder = () => {
                         <span className="checkmark"></span>
                     </label>
                 ))}
-                {(squarevalue === "yes") && (coveragevalue === "Buyer's Coverage") ? <Construction /> : null}
+                {/* {(squarevalue === "yes") && (coveragevalue === "Buyer's Coverage") ? <Construction /> : null} */}
             </div>
         </>
     )
@@ -129,15 +212,24 @@ const RealStateOrder = () => {
                         </div>
                     </div>
                     <div>
-                        <div className="warranty_order">
-                            <span>This home warranty order is for a:</span>
-                            <label className="radiodesign">
+                        {response &&
+                            <div className="warranty_order">
+                                <span>This home warranty order is for a:</span>
+                                {quesList.map(qus => (
+                                    <label key={qus.id} className="radiodesign">
+                                        <input checked={question_id == qus.id}
+                                            type="radio" value={qus.id} onChange={e => setWarranty(e.target.value)} />
+                                        {qus.question_name}
+                                        <span className="checkmark"></span>
+                                    </label>
+                                ))}
+                                {/* <label className="radiodesign">
                                 <input checked={ordervalue === "Single-family home less than 6k sq ft, or condominium, townhome, mobile home under 2K sq ft."}
                                     {...setWarranty} type="radio" value="Single-family home less than 6k sq ft, or condominium, townhome, mobile home under 2K sq ft." onChange={e => setWarranty(e.target.value)} />
                                     Single-family home less than 6k sq ft, or condominium, townhome, mobile home under 2K sq ft.
                                     <span className="checkmark"></span>
-                            </label>
-                            {(coveragevalue === "Buyer's Coverage") ?
+                            </label> */}
+                                {/* {(coveragevalue === "Buyer's Coverage") ?
                                 <label className="radiodesign">
                                     <input checked={ordervalue === "Condominium, townhome less than 2k sq ft"}
                                         {...setWarranty} type="radio" value="Condominium, townhome less than 2k sq ft" onChange={e => setWarranty(e.target.value)} />
@@ -165,11 +257,12 @@ const RealStateOrder = () => {
                                  <span className="checkmark"></span>
                                     </label></div> : null
                             }
-                            {ordervalue === "Single-family home less than 6k sq ft, or condominium, townhome, mobile home under 2K sq ft." ? <Squarefootege /> : null}
-                        </div>
+                            {ordervalue === "Single-family home less than 6k sq ft, or condominium, townhome, mobile home under 2K sq ft." ? <Squarefootege /> : null} */}
+                            </div>
+                        }
                     </div>
                     <div className="order_flex">
-                        <a onClick={e => setRadio(false) || setCoverage(false) || setWarranty(false)} className="btn">Start Over</a>
+                        {/* <a onClick={e => setRadio(false) || setCoverage(false) || setWarranty(false)} className="btn">Start Over</a> */}
                     </div>
                 </div>
             </div>
@@ -206,11 +299,11 @@ const RealStateOrder = () => {
                                 <p>Enter Your Home Warranty Budget</p>
                             </div>
                             <div>
-                                $<input type="number" min="300" max="2000" className="select"></input>
+                                <input type="number" min={minprice} max="2000" className="select" ></input>
                                 <p></p>
                             </div>
                             <div>
-                                <p>Enter an amount from $300-$2000</p>
+                                <p>Enter an amount from ${minprice}-$2000</p>
                                 <button type="button" className="btn">GO</button>
                                 <br />
                             </div>
@@ -249,14 +342,14 @@ const RealStateOrder = () => {
             <div className="baseprice" >
                 <div className="base_price_plan">
                     <div className="baseprice_plan">
-                        <h4>The base price for this coverage is $595</h4>
+                        <h4>The base price for this coverage is {minprice}</h4>
                         <p>The remaining balance can be applied towards Coverage Upgrades or service calls.</p>
                     </div>
                     <div className="baseprice_amnt">
-                        <input type="number" min="595" max="2000"></input>
+                        <input type="number" min={minprice} max="2000"></input>
                         <div className="">
-                            <p className="">Enter an amount from $300-$2000</p>
-                            <button type="button" className="btn">GO</button>
+                            <p className="">Enter an amount from ${minprice}-$2000</p>
+                            <button type="button" className="btn" onClick={changehandle}>GO</button>
                             <br />
                         </div>
                     </div>
@@ -269,11 +362,11 @@ const RealStateOrder = () => {
             <div className="Condominium">
                 <div className="Condominium">
                     <p>Standard Home Warranty Plan for a condominium, townhome, mobile home less than 2k sq ft:</p>
-                    <p><strong className="blacktext">$285</strong></p>
+                    <p><strong className="blacktext">${minprice}</strong></p>
                     <p>Need COVERAGE UPGRADES?</p>
                     <p>Call Acclaimed at<strong className="blacktext">888-494-9460</strong></p>
                     <div>
-                        <button type="button" className="btn">CONTINUE</button>
+                        <button type="button" className="btn"onClick={changehandle}>CONTINUE</button>
                     </div>
                 </div>
             </div>
@@ -285,34 +378,38 @@ const RealStateOrder = () => {
                 <title>Real Estate Orders in Arizona by Acclaimed Home Warranty</title>
                 <meta name="description" content="Are you looking for a home warranty for your property in Arizona? Reach out to Acclaimed Home Warranty for coverage details for buyers and sellers." />
             </Helmet>
-            {showResults === "SingleSquare" ? <SingleSquare /> :
-            <div className="home_page">
-                <div className="top_img">
-                    <img src={homewarranty} alt="homewarranty" />
-                </div>
-                <div className="realstate">
-                    <h1>Real Estate Orders</h1>
-                </div>
-                <div className="container">
-                   
+            {showResults === "SingleSquare" ? <SingleSquare  productlist={productlist} /> :
+                <div className="home_page">
+                    <div className="top_img">
+                        <img src={homewarranty} alt="homewarranty" />
+                    </div>
+                    <div className="realstate">
+                        <h1>Real Estate Orders</h1>
+                    </div>
+                    <div className="container">
+
                         <div>
                             <Homeplan />
-                            {(radiovalue === 'Utah') || (radiovalue === 'Idaho') || (radiovalue === 'Nevada') || (radiovalue === 'Arizona') || (radiovalue === 'Texas') ? <Coverage /> : null}
-                            {coveragevalue === "Buyer's Coverage" ? <Answering /> : null}
-                            {coveragevalue === "Listing/Seller's Coverage" ? <Terms /> : null}
-                            {(squarevalue === "no") && (ordervalue === "Single-family home less than 6k sq ft, or condominium, townhome, mobile home under 2K sq ft.") && (coveragevalue === "Buyer's Coverage") ? <Assitance /> : null}
-                            {(ordervalue === "Single-family home less than 6k sq ft, or condominium, townhome, mobile home under 2K sq ft.") && (squarevalue === 'yes') && (constructionvalue === 'no') && (coveragevalue === "Buyer's Coverage") ? <Bestplan /> : null}
-                            {(ordervalue === "Single-family home less than 6k sq ft, or condominium, townhome, mobile home under 2K sq ft.") && (squarevalue === 'yes') && (constructionvalue === 'yes') && (coveragevalue === "Buyer's Coverage") ? <ConstCall /> : null}
-                            {(ordervalue === 'Duplex') && (coveragevalue === "Buyer's Coverage") || (ordervalue === 'Triplex') && (coveragevalue === "Buyer's Coverage") || (ordervalue === 'Fourplex') && (coveragevalue === "Buyer's Coverage") ? <Baseprice /> : null}
-                            {(ordervalue === "Condominium, townhome less than 2k sq ft") && (coveragevalue === "Buyer's Coverage") ? <Condominium /> : null}
-                            {(coveragevalue === "Listing/Seller's Coverage") && (listcheckbox1 === true) && (listcheckbox2 === true) ? <Answering /> : null}
-                            {(coveragevalue === "Listing/Seller's Coverage") && (listcheckbox1 === true) && (listcheckbox2 === true) && (ordervalue === "Single-family home less than 6k sq ft, or condominium, townhome, mobile home under 2K sq ft.") && (squarevalue === "no") ? <Assitance /> : null}
-                            {(coveragevalue === "Listing/Seller's Coverage") && (listcheckbox1 === true) && (listcheckbox2 === true) && (ordervalue === "Single-family home less than 6k sq ft, or condominium, townhome, mobile home under 2K sq ft.") && (squarevalue === 'yes') ? <ListBestplan /> : null}
-                            {(ordervalue === 'Duplex') && (coveragevalue === "Listing/Seller's Coverage") || (ordervalue === 'Triplex') && (coveragevalue === "Listing/Seller's Coverage") || (ordervalue === 'Fourplex') && (coveragevalue === "Listing/Seller's Coverage") ? <Baseprice /> : null}
+                            {(state_id == null) ? null : <Coverage />}
+                            {cov_type_id == 1 ? <Answering /> : null}
+                            {/* {coveragevalue === "buyer" ? <Answering /> : null}
+                            {coveragevalue === "seller" ? <Terms /> : null}
+                            {(squarevalue === "no") && (ordervalue === "Single-family home less than 6k sq ft, or condominium, townhome, mobile home under 2K sq ft.") && (coveragevalue === "buyer") ? <Assitance /> : null}*/}
+                            {(question_id == 1) ? <Bestplan /> : null}
+                            {/* {(question_id == 1) && (squarevalue === 'yes') && (constructionvalue === 'no') && (coveragevalue === "buyer") ? <Bestplan /> : null}
+                           {(ordervalue === "Single-family home less than 6k sq ft, or condominium, townhome, mobile home under 2K sq ft.") && (squarevalue === 'yes') && (constructionvalue === 'yes') && (coveragevalue === "buyer") ? <ConstCall /> : null} */}
+                           {(question_id == 3) || (question_id == 4) || (question_id == 5) ? <Baseprice /> : null}
+                           {(question_id == 2) ? <Condominium /> : null}
+                           {/*{(ordervalue === 'Duplex') && (coveragevalue === "Buyer's Coverage") || (ordervalue === 'Triplex') && (coveragevalue === "buyer") || (ordervalue === 'Fourplex') && (coveragevalue === "buyer") ? <Baseprice /> : null}
+                            {(ordervalue === "Condominium, townhome less than 2k sq ft") && (coveragevalue === "buyer") ? <Condominium /> : null}
+                            {(coveragevalue === "seller") && (listcheckbox1 === true) && (listcheckbox2 === true) ? <Answering /> : null}
+                            {(coveragevalue === "seller") && (listcheckbox1 === true) && (listcheckbox2 === true) && (ordervalue === "Single-family home less than 6k sq ft, or condominium, townhome, mobile home under 2K sq ft.") && (squarevalue === "no") ? <Assitance /> : null}
+                            {(coveragevalue === "seller") && (listcheckbox1 === true) && (listcheckbox2 === true) && (ordervalue === "Single-family home less than 6k sq ft, or condominium, townhome, mobile home under 2K sq ft.") && (squarevalue === 'yes') ? <ListBestplan /> : null}
+                            {(ordervalue === 'Duplex') && (coveragevalue === "seller") || (ordervalue === 'Triplex') && (coveragevalue === "seller") || (ordervalue === 'Fourplex') && (coveragevalue === "seller") ? <Baseprice /> : null} */}
                         </div>
-                     
+
+                    </div>
                 </div>
-            </div>
             }
         </>
     )
