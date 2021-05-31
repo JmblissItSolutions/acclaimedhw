@@ -16,7 +16,7 @@ import * as ReactBootStrap from "react-bootstrap";
 
 const CheckOut = () => {
     let history = useHistory();
-    let localdata = JSON.parse(localStorage.getItem('cart'));
+    let localdata = JSON.parse(localStorage.getItem('cart')) ? JSON.parse(localStorage.getItem('cart')) : [];
     let val = JSON.parse(localStorage.getItem('value'));
     let protype = JSON.parse(localStorage.getItem('product'));
     let covrage = JSON.parse(localStorage.getItem('coverage'));
@@ -41,14 +41,15 @@ const CheckOut = () => {
     const [prop_state, SetProp_state] = useState("");
     const [prop_zipcode, SetProp_zipcode] = useState("");
     const [order_notes, SetOrder_notes] = useState("");
-    const [pay_method, setPayment] = useState("card")
-    const [status, setStatus] = useState("pending")
+    const [pay_method, setPayment] = useState("card");
+    const [status, setStatus] = useState("pending");
     const [visible, setVisible] = useState(false);
     const [isLoading, setLoading] = useState(false);
     const [isCoupon, setCoupon] = useState(false);
     const [coupon_code, setCoupon_code] = useState("");
     const [couponresult, setCouponresult] = useState([]);
     const [applyresult, setApplyresult] = useState([]);
+    const [showme, setShowme] = useState(0);
 
     const onClick = (e) => {
         e.preventDefault();
@@ -86,8 +87,6 @@ const CheckOut = () => {
     let resultMsg = (result.message)
     let orderid = (result.order_id)
     let res = (result.result)
-
-
     function CouponData(e) {
         e.preventDefault();
         setCoupon(true)
@@ -113,7 +112,7 @@ const CheckOut = () => {
     let couponres = (couponresult.result)
     let couponval = (couponresult.result)
     function removeCoupon() {
-        setCouponresult("")
+        // setCouponresult("")
     }
     function interval() {
         if (val == 1 || val == null) {
@@ -123,6 +122,7 @@ const CheckOut = () => {
             return 'monthly'
         }
     }
+
     let intervaltype = interval()
     let order_id = orderid
 
@@ -142,6 +142,7 @@ const CheckOut = () => {
         container[quantity] = 1
         return container;
     })
+
     function getArray() {
         if (covrage) {
             return covrage
@@ -167,8 +168,9 @@ const CheckOut = () => {
             container[quantity] = item.quantity
             return container;
         })
-    CovList.push(mainPro[0]);
-
+    if (mainPro && mainPro.length) {
+        CovList.push(mainPro[0]);
+    }
     const [productlist, setProductlist] = useState([]);
     function saveProduct() {
         fetch("https://replatform.acclaimedhw.com/replatform/api/add_orderitems", {
@@ -204,7 +206,6 @@ const CheckOut = () => {
     const PaymentOption = e => {
         setPayment(e.target.value);
     }
-
     function subtotalfun() {
         if (totalMonthly && val === 2) {
             return totalMonthly
@@ -264,12 +265,10 @@ const CheckOut = () => {
         }
         return totalamount
     }
-
     const ttl = ttlAmount()
     const total = parseFloat(ttl).toFixed(2)
     const [subtotal, SetSubtotal] = useState(v1);
     let amount = total
-
     function alldiscount() {
         let distype
         if (coupontype == "fixed") {
@@ -354,12 +353,26 @@ const CheckOut = () => {
         localStorage.setItem('order_id', JSON.stringify(order_id))
     }, [order_id])
 
-    return (
+    const ShoppingCart = () => (
         <>
-            <Helmet>
-                <title>Arizona Resources - Acclaimed Home Warranty : Acclaimed Home Warranty</title>
-                <meta name="description" content="Arizona Resources - Acclaimed Home Warranty" />
-            </Helmet>
+            <div className="home_page">
+                <section className="top-image">
+                    <img src={Checkoutbg} alt="Checkoutbg" />
+                </section>
+                <div className="container">
+                    <div className="shop_ttl">
+                        <h1>Checkout</h1>
+                        <div className="shop-text">
+                            <p>You dont have any product in  your cart please click on this button</p>
+                            <button className="btn" onClick={() => history.push("/home-plans")}>Return to shop</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </>
+    );
+    const Checkoutpage = () => (
+        <>
             <div className="home_page">
                 <section className="top-image">
                     <img src={Checkoutbg} alt="Checkoutbg" />
@@ -368,7 +381,7 @@ const CheckOut = () => {
                     <div className="checkout_ttl">
                         <h1>Checkout</h1>
                         {disbtn}
-                        {/* {disbtn == true ? <p>{carderr}</p> : null}    */}
+                        {/*{disbtn == true ? <p>{carderr}</p> : null}*/}
                     </div>
                 </div>
                 <section className="inner">
@@ -394,16 +407,13 @@ const CheckOut = () => {
                                     </p>
                                 </form> : null}
                         </div>
-
                         <p className="error-msg">{paymsg}</p>
                         {res == false ? <p className="error-msg formerror">{resultMsg}</p> : null}
-
                         <form className="checkout woocommerce-checkout">
                             <div className="col2-set">
                                 <div className="col-1">
                                     <div className="woocommerce-billing-fields">
                                         <h3>Billing details</h3>
-
                                         <div className="woocommerce-billing-fields__field-wrapper">
                                             <p className="form-row form-row-first validate-required">
                                                 <label>First name<abbr className="required" title="required">*</abbr></label>
@@ -514,11 +524,11 @@ const CheckOut = () => {
                                 </thead>
                                 <tbody>
                                     {localdata.map((item, index) => {
-                                         const lm = `${item.monthly_price}`; 
-                                         const ly = `${item.yearly_price}`; 
-                                         let locm = parseFloat(lm).toFixed(2)
-                                         let locy = parseFloat(ly).toFixed(2)
-                                       return <tr className="cart_item" key={index}>
+                                        const lm = `${item.monthly_price}`;
+                                        const ly = `${item.yearly_price}`;
+                                        let locm = parseFloat(lm).toFixed(2)
+                                        let locy = parseFloat(ly).toFixed(2)
+                                        return <tr className="cart_item" key={index}>
                                             <td className="product-name">
                                                 <div>
                                                     {item.name} - {val == 2 ? "Monthly" : "Annual"} ,{protype}
@@ -529,32 +539,31 @@ const CheckOut = () => {
                                             <td className="product-total">
                                                 <span className="woocommerce-Price-amount amount">
                                                     <bdi>
-
                                                         <div className="maiprice"><span className="woocommerce-Price-currencySymbol">$</span>
-                                                          
                                                             {val === 2 ? locm : locy}
                                                         </div>
                                                         {covrage.map((pro, index) => {
-                                                            const prom = `${pro.monthly_price}`; 
-                                                            const proy = `${pro.yearly_price}`; 
+                                                            const prom = `${pro.monthly_price}`;
+                                                            const proy = `${pro.yearly_price}`;
                                                             let covm = parseFloat(prom).toFixed(2)
                                                             let covy = parseFloat(proy).toFixed(2)
                                                             let quapricey = covy * pro.quantity
                                                             let quapricem = covm * pro.quantity
                                                             let qpy = parseFloat(quapricey).toFixed(2)
                                                             let qpm = parseFloat(quapricem).toFixed(2)
-                                                          return  <div className="option" key={index}>
-                                                                <ul> 
+                                                            return <div className="option" key={index}>
+                                                                <ul>
                                                                     {(pro.quantity > 0 && pro.quantity == 1) ? <li>{val == 2 ? <span>${covm}</span> : <span>${covy}</span>}</li> : ""}
                                                                     {(pro.quantity > 1) ? <li>{val == 2 ? <span>${qpm}</span> : <span>${qpy}</span>}</li> : ""}
                                                                 </ul>
                                                             </div>
-})}
+                                                        })}
+                                                        {/* {covrage === "null" ? <button type="button">dont have any product in cart please click on this button</button>:null} */}
                                                     </bdi>
                                                 </span>
                                             </td>
                                         </tr>
-})}
+                                    })}
                                 </tbody>
                                 <tfoot>
                                     <tr className="cart-subtotal">
@@ -579,7 +588,6 @@ const CheckOut = () => {
                                                 <span className="woocommerce-Price-amount amount">
                                                     <bdi>
                                                         {coupontype == "fixed" ? <span className="woocommerce-Price-currencySymbol">-${couponamount}</span> : null}
-
                                                         {coupontype == "percent" ? <span className="woocommerce-Price-currencySymbol">-${couponamountpercent}</span> : null}
                                                         <button className="removebtn" onClick={removeCoupon}>[Remove]</button>
                                                         <br></br>
@@ -608,7 +616,6 @@ const CheckOut = () => {
                         </div>
                         <div className="payment_option">
                             <label><Radio.Group onChange={PaymentOption} value={pay_method}>
-
                                 {/* <label><Radio value="cash">cash</Radio></label> */}
                                 <label><Radio value="card">card</Radio></label></Radio.Group></label>
                         </div>
@@ -632,7 +639,6 @@ const CheckOut = () => {
                                                     <label>Card Number</label>
                                                     <abbr className="required" title="required">*</abbr>
                                                     <input type="text" maxLength="16" pattern="[0-9]" placeholder="xxxx xxxx xxxx xxxx" value={cc_number} onChange={(e) => { setcc_number(e.target.value) }} />
-                                                    
                                                 </p>
                                                 <div>
                                                     <div className="form_month form-row-first">
@@ -684,7 +690,6 @@ const CheckOut = () => {
                                 <div className="woocommerce-terms-and-conditions-wrapper">
                                     <p>Your personal data will be used to process your order, support your experience throughout this website, and for other purposes described in our </p>
                                 </div>
-
                                 <button type="submit" onClick={saveData} disabled={disbtn} className="button alt" value="Place order">Place order</button>
                                 {isLoading == true ? <ReactBootStrap.Spinner animation="border" /> : null}
                             </div>
@@ -692,6 +697,15 @@ const CheckOut = () => {
                     </div>
                 </section>
             </div>
+        </>
+    );
+    return (
+        <>
+            <Helmet>
+                <title>Arizona Resources - Acclaimed Home Warranty : Acclaimed Home Warranty</title>
+                <meta name="description" content="Arizona Resources - Acclaimed Home Warranty" />
+            </Helmet>
+            {showme === localdata.length ? <ShoppingCart /> : <Checkoutpage />}
         </>
     )
 }

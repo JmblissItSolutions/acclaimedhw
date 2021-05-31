@@ -227,9 +227,8 @@ const Utah = () => {
             <div className="cart">
               <Cart cart={cart} setCart={setCart} value={value} hometype={product} coverage={coverage} />
             </div>
-
             <div className="footy">
-              <button value={value} onClick={()=> history.push("/homeowner-plans/checkout/")} className="btn">Check out</button>
+              <button value={value}  onClick={()=> history.push("/homeowner-plans/checkout/")} className="btn">Check out</button>
               <button className="redirectcancel" onClick={() => setShowPlans("ProductsInfo")}>
                 <input className="btn cancel" defaultValue="Cancel"
                   onClick={clearCart} /></button>
@@ -249,7 +248,6 @@ const Utah = () => {
         <Produfilter />
         {showPlans === "ProductsInfo" && <ProductsInfo />}
         {showPlans === "Plans" && <Plans />}
-
       </div>
     </>
   )

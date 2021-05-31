@@ -16,7 +16,7 @@ import paul from "./assets/images/Paul.jpg";
 import theron from "./assets/images/Theron.jpeg";
 import google from "./assets/images/googlelogo.png";
 import ReactStars from "react-rating-stars-component";
-import Carousel from 'react-bootstrap/Carousel';
+// import Carousel from 'react-bootstrap/Carousel';
 import marggie from "./assets/images/marggie.png";
 import smgoogle from "./assets/images/googleicon.png";
 import vance from "./assets/images/vance.png";
@@ -42,7 +42,9 @@ import liquid from "./assets/images/liquid.jpg";
 import liquidready from "./assets/images/liquidready.jpg";
 import loowks from "./assets/images/loowks.jpg";
 import manwithkit from "./assets/images/manwithkit.jpg";
+import instaicon from "./assets/images/instaicon.jpg";
 import axios from 'axios';
+import { Carousel } from 'antd';
 
 const AboutUs = () => {
   const ratingStart = {
@@ -260,8 +262,8 @@ const AboutUs = () => {
                   </div>
                 </div>
                 <div className="ti-reviews-container">
-                  <Carousel>
-                    <Carousel.Item className="about-crousel-item">
+                  <Carousel autoplay>
+                    <div className="about-crousel-item">
                       <div className="ti-review-item source-Google">
                         <div className="ti-inner">
                           <div className="ti-review-header">
@@ -276,7 +278,7 @@ const AboutUs = () => {
                                 2020-07-24
                               </div>
                               <div className="ti-logo">
-                                <img src={smgoogle} alt="sm-google" />
+                                <img src={smgoogle} alt="sm-google"/>
                               </div>
                             </div>
                           </div>
@@ -290,7 +292,6 @@ const AboutUs = () => {
                           </div>
                         </div>
                       </div>
-
                       <div className="ti-review-item source-Google">
                         <div className="ti-inner">
                           <div className="ti-review-header">
@@ -317,7 +318,6 @@ const AboutUs = () => {
                           <div className="ti-review-content"></div>
                         </div>
                       </div>
-
                       <div className="ti-review-item source-Google">
                         <div className="ti-inner">
                           <div className="ti-review-header">
@@ -332,20 +332,20 @@ const AboutUs = () => {
                                 2020-07-24
                               </div>
                               <div className="ti-logo">
-                                <img src={smgoogle} alt="sm-google" />
+                                <img src={smgoogle} alt="sm-google"/>
                               </div>
                             </div>
                           </div>
                           <div className="ti-stars star-lg">
                             <div className="rating-cont" data-rating="5">
-                              <ReactStars {...ratingStart} />
+                              <ReactStars {...ratingStart}/>
                             </div>
                           </div>
                           <div className="ti-review-content"> </div>
                         </div>
                       </div>
-                    </Carousel.Item>
-                    <Carousel.Item className="about-crousel-item">
+                    </div>
+                    <div className="about-crousel-item">
                       <div className="ti-review-item source-Google">
                         <div className="ti-inner">
                           <div className="ti-review-header">
@@ -399,7 +399,6 @@ const AboutUs = () => {
                           <div className="ti-review-content">If it's within your budget it's fine</div>
                         </div>
                       </div>
-
                       <div className="ti-review-item source-Google">
                         <div className="ti-inner">
                           <div className="ti-review-header">
@@ -426,8 +425,8 @@ const AboutUs = () => {
                           <div className="ti-review-content">If it's within your budget it's fine</div>
                         </div>
                       </div>
-                    </Carousel.Item>
-                    <Carousel.Item className="about-crousel-item">
+                    </div>
+                    <div className="about-crousel-item">
                       <div className="ti-review-item source-Google">
                         <div className="ti-inner">
                           <div className="ti-review-header">
@@ -456,7 +455,6 @@ const AboutUs = () => {
                           </div>
                         </div>
                       </div>
-
                       <div className="ti-review-item source-Google">
                         <div className="ti-inner">
                           <div className="ti-review-header">
@@ -485,7 +483,6 @@ const AboutUs = () => {
                           </div>
                         </div>
                       </div>
-
                       <div className="ti-review-item source-Google">
                         <div className="ti-inner">
                           <div className="ti-review-header">
@@ -541,7 +538,7 @@ const AboutUs = () => {
                           <div className="ti-review-content"></div>
                         </div>
                       </div>
-                    </Carousel.Item>
+                    </div>
                   </Carousel>
                 </div>
               </div>
@@ -582,15 +579,14 @@ const AboutUs = () => {
         </section>
         <section className="instagram-feed">
           <h2 className="upper">Instagram</h2>
-          <div className="inner"> 
-             <div className="sb_instagram">
-               <div className="sbi_images">
+          <div className="inner">
+            <div className="sb_instagram">
+              <div className="sbi_images">
                 <div className="sbi_item sbi_type_image">
                   <div className="sbi_photo_wrap">
                     <a className="sbi_photo"><img src={theroad} alt="the-road" /></a>
                   </div>
                 </div>
-
                 <div className="sbi_item sbi_type_image">
                   <div className="sbi_photo_wrap">
                     <a className="sbi_photo"><img src={remindergate} alt="remindergate" /></a>
@@ -608,16 +604,21 @@ const AboutUs = () => {
                 </div>
                 <div className="sbi_item sbi_type_image">
                   <div className="sbi_photo_wrap">
-                    <a className="sbi_photo"><img src={loowks} alt="loowks"/></a>
+                    <a className="sbi_photo"><img src={loowks} alt="loowks" /></a>
                   </div>
                 </div>
                 <div className="sbi_item sbi_type_image">
                   <div className="sbi_photo_wrap">
-                    <a className="sbi_photo"><img src={manwithkit} alt="manwithkit"/></a>
+                    <a className="sbi_photo"><img src={manwithkit} alt="manwithkit" /></a>
                   </div>
                 </div>
-               </div>
-             </div>
+              </div>
+              <div className="sbi_load">
+                <span className="sbi_follow_btn">
+                 <a href="#"><img src={instaicon} alt="instaicon"/>Follow on Instagram</a>
+                </span>
+              </div>
+            </div>
           </div>
         </section>
       </div>

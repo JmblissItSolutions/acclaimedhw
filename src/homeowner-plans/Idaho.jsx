@@ -78,6 +78,7 @@ const Idaho = () => {
   const clearCart = () => {
     setCart([]);
   };
+ 
   useEffect(() => {
     localStorage.setItem("value", JSON.stringify(value));
   }, [value]); 
@@ -162,7 +163,7 @@ const Idaho = () => {
                     <span style={{ fontSize: "0.4em" }}>/YR</span></h4>}
                     {product.monthly_price !== "0"? <h5 className="lato">${product.yearly_price}/YR</h5> : null }
                    <button className="buybtn" onClick={() => { addToCart(product) }}> <input className="buyinput" type="submit" id={product.id} data-index={index} value="Buy Now"
-                      onClick={changehandle} /></button>
+                      onClick={changehandle}/></button>
                   </div>
                 </div>
               ))}
@@ -222,15 +223,15 @@ const Idaho = () => {
             <div className="upgrade_cont">
               <Idahodata />
             </div>
-            <div className="bottom-cont" />
+            <div className="bottom-cont"/>
             <div className="cart">
             <Cart cart={cart} setCart={setCart} value={value} hometype={product} coverage={coverage}/>
             </div>
             <div className="footy">
-            <button value={value} onClick={()=> history.push("/homeowner-plans/checkout/")} className="btn">Check out</button>
+            <button value={value}  onClick={()=> history.push("/homeowner-plans/checkout/")} className="btn">Check out</button>
               <button className="redirectcancel" onClick={() => setShowPlans("ProductsInfo")}>
                 <input className="btn cancel" defaultValue="Cancel"
-                  onClick={clearCart} /></button>
+                  onClick={clearCart}/></button>
             </div>
           </div>
         </section>
@@ -244,8 +245,8 @@ const Idaho = () => {
         <meta name="description" content="Acclaimed Home Warranty has shared some of the useful resources for those looking out for home warranty plans in Arizona. Contact us today for more information." />
       </Helmet>
       <div className="product_page">
-        <Produfilter />
-        {showPlans === "ProductsInfo" && <ProductsInfo />}
+        <Produfilter/>
+        {showPlans === "ProductsInfo" && <ProductsInfo/>}
         {showPlans === "Plans" && <Plans />}
       </div>
     </>

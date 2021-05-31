@@ -69,8 +69,8 @@ const OrderReceived = () => {
                                             <tbody>
                                                 {
                                                     data.productitems.map((item) => {
-                                                        const proy = `${item.productinfo.yearly_price}`; 
-                                                        const prom = `${item.productinfo.monthly_price}`; 
+                                                        const proy = `${item.productinfo.yearly_price}`;
+                                                        const prom = `${item.productinfo.monthly_price}`;
                                                         let proyearly = parseFloat(proy).toFixed(2)
                                                         let promonthly = parseFloat(prom).toFixed(2)
                                                         let quapricey = proyearly * item.quantity
@@ -92,7 +92,7 @@ const OrderReceived = () => {
                                                                 </span>
                                                             </td>
                                                         </tr>
-})}
+                                                    })}
                                             </tbody>
                                             <tfoot>
                                                 <tr className="cart-subtotal">
@@ -101,7 +101,7 @@ const OrderReceived = () => {
                                                         <strong>
                                                             <span className="woocommerce-Price-amount amount">
                                                                 <bdi>
-                                                                    
+
                                                                     <span className="woocommerce-Price-currencySymbol">$</span>{data.subtotal}
                                                                 </bdi>
                                                             </span>

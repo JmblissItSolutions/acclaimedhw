@@ -53,6 +53,7 @@ const Arizona = () => {
   function handleChange(e) {
     history.push(e.target.value);
   }
+ 
   const [showPlans, setShowPlans] = useState("ProductsInfo")
   const [showId, setId] = useState("0")
   const [index, setIndex] = useState("")

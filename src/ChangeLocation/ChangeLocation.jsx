@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useHistory, Redirect } from "react-router-dom";
 import { Helmet } from "react-helmet";
 import homeperfect from "../assets/images/home-perfect-bg.png";
 import comparedoor from "../assets/images/compare-door-bg.png";
@@ -10,6 +11,7 @@ import Idaho from "../assets/images/compare_idaho.jpg";
 import "../assets/css/ChangeLocation.css";
 
 const ChangeLocation = () => {
+  let history = useHistory();
   return (
     <>
       <Helmet>
@@ -21,27 +23,27 @@ const ChangeLocation = () => {
             <div className="location-plans" >
               <h1>choose a location</h1>
               <div className="inner">
-                <div className="col-3" style={{ backgroundImage: `url(${arizona})` }}>
-                  <div className="perfect-cta">
+                <div className="col-3" style={{ backgroundImage: `url(${arizona})`}} onClick={() => history.push("/resources/arizona")}>
+                  <div className="perfect-cta" >
                     <span className="perfect-cta__state">Arizona</span>
-                  </div>
+                  </div> 
                 </div>
-                <div className="col-2" style={{ backgroundImage: `url(${Utah})` }}>
+                <div className="col-2" style={{ backgroundImage: `url(${Utah})`}} onClick={() => history.push("/resources/utah")}>
                   <div className="perfect-cta">
                     <span className="perfect-cta__state">Utah</span>
                   </div>
                 </div>
-                <div className="col-3" style={{ backgroundImage: `url(${Nevada})` }}>
+                <div className="col-3" style={{ backgroundImage: `url(${Nevada})`}} onClick={() => history.push("/resources/nevada")}>
                   <div className="perfect-cta">
                     <span className="perfect-cta__state">Nevada</span>
                   </div>
                 </div>
-                <div className="col-4" style={{ backgroundImage: `url(${Texas})` }}>
+                <div className="col-4" style={{ backgroundImage: `url(${Texas})`}} onClick={() => history.push("/resources/texas")}>
                   <div className="perfect-cta">
                     <span className="perfect-cta__state">Texas</span>
                   </div>
                 </div>
-                <div className="col-2 idaho_img" style={{ backgroundImage: `url(${Idaho})` }}>
+                <div className="col-2 idaho_img" style={{ backgroundImage: `url(${Idaho})`}} onClick={() => history.push("/resources/idaho")}>
                   <div className="perfect-cta">
                     <span className="perfect-cta__state">Idaho</span>
                   </div>
