@@ -1,12 +1,8 @@
-import React, { useState, Component, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { Helmet } from "react-helmet";
 import brochersbanner from "../assets/images/brochers-banner.png";
 import locationmarker from "../assets/images/location-marker.png";
 import pdf from "../assets/images/pdf.png";
-import pdf1 from "../assets/images/pdf1.pdf";
-import pdf2 from "../assets/images/pdf2.pdf";
-import pdf3 from "../assets/images/pdf3.pdf";
-import pdf4 from "../assets/images/pdf4.pdf";
 import video1 from "../assets/images/vid-1.jpg";
 import video2 from "../assets/images/vid-2.jpg";
 import video3 from "../assets/images/vid-3.jpg";
@@ -18,35 +14,122 @@ import 'antd/dist/antd.css';
 import Carousel from 'react-bootstrap/Carousel';
 
 const ResourceArizona = () => {
+   const [pdfitems, setPdfItems] = useState(
+      [
+         {
+            id: 'A',
+            name:"Brochure (real estate transaction) w Example Contract",
+            pdfname: pdf,
+            pdfs: [{
+               id: 'A1',
+               pdflink: "https://devsite.acclaimedhw.com/wp-content/uploads/2020/03/FullbrochureAZrealtor-AHW.pdf",
+            },
+            {
+               id: 'A2',
+               pdflink: "https://devsite.acclaimedhw.com/wp-content/uploads/2020/03/Acclaimed-Home-Warranty-Price-Options-Realtors-AZ.pdf",
+            },
+            {
+               id: 'A3',
+               pdflink: "https://devsite.acclaimedhw.com/wp-content/uploads/2020/03/AHW-Understanding-Your-Home-Warranty-AZ.pdf",
+            },
+            {
+               id: 'A4',
+               pdflink: "https://devsite.acclaimedhw.com/wp-content/uploads/2020/03/AHW-Understanding-Your-Home-Warranty-AZ.pdf",
+            }],
+         },
+          {
+            id: 'B',
+            name:"Realtors Price & Options",
+            pdfname: pdf,
+            pdfs: [{
+               id: 'B1',
+               pdflink: "https://image.shutterstock.com/image-photo/brown-dear-laying-on-grass-260nw-1763529434.jpg",
+            },
+            {
+               id: 'B2',
+               pdflink: "https://devsite.acclaimedhw.com/wp-content/uploads/2020/03/Acclaimed-Home-Warranty-Price-Options-Realtors-AZ.pdf",
+            },
+            {
+               id: 'B3',
+               pdflink: "https://devsite.acclaimedhw.com/wp-content/uploads/2020/03/AHW-Understanding-Your-Home-Warranty-AZ.pdf",
+            },
+            {
+               id: 'B4',
+               pdflink: "https://devsite.acclaimedhw.com/wp-content/uploads/2020/03/AHW-Understanding-Your-Home-Warranty-AZ.pdf",
+            }],
+         },
+            {
+            id: 'C',
+            name:"Understanding Your Home Warranty",
+            pdfname: pdf,
+            pdfs: [{
+               id: 'C1',
+               pdflink: "https://devsite.acclaimedhw.com/wp-content/uploads/2020/03/AHW-Understanding-Your-Home-Warranty-AZ.pdf",
+            },
+            {
+               id: 'C2',
+               pdflink: "https://devsite.acclaimedhw.com/wp-content/uploads/2020/03/Acclaimed-Home-Warranty-Price-Options-Realtors-AZ.pdf",
+            },
+            {
+               id: 'C3',
+               pdflink: "https://devsite.acclaimedhw.com/wp-content/uploads/2020/03/AHW-Understanding-Your-Home-Warranty-AZ.pdf",
+            },
+            {
+               id: 'C4',
+               pdflink: "https://devsite.acclaimedhw.com/wp-content/uploads/2020/03/Acclaimed-Home-Warranty-Price-Guide-Consumer-AZ.pdf",
+            }],
+         },
+         {
+            id: 'D',
+            name:"Homeowner Price & Options",
+            pdfname: pdf,
+            pdfs: [{
+               id: 'D1',
+               pdflink: "https://devsite.BcclBimedhw.com/wp-content/uploads/2020/03/FullbrochureAZrealtor-AHW.pdf",
+            },
+            {
+               id: 'D2',
+               pdflink: "https://devsite.acclaimedhw.com/wp-content/uploads/2020/03/AHW-Understanding-Your-Home-Warranty-AZ.pdf",
+            },
+            {
+               id: 'D3',
+               pdflink: "https://devsite.acclaimedhw.com/wp-content/uploads/2020/03/AHW-Understanding-Your-Home-Warranty-AZ.pdf",
+            },
+            {
+               id: 'D4',
+               pdflink: "https://devsite.acclaimedhw.com/wp-content/uploads/2020/03/Acclaimed-Home-Warranty-Price-Guide-Consumer-AZ.pdf",
+            }],
+         }
+      ]
+   )
+   console.log(pdfitems);
    const [isActive, setActive] = useState(false);
    const toggleClass = () => {
       setActive(true);
    };
-   //  const [isVisible,setIsVisible] = useState(false)
-   //  const handleClick =()=>{
-   //    setIsVisible(!isVisible);
-   //  }
-   // pdf1
+
+   // pdf
    const [isPdf, setIsPdf] = useState(false);
    const showpdf = () => {
       setIsPdf(true);
    }
+
    const handleOk = () => {
       setIsPdf(false);
    };
    const handleCancel = () => {
       setIsPdf(false);
    };
-   // Modal1
-   const [isModalVisible1, setIsModalVisible1] = useState(false);
-   const showModal1 = () => {
-      setIsModalVisible1(true);
+   // Modal
+   const [isModalVisible, setisModalVisible] = useState(false);
+   const showModal = () => {
+      setisModalVisible(true);
    };
    const handleOk1 = () => {
-      setIsModalVisible1(false);
+      setisModalVisible(false);
    };
    const handleCancel1 = () => {
-      setIsModalVisible1(false);
+      setisModalVisible(false);
    };
    // Modal2
    const [isModalVisible2, setIsModalVisible2] = useState(false);
@@ -111,84 +194,30 @@ const ResourceArizona = () => {
                <div className="container">
                   <h2>Documents</h2>
                   <div className="doc-cont">
-                     <div className="doc">
-                        <i className="achi-pdf">
-                           <img src={pdf} alt="pdf" className="pdf_img" onClick={showpdf} /></i>
-                        <p className="name">Brochure (real estate transaction) w Example Contract</p>
-                        <Modal style={{ width: "680px", height: "400px" }} onOk={handleOk} visible={isPdf}
-                           onCancel={handleCancel}
-                           okButtonProps={{ disabled: true }}
-                           cancelButtonProps={{ disabled: true }}>
-                           <Carousel fade={true} interval={null}>
-                              <Carousel.Item>
-                                 <iframe className="pdf_iframe" src={pdf1}></iframe>
-                              </Carousel.Item>
-                              <Carousel.Item>
-                                 <iframe className="pdf_iframe" src={pdf2}></iframe>
-                              </Carousel.Item>
-                              <Carousel.Item>
-                                 <iframe className="pdf_iframe" src={pdf3} ></iframe>
-                              </Carousel.Item>
-                              <Carousel.Item>
-                                 <iframe className="pdf_iframe" src={pdf4} ></iframe>
-                              </Carousel.Item>
-                           </Carousel>
-                        </Modal>
-                     </div>
-                     <div className="doc">
-                        <i className="achi-pdf">
-                           <img src={pdf} alt="pdf" className="pdf_img" onClick={setIsPdf} /></i>
-                        <p className="name">Realtors Price & Options</p>
-                        <Modal style={{ width: "680px", height: "400px" }} onOk={handleOk} visible={isPdf}
-                           onCancel={handleCancel}
-                           okButtonProps={{ disabled: true }}
-                           cancelButtonProps={{ disabled: true }}>
-                           <Carousel fade={true} interval={null}>
-                              <Carousel.Item>
-                                 <iframe className="pdf_iframe" src={pdf2}></iframe>
-                              </Carousel.Item>
-                              <Carousel.Item>
-                                 <iframe className="pdf_iframe" src={pdf3} ></iframe>
-                              </Carousel.Item>
-                              <Carousel.Item>
-                                 <iframe className="pdf_iframe" src={pdf4} ></iframe>
-                              </Carousel.Item>
-                           </Carousel>
-                        </Modal>
-                     </div>
-                     {/* <div className="doc">
-                        <i className="achi-pdf">
-                           <img src={pdf} alt="pdf" className="pdf_img" onClick={showPdf} onMouseEnter={ProId} /></i>
-                        <p className="name">Understanding Your Home Warranty</p>
-                        <Modal style={{ width: "680px", height: "400px" }} onOk={handleOk} visible={isPdf}
-                           onCancel={handleCancel}
-                           okButtonProps={{ disabled: true }}
-                           cancelButtonProps={{ disabled: true }}>
-                          <Carousel fade={true} interval={null}>
-                              <Carousel.Item>
-                                 <iframe className="pdf_iframe" src={pdf3} ></iframe>
-                              </Carousel.Item>
-                              <Carousel.Item>
-                                 <iframe className="pdf_iframe" src={pdf4} ></iframe>
-                              </Carousel.Item>
-                           </Carousel>
-                        </Modal>
-                     </div> */}
-                     {/* <div className="doc">
-                        <i className="achi-pdf">
-                           <img src={pdf} alt="pdf" className="pdf_img" onClick={showPdf} onMouseEnter={ProId}/></i>
-                        <p className="name">Understanding Your Home Warranty</p>
-                        <Modal style={{ width: "680px", height: "400px" }} onOk={handleOk} visible={isPdf}
-                           onCancel={handleCancel}
-                           okButtonProps={{ disabled: true }}
-                           cancelButtonProps={{ disabled: true }}>
-                          <Carousel fade={true} interval={null}>
-                              <Carousel.Item>
-                                 <iframe className="pdf_iframe" src={pdf4} ></iframe>
-                              </Carousel.Item>
-                           </Carousel>
-                        </Modal>
-                     </div> */}
+                     {
+                        pdfitems.map((item) => {
+                           return (
+                              <div className="doc" key={item.id}>
+                                 <i className="achi-pdf">
+                                    <img src={item.pdfname} alt="pdf" className="pdf_img" onClick={showpdf} /></i>
+                                 <p className="name">{item.name}</p>
+                                 <Modal style={{ width: "680px", height: "400px" }} onOk={handleOk} visible={isPdf}
+                                    onCancel={handleCancel}
+                                    okButtonProps={{ disabled: true }}
+                                    cancelButtonProps={{ disabled: true }}>
+                                    <Carousel fade={true} interval={null}>
+                                       {item.pdfs.map((items) => {
+                                          return (
+                                             <Carousel.Item key={items.id}>
+                                                <iframe className="pdf_iframe" src={items.pdflink}></iframe>
+                                             </Carousel.Item>
+                                          );
+                                       })}
+                                    </Carousel>
+                                 </Modal>
+                              </div>
+                           );
+                        })}
                   </div>
                </div>
             </section>
@@ -199,10 +228,10 @@ const ResourceArizona = () => {
                      <div className="video">
                         <div className="img-cont">
                            <img src={video1} alt="video1" className="video1" />
-                           <img src={play} alt="play" className="play" onClick={showModal1}
+                           <img src={play} alt="play" className="play" onClick={showModal}
                               data-toggle="modal"
-                              data-target="#largeModal" />
-                           <Modal style={{ width: "680px", height: "400px" }} visible={isModalVisible1} onOk={handleOk1}
+                              data-target="#largeModal"/>
+                           <Modal style={{ width: "680px", height: "400px" }} visible={isModalVisible} onOk={handleOk1}
                               onCancel={handleCancel1}
                               okButtonProps={{ disabled: true }}
                               cancelButtonProps={{ disabled: true }}>
@@ -227,7 +256,7 @@ const ResourceArizona = () => {
                            <p className="name">Why Choose Acclaimed?</p>
                         </div>
                      </div>
-                     <div className="video">
+                     {/* <div className="video">
                         <div className="img-cont">
                            <img src={video2} alt="video2" />
                            <img src={play} alt="play" className="play" onClick={showModal2} />
@@ -255,8 +284,8 @@ const ResourceArizona = () => {
                            </Modal>
                            <p className="name">How To Use Our New Website</p>
                         </div>
-                     </div>
-                     <div className="video">
+                     </div> */}
+                     {/* <div className="video">
                         <div className="img-cont">
                            <img src={video3} alt="video3" />
                            <img src={play} alt="play" className="play" onClick={showModal3} />
@@ -284,8 +313,8 @@ const ResourceArizona = () => {
                            </Modal>
                            <p className="name">Donating to Family Promise</p>
                         </div>
-                     </div>
-                     <div className="video">
+                     </div> */}
+                     {/* <div className="video">
                         <div className="img-cont">
                            <img src={video4} alt="video1" className="video4" />
                            <img src={play} alt="play" className="play" onClick={showModal4} />
@@ -313,7 +342,7 @@ const ResourceArizona = () => {
                            </Modal>
                            <p className="name">Live you Life ... Don't Fix It! </p>
                         </div>
-                     </div>
+                     </div> */}
                   </div>
                </div>
             </section>

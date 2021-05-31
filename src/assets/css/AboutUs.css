@@ -243,9 +243,10 @@ p.cell a,p.office a,p.email a {
     overflow-y: auto;
     padding-right: 10px;
 }
-.about-crousel-item.active.carousel-item {
-    display: flex;
+.about-crousel-item {
+    display: flex !important;
 }
+
 .giving-back{
     padding-bottom: 80px;
     background: linear-gradient(180deg, #e8e8e8 0%, #fff 45%, #fff 100%);
@@ -341,3 +342,42 @@ p.cell a,p.office a,p.email a {
     opacity: 1;
     height: 282.5px;
 }
+.sb_instagram .sbi_load {
+    float: left;
+    clear: both;
+    width: 100%;
+    text-align: center;
+}
+.sb_instagram .sbi_follow_btn {
+    display: -moz-inline-stack;
+    display: inline-block;
+    vertical-align: top;
+    zoom: 1;
+    text-align: center;
+}
+
+.sb_instagram .sbi_load .sbi_load_btn, .sb_instagram .sbi_follow_btn a {
+    display: inline-block;
+    vertical-align: top;
+    zoom: 1;
+    padding: 7px 14px;
+    margin: 5px auto 0 auto;
+    background: #408bd1;
+    color: #fff;
+    border: none;
+    text-decoration: none;
+    font-size: 13px;
+    line-height: 1.5;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+.sbi_load .sbi_follow_btn img{
+    margin-bottom: 0px;
+    margin-right: 7px;
+    font-size: 15px;  
+    height: 1em;
+    display: inline-block;
+}
+.ant-carousel .slick-dots li button{
+    display: none !important;
+} 

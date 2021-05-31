@@ -59,7 +59,6 @@ const Texas = () => {
     setId(e.target.id)
     setIndex(e.target.getAttribute("data-index"));
   };
-
   const [value, setValue] = useState(1);
   const onChange = e => {
     setValue(e.target.value);
@@ -70,11 +69,11 @@ const Texas = () => {
     const coverages = await APIUrl.get(`${url}`)
     setCoverage(coverages.data);
   }, [showId]);
-
   const [cart, setCart] = useState([]);
   function addToCart(product) {
     setCart([...cart, product])
   };
+ 
   const clearCart = () => {
     setCart([]);
   };
@@ -111,7 +110,6 @@ const Texas = () => {
           <p className="text-center sub-txt">We want you to feel confident in your home—that’s why we provide a variety of coverage options for different needs. While all of our plans cover a variety of appliances and accessories, you can choose a more extensive option to make sure every item in your home is in good hands.</p>
         </div>
       </section>
-
       <section className="change-location-header">
         <div className="container d-flex just-space">
           <span className="big upper">Texas Homeowner Plans</span>
@@ -168,7 +166,6 @@ const Texas = () => {
                   </div>
                 </div>
               ))}
-
             </div>
             <hr className="textured" />
           </div>
@@ -225,11 +222,10 @@ const Texas = () => {
             <div className="upgrade_cont">
               <Texasdata />
             </div>
-            <div className="bottom-cont" />
+            <div className="bottom-cont"/>
             <div className="cart">
             <Cart cart={cart} setCart={setCart} value={value} hometype={product} coverage={coverage} />
             </div>
-          
             <div className="footy">
             <button value={value} onClick={()=> history.push("/homeowner-plans/checkout/")} className="btn">Check out</button>
               <button className="redirectcancel" onClick={() => setShowPlans("ProductsInfo")}>
@@ -249,9 +245,8 @@ const Texas = () => {
       </Helmet>
       <div className="product_page">
         <Produfilter />
-        {showPlans === "ProductsInfo" && <ProductsInfo />}
-        {showPlans === "Plans" && <Plans />}
-
+        {showPlans === "ProductsInfo" && <ProductsInfo/>}
+        {showPlans === "Plans" && <Plans/>}
       </div>
     </>
   )

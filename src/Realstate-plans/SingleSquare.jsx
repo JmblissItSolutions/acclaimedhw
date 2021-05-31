@@ -97,7 +97,7 @@ const SingleSquare = ({productlist}) => {
                     <h2>INDIVIDUAL PLANS INCLUDE THESE ADDITIONAL OPTIONS</h2>
                     <div className="right-table">
                     {productlist.map((pro, index) => (
-          <div className="standard_card header">
+          <div key={index} className="standard_card header">
           <div className="tagdown standard">
               <span className="tagtxt-top">You've selected</span>
               <h4>{pro.name}</h4>

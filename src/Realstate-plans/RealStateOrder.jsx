@@ -15,12 +15,36 @@ const RealStateOrder = () => {
 
     let iamoptions = ["escrow-officer", "buyer-agent", "listing-agent", "buyer"];
     //let warantyorder = ["Single-family home less than 6k sq ft, or condominium, townhome, mobile home under 2K sq ft.", "Condominium, townhome less than 2k sq ft", "Duplex", "Triplex", "Fourplex"];
-    const [question_id, setWarranty] = useState();
-    let suarefootage = ["yes", "no"];
-    const [squarevalue, setSqure] = useState('yes');
+    const [property_type, setWarranty] = useState();
+    // let suarefootage = ["yes", "no"];
+    const [question_id_0, setsubque1] = useState(1);
+    const [question_id_1, setsubque2] = useState(2);
+    const [squarevalue, setSqure] = useState('Yes');
+    const [constructionvalue, setConstruction] = useState('No');
 
-    let construction = ["no", "yes"];
-    const [constructionvalue, setConstruction] = useState('no');
+    
+//     function Queid(){
+//         let queid 
+//         if(subque1){
+//             queid = subque1
+//         }else if(subque2){
+//             queid = subque2
+//         }
+//         return queid  
+//     }
+//     function newValue(){
+//         let val 
+//         if(squarevalue){
+//             val = squarevalue
+//         }else if(subque2){
+//             val = constructionvalue
+//         }
+//         return val  
+//     }
+//     const question_id = Queid()
+//     const value = newValue()
+// console.log(question_id)
+// console.log(value)
 
     const [listcheckbox1, setListcheck1] = useState('');
     const [listcheckbox2, setListcheck2] = useState('');
@@ -65,14 +89,32 @@ const RealStateOrder = () => {
 
     const quesList = result.questions
     let response = (result.result)
+    //let ptque = (result.questions.pt_questions.length)
 
     useEffect(() => {
         AnswerList()
     }, [state_id, cov_type_id]);
+        const question_value_0 = squarevalue
+        const question_value_1 = constructionvalue
 
-    const [product, setProduct] = useState([]);
+        function para(){
+            let tt
+            if(property_type == 1 && cov_type_id == 1 ){
+           tt =  { state_id, cov_type_id, property_type, question_id_0, question_value_0, question_id_1, question_value_1 }
+            }
+           else if(property_type == 1 && cov_type_id == 2 ){
+                tt =  { state_id, cov_type_id, property_type, question_id_0, question_value_0 }
+                 }
+            else{
+                tt = { state_id, cov_type_id, property_type}
+            }
+            return tt
+        }
+    const [product, setProduct] = useState([]);   
+    let data = para()
+
     const ProductList = () => {
-        let data = { state_id, cov_type_id, question_id }
+
         fetch("https://replatform.acclaimedhw.com/replatform/api/get_realstate_products", {
             method: "POST",
             headers: {
@@ -89,13 +131,11 @@ const RealStateOrder = () => {
     }
     let productlist = product.products
     let prores = product.result
+    console.log(product.products)
     useEffect(() => {
         ProductList()
-    }, [question_id]);
+    }, [ state_id, property_type, squarevalue, constructionvalue]);
 
-    //    function test(){
-    //        return productlist.map((n) => n.price);
-    //    }
     function allprices() {
         if (prores) {
             return productlist.map((n) => n.price);
@@ -108,8 +148,16 @@ const RealStateOrder = () => {
     }
     const allprice = allprices()
     const minprice = minprices()
-    console.log(allprice)
-    console.log(minprice)
+    // console.log(allprice)
+    // console.log(minprice)
+    const Subquestion = e => {
+        setsubque1(e.target.id);
+        setSqure(e.target.value);
+    }
+    const SubquestionCon = e => {
+        setsubque2(e.target.id);
+        setConstruction(e.target.value);
+    }
     const Homeplan = () => (
         <>
             <div className="homplan">
@@ -141,47 +189,47 @@ const RealStateOrder = () => {
         </>
     )
 
-    const Squarefootege = () => (
-        <>
-            <div className="square">
-                <h4>Is the square-footage of this home less than 6,000 feet?</h4>
-                {suarefootage.map(square => (
-                    <label key={square} className="radiodesign">
-                        <input checked={squarevalue === square}
-                            {...setSqure} type="radio" value={square} onChange={e => setSqure(e.target.value)} />
-                        {square}
-                        <span className="checkmark"></span>
-                    </label>
-                ))}
-                {/* {(squarevalue === "yes") && (coveragevalue === "Buyer's Coverage") ? <Construction /> : null} */}
-            </div>
-        </>
-    )
-    const Construction = () => (
-        <>
-            <div>
-                <h4>Is this a new construction home?</h4>
-                {construction.map(construct => (
-                    <label key={construct} className="radiodesign">
-                        <input checked={constructionvalue === construct}
-                            {...setConstruction} type="radio" value={construct} onChange={e => setConstruction(e.target.value)} />
-                        {construct}
-                        <span className="checkmark"></span>
-                    </label>
-                ))}
+    // const Squarefootege = () => (
+    //     <>
+    //         <div className="square">
+    //             <h4>Is the square-footage of this home less than 6,000 feet?</h4>
+    //             {suarefootage.map(square => (
+    //                 <label key={square} className="radiodesign">
+    //                     <input checked={squarevalue === square}
+    //                         {...setSqure} type="radio" value={square} onChange={e => setSqure(e.target.value)} />
+    //                     {square}
+    //                     <span className="checkmark"></span>
+    //                 </label>
+    //             ))}
+    //             {/* {(squarevalue === "yes") && (coveragevalue === "Buyer's Coverage") ? <Construction /> : null} */}
+    //         </div>
+    //     </>
+    // )
+    // const Construction = () => (
+    //     <>
+    //         <div>
+    //             <h4>Is this a new construction home?</h4>
+    //             {construction.map(construct => (
+    //                 <label key={construct} className="radiodesign">
+    //                     <input checked={constructionvalue === construct}
+    //                         {...setConstruction} type="radio" value={construct} onChange={e => setConstruction(e.target.value)} />
+    //                     {construct}
+    //                     <span className="checkmark"></span>
+    //                 </label>
+    //             ))}
 
-            </div>
-        </>
-    )
+    //         </div>
+    //     </>
+    // )
     const ConstCall = () => (
         <>
             <div className="constcall">
                 <p>Standard Home Warranty Plan for a new single-family home, condominium, townhome or mobile home for years 2-4 :</p>
-                <span><strong>$595</strong></span>
+                <span><strong>${minprice}</strong></span>
                 <p> Need COVERAGE UPGRADES?</p>
-                <span>Call Acclaimed at<strong>888-494-9460</strong></span>
+                <span>Call Acclaimed at<strong> 888-494-9460</strong></span>
                 <div>
-                    <button type="button" className="btn">CONTINUE</button>
+                    <button type="button" onClick={changehandle} className="btn">CONTINUE</button>
                 </div>
             </div>
         </>
@@ -216,12 +264,42 @@ const RealStateOrder = () => {
                             <div className="warranty_order">
                                 <span>This home warranty order is for a:</span>
                                 {quesList.map(qus => (
-                                    <label key={qus.id} className="radiodesign">
-                                        <input checked={question_id == qus.id}
-                                            type="radio" value={qus.id} onChange={e => setWarranty(e.target.value)} />
-                                        {qus.question_name}
-                                        <span className="checkmark"></span>
-                                    </label>
+                                    <div>
+                                        <label key={qus.id} className="radiodesign">
+                                            <input checked={property_type == qus.id}
+                                                type="radio" value={qus.id} onChange={e => setWarranty(e.target.value)} />
+                                            {qus.question_name}
+                                            <span className="checkmark"></span>
+                                        </label>
+                                        {property_type== 1 ? 
+                                         <div>
+                                         {property_type == qus.id &&
+                                             qus.pt_questions.map(subqus => (
+                                                 <div className="subquestion">
+                                                     <h5>{subqus.question_name}</h5>
+                                                     {subqus.options.map((subqusv,i) => (
+                                                         <div>
+                                                             {subqusv.home_size ? <label className="radiodesign">
+                                                             <input id={subqus.question_id} checked={squarevalue == subqusv.home_size}
+                                                                 type="radio" value={subqusv.home_size} onChange={Subquestion} />
+                                                             {subqusv.home_size}
+                                                             <span className="checkmark"></span>
+                                                         </label> : null }
+                                                         {subqusv.new_construction ? <label className="radiodesign">
+                                                         <input  id={subqus.question_id} checked={constructionvalue == subqusv.new_construction}
+                                                             type="radio" value={subqusv.new_construction} onChange={SubquestionCon} />
+                                                         {subqusv.new_construction}
+                                                         <span className="checkmark"></span>
+                                                     </label> : null }
+                                                        
+                                                     </div>
+                                                     ))}
+                                                 </div>
+                                             ))}
+                                             </div> : null
+                                    }
+                                       
+                                    </div>
                                 ))}
                                 {/* <label className="radiodesign">
                                 <input checked={ordervalue === "Single-family home less than 6k sq ft, or condominium, townhome, mobile home under 2K sq ft."}
@@ -262,7 +340,7 @@ const RealStateOrder = () => {
                         }
                     </div>
                     <div className="order_flex">
-                        {/* <a onClick={e => setRadio(false) || setCoverage(false) || setWarranty(false)} className="btn">Start Over</a> */}
+                        <a onClick={e => setStateId(false) || setCoverage(false) || setWarranty(false)} className="btn">Start Over</a>
                     </div>
                 </div>
             </div>
@@ -304,7 +382,7 @@ const RealStateOrder = () => {
                             </div>
                             <div>
                                 <p>Enter an amount from ${minprice}-$2000</p>
-                                <button type="button" className="btn">GO</button>
+                                <button type="button" onClick={changehandle} className="btn">GO</button>
                                 <br />
                             </div>
                         </div>
@@ -330,7 +408,7 @@ const RealStateOrder = () => {
                         <h4 className="or">OR</h4>
                     </div>
                     <div className="click_here">
-                        <button type="button" className="btn">Click Here</button><br />
+                        <button type="button" onClick={changehandle} className="btn">Click Here</button><br />
                         <span id="click_span"><em>to Compare Home Warranty Plans Side-By-Side and make your selection/customize</em></span>
                     </div>
                 </div>
@@ -366,7 +444,7 @@ const RealStateOrder = () => {
                     <p>Need COVERAGE UPGRADES?</p>
                     <p>Call Acclaimed at<strong className="blacktext">888-494-9460</strong></p>
                     <div>
-                        <button type="button" className="btn"onClick={changehandle}>CONTINUE</button>
+                        <button type="button" className="btn" onClick={changehandle}>CONTINUE</button>
                     </div>
                 </div>
             </div>
@@ -378,7 +456,7 @@ const RealStateOrder = () => {
                 <title>Real Estate Orders in Arizona by Acclaimed Home Warranty</title>
                 <meta name="description" content="Are you looking for a home warranty for your property in Arizona? Reach out to Acclaimed Home Warranty for coverage details for buyers and sellers." />
             </Helmet>
-            {showResults === "SingleSquare" ? <SingleSquare  productlist={productlist} /> :
+            {showResults === "SingleSquare" ? <SingleSquare productlist={productlist} /> :
                 <div className="home_page">
                     <div className="top_img">
                         <img src={homewarranty} alt="homewarranty" />
@@ -392,20 +470,28 @@ const RealStateOrder = () => {
                             <Homeplan />
                             {(state_id == null) ? null : <Coverage />}
                             {cov_type_id == 1 ? <Answering /> : null}
-                            {/* {coveragevalue === "buyer" ? <Answering /> : null}
-                            {coveragevalue === "seller" ? <Terms /> : null}
+                            {cov_type_id == 2 ? <Terms /> : null}
+                            {/*                             
                             {(squarevalue === "no") && (ordervalue === "Single-family home less than 6k sq ft, or condominium, townhome, mobile home under 2K sq ft.") && (coveragevalue === "buyer") ? <Assitance /> : null}*/}
-                            {(question_id == 1) ? <Bestplan /> : null}
+
                             {/* {(question_id == 1) && (squarevalue === 'yes') && (constructionvalue === 'no') && (coveragevalue === "buyer") ? <Bestplan /> : null}
                            {(ordervalue === "Single-family home less than 6k sq ft, or condominium, townhome, mobile home under 2K sq ft.") && (squarevalue === 'yes') && (constructionvalue === 'yes') && (coveragevalue === "buyer") ? <ConstCall /> : null} */}
-                           {(question_id == 3) || (question_id == 4) || (question_id == 5) ? <Baseprice /> : null}
-                           {(question_id == 2) ? <Condominium /> : null}
-                           {/*{(ordervalue === 'Duplex') && (coveragevalue === "Buyer's Coverage") || (ordervalue === 'Triplex') && (coveragevalue === "buyer") || (ordervalue === 'Fourplex') && (coveragevalue === "buyer") ? <Baseprice /> : null}
+
+                            {(cov_type_id == 2) && (listcheckbox1 === true) && (listcheckbox2 === true) ? <Answering /> : null}
+                            {(property_type == 1) && (cov_type_id == 1) && (squarevalue == "Yes") && (constructionvalue == "No") ? <Bestplan /> : null}
+                            {(property_type == 1) && (cov_type_id == 1) && (squarevalue == "Yes") && (constructionvalue == "Yes") ? <ConstCall /> : null}
+                            {(property_type == 3) && (cov_type_id == 1) || (property_type == 4) && (cov_type_id == 1) || (property_type == 5) && (cov_type_id == 1) ? <Baseprice /> : null}
+                            {(property_type == 2) && (cov_type_id == 1) ? <Condominium /> : null}
+                            {(property_type == 3) && (cov_type_id == 2) || (property_type == 4) && (cov_type_id == 2) || (property_type == 5) && (cov_type_id == 2) ? <Baseprice /> : null}
+                            {(property_type == 1) && (cov_type_id == 2) && (listcheckbox1 === true) && (listcheckbox2 === true) && (squarevalue == "Yes") ? <ListBestplan /> : null}
+                            {(property_type == 1) && (cov_type_id == 2) && (listcheckbox1 === true) && (listcheckbox2 === true) && (squarevalue == "No") ? <Assitance /> : null}
+                            {(property_type == 1) && (cov_type_id == 1) && (squarevalue == "No") ? <Assitance /> : null}
+                            {/*{(ordervalue === 'Duplex') && (coveragevalue === "Buyer's Coverage") || (ordervalue === 'Triplex') && (coveragevalue === "buyer") || (ordervalue === 'Fourplex') && (coveragevalue === "buyer") ? <Baseprice /> : null}
                             {(ordervalue === "Condominium, townhome less than 2k sq ft") && (coveragevalue === "buyer") ? <Condominium /> : null}
-                            {(coveragevalue === "seller") && (listcheckbox1 === true) && (listcheckbox2 === true) ? <Answering /> : null}
+                           
                             {(coveragevalue === "seller") && (listcheckbox1 === true) && (listcheckbox2 === true) && (ordervalue === "Single-family home less than 6k sq ft, or condominium, townhome, mobile home under 2K sq ft.") && (squarevalue === "no") ? <Assitance /> : null}
                             {(coveragevalue === "seller") && (listcheckbox1 === true) && (listcheckbox2 === true) && (ordervalue === "Single-family home less than 6k sq ft, or condominium, townhome, mobile home under 2K sq ft.") && (squarevalue === 'yes') ? <ListBestplan /> : null}
-                            {(ordervalue === 'Duplex') && (coveragevalue === "seller") || (ordervalue === 'Triplex') && (coveragevalue === "seller") || (ordervalue === 'Fourplex') && (coveragevalue === "seller") ? <Baseprice /> : null} */}
+                            */}
                         </div>
 
                     </div>
