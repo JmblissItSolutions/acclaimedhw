@@ -77,24 +77,90 @@
     line-height: 0.75em;
     padding: 0.83em 0 0.3em;
 }
-.feature_plan_option .right-table{
+.feature_plan_option .table-cont {
     display: flex;
-    flex: 1;
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 0 40px;
+    margin-top: 80px;
+}
+.feature_plan_option .right-table{
+    padding-left: 280px;
+    display: flex;
+    flex: 1 1;
     width: 100%;
     justify-content: center;
     position: absolute;
-    margin-left: 54px;
+    margin-left: 0;
+    left: 0;
+    padding-right: 40px;
+}
+.feature_plan_option .right-table .header .tagdown {
+    margin-top: 0;
+}
+.feature_plan_option .right-table span.ant-radio {
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    display: block;
 }
 .standard_card{
-    background-color: #5BAC7D;
+    background-color: #767676;
     color: white;
-    width: 12%;
+    /* width: 12%; */
     border-radius: 5px;
     text-align: center;
     height: 146px;
+    flex: 1 1 20%;
+    border-radius: 6px;
+    box-shadow: 0 3px 6px rgb(0 0 0 / 20%);
+    max-width: 160px;
+    /* background-color: white; */
+    margin: 0px auto;
+    overflow: hidden;
+    padding: 12px;
+    font-family: 'Lato', sans-serif;
+}
+.selectedpro.standard_card , .standard_card:hover{
+    opacity: 1;
+    box-shadow: 0 3px 6px 3px rgb(0 0 0 / 50%);
+    background-color: #5BAC7D;
+}
+.selectedpro.standard_card:nth-child(2) , .standard_card:nth-child(2):hover{
+    background-color: #4A8976;
+}
+.selectedpro.standard_card:nth-child(3) , .standard_card:nth-child(3):hover{
+    background-color: #638589;
+}
+.selectedpro.standard_card:nth-child(4) , .standard_card:nth-child(4):hover{
+    background-color: #338D9A;
 }
 .header .tagdown{
     margin-top: 22px;
+}
+div#root .standard h4 {
+    color: white;
+    font-weight: 700;
+    font-family: 'Lato', sans-serif;
+    margin: 10px 0 6px  !important;
+    line-height: 1;
+    margin: 0;
+    font-size: 1.25em;
+}
+.standard_card .ant-radio-wrapper{
+    white-space: unset;
+}
+.standard_card .ant-radio-wrapper span{
+    display: block;
+    color: #fff;
+}
+.tagdown.standard > span {
+    text-transform: uppercase;
+    display: block;
+    font-size: 13px;
+}
+.standard_card br{
+    display: none;
 }
 span.tagtxt-top {
     font-size: 12px;
@@ -109,8 +175,10 @@ span.tagtxt-top {
     font-weight: 700;
 }
 span.tagtxt-mid {
-    font-size: 16px;
+    font-size: 14px;
     font-weight: 300;
+    margin-bottom: 5px;
+    line-height: 1.2;
 }
 span.tagtxt-bot {
     font-weight: 600;
@@ -122,6 +190,9 @@ span.tagtxt-bot {
     border-radius: 5px;
     text-align: center;
     height: 155px;
+}
+.feature_plan_option .right-table .standard_card .ant-radio-wrapper{
+    white-space: unset;
 }
 .fridge-txt{
     font-size: 13px;
@@ -358,3 +429,62 @@ span.tagtxt-bot {
 }
 
 /* duplexplans */
+
+@media (max-width:980px){
+    .pricing_plan .table-cont-2 {
+        display: flex;
+        margin: 0 auto;
+        margin-bottom: 10px;
+        flex-direction: column;
+        text-align: center;
+    }
+    .pricing_plan .table-cont-2 .table-left {
+        text-align: center;
+        width: 100%;
+        justify-content: center;
+        margin-top: 20px;
+    }
+    .pricing_plan .feature{
+        margin: 10px auto 20px;
+        border-radius: 0;
+    }
+    .feature_plan_option .table-cont {
+        margin-top: 0;
+        padding-bottom: 100px;
+    }
+    .feature_plan_option .right-table {
+        padding-left: 20px;
+        display: flex;
+        flex: 1 1;
+        width: 100%;
+        justify-content: center;
+        position: absolute;
+        margin-left: 0;
+        left: 0;
+        padding-right: 20px;
+        max-width: 1000px;
+        margin: auto;
+        top: auto;
+        bottom: -20px;
+    }
+}
+@media (max-width: 640px){
+    .tagdown.standard > span{
+        font-size: 10px;
+    }
+    .pricing_plan .inner {
+        padding: 0;
+    }  
+    div#root .standard h4{
+        font-size: 12px;
+    }
+    span.tagtxt-mid {
+        font-size: 11px;
+    }
+    .feature_plan_option .right-table{
+        padding: 0;
+    }    
+    .standard_card{
+        padding: 8px 5px;
+    }
+}

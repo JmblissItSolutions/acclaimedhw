@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import APIUrl from "../Api"
 import { Helmet } from "react-helmet";
 import homewarranty from "../assets/images/homewarranty.png";
-import SingleSquare from "./SingleSquare";
+import RealStateProduct from "./RealStateProduct";
 
 const RealStateOrder = () => {
     // let hompalan = ["Utah", "Idaho", "Nevada", "Arizona", "Texas"];
@@ -22,36 +22,12 @@ const RealStateOrder = () => {
     const [squarevalue, setSqure] = useState('Yes');
     const [constructionvalue, setConstruction] = useState('No');
 
-    
-//     function Queid(){
-//         let queid 
-//         if(subque1){
-//             queid = subque1
-//         }else if(subque2){
-//             queid = subque2
-//         }
-//         return queid  
-//     }
-//     function newValue(){
-//         let val 
-//         if(squarevalue){
-//             val = squarevalue
-//         }else if(subque2){
-//             val = constructionvalue
-//         }
-//         return val  
-//     }
-//     const question_id = Queid()
-//     const value = newValue()
-// console.log(question_id)
-// console.log(value)
-
     const [listcheckbox1, setListcheck1] = useState('');
     const [listcheckbox2, setListcheck2] = useState('');
 
     const [showResults, setShowResults] = useState("")
     const changehandle = () => {
-        setShowResults("SingleSquare")
+        setShowResults("RealStateProduct")
     };
 
     const [hompalan, sethompalan] = useState([]);
@@ -94,23 +70,23 @@ const RealStateOrder = () => {
     useEffect(() => {
         AnswerList()
     }, [state_id, cov_type_id]);
-        const question_value_0 = squarevalue
-        const question_value_1 = constructionvalue
+    const question_value_0 = squarevalue
+    const question_value_1 = constructionvalue
 
-        function para(){
-            let tt
-            if(property_type == 1 && cov_type_id == 1 ){
-           tt =  { state_id, cov_type_id, property_type, question_id_0, question_value_0, question_id_1, question_value_1 }
-            }
-           else if(property_type == 1 && cov_type_id == 2 ){
-                tt =  { state_id, cov_type_id, property_type, question_id_0, question_value_0 }
-                 }
-            else{
-                tt = { state_id, cov_type_id, property_type}
-            }
-            return tt
+    function para() {
+        let tt
+        if (property_type == 1 && cov_type_id == 1) {
+            tt = { state_id, cov_type_id, property_type, question_id_0, question_value_0, question_id_1, question_value_1 }
         }
-    const [product, setProduct] = useState([]);   
+        else if (property_type == 1 && cov_type_id == 2) {
+            tt = { state_id, cov_type_id, property_type, question_id_0, question_value_0 }
+        }
+        else {
+            tt = { state_id, cov_type_id, property_type }
+        }
+        return tt
+    }
+    const [product, setProduct] = useState([]);
     let data = para()
 
     const ProductList = () => {
@@ -134,7 +110,7 @@ const RealStateOrder = () => {
     console.log(product.products)
     useEffect(() => {
         ProductList()
-    }, [ state_id, property_type, squarevalue, constructionvalue]);
+    }, [state_id, property_type, squarevalue, constructionvalue]);
 
     function allprices() {
         if (prores) {
@@ -158,6 +134,13 @@ const RealStateOrder = () => {
         setsubque2(e.target.id);
         setConstruction(e.target.value);
     }
+   
+    const [val, setVal] = useState();   
+    const getval = event => {
+        const priceval = event.target.value;
+        localStorage.setItem("priceval", priceval);
+      };
+      localStorage.setItem("minpriceval", minprice);
     const Homeplan = () => (
         <>
             <div className="homplan">
@@ -271,34 +254,34 @@ const RealStateOrder = () => {
                                             {qus.question_name}
                                             <span className="checkmark"></span>
                                         </label>
-                                        {property_type== 1 ? 
-                                         <div>
-                                         {property_type == qus.id &&
-                                             qus.pt_questions.map(subqus => (
-                                                 <div className="subquestion">
-                                                     <h5>{subqus.question_name}</h5>
-                                                     {subqus.options.map((subqusv,i) => (
-                                                         <div>
-                                                             {subqusv.home_size ? <label className="radiodesign">
-                                                             <input id={subqus.question_id} checked={squarevalue == subqusv.home_size}
-                                                                 type="radio" value={subqusv.home_size} onChange={Subquestion} />
-                                                             {subqusv.home_size}
-                                                             <span className="checkmark"></span>
-                                                         </label> : null }
-                                                         {subqusv.new_construction ? <label className="radiodesign">
-                                                         <input  id={subqus.question_id} checked={constructionvalue == subqusv.new_construction}
-                                                             type="radio" value={subqusv.new_construction} onChange={SubquestionCon} />
-                                                         {subqusv.new_construction}
-                                                         <span className="checkmark"></span>
-                                                     </label> : null }
-                                                        
-                                                     </div>
-                                                     ))}
-                                                 </div>
-                                             ))}
-                                             </div> : null
-                                    }
-                                       
+                                        {property_type == 1 ?
+                                            <div>
+                                                {property_type == qus.id &&
+                                                    qus.pt_questions.map(subqus => (
+                                                        <div className="subquestion">
+                                                            <h5>{subqus.question_name}</h5>
+                                                            {subqus.options.map((subqusv, i) => (
+                                                                <div>
+                                                                    {subqusv.home_size ? <label className="radiodesign">
+                                                                        <input id={subqus.question_id} checked={squarevalue == subqusv.home_size}
+                                                                            type="radio" value={subqusv.home_size} onChange={Subquestion} />
+                                                                        {subqusv.home_size}
+                                                                        <span className="checkmark"></span>
+                                                                    </label> : null}
+                                                                    {subqusv.new_construction ? <label className="radiodesign">
+                                                                        <input id={subqus.question_id} checked={constructionvalue == subqusv.new_construction}
+                                                                            type="radio" value={subqusv.new_construction} onChange={SubquestionCon} />
+                                                                        {subqusv.new_construction}
+                                                                        <span className="checkmark"></span>
+                                                                    </label> : null}
+
+                                                                </div>
+                                                            ))}
+                                                        </div>
+                                                    ))}
+                                            </div> : null
+                                        }
+
                                     </div>
                                 ))}
                                 {/* <label className="radiodesign">
@@ -377,7 +360,8 @@ const RealStateOrder = () => {
                                 <p>Enter Your Home Warranty Budget</p>
                             </div>
                             <div>
-                                <input type="number" min={minprice} max="2000" className="select" ></input>
+                                <input type="number" min={minprice} defaultValue={minprice} onChange={getval} max="2000" className="select"></input>
+                                
                                 <p></p>
                             </div>
                             <div>
@@ -456,7 +440,7 @@ const RealStateOrder = () => {
                 <title>Real Estate Orders in Arizona by Acclaimed Home Warranty</title>
                 <meta name="description" content="Are you looking for a home warranty for your property in Arizona? Reach out to Acclaimed Home Warranty for coverage details for buyers and sellers." />
             </Helmet>
-            {showResults === "SingleSquare" ? <SingleSquare productlist={productlist} /> :
+            {showResults === "RealStateProduct" ? <RealStateProduct productlist={productlist} /> :
                 <div className="home_page">
                     <div className="top_img">
                         <img src={homewarranty} alt="homewarranty" />
