@@ -54,7 +54,7 @@ function Menu() {
           <Nav className="mr-auto">
             <NavLink exact className="nav-link" activeClassName="active" to="/home-warranty">Home Warranty</NavLink>
             <NavLink exact className="nav-link" activeClassName="active" to="/home-plans">ORDER NOW</NavLink>
-            <NavLink exact className="nav-link" activeClassName="active" to="/resources/arizona">Brochers</NavLink>
+            <NavLink exact className="nav-link" activeClassName="active" to="/resources/arizona">Brochures</NavLink>
             <NavLink exact className="nav-link" activeClassName="active" to="/member-advantages">Member Advantages</NavLink>
             <NavLink exact className="nav-link" activeClassName="active" to="/home-warranty-faqs">FAQ</NavLink>
             <NavLink exact className="nav-link" activeClassName="active" to="/contractors">Contractors</NavLink>
