@@ -246,3 +246,13 @@ strong.bluetxt {
 .appForm__child textarea{
     width: 100%;
 }
+.showbtn div {
+    cursor: pointer;
+}
+.showbtn span {
+    z-index: -1;
+    position: relative;
+}
+h4.order_ttl {
+    font-size: 22px;
+}

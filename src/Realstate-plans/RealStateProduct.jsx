@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import APIUrl from "../Api"
 import { Helmet } from "react-helmet";
 import { TiChevronLeft } from 'react-icons/ti';
@@ -7,25 +7,52 @@ import { CheckOutlined } from '@ant-design/icons';
 import RealStateOrder from "./RealStateOrder";
 import homewarranty from "../assets/images/homewarranty.png";
 import { Radio } from 'antd';
+import ApplicationInformation from "./ApplicationInformation"
+import { Modal, Button } from 'react-bootstrap'
 
-
-const SingleSquare = ({ productlist}) => {
-   const pricesal = [];
+const SingleSquare = ({ productlist }) => {
+    const [show, setShow] = useState(false);
+    const handleClose = () => setShow(false);
+    const clickHandler = (e) => {
+        setShow(e.target.id)
+    }
+    const pricesal = [];
+    let selectedCard;
     productlist.map(res => {
         pricesal.push(Number(res.price));
     })
     const minpriceval = JSON.parse(localStorage.getItem('minpriceval'));
-    const priceval = JSON.parse(localStorage.getItem('priceval'));
+    const priceval = JSON.parse(localStorage.getItem('priceval')) ? JSON.parse(localStorage.getItem('priceval')) : JSON.parse(localStorage.getItem('minpriceval'));
     const [showResults, setShowResults] = useState("SingleSquareContent")
     const changehandle = () => {
-        setShowResults("RealStateOrder") 
+        setShowResults("RealStateOrder")
         localStorage.clear();
     };
+    const AppInformation = () => {
+        setShowResults("ApplicationInformation"); 
+    };
+
+   const callback = useCallback((count) => {
+        setShowResults("SingleSquareContent");
+      }, []);
+
+    const [calamount, setCalamount] = useState(priceval);
+    const [interAmount, setInterAmount] = useState(priceval);
+    function totalammount(event, price) {
+        let amount = 0;
+        price.quantity = event;
+        coverage.map(res => {
+            if (res.quantity && res.coverage_type !== 'default') {
+                amount = (Number(res.quantity) * Number(res.coverage_price)) + amount
+            }
+        })
+        setCalamount(Number(proprice) + Number(amount));
+    }
 
     let selprice = minpriceval;
     function selectedamount() {
-        if(pricesal && pricesal.length) {
-            let selamount 
+        if (pricesal && pricesal.length) {
+            let selamount
             const minprice = priceval;
             const prices = pricesal.reduce((a, b) => {
                 let aDiff = Math.abs(a - minprice);
@@ -38,28 +65,35 @@ const SingleSquare = ({ productlist}) => {
             });
             if (prices > minprice) {
                 const index = pricesal.indexOf(prices)
-                pricesal.splice(index,1)
+                pricesal.splice(index, 1)
                 selectedamount();
-            } else if(prices < minpriceval) {
+            } else if (prices < minpriceval) {
                 selamount = minpriceval
 
             } else {
                 selamount = prices
             }
-            if(selamount) {
+            if (selamount) {
                 selprice = selamount
             }
         }
+
     }
+    function renderItems() {
+        return coverage.map(res => res.quantity > 0 ? <span>{res.quantity}x {res.coverage_name}</span> : null)
+    }
+
     selectedamount();
-   const selectedCard = productlist.find(res => Number(res.price) == selprice);
+    selectedCard = productlist.find(res => Number(res.price) == selprice);
     const [proprice, setValue] = useState(selprice);
-    const [proId, setId] = useState(selectedCard ? selectedCard.id :  '');
-    const [proname, setproname] = useState(selectedCard ? selectedCard.name :  '');
+    const [proId, setId] = useState(selectedCard ? selectedCard.id : '');
+    const [proname, setproname] = useState(selectedCard ? selectedCard.name : '');
     const onChange = e => {
         setValue(e.target.value);
         setId(e.target.id);
         setproname(e.target.name);
+        setCalamount(e.target.value == selprice ? priceval : e.target.value);
+        setInterAmount(e.target.value == selprice ? priceval : e.target.value)
     };
 
     const [coverage, setCoverage] = useState([]);
@@ -67,8 +101,31 @@ const SingleSquare = ({ productlist}) => {
         const url = "/get_realstate_coverage/" + `${proId}`
         const coverages = await APIUrl.get(`${url}`)
         setCoverage(coverages.data.coverage_upgrades);
+
     }, [proId]);
-console.log(coverage)
+
+    function BalanceBox() {
+        const data = coverage.find(res => res.coverage_type !== 'default' && res.quantity > 0);
+        if (!data && Number(interAmount) > Number(proprice)) {
+            return <div className="balanceBox">
+                <div>You have a remaining balance of:</div>
+                <div>
+                    <strong className="ng-binding">${Number(interAmount) - Number(proprice)}</strong>
+                </div>
+                <div>
+                    <span>Apply this towards a
+                        <span>COVERAGE UPGRADE</span>
+                        by selecting an item in the table above.
+                        If you do not select an upgrade, the balance will be applied to a service call.
+                    </span>
+                    <button className="btn">Start Over</button>
+                </div>
+            </div>
+        } else {
+            return null
+        }
+
+    }
     const SingleSquareContent = () => (
         <div className="home_page">
             <div className="top_img">
@@ -155,7 +212,6 @@ console.log(coverage)
                                 <div key={index} className={`standard_card header ${proprice == pro.price ? 'selectedpro' : ''}`}>
                                     <div className="tagdown standard">
                                         {proprice == pro.price ? <span className="tagtxt-top">You've selected</span> : <span>Click to add</span>}
-
                                         <label>
                                             <input
                                                 type="radio"
@@ -367,7 +423,7 @@ console.log(coverage)
                         </div>
                     </div>
                     <div className="feature_img">
-                        <img src={latticebackground} alt="latticebackground"/>
+                        <img src={latticebackground} alt="latticebackground" />
                     </div>
                 </section>
                 <section className="coverage_upgrades">
@@ -378,37 +434,68 @@ console.log(coverage)
                         </div>
                         <div className="upgrade-table">
                             <div className="upgrade-table__repeater">
-                                {coverage.map(coveragepro => (
+                                {coverage.map((coveragepro, i) => (
                                     <div className="upgrade-table__input">
-                                        <input type={coveragepro.coverage_type} />
-                                        <div className="upgrade-table__price">${coveragepro.coverage_price}</div>
-                                        <div className="upgrade-table__title">{coveragepro.coverage_name}<span></span></div>
-                                    </div>
-                                ))}
+                                    <input
+                                        disabled={coveragepro.coverage_type === "default" ? true : false}
+                                        value={coveragepro.quantity}
+                                        checked={coveragepro.coverage_type == 'checkbox' ? coveragepro.quantity == 0 ? false : true : false}
+                                        onChange={event => totalammount(coveragepro.coverage_type == 'checkbox' ? coveragepro.quantity == 0 ? 1 : 0 : event.target.value, coveragepro)}
+                                        type={coveragepro.coverage_type} />
+                                    <div className="upgrade-table__price">${coveragepro.coverage_price}</div>
+                                    <div className="upgrade-table__title">{coveragepro.coverage_name}  {coveragepro.content ? coveragepro.url ?
+                                                <div className="showbtn" variant="primary" >
+                                                    <div id={coveragepro.id} onClick={e => clickHandler(e)} dangerouslySetInnerHTML={{ __html: coveragepro.url }} />
+                                                </div>
+                                                : <div className="showbtn_wcont" variant="primary"  >
+                                                    <svg id={coveragepro.id} onClick={e => clickHandler(e)} xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-info" viewBox="0 0 16 16">
+                                                        <path d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z" />
+                                                    </svg>
+                                                </div>
+                                                : null }                                              
+                                                </div>
+                                    {coveragepro.content ?
+                                        <div>
+                                            <Modal size="lg" show={show == coveragepro.id ? true : null} onHide={handleClose.bind(coveragepro.id)} centered>
+                                                <Modal.Header closeButton>
+                                                    <Modal.Title>{coveragepro.content.title}</Modal.Title>
+                                                </Modal.Header>
+                                                <Modal.Body><div dangerouslySetInnerHTML={{ __html: coveragepro.content.full_content }} /></Modal.Body>
+                                                <Modal.Footer>
+                                                    <Button variant="secondary" onClick={handleClose}>OK</Button>
+                                                </Modal.Footer>
+                                            </Modal>
 
+                                        </div>
+
+                                        : null}
+                                </div>
+                                ))}
                             </div>
                         </div>
                     </div>
                 </section>
-                <div className="running-total">
-                    <div className="inner">
-                        <div className="running-total__title">
-                            <h4>{proname}</h4>
-                            <span>Home Warranty</span>
-                            <span><strong>${proprice}</strong></span>
-                        </div>
-                        <div className="running-total__additions">
-                            <span>2x Air Conditioner/Cooler</span>
-                            <span>2x Heating/Furnace</span>
-                        </div>
-                        <div className="running-total__final">
-                            <h4>Total Amount:</h4>
-                            <span><strong>${priceval}</strong></span>  
+                <div className="make_me_flex">
+                    <div className="running-total">
+                        <div className="inner">
+                            <div className="running-total__title">
+                                <h4>{proname}</h4>
+                                <span>Home Warranty</span>
+                                <span><strong>${proprice}</strong></span>
+                            </div>
+                            <div className="running-total__additions">
+                                {renderItems()}
+                            </div>
+                            <div className="running-total__final">
+                                <h4>Total Amount:</h4>
+                                <span><strong>${calamount}</strong></span>
+                            </div>
                         </div>
                     </div>
+                    <BalanceBox />
                 </div>
                 <div className="cont-btn">
-                    <button type="button" className="btn">CONTINUE</button>
+                    <button type="button" className="btn" onClick={AppInformation}>CONTINUE</button>
                 </div>
             </div>
         </div>
@@ -419,8 +506,8 @@ console.log(coverage)
                 <title>Arizona Resources - Acclaimed Home Warranty : Acclaimed Home Warranty</title>
                 <meta name="description" content="Arizona Resources - Acclaimed Home Warranty" />
             </Helmet>
-            {showResults === "RealStateOrder" ? <RealStateOrder /> : <SingleSquareContent />}
+            {showResults === "RealStateOrder" ? <RealStateOrder/> : showResults === "ApplicationInformation" ? <ApplicationInformation  selectedCard={selectedCard} calamount={calamount} coverage={coverage} parentCallback={callback}/> : <SingleSquareContent/>}
         </>
-    )
+    );
 }
 export default SingleSquare;
