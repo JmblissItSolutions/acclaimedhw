@@ -47,8 +47,6 @@ export default function Cart({ cart, coverage, setCart, value, hometype }) {
  let tm = parseFloat(totalMonthly).toFixed(2)
  const totalYearly = parseFloat(Toalpriceyearly())+parseFloat(getTotalSumYearly())
  let ty = parseFloat(totalYearly).toFixed(2)
- console.log(tm)
- console.log(ty)
  useEffect(()=>{
   if(coverage){
   localStorage.setItem('totalMonthly',JSON.stringify(tm))

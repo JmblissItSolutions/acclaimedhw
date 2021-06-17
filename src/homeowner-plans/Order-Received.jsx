@@ -55,7 +55,7 @@ const OrderReceived = () => {
                                     <li className="woocommerce-order-overview__total total">Total:<strong>${data.total}</strong></li>
                                     <li className="woocommerce-order-overview__payment-method method">Payment Method<strong>{data.pay_method}</strong></li>
                                 </ul>
-                                <p>Pay with cash upon delivery.</p>
+                                <p>Pay with Card.</p>
                                 <div className="woocommerce-order-details">
                                     <h2 className="woocommerce-order-details__title">Order details</h2>
                                     <div className="order_review">
