@@ -2,13 +2,10 @@ import React, { useState, useEffect, useCallback } from 'react';
 import { Helmet } from "react-helmet";
 import APIUrl from "../Api"
 import { TiChevronLeft } from 'react-icons/ti';
+import * as ReactBootStrap from "react-bootstrap";
+import axios from "axios";
 
 const ApplicationInformation = ({ coverage, calamount, selectedCard, parentCallback }) => {
-    console.log(coverage);
-    // console.log(calamount,'calamount')
-   
-    // console.log(array,'array');
-
     const [prop_street1, SetProp_Street1] = useState("");
     const [prop_street2, SetProp_Street2] = useState("");
     const [prop_city, SetProp_City] = useState("");
@@ -52,11 +49,21 @@ const ApplicationInformation = ({ coverage, calamount, selectedCard, parentCallb
     const [coupon_code, SetCoupon_code] = useState("");
     const [total_price, setTotal_price] = useState(calamount);
     const [Bills, setBills] = useState([]);
-
+    const [isLoading, setLoading] = useState(false);
     const [savorder, setSavOrder] = useState([]);
+    const [no_buyer_agent, setNobuyer] = useState(false);
+    const [no_seller_agent, setNoseller] = useState(false);
+  
+    let p_location_id = localStorage.getItem('stateid');
+    let p_coverage_type_id = localStorage.getItem('coverageid');
+    let p_property_type_id = localStorage.getItem('propid');
+    let i_am_the = localStorage.getItem('iam');
+    let credit_balance = localStorage.getItem('creditamnt');
+   
     function saveOrder(e) {
         e.preventDefault();
-        let data = { prop_street1, prop_street2, prop_city, prop_state, prop_zipcode, buyer_name, buyer_phone, buyer_email, buyer_agentname, buyer_agentphone, buyer_agentemail, buyer_realstate_company, buyer_coordinatorname, buyer_coordinatorphone, buyer_coordinatoremail, seller_name, seller_phone, seller_email, seller_agentname, seller_agentphone, seller_agentemail, seller_realstate_company, seller_coordinatorname, seller_coordinatorphone, seller_coordinatoremail, escrow_title, escrow_street1, escrow_street2, escrow_city, escrow_state, escrow_zipcode, closing_officername, closing_officeremail, closing_officerphone, closing_date, escrow_assistantname, escrow_assistantemail, order_biller, order_notes, sales_person, coupon_code, total_price }
+        setLoading(true)
+        let data = {p_location_id, p_coverage_type_id, p_property_type_id,prop_street1, prop_street2, prop_city, prop_state, prop_zipcode, buyer_name, buyer_phone, buyer_email, buyer_agentname, no_buyer_agent, buyer_agentphone, buyer_agentemail, buyer_realstate_company, buyer_coordinatorname, buyer_coordinatorphone, buyer_coordinatoremail, seller_name, seller_phone, seller_email, seller_agentname, no_seller_agent, seller_agentphone, seller_agentemail, seller_realstate_company, seller_coordinatorname, seller_coordinatorphone, seller_coordinatoremail, escrow_title, escrow_street1, escrow_street2, escrow_city, escrow_state, escrow_zipcode, closing_officername, closing_officeremail, closing_officerphone, closing_date, escrow_assistantname, escrow_assistantemail, order_biller, order_notes, sales_person, coupon_code, total_price,credit_balance,i_am_the}
         fetch("https://replatform.acclaimedhw.com/replatform/api/SaveRealestateOrder", {
             method: "POST",
             headers: {
@@ -68,41 +75,38 @@ const ApplicationInformation = ({ coverage, calamount, selectedCard, parentCallb
             .then((resp) => {
                 resp.json().then((res) => {
                     setSavOrder(res);
-                    console.log(res);
+                    if (res.result == false) {
+                        window.scrollTo({
+                            top: 30,
+                            left: 0,
+                            behavior:'smooth'
+                        })
+                    }
+                    if (res.result == true) {
+                        parentCallback(res.order_id);
+                    }
+                    setLoading(false)
                 })
-
             })
     }
+
     let res = savorder.result
-    let msg = savorder.message  
-console.log(res)
-console.log(msg)
-    useEffect(async () => {
-        const Bills = await APIUrl.get(`/get_user_types`)
-        const realValue = Bills.data.user_types
-        setBills(realValue);
-    }, []);
-
+    let msg = savorder.message
+    const orderid = savorder.order_id
+  
     function GoBack() {
-        parentCallback();
+        parentCallback('GoBack');
     }
-
     let mainprodata = [];
-    mainprodata.push(selectedCard); 
-    // const ttlmount = calamount
-    // const covpro = covprod
-     let orderid = savorder.order_id
-    // console.log(selCard,'selCard')
-    // console.log(ttlmount,'ttlmount')
-    // console.log(covpro,'covpro')
-
+    mainprodata.push(selectedCard);
+    
     const mainOrd = mainprodata.map(item => {
         let orderid = "order_id"
         let product_id = "product_id"
         let product_name = "product_name"
         let prod_type = "prod_type"
         let quantity = "quantity"
-        let price  = "price"
+        let price = "price"
         const container = {};
         container[orderid] = savorder.order_id
         container[product_id] = item.id
@@ -112,17 +116,15 @@ console.log(msg)
         container[price] = item.price
         return container;
     })
-    console.log(mainOrd)
 
-       function getArray() {
+    function getArray() {
         if (coverage) {
-            return coverage   
+            return coverage
         } else {
             return coverage = []
         }
     }
     let arr = getArray()
-
     const OrdList = coverage.filter(person =>
         person.quantity > 0).map(item => {
             let orderid = "order_id"
@@ -140,7 +142,7 @@ console.log(msg)
             container[quantity] = item.quantity
             return container;
         })
-    console.log(OrdList, 'OrdList')
+
     if (mainOrd && mainOrd.length) {
         OrdList.push(mainOrd[0]);
     }
@@ -158,15 +160,22 @@ console.log(msg)
                 resp.json().then((productlist) => {
                     if (res == true) {
                         setProductlist(productlist);
-                        console.log(productlist);
                     }
                 })
             })
         let res = false
     }
-    if (res) {
-        saveProduct()
+
+    const fetchBill = async () => {
+        const Bill = await APIUrl.get(`/get_user_types`)
+        const realValue = Bill.data.user_types
+            setBills(realValue);
     }
+    useEffect(() => {
+        fetchBill()
+        saveProduct()
+    }, [orderid]);
+
     return (
         <>
             <Helmet>
@@ -181,6 +190,8 @@ console.log(msg)
                     </div>
                     <form>
                         <div className="appForm__child">
+                            <p className="error-msg">{msg}</p>
+                            {res == false ? <p className="error-msg">{res}</p> : null}
                             <h4>Property's Address</h4>
                             <div className="appForm__flex">
                                 <div className="appForm__field two-thirds">
@@ -197,7 +208,7 @@ console.log(msg)
                                 </div>
                                 <div className="appForm__field third">
                                     <label>State*</label>
-                                    <input type="text" name="propertyCity" placeholder="State*" value={prop_state} onChange={(e) => { SetProp_state(e.target.value) }} />
+                                    <input type="text" name="propertyCity" placeholder="State*" value={prop_state} onChange={(e) => { SetProp_state(e.target.value)}} />
                                 </div>
                                 <div className="appForm__field third">
                                     <label>Zip Code*</label>
@@ -220,12 +231,17 @@ console.log(msg)
                                     <label>Buyer's Email</label>
                                     <input type="email" placeholder="Buyer's Email" value={buyer_email} onChange={(e) => { SetBuyer_email(e.target.value) }} />
                                 </div>
-                                <div className="appForm__field two-thirds">
-                                    <label>Buyer's Agent Name*</label>
-                                    <input type="text" name="application.buyer.agent.name" placeholder="Buyer's Agent Name*" value={buyer_agentname} onChange={(e) => { SetBuyer_agentname(e.target.value) }} />
-                                </div>
+                                {no_buyer_agent ?
+                                    <div className="appForm__field two-thirds">
+                                        <input type="text" placeholder="No Buyer's Agent Name" value="" disabled />
+                                    </div> :
+                                    <div className="appForm__field two-thirds">
+                                        <label>Buyer's Agent Name*</label>
+                                        <input type="text" placeholder="Buyer's Agent Name*" value={buyer_agentname} onChange={(e) => { SetBuyer_agentname(e.target.value) }} />
+                                    </div>
+                                }
                                 <div className="appForm__field third has-checkbox">
-                                    <input type="checkbox" name="application.buyer.agent.name" placeholder="Buyer's Agent Name*" />
+                                    <input type="checkbox" name="application.buyer.agent.name" placeholder="Buyer's Agent Name*" onChange={(e) => setNobuyer(!no_buyer_agent)} />
                                     <label>No Buyer's Agent Name</label>
                                 </div>
                                 <div className="appForm__field third">
@@ -269,12 +285,17 @@ console.log(msg)
                                     <label>Seller's Email</label>
                                     <input type="email" placeholder="Seller's Email" value={seller_email} onChange={(e) => { SetSeller_email(e.target.value) }} />
                                 </div>
-                                <div className="appForm__field two-thirds">
-                                    <label>Seller's Agent Name*</label>
-                                    <input type="text" placeholder="Seller's Agent Name*" value={seller_agentname} onChange={(e) => { SetSeller_agentname(e.target.value) }} />
-                                </div>
+                                {no_seller_agent ?
+                                    <div className="appForm__field two-thirds">
+                                        <input type="text" placeholder="No Seller's Agent Name" disabled value="" />
+                                    </div> :
+                                    <div className="appForm__field two-thirds">
+                                        <label>Seller's Agent Name*</label>
+                                        <input type="text" placeholder="Seller's Agent Name*" value={seller_agentname} onChange={(e) => { SetSeller_agentname(e.target.value) }} />
+                                    </div>
+                                }
                                 <div className="appForm__field third has-checkbox">
-                                    <input type="checkbox" />
+                                    <input type="checkbox" onChange={(e) => setNoseller(!no_seller_agent)} />
                                     <label>No Seller's Agent Name</label>
                                 </div>
                                 <div className="appForm__field third">
@@ -414,7 +435,9 @@ console.log(msg)
                             {Bills.map(res => {
                                 return (
                                     <div key={res.id}>
-                                        <label><input type="radio" value={res.user_type} onChange={(e) => { SetOrder_biller(e.target.value) }} />{res.user_type}</label><br />
+                                        <label>
+                                            <input type="radio" value={res.user_type} checked={order_biller == res.user_type} onChange={(e) => { SetOrder_biller(e.target.value) }} />{res.user_type}
+                                        </label><br />
                                     </div>
                                 )
                             })}
@@ -436,6 +459,7 @@ console.log(msg)
                         </div>
                         <button type="submit" className="btn" onClick={saveOrder}>CONTINUE</button>
                     </form>
+                    {isLoading == true ? <ReactBootStrap.Spinner animation="border" /> : null}
                 </div>
             </div>
         </>

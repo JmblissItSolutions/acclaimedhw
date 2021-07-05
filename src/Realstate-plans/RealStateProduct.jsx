@@ -6,11 +6,13 @@ import latticebackground from "../assets/images/lattice-background.png"
 import { CheckOutlined } from '@ant-design/icons';
 import RealStateOrder from "./RealStateOrder";
 import homewarranty from "../assets/images/homewarranty.png";
-import { Radio } from 'antd';
 import ApplicationInformation from "./ApplicationInformation"
 import { Modal, Button } from 'react-bootstrap'
+import ConfirmOrder from './ConfirmOrder';
+
 
 const SingleSquare = ({ productlist }) => {
+    const [orderid, setOrderid] = useState();
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
     const clickHandler = (e) => {
@@ -21,6 +23,7 @@ const SingleSquare = ({ productlist }) => {
     productlist.map(res => {
         pricesal.push(Number(res.price));
     })
+
     const minpriceval = JSON.parse(localStorage.getItem('minpriceval'));
     const priceval = JSON.parse(localStorage.getItem('priceval')) ? JSON.parse(localStorage.getItem('priceval')) : JSON.parse(localStorage.getItem('minpriceval'));
     const [showResults, setShowResults] = useState("SingleSquareContent")
@@ -29,21 +32,39 @@ const SingleSquare = ({ productlist }) => {
         localStorage.clear();
     };
     const AppInformation = () => {
-        setShowResults("ApplicationInformation"); 
+        setShowResults("ApplicationInformation");
     };
 
-   const callback = useCallback((count) => {
-        setShowResults("SingleSquareContent");
-      }, []);
+    const callback = useCallback((status) => {
+        if (status == 'GoBack') {
+            setShowResults("SingleSquareContent");
+        } else {
+            setOrderid(status)
+            setShowResults("ConfirmOrder");
+        }
+    }, []);
+
+    const callbackOrder = useCallback((count) =>{
+        AppInformation();
+    }, []);
 
     const [calamount, setCalamount] = useState(priceval);
     const [interAmount, setInterAmount] = useState(priceval);
-    function totalammount(event, price) {
+
+    function totalammount(event, price){
         let amount = 0;
+        let newAmount = Number(interAmount) - Number(proprice);
         price.quantity = event;
-        coverage.map(res => {
-            if (res.quantity && res.coverage_type !== 'default') {
+        coverage.map(res =>{
+            if (res.quantity && res.coverage_type !== 'default'){
                 amount = (Number(res.quantity) * Number(res.coverage_price)) + amount
+                const realAmount = Number(res.quantity) * Number(res.coverage_price);
+                if(res.quantity >= 0){
+                    setRemaingAmount((Number(newAmount) - Number(realAmount)));
+                    newAmount = Number(newAmount) - Number(realAmount);
+                    let credit = newAmount;
+                    localStorage.setItem('creditamnt', credit);
+                }
             }
         })
         setCalamount(Number(proprice) + Number(amount));
@@ -51,19 +72,19 @@ const SingleSquare = ({ productlist }) => {
 
     let selprice = minpriceval;
     function selectedamount() {
-        if (pricesal && pricesal.length) {
+        if (pricesal && pricesal.length){
             let selamount
             const minprice = priceval;
-            const prices = pricesal.reduce((a, b) => {
+            const prices = pricesal.reduce((a, b) =>{
                 let aDiff = Math.abs(a - minprice);
                 let bDiff = Math.abs(b - minprice);
-                if (aDiff == bDiff) {
+                if (aDiff == bDiff){
                     return a < b ? a : b;
                 } else {
                     return bDiff < aDiff ? b : a;
                 }
             });
-            if (prices > minprice) {
+            if (prices > minprice){
                 const index = pricesal.indexOf(prices)
                 pricesal.splice(index, 1)
                 selectedamount();
@@ -86,6 +107,7 @@ const SingleSquare = ({ productlist }) => {
     selectedamount();
     selectedCard = productlist.find(res => Number(res.price) == selprice);
     const [proprice, setValue] = useState(selprice);
+    const [remaingAmount, setRemaingAmount] = useState(Number(interAmount) - Number(proprice));
     const [proId, setId] = useState(selectedCard ? selectedCard.id : '');
     const [proname, setproname] = useState(selectedCard ? selectedCard.name : '');
     const onChange = e => {
@@ -101,16 +123,14 @@ const SingleSquare = ({ productlist }) => {
         const url = "/get_realstate_coverage/" + `${proId}`
         const coverages = await APIUrl.get(`${url}`)
         setCoverage(coverages.data.coverage_upgrades);
-
     }, [proId]);
 
     function BalanceBox() {
-        const data = coverage.find(res => res.coverage_type !== 'default' && res.quantity > 0);
-        if (!data && Number(interAmount) > Number(proprice)) {
+        if (remaingAmount > 0){
             return <div className="balanceBox">
                 <div>You have a remaining balance of:</div>
                 <div>
-                    <strong className="ng-binding">${Number(interAmount) - Number(proprice)}</strong>
+                    <strong className="ng-binding">${remaingAmount}</strong>
                 </div>
                 <div>
                     <span>Apply this towards a
@@ -436,40 +456,38 @@ const SingleSquare = ({ productlist }) => {
                             <div className="upgrade-table__repeater">
                                 {coverage.map((coveragepro, i) => (
                                     <div className="upgrade-table__input">
-                                    <input
-                                        disabled={coveragepro.coverage_type === "default" ? true : false}
-                                        value={coveragepro.quantity}
-                                        checked={coveragepro.coverage_type == 'checkbox' ? coveragepro.quantity == 0 ? false : true : false}
-                                        onChange={event => totalammount(coveragepro.coverage_type == 'checkbox' ? coveragepro.quantity == 0 ? 1 : 0 : event.target.value, coveragepro)}
-                                        type={coveragepro.coverage_type} />
-                                    <div className="upgrade-table__price">${coveragepro.coverage_price}</div>
-                                    <div className="upgrade-table__title">{coveragepro.coverage_name}  {coveragepro.content ? coveragepro.url ?
-                                                <div className="showbtn" variant="primary" >
-                                                    <div id={coveragepro.id} onClick={e => clickHandler(e)} dangerouslySetInnerHTML={{ __html: coveragepro.url }} />
-                                                </div>
-                                                : <div className="showbtn_wcont" variant="primary"  >
-                                                    <svg id={coveragepro.id} onClick={e => clickHandler(e)} xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-info" viewBox="0 0 16 16">
-                                                        <path d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z" />
-                                                    </svg>
-                                                </div>
-                                                : null }                                              
-                                                </div>
-                                    {coveragepro.content ?
-                                        <div>
-                                            <Modal size="lg" show={show == coveragepro.id ? true : null} onHide={handleClose.bind(coveragepro.id)} centered>
-                                                <Modal.Header closeButton>
-                                                    <Modal.Title>{coveragepro.content.title}</Modal.Title>
-                                                </Modal.Header>
-                                                <Modal.Body><div dangerouslySetInnerHTML={{ __html: coveragepro.content.full_content }} /></Modal.Body>
-                                                <Modal.Footer>
-                                                    <Button variant="secondary" onClick={handleClose}>OK</Button>
-                                                </Modal.Footer>
-                                            </Modal>
-
+                                        <input
+                                            disabled={coveragepro.coverage_type === "default" ? true : false}
+                                            value={coveragepro.quantity}
+                                            checked={coveragepro.coverage_type == 'checkbox' ? coveragepro.quantity == 0 ? false : true : false}
+                                            onChange={event => totalammount(coveragepro.coverage_type == 'checkbox' ? coveragepro.quantity == 0 ? 1 : 0 : event.target.value, coveragepro)}
+                                            type={coveragepro.coverage_type} />
+                                        <div className="upgrade-table__price">${coveragepro.coverage_price}</div>
+                                        <div className="upgrade-table__title">{coveragepro.coverage_name}  {coveragepro.content ? coveragepro.url ?
+                                            <div className="showbtn" variant="primary" >
+                                                <div id={coveragepro.id} onClick={e => clickHandler(e)} dangerouslySetInnerHTML={{ __html: coveragepro.url }} />
+                                            </div>
+                                            : <div className="showbtn_wcont" variant="primary"  >
+                                                <svg id={coveragepro.id} onClick={e => clickHandler(e)} xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-info" viewBox="0 0 16 16">
+                                                    <path d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z" />
+                                                </svg>
+                                            </div>
+                                            : null}
                                         </div>
-
-                                        : null}
-                                </div>
+                                        {coveragepro.content ?
+                                            <div>
+                                                <Modal size="lg" show={show == coveragepro.id ? true : null} onHide={handleClose.bind(coveragepro.id)} centered>
+                                                    <Modal.Header closeButton>
+                                                        <Modal.Title>{coveragepro.content.title}</Modal.Title>
+                                                    </Modal.Header>
+                                                    <Modal.Body><div dangerouslySetInnerHTML={{ __html: coveragepro.content.full_content }} /></Modal.Body>
+                                                    <Modal.Footer>
+                                                        <Button variant="secondary" onClick={handleClose}>OK</Button>
+                                                    </Modal.Footer>
+                                                </Modal>
+                                            </div>
+                                            : null}
+                                    </div>
                                 ))}
                             </div>
                         </div>
@@ -492,7 +510,7 @@ const SingleSquare = ({ productlist }) => {
                             </div>
                         </div>
                     </div>
-                    <BalanceBox />
+                 <BalanceBox/>  
                 </div>
                 <div className="cont-btn">
                     <button type="button" className="btn" onClick={AppInformation}>CONTINUE</button>
@@ -506,7 +524,7 @@ const SingleSquare = ({ productlist }) => {
                 <title>Arizona Resources - Acclaimed Home Warranty : Acclaimed Home Warranty</title>
                 <meta name="description" content="Arizona Resources - Acclaimed Home Warranty" />
             </Helmet>
-            {showResults === "RealStateOrder" ? <RealStateOrder/> : showResults === "ApplicationInformation" ? <ApplicationInformation  selectedCard={selectedCard} calamount={calamount} coverage={coverage} parentCallback={callback}/> : <SingleSquareContent/>}
+            {showResults === "RealStateOrder" ? <RealStateOrder /> : showResults === "ApplicationInformation" ? <ApplicationInformation selectedCard={selectedCard} calamount={calamount} coverage={coverage} parentCallback={callback} /> : showResults === "ConfirmOrder" ? <ConfirmOrder parentCallback={callbackOrder} orderid={orderid} /> : <SingleSquareContent />}
         </>
     );
 }
