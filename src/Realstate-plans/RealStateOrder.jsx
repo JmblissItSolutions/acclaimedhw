@@ -8,6 +8,7 @@ const RealStateOrder = () => {
     const [state_id, setStateId] = useState();
     const [cov_type_id, setCoverage] = useState();
     let iamoptions = ["escrow-officer", "buyer-agent", "listing-agent", "buyer"];
+    const [iam, setIam] = useState('');
     const [property_type, setWarranty] = useState();
     const [question_id_0, setsubque1] = useState(1);
     const [question_id_1, setsubque2] = useState(2);
@@ -16,10 +17,15 @@ const RealStateOrder = () => {
     const [listcheckbox1, setListcheck1] = useState('');
     const [listcheckbox2, setListcheck2] = useState('');
     const [showResults, setShowResults] = useState("")
+
+    localStorage.setItem('stateid', state_id);
+    localStorage.setItem('coverageid', cov_type_id);
+    localStorage.setItem('propid', property_type);
+    localStorage.setItem('iam', iam);
+    
     const changehandle = () => {
         setShowResults("RealStateProduct")
     };
-
     const [hompalan, sethompalan] = useState([]);
     useEffect(async () => {
         const hompalans = await APIUrl.get(`/get_realstate_states`)
@@ -130,7 +136,7 @@ const RealStateOrder = () => {
     const Homeplan = () => (
         <>
             <div className="homplan">
-                <h4>I want to get a home warranty for a property in:</h4>
+                <h4 className="order_ttl">I want to get a home warranty for a property in:</h4>
                 {hompalan.map(palan => (
                     <label key={palan.location_name} className="radiodesign">
                         <input checked={state_id == palan.id}
@@ -145,7 +151,7 @@ const RealStateOrder = () => {
     const Coverage = () => (
         <>
             <div className="coverage">
-                <h4>Let us know what type of coverage this is...</h4>
+                <h4 className="order_ttl">Let us know what type of coverage this is...</h4>
                 {covtypearay.map(coverage => (
                     <label key={coverage.co_type_name} className="radiodesign">
                         <input checked={cov_type_id == coverage.id}
@@ -182,12 +188,15 @@ const RealStateOrder = () => {
     const Answering = () => (
         <>
             <div className="answering">
-                <h4>Please begin by answering these questions...</h4>
+                <h4 className="order_ttl">Please begin by answering these questions...</h4>
                 <div className="orders">
                     <div className="order_flex">
                         <div className="order_col">
                             <span>I am the
-                                <select className="order_sel">
+                            <select className="order_sel" value={iam} onChange={e =>setIam(e.target.value)}>
+                                    {iamoptions.map(res => (
+                                        <option key={res} value={res} >{res}</option>
+                                    ))}
                                 </select>
                             </span>
                         </div>
@@ -247,7 +256,7 @@ const RealStateOrder = () => {
     const Terms = () => (
         <>
             <div className="listing_seller">
-                <h4>Listing/Seller's Coverage Terms...</h4>
+                <h4 className="order_ttl">Listing/Seller's Coverage Terms...</h4>
                 <span className="">Listing/Seller's Coverage is effective upon receipt of application. Plan continues until expiration of the initial listing period not to exceed 180 days or until listing cancellation or close of sale, whichever occurs first. AHW, in its sole discretion, may extend coverage period. Pre-existing conditions are not covered for the Seller. Optional coverages set forth in this Contract are not available for Seller’s Coverage. If a claim is made by the Seller during the listing period a service fee will be required and paid by the Seller. If the property does not close and a claim has been made during the listing period, the Seller is responsible for full payment of services rendered or full payment of the home warranty coverage plan whichever is less.</span>
                 <label><input checked={listcheckbox1} type="checkbox" value="1"
                     onChange={e => setListcheck1(e.target.checked)} />
@@ -271,7 +280,7 @@ const RealStateOrder = () => {
                     <div>
                         <div>
                             <div>
-                                <h4>Let our system select the best plan</h4>
+                                <h4 className="order_ttl">Let our system select the best plan</h4>
                                 <p>Enter Your Home Warranty Budget</p>
                             </div>
                             <div>
@@ -318,7 +327,7 @@ const RealStateOrder = () => {
             <div className="baseprice" >
                 <div className="base_price_plan">
                     <div className="baseprice_plan">
-                        <h4>The base price for this coverage is {minprice}</h4>
+                        <h4 className="order_ttl">The base price for this coverage is {minprice}</h4>
                         <p>The remaining balance can be applied towards Coverage Upgrades or service calls.</p>
                     </div>
                     <div className="baseprice_amnt">

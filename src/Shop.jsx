@@ -2,62 +2,50 @@ import React, { useRef, useEffect, useState } from "react";
 import { Helmet } from "react-helmet";
 
 const Shop =()=>{
-  // const cards = [
-  //   {
-  //     cardName: 'card1', options: [{ radioName: 'card1-radio1', selected: true },
-  //     { radioName: 'card1-radio2', selected: false }]
-  //   },
-  //   {
-  //     cardName: 'card2', options: [{ radioName: 'card2-radio1', selected: true },
-  //     { radioName: 'card2-radio2', selected: false }]
-  //   }
-  // ];
-  
-  // const OnInputChange = ({ target }) => {
-  //   const {d, setCards } = useState([])
-  //   const nexState = cards.map(card => {
-  //     if (card.cardName !== target.name) return card;
-  //     return {
-  //       ...card,
-  //       options: card.options.map(opt => {
-  //         const checked = opt.radioName === target.value;
-  //         return {
-  //           ...opt,
-  //           selected: checked
-  //         }
-  //       })
-  //     }
-  //   });
-  //   setCards(nexState)
-  // }
-  //   return (
-  //     <div>
-  //       {
-  //         cards.length < 1 ? "Loading..." :
-  //           <div>
-  //             {cards.map((card, idx) => (
-  //               <ul>
-  //                 {card.cardName}
-  //                 {
-  //                   card.options.map((lo, idx) => {
-  //                     return <input
-  //                       key={idx}
-  //                       type="radio"
-  //                       name={card.cardName}
-  //                       value={lo.radioName}
-  //                       checked={!!lo.selected}
-  //                       onChange={OnInputChange}
-  //                     />
+  const [checked, setChecked] = useState([]); // categories
+  const [categories, setCategories] = useState([
+    { name: "Product A", isAdded: false }, 
+    { name: "Product B", isAdded: false }, 
+    { name: "Product C", isAdded: false }
+  ]);
+ 
+const tt =  checked.join(', ')
+  const handleToggle = c => () => {
+    // return the first index or -1
+    const clickedCategory = checked.indexOf(c);
+    const all = [...checked];
 
-  //                   })
-  //                 }
-  //               </ul>
-  //             ))
-  //             }
-  //           </div>
-  //       }
+    if (clickedCategory === -1) {
+      all.push(c);
+    } else {
+      all.splice(clickedCategory, 1);
+    }
+    console.log(all);
+    setChecked(all);
+  };
 
-  //     </div>
-  //   );
-}
+  const showCategories = () => {
+    return categories.map((c, i) => (
+      <li key={i} className="list-unstyled">
+        <input
+          onChange={handleToggle(c.name)}
+          type="checkbox"
+          className="mr-2"
+        />
+        <label className="form-check-label">{c.name}</label>
+      </li>
+    ));
+  };
+
+  return (
+    <div className="container">
+      <h2>Categories</h2>
+      {showCategories()}
+      <h2>Form Data</h2>
+      {tt}
+      
+     
+    </div>
+  );
+};
 export default Shop;

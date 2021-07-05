@@ -111,7 +111,7 @@ const CheckOut = () => {
     let couponres = (couponresult.result)
     let couponval = (couponresult.result)
     function removeCoupon() {
-        // setCouponresult("")
+         setCouponresult("")
     }
     function interval() {
         if (val == 1 || val == null) {
@@ -190,6 +190,7 @@ const CheckOut = () => {
             })
         let res = false
     }
+    console.log(CovList)
     const Cove = () => (
         <>
             {covrage.map((pro, index) => (
