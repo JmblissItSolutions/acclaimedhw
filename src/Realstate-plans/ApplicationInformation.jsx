@@ -53,17 +53,51 @@ const ApplicationInformation = ({ coverage, calamount, selectedCard, parentCallb
     const [savorder, setSavOrder] = useState([]);
     const [no_buyer_agent, setNobuyer] = useState(false);
     const [no_seller_agent, setNoseller] = useState(false);
-  
+
     let p_location_id = localStorage.getItem('stateid');
     let p_coverage_type_id = localStorage.getItem('coverageid');
     let p_property_type_id = localStorage.getItem('propid');
     let i_am_the = localStorage.getItem('iam');
     let credit_balance = localStorage.getItem('creditamnt');
-   
+
+
+    const [cponcode, setcpon] = useState([]);
+    function saveCoupon() {
+        let data = { coupon_code }
+        fetch("https://replatform.acclaimedhw.com/replatform/api/CheckRealCouponExist", {
+            method: "POST",
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(data)
+        })
+            .then((resp) => {
+                resp.json().then((res) => {
+                    setcpon(res);
+                    if (res.result == false) {
+                        const answer =  window.confirm("The coupon entered is invalid or has expired. Would you like to continue with your order?")
+                        if (answer) {
+                            console.log("Ok");
+                            return SetCoupon_code("")
+                          } else {
+                            console.log("cancel");
+                            return SetCoupon_code("")
+                          } 
+                    }
+                })
+            })
+    }
+    // console.log(cponcode)
+    let coupres = cponcode.result
+    // console.log(coupres)
+
+
     function saveOrder(e) {
+        saveCoupon()
         e.preventDefault();
         setLoading(true)
-        let data = {p_location_id, p_coverage_type_id, p_property_type_id,prop_street1, prop_street2, prop_city, prop_state, prop_zipcode, buyer_name, buyer_phone, buyer_email, buyer_agentname, no_buyer_agent, buyer_agentphone, buyer_agentemail, buyer_realstate_company, buyer_coordinatorname, buyer_coordinatorphone, buyer_coordinatoremail, seller_name, seller_phone, seller_email, seller_agentname, no_seller_agent, seller_agentphone, seller_agentemail, seller_realstate_company, seller_coordinatorname, seller_coordinatorphone, seller_coordinatoremail, escrow_title, escrow_street1, escrow_street2, escrow_city, escrow_state, escrow_zipcode, closing_officername, closing_officeremail, closing_officerphone, closing_date, escrow_assistantname, escrow_assistantemail, order_biller, order_notes, sales_person, coupon_code, total_price,credit_balance,i_am_the}
+        let data = { p_location_id, p_coverage_type_id, p_property_type_id, prop_street1, prop_street2, prop_city, prop_state, prop_zipcode, buyer_name, buyer_phone, buyer_email, buyer_agentname, no_buyer_agent, buyer_agentphone, buyer_agentemail, buyer_realstate_company, buyer_coordinatorname, buyer_coordinatorphone, buyer_coordinatoremail, seller_name, seller_phone, seller_email, seller_agentname, no_seller_agent, seller_agentphone, seller_agentemail, seller_realstate_company, seller_coordinatorname, seller_coordinatorphone, seller_coordinatoremail, escrow_title, escrow_street1, escrow_street2, escrow_city, escrow_state, escrow_zipcode, closing_officername, closing_officeremail, closing_officerphone, closing_date, escrow_assistantname, escrow_assistantemail, order_biller, order_notes, sales_person, coupon_code, total_price, credit_balance, i_am_the }
         fetch("https://replatform.acclaimedhw.com/replatform/api/SaveRealestateOrder", {
             method: "POST",
             headers: {
@@ -79,11 +113,12 @@ const ApplicationInformation = ({ coverage, calamount, selectedCard, parentCallb
                         window.scrollTo({
                             top: 30,
                             left: 0,
-                            behavior:'smooth'
+                            behavior: 'smooth'
                         })
                     }
-                    if (res.result == true) {
-                        parentCallback(res.order_id);
+                   
+                    if (res.result == true ) {
+                     parentCallback(res.order_id);
                     }
                     setLoading(false)
                 })
@@ -93,13 +128,12 @@ const ApplicationInformation = ({ coverage, calamount, selectedCard, parentCallb
     let res = savorder.result
     let msg = savorder.message
     const orderid = savorder.order_id
-  
     function GoBack() {
         parentCallback('GoBack');
     }
     let mainprodata = [];
     mainprodata.push(selectedCard);
-    
+
     const mainOrd = mainprodata.map(item => {
         let orderid = "order_id"
         let product_id = "product_id"
@@ -169,12 +203,13 @@ const ApplicationInformation = ({ coverage, calamount, selectedCard, parentCallb
     const fetchBill = async () => {
         const Bill = await APIUrl.get(`/get_user_types`)
         const realValue = Bill.data.user_types
-            setBills(realValue);
+        setBills(realValue);
     }
     useEffect(() => {
         fetchBill()
         saveProduct()
     }, [orderid]);
+
 
     return (
         <>
@@ -208,7 +243,7 @@ const ApplicationInformation = ({ coverage, calamount, selectedCard, parentCallb
                                 </div>
                                 <div className="appForm__field third">
                                     <label>State*</label>
-                                    <input type="text" name="propertyCity" placeholder="State*" value={prop_state} onChange={(e) => { SetProp_state(e.target.value)}} />
+                                    <input type="text" name="propertyCity" placeholder="State*" value={prop_state} onChange={(e) => { SetProp_state(e.target.value) }} />
                                 </div>
                                 <div className="appForm__field third">
                                     <label>Zip Code*</label>

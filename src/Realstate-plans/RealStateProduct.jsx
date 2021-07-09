@@ -44,22 +44,22 @@ const SingleSquare = ({ productlist }) => {
         }
     }, []);
 
-    const callbackOrder = useCallback((count) =>{
+    const callbackOrder = useCallback((count) => {
         AppInformation();
     }, []);
 
     const [calamount, setCalamount] = useState(priceval);
     const [interAmount, setInterAmount] = useState(priceval);
 
-    function totalammount(event, price){
+    function totalammount(event, price) {
         let amount = 0;
         let newAmount = Number(interAmount) - Number(proprice);
         price.quantity = event;
-        coverage.map(res =>{
-            if (res.quantity && res.coverage_type !== 'default'){
+        coverage.map(res => {
+            if (res.quantity && res.coverage_type !== 'default') {
                 amount = (Number(res.quantity) * Number(res.coverage_price)) + amount
                 const realAmount = Number(res.quantity) * Number(res.coverage_price);
-                if(res.quantity >= 0){
+                if (res.quantity >= 0) {
                     setRemaingAmount((Number(newAmount) - Number(realAmount)));
                     newAmount = Number(newAmount) - Number(realAmount);
                     let credit = newAmount;
@@ -72,19 +72,19 @@ const SingleSquare = ({ productlist }) => {
 
     let selprice = minpriceval;
     function selectedamount() {
-        if (pricesal && pricesal.length){
+        if (pricesal && pricesal.length) {
             let selamount
             const minprice = priceval;
-            const prices = pricesal.reduce((a, b) =>{
+            const prices = pricesal.reduce((a, b) => {
                 let aDiff = Math.abs(a - minprice);
                 let bDiff = Math.abs(b - minprice);
-                if (aDiff == bDiff){
+                if (aDiff == bDiff) {
                     return a < b ? a : b;
                 } else {
                     return bDiff < aDiff ? b : a;
                 }
             });
-            if (prices > minprice){
+            if (prices > minprice) {
                 const index = pricesal.indexOf(prices)
                 pricesal.splice(index, 1)
                 selectedamount();
@@ -125,8 +125,32 @@ const SingleSquare = ({ productlist }) => {
         setCoverage(coverages.data.coverage_upgrades);
     }, [proId]);
 
+
+    let state_id = localStorage.getItem('stateid');
+    const [featurelist, setFeature] = useState([]);
+    function Statefeature() {
+        let data = { state_id }
+        fetch("http://replatform.acclaimedhw.com/replatform/api/get_realstate_features", {
+            method: "POST",
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(data)
+        })
+            .then((resp) => {
+                resp.json().then((featurelist) => {
+                    setFeature(featurelist);
+                    console.log(featurelist);
+                })
+            })
+    }
+    useEffect(() => {
+        Statefeature()
+    }, []);
+    let featureslist = (featurelist.features)
     function BalanceBox() {
-        if (remaingAmount > 0){
+        if (remaingAmount > 0) {
             return <div className="balanceBox">
                 <div>You have a remaining balance of:</div>
                 <div>
@@ -255,191 +279,25 @@ const SingleSquare = ({ productlist }) => {
                 </div>
                 <section className="unique-feature pricing_plan">
                     <div className="inner">
-                        <div className="table-cont-2">
+                        <div className="table-cont-2 new-table-dsn">
                             <div className="table-left">
-                                <div>Angle Stops and Gate Valves Toilet Replacement</div>
+                                {featureslist ? featureslist.map(feature => {
+                                    return (
+                                        <div className="in-box">
+                                            <div key={feature.id}>{feature.name}</div>
+                                        </div>
+                                    )
+                                }) : null}
                             </div>
-                            <div className="table-right">
-                                <div className="feature"></div>
-                                <div className="feature included"><CheckOutlined className="antcheck" /></div>
-                                <div className="feature included"><CheckOutlined className="antcheck" /></div>
-                                <div className="feature included"><CheckOutlined className="antcheck" /></div>
-                            </div>
-                        </div>
-                        <div className="table-cont-2">
-                            <div className="table-left">
-                                <div>Interior Hose Bibs</div>
-                            </div>
-                            <div className="table-right">
-                                <div className="feature"></div>
-                                <div className="feature included"><CheckOutlined className="antcheck" /></div>
-                                <div className="feature included"><CheckOutlined className="antcheck" /></div>
-                                <div className="feature included"><CheckOutlined className="antcheck" /></div>
-                            </div>
-                        </div>
-                        <div className="table-cont-2">
-                            <div className="table-left">
-                                <div>Shower Heads</div>
-                            </div>
-                            <div className="table-right">
-                                <div className="feature"></div>
-                                <div className="feature included"><CheckOutlined className="antcheck" /></div>
-                                <div className="feature included"><CheckOutlined className="antcheck" /></div>
-                                <div className="feature included"><CheckOutlined className="antcheck" /></div>
-                            </div>
-                        </div>
-                        <div className="table-cont-2">
-                            <div className="table-left">
-                                <div>Shower Arms - Faucets</div>
-                            </div>
-                            <div className="table-right">
-                                <div className="feature"></div>
-                                <div className="feature included"><CheckOutlined className="antcheck" /></div>
-                                <div className="feature included"><CheckOutlined className="antcheck" /></div>
-                                <div className="feature included"><CheckOutlined className="antcheck" /></div>
-                            </div>
-                        </div>
-                        <div className="table-cont-2">
-                            <div className="table-left">
-                                <div>Grills</div>
-                            </div>
-                            <div className="table-right">
-                                <div className="feature"></div>
-                                <div className="feature included"><CheckOutlined className="antcheck" /></div>
-                                <div className="feature included"><CheckOutlined className="antcheck" /></div>
-                                <div className="feature included"><CheckOutlined className="antcheck" /></div>
-                            </div>
-                        </div>
-                        <div className="table-cont-2">
-                            <div className="table-left">
-                                <div>Heat Lamps</div>
-                            </div>
-                            <div className="table-right">
-                                <div className="feature"></div>
-                                <div className="feature included"><CheckOutlined className="antcheck" /></div>
-                                <div className="feature included"><CheckOutlined className="antcheck" /></div>
-                                <div className="feature included"><CheckOutlined className="antcheck" /></div>
-                            </div>
-                        </div>
-                        <div className="table-cont-2">
-                            <div className="table-left">
-                                <div>Premium Coverage Upgrade<br />(adds over<a>40 items</a> to standard coverage)</div>
-                            </div>
-                            <div className="table-right">
-                                <div className="feature"></div>
-                                <div className="feature included"><CheckOutlined className="antcheck" /></div>
-                                <div className="feature included"><CheckOutlined className="antcheck" /></div>
-                                <div className="feature included"><CheckOutlined className="antcheck" /></div>
-                            </div>
-                        </div>
-                        <div className="table-cont-2">
-                            <div className="table-left">
-                                <div>No Fault Coverage</div>
-                            </div>
-                            <div className="table-right">
-                                <div className="feature"></div>
-                                <div className="feature"></div>
-                                <div className="feature included"><CheckOutlined className="antcheck" /></div>
-                                <div className="feature included"><CheckOutlined className="antcheck" /></div>
-                            </div>
-                        </div>
-                        <div className="table-cont-2">
-                            <div className="table-left">
-                                <div>Refrigerator</div>
-                            </div>
-                            <div className="table-right">
-                                <div className="feature"></div>
-                                <div className="feature included"><CheckOutlined className="antcheck" /></div>
-                                <div className="feature included"><CheckOutlined className="antcheck" /></div>
-                                <div className="feature included"><CheckOutlined className="antcheck" /></div>
-                            </div>
-                        </div>
-                        <div className="table-cont-2">
-                            <div className="table-left">
-                                <div>Washer/Dryer</div>
-                            </div>
-                            <div className="table-right">
-                                <div className="feature"></div>
-                                <div className="feature"></div>
-                                <div className="feature"></div>
-                                <div className="feature included"><CheckOutlined className="antcheck" /></div>
-                            </div>
-                        </div><div className="table-cont-2">
-                            <div className="table-left">
-                                <div>Toilet Replacement</div>
-                            </div>
-                            <div className="table-right">
-                                <div className="feature"></div>
-                                <div className="feature included"><CheckOutlined className="antcheck" /></div>
-                                <div className="feature included"><CheckOutlined className="antcheck" /></div>
-                                <div className="feature included"><CheckOutlined className="antcheck" /></div>
-                            </div>
-                        </div>
-                        <div className="table-cont-2">
-                            <div className="table-left">
-                                <div>Free ReKey (travel fees may apply)</div>
-                            </div>
-                            <div className="table-right">
-                                <div className="feature"></div>
-                                <div className="feature"></div>
-                                <div className="feature"></div>
-                                <div className="feature included"><CheckOutlined className="antcheck" /></div>
-                            </div>
-                        </div>
-                        <div className="table-cont-2">
-                            <div className="table-left">
-                                <div>Radiant Heaters - Broilers (up to $1000)</div>
-                            </div>
-                            <div className="table-right">
-                                <div className="feature"></div>
-                                <div className="feature"></div>
-                                <div className="feature"></div>
-                                <div className="feature included"><CheckOutlined className="antcheck" /></div>
-                            </div>
-                        </div>
-                        <div className="table-cont-2">
-                            <div className="table-left">
-                                <div>R-22 Conversion to 410A</div>
-                            </div>
-                            <div className="table-right">
-                                <div className="feature"></div>
-                                <div className="feature"></div>
-                                <div className="feature"></div>
-                                <div className="feature included"><CheckOutlined className="antcheck" /></div>
-                            </div>
-                        </div>
-                        <div className="table-cont-2">
-                            <div className="table-left">
-                                <div>No Fault (code upgrades & mismatched systems</div>
-                            </div>
-                            <div className="table-right">
-                                <div className="feature"></div>
-                                <div className="feature"></div>
-                                <div className="feature"></div>
-                                <div className="feature included"><CheckOutlined className="antcheck" /></div>
-                            </div>
-                        </div>
-                        <div className="table-cont-2">
-                            <div className="table-left">
-                                <div>Exterior hose bibs</div>
-                            </div>
-                            <div className="table-right">
-                                <div className="feature"></div>
-                                <div className="feature"></div>
-                                <div className="feature"></div>
-                                <div className="feature included"><CheckOutlined className="antcheck" /></div>
-                            </div>
-                        </div>
-                        <div className="table-cont-2">
-                            <div className="table-left">
-                                <div>Pressure Relief Valve Inside Home</div>
-                            </div>
-                            <div className="table-right">
-                                <div className="feature"></div>
-                                <div className="feature"></div>
-                                <div className="feature"></div>
-                                <div className="feature included"><CheckOutlined className="antcheck" /></div>
-                            </div>
+                            {productlist.map((item, index) => (
+                                <div className="table-right" key={index}>
+                                    {item.features.map((c, i) => (
+                                        <>
+                                            {c.value == "No" ? <div className="feature"></div> : <div className="feature included"><CheckOutlined className="antcheck" /></div>}
+                                        </>
+                                    ))}
+                                </div>
+                            ))}
                         </div>
                     </div>
                     <div className="feature_img">
@@ -510,7 +368,7 @@ const SingleSquare = ({ productlist }) => {
                             </div>
                         </div>
                     </div>
-                 <BalanceBox/>  
+                    <BalanceBox />
                 </div>
                 <div className="cont-btn">
                     <button type="button" className="btn" onClick={AppInformation}>CONTINUE</button>

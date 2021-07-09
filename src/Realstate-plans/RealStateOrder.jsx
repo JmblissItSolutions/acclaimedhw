@@ -22,7 +22,7 @@ const RealStateOrder = () => {
     localStorage.setItem('coverageid', cov_type_id);
     localStorage.setItem('propid', property_type);
     localStorage.setItem('iam', iam);
-    
+
     const changehandle = () => {
         setShowResults("RealStateProduct")
     };
@@ -30,7 +30,6 @@ const RealStateOrder = () => {
     useEffect(async () => {
         const hompalans = await APIUrl.get(`/get_realstate_states`)
         sethompalan(hompalans.data);
-
     }, []);
 
     const [coveragetype, setcoveragetype] = useState([]);
@@ -101,6 +100,7 @@ const RealStateOrder = () => {
 
     let productlist = product.products
     let prores = product.result
+    // console.log(productlist)
     useEffect(() => {
         ProductList()
     }, [state_id, property_type, squarevalue, constructionvalue]);
@@ -193,7 +193,8 @@ const RealStateOrder = () => {
                     <div className="order_flex">
                         <div className="order_col">
                             <span>I am the
-                            <select className="order_sel" value={iam} onChange={e =>setIam(e.target.value)}>
+                                <select className="order_sel" value={iam} onChange={e => setIam(e.target.value)}>
+                                    <option value="select any option">select any option</option>
                                     {iamoptions.map(res => (
                                         <option key={res} value={res} >{res}</option>
                                     ))}
@@ -261,7 +262,6 @@ const RealStateOrder = () => {
                 <label><input checked={listcheckbox1} type="checkbox" value="1"
                     onChange={e => setListcheck1(e.target.checked)} />
                     Yes. I agree to these terms.</label>
-
                 <label>
                     <input checked={listcheckbox2} type="checkbox" value="2"
                         onChange={e => setListcheck2(e.target.checked)} />
@@ -269,7 +269,6 @@ const RealStateOrder = () => {
                     completed is just for my records. No monies are due until closing.
                     I will notify Acclaimed Home Warranty when a buyer has been
                     identified.</label>
-
             </div>
         </>
     )
@@ -331,7 +330,7 @@ const RealStateOrder = () => {
                         <p>The remaining balance can be applied towards Coverage Upgrades or service calls.</p>
                     </div>
                     <div className="baseprice_amnt">
-                        <input type="number" min={minprice} max="2000"></input>
+                        <input type="number" min={minprice} max="2000" onChange={getval}></input>
                         <div className="">
                             <p className="">Enter an amount from ${minprice}-$2000</p>
                             <button type="button" className="btn" onClick={changehandle}>GO</button>

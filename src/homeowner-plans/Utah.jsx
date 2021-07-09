@@ -172,7 +172,7 @@ const Utah = () => {
       </section>
       <StandarFeature />
       {product === "Single Family" ?
-        <UniqueFeature />
+       <UniqueFeature uniquefeature={uniquefeature} filterDropdown={filterDropdown}/>
         : ""}
     </>
   );
