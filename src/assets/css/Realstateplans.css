@@ -256,3 +256,19 @@ strong.bluetxt {
 h4.order_ttl {
     font-size: 22px;
 }
+
+.table-cont-2.new-table-dsn > div {
+    flex-direction: column;
+    text-align: left;
+}
+.in-box {
+    text-align: left;
+    justify-content: left;
+    display: block;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    height: 30px;
+    width: 100%;
+    margin: 20px auto;
+}
