@@ -154,7 +154,7 @@ const Arizona = () => {
       </section>
   <StandarFeature/>
       {product === "Single Family" ?
-        <UniqueFeature uniquefeature={uniquefeature} filterDropdown={filterDropdown}/>
+        <UniqueFeature />
         : ""}
     </>
   );

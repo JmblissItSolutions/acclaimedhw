@@ -76,14 +76,8 @@ const ApplicationInformation = ({ coverage, calamount, selectedCard, parentCallb
                 resp.json().then((res) => {
                     setcpon(res);
                     if (res.result == false) {
-                        const answer =  window.confirm("The coupon entered is invalid or has expired. Would you like to continue with your order?")
-                        if (answer) {
-                            console.log("Ok");
-                            return SetCoupon_code("")
-                          } else {
-                            console.log("cancel");
-                            return SetCoupon_code("")
-                          } 
+                        window.confirm("The coupon entered is invalid or has expired. Would you like to continue with your order?")
+                        return SetCoupon_code("")
                     }
                 })
             })
@@ -91,8 +85,6 @@ const ApplicationInformation = ({ coverage, calamount, selectedCard, parentCallb
     // console.log(cponcode)
     let coupres = cponcode.result
     // console.log(coupres)
-
-
     function saveOrder(e) {
         saveCoupon()
         e.preventDefault();
@@ -108,7 +100,9 @@ const ApplicationInformation = ({ coverage, calamount, selectedCard, parentCallb
         })
             .then((resp) => {
                 resp.json().then((res) => {
+                    if(coupres){
                     setSavOrder(res);
+                    }
                     if (res.result == false) {
                         window.scrollTo({
                             top: 30,
@@ -116,9 +110,8 @@ const ApplicationInformation = ({ coverage, calamount, selectedCard, parentCallb
                             behavior: 'smooth'
                         })
                     }
-                   
                     if (res.result == true ) {
-                     parentCallback(res.order_id);
+                        parentCallback(res.order_id);
                     }
                     setLoading(false)
                 })
