@@ -41,6 +41,7 @@ const Idaho = () => {
   const filterDropdown = products.filter(function (products) {
     return products.unit_type === product;
   });
+
   // above all code for filter only dont touch above
   //  code you can add you code belove this line
 
@@ -173,7 +174,7 @@ const Idaho = () => {
       </section>
      <StandarFeature/>
       {product === "Single Family" ?
-       <UniqueFeature uniquefeature={uniquefeature} filterDropdown={filterDropdown}/>
+       <UniqueFeature/>
       : ""  } 
     </>
   )
